@@ -1043,7 +1043,7 @@
 
   </div>
 
-  <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2020/07/20/Linux 下 MySQL 的 ODBC 配置/" title="Linux 下 MySQL 的 ODBC 配置" rel="bookmark">Linux 下 MySQL 的 ODBC 配置</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2018/12/11/Moments 朋友圈应用设计/" title="Moments 朋友圈应用设计" rel="bookmark">Moments 朋友圈应用设计</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2018/12/11/MySQL基本规范/" title="MySQL 基本规范" rel="bookmark">MySQL 基本规范</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2020/07/20/MySQL知识储备/" title="MySQL 知识储备" rel="bookmark">MySQL 知识储备</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2020/07/20/MySQL 用法总结/" title="MySQL 用法总结" rel="bookmark">MySQL 用法总结</a></h3></div></li></ul>
+  <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2020/07/20/Linux 下 MySQL 的 ODBC 配置/" title="Linux 下 MySQL 的 ODBC 配置" rel="bookmark">Linux 下 MySQL 的 ODBC 配置</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2020/07/20/MySQL 用法总结/" title="MySQL 用法总结" rel="bookmark">MySQL 用法总结</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2018/12/11/Moments 朋友圈应用设计/" title="Moments 朋友圈应用设计" rel="bookmark">Moments 朋友圈应用设计</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2018/12/11/MySQL基本规范/" title="MySQL 基本规范" rel="bookmark">MySQL 基本规范</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2020/07/20/MySQL知识储备/" title="MySQL 知识储备" rel="bookmark">MySQL 知识储备</a></h3></div></li></ul>
 
   
   
@@ -1286,7 +1286,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://collie2nd.github.io/2020/10/16/Git%20%E6%92%A4%E9%94%80%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/">
+    <link itemprop="mainEntityOfPage" href="http://collie2nd.github.io/2020/10/16/Git%20%E5%85%B6%E4%BB%96%E6%8A%80%E5%B7%A7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/blue.gif">
@@ -1300,7 +1300,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/10/16/Git%20%E6%92%A4%E9%94%80%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/" class="post-title-link" itemprop="url">Git 撤销命令详解</a>
+            <a href="/2020/10/16/Git%20%E5%85%B6%E4%BB%96%E6%8A%80%E5%B7%A7/" class="post-title-link" itemprop="url">其他 git 技巧</a>
         </h2>
 
         <div class="post-meta">
@@ -1324,8 +1324,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/10/16/Git%20%E6%92%A4%E9%94%80%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/10/16/Git%20%E6%92%A4%E9%94%80%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/10/16/Git%20%E5%85%B6%E4%BB%96%E6%8A%80%E5%B7%A7/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/10/16/Git%20%E5%85%B6%E4%BB%96%E6%8A%80%E5%B7%A7/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -1335,7 +1335,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.1k</span>
+              <span>1.6k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -1354,11 +1354,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="撤销命令详解"><a href="#撤销命令详解" class="headerlink" title="撤销命令详解"></a>撤销命令详解</h1><h2 id="修改最后一次commit的内容"><a href="#修改最后一次commit的内容" class="headerlink" title="修改最后一次commit的内容"></a>修改最后一次commit的内容</h2><p>文件修改后<code>git add</code>了，也<code>git commit</code>了，发现哪里错了或者是漏<code>add</code>了一个文件，可以先<code>git add file</code>后，再<code>git commit –amend</code>这样只会记录一次<code>commit</code>（相当于将两次<code>commit</code>合并成了一次<code>commit</code>）。</p>
-<h2 id="取消加入暂存区的文件"><a href="#取消加入暂存区的文件" class="headerlink" title="取消加入暂存区的文件"></a>取消加入暂存区的文件</h2><p>不小心用了<code>git add .</code>将所有文件加入了暂存区或者是<code>add</code>多了文件，可以使用<code>git reset HEAD &lt;file&gt;</code>将文件拉回到已修改但是未提交到暂存区的状态。（在<code>add</code>后，通过<code>git status</code>可以看到相应提示，教你如何撤销提交）</p>
+          <h1 id="其他-git-技巧"><a href="#其他-git-技巧" class="headerlink" title="其他 git 技巧"></a>其他 git 技巧</h1><h2 id="删除文件夹下的-所有-svn或者-git文件夹信息"><a href="#删除文件夹下的-所有-svn或者-git文件夹信息" class="headerlink" title="删除文件夹下的 所有.svn或者.git文件夹信息"></a>删除文件夹下的 所有.svn或者.git文件夹信息</h2><p>两步：</p>
+<ol>
+<li>cd到该文件夹</li>
+<li>删除管理文件</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//删除文件夹下的所有 .svn 文件</span><br><span class="line">find . -name <span class="string">&quot;.svn&quot;</span> | xargs <span class="built_in">rm</span> -Rf</span><br><span class="line">//删除文件夹下的所有 .git 文件</span><br><span class="line">find . -name <span class="string">&quot;.git&quot;</span> | xargs <span class="built_in">rm</span> -Rf</span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/10/16/Git%20%E6%92%A4%E9%94%80%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/#more" rel="contents">
+              <a class="btn" href="/2020/10/16/Git%20%E5%85%B6%E4%BB%96%E6%8A%80%E5%B7%A7/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1377,7 +1381,7 @@
 
   </div>
 
-  <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2019/05/27/Git 学习笔记/" title="Git 学习笔记" rel="bookmark">Git 学习笔记</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2020/10/16/Git 其他技巧/" title="其他 git 技巧" rel="bookmark">其他 git 技巧</a></h3></div></li></ul>
+  <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2019/05/27/Git 学习笔记/" title="Git 学习笔记" rel="bookmark">Git 学习笔记</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2020/10/16/Git 撤销命令详解/" title="Git 撤销命令详解" rel="bookmark">Git 撤销命令详解</a></h3></div></li></ul>
 
   
   
