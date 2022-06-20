@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"collie2nd.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="其他 git 技巧删除文件夹下的 所有.svn或者.git文件夹信息两步：  cd到该文件夹 删除管理文件  1234&#x2F;&#x2F;删除文件夹下的所有 .svn 文件find . -name &quot;.svn&quot; | xargs rm -Rf&#x2F;&#x2F;删除文件夹下的所有 .git 文件find . -name &quot;.git&quot; | xargs rm -Rf">
+<meta property="og:type" content="article">
+<meta property="og:title" content="其他 git 技巧">
+<meta property="og:url" content="http://collie2nd.github.io/2020/10/16/Git%20%E5%85%B6%E4%BB%96%E6%8A%80%E5%B7%A7/index.html">
+<meta property="og:site_name" content="Collie">
+<meta property="og:description" content="其他 git 技巧删除文件夹下的 所有.svn或者.git文件夹信息两步：  cd到该文件夹 删除管理文件  1234&#x2F;&#x2F;删除文件夹下的所有 .svn 文件find . -name &quot;.svn&quot; | xargs rm -Rf&#x2F;&#x2F;删除文件夹下的所有 .git 文件find . -name &quot;.git&quot; | xargs rm -Rf">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-10-15T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-10-15T16:00:00.000Z">
+<meta property="article:author" content="Collie">
+<meta property="article:tag" content="git">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://collie2nd.github.io/2020/10/16/Git%20%E5%85%B6%E4%BB%96%E6%8A%80%E5%B7%A7/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>其他 git 技巧 | Collie</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Collie</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://collie2nd.github.io/2020/10/16/Git%20%E5%85%B6%E4%BB%96%E6%8A%80%E5%B7%A7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Collie">
+      <meta itemprop="description" content="Collie">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Collie">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          其他 git 技巧
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-10-16 00:00:00" itemprop="dateCreated datePublished" datetime="2020-10-16T00:00:00+08:00">2020-10-16</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span></span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>NaN:aN</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="其他-git-技巧"><a href="#其他-git-技巧" class="headerlink" title="其他 git 技巧"></a>其他 git 技巧</h1><h2 id="删除文件夹下的-所有-svn或者-git文件夹信息"><a href="#删除文件夹下的-所有-svn或者-git文件夹信息" class="headerlink" title="删除文件夹下的 所有.svn或者.git文件夹信息"></a>删除文件夹下的 所有.svn或者.git文件夹信息</h2><p>两步：</p>
+<ol>
+<li>cd到该文件夹</li>
+<li>删除管理文件</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//删除文件夹下的所有 .svn 文件</span><br><span class="line">find . -name <span class="string">&quot;.svn&quot;</span> | xargs <span class="built_in">rm</span> -Rf</span><br><span class="line">//删除文件夹下的所有 .git 文件</span><br><span class="line">find . -name <span class="string">&quot;.git&quot;</span> | xargs <span class="built_in">rm</span> -Rf</span><br></pre></td></tr></table></figure>
+
+ <span id="more"></span>
+<h2 id="git-clone-反复需要输入用户名密码"><a href="#git-clone-反复需要输入用户名密码" class="headerlink" title="git clone 反复需要输入用户名密码"></a>git clone 反复需要输入用户名密码</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global credential.helper store</span><br></pre></td></tr></table></figure>
+
+<h2 id="去掉多余的commit"><a href="#去掉多余的commit" class="headerlink" title="去掉多余的commit"></a>去掉多余的commit</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">git rebase -i &lt;commit_ID&gt;</span><br><span class="line">git rebase -i master</span><br><span class="line">git rebase -i HEAD~&lt;num&gt;</span><br><span class="line"></span><br><span class="line">// squash：将这一行的 commit 与上一个 commit 进行合并</span><br><span class="line">// fixup：与 squash 相同，只是不会保留这行 commit 的提交 message 信息</span><br><span class="line"></span><br><span class="line">// 修改上一次 commit 提交的 message</span><br><span class="line">git commit --amend</span><br><span class="line">// 不过只能修正上一次的 commit。如果很多个 commit 之前就有 message 写错，就得用上我们之前说的 git rebase 了</span><br><span class="line"></span><br><span class="line">// 自动标记这一次的 commit 为上一个 commit 的 fix</span><br><span class="line">git commit --fixup &lt;commit&gt;</span><br><span class="line">// 自动组织合并两个 commit</span><br><span class="line">git rebase -i --autosquash</span><br><span class="line"></span><br><span class="line">// 撤销过去的 commit 重建一个新的</span><br><span class="line">git reset HEAD~2</span><br><span class="line">git add .</span><br><span class="line">git commit -am <span class="string">&quot;This is the new feature&quot;</span></span><br><span class="line">git push --force</span><br></pre></td></tr></table></figure>
+
+<h2 id="git-查看本地修改"><a href="#git-查看本地修改" class="headerlink" title="git 查看本地修改"></a>git 查看本地修改</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git status 查看改变的文件列表</span><br><span class="line">git status -s 查看改变的文件列表简化版</span><br><span class="line">git diff或者git diff filename查看不在缓冲区的文件发生的改变</span><br><span class="line">git diff --cached或者git diff --staged查看缓冲区的文件发生的改变</span><br><span class="line">git diff HEAD是git diff和git diff --cached的合并</span><br></pre></td></tr></table></figure>
+
+<h2 id="git将当前修改提交至其他分支"><a href="#git将当前修改提交至其他分支" class="headerlink" title="git将当前修改提交至其他分支"></a>git将当前修改提交至其他分支</h2><blockquote>
+<p>当前处于A分支，需要将此次的代码提交至B分支，则在没有进行commit之前可以进行以下操作</p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">// 1、通过git stash将工作区恢复到上次提交的内容，同时备份本地所做的修改</span><br><span class="line">git stash</span><br><span class="line">// 2、然后切换至B分支</span><br><span class="line">git checkout B</span><br><span class="line">// 3、从git栈中获取到最近一次stash进去的内容，恢复工作区的内容，获取之后，会删除栈中对应的stash</span><br><span class="line">git stash pop</span><br><span class="line">// 4、在进行正常的提交代码步骤即可</span><br><span class="line">git add /src/main/..</span><br><span class="line">git commit -m <span class="string">&quot;功能开发&quot;</span></span><br><span class="line">git pull origin &lt;分支名称&gt;</span><br><span class="line">git push origin &lt;分支名称&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="git从本地连接远端仓库-非-git-clone-下来的代码"><a href="#git从本地连接远端仓库-非-git-clone-下来的代码" class="headerlink" title="git从本地连接远端仓库(非 git clone 下来的代码)"></a>git从本地连接远端仓库(非 git clone 下来的代码)</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin &lt;url&gt;</span><br><span class="line">git pull --rebase origin master</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
+
+<h2 id="git强制拉取最新代码"><a href="#git强制拉取最新代码" class="headerlink" title="git强制拉取最新代码"></a>git强制拉取最新代码</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git fetch --all</span><br><span class="line">git reset --hard origin/&lt;develop&gt;</span><br><span class="line">git pull</span><br></pre></td></tr></table></figure>
+
+<h2 id="git-commit-的特殊姿势"><a href="#git-commit-的特殊姿势" class="headerlink" title="git commit 的特殊姿势"></a>git commit 的特殊姿势</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git commit -s -m  </span><br><span class="line">// 在git <span class="built_in">log</span> 的时候会多展示 signed-off-by  行</span><br><span class="line"></span><br><span class="line">git commit -a -m </span><br><span class="line">// 用于提交跟踪过的文件 ；会自动把修改的文件，先暂存，然后直接commit </span><br><span class="line">// 相当于git add . 与git commit –m “本次提交描述”两句操作合并为一句进行使用。</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/git/" rel="tag"># git</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/10/16/Git%20%E6%92%A4%E9%94%80%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/" rel="prev" title="Git 撤销命令详解">
+      <i class="fa fa-chevron-left"></i> Git 撤销命令详解
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/10/22/Go%20%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/" rel="next" title="Go 知识总结">
+      Go 知识总结 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B6%E4%BB%96-git-%E6%8A%80%E5%B7%A7"><span class="nav-number">1.</span> <span class="nav-text">其他 git 技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%8B%E7%9A%84-%E6%89%80%E6%9C%89-svn%E6%88%96%E8%80%85-git%E6%96%87%E4%BB%B6%E5%A4%B9%E4%BF%A1%E6%81%AF"><span class="nav-number">1.1.</span> <span class="nav-text">删除文件夹下的 所有.svn或者.git文件夹信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-clone-%E5%8F%8D%E5%A4%8D%E9%9C%80%E8%A6%81%E8%BE%93%E5%85%A5%E7%94%A8%E6%88%B7%E5%90%8D%E5%AF%86%E7%A0%81"><span class="nav-number">1.2.</span> <span class="nav-text">git clone 反复需要输入用户名密码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8E%BB%E6%8E%89%E5%A4%9A%E4%BD%99%E7%9A%84commit"><span class="nav-number">1.3.</span> <span class="nav-text">去掉多余的commit</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-%E6%9F%A5%E7%9C%8B%E6%9C%AC%E5%9C%B0%E4%BF%AE%E6%94%B9"><span class="nav-number">1.4.</span> <span class="nav-text">git 查看本地修改</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git%E5%B0%86%E5%BD%93%E5%89%8D%E4%BF%AE%E6%94%B9%E6%8F%90%E4%BA%A4%E8%87%B3%E5%85%B6%E4%BB%96%E5%88%86%E6%94%AF"><span class="nav-number">1.5.</span> <span class="nav-text">git将当前修改提交至其他分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git%E4%BB%8E%E6%9C%AC%E5%9C%B0%E8%BF%9E%E6%8E%A5%E8%BF%9C%E7%AB%AF%E4%BB%93%E5%BA%93-%E9%9D%9E-git-clone-%E4%B8%8B%E6%9D%A5%E7%9A%84%E4%BB%A3%E7%A0%81"><span class="nav-number">1.6.</span> <span class="nav-text">git从本地连接远端仓库(非 git clone 下来的代码)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git%E5%BC%BA%E5%88%B6%E6%8B%89%E5%8F%96%E6%9C%80%E6%96%B0%E4%BB%A3%E7%A0%81"><span class="nav-number">1.7.</span> <span class="nav-text">git强制拉取最新代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git-commit-%E7%9A%84%E7%89%B9%E6%AE%8A%E5%A7%BF%E5%8A%BF"><span class="nav-number">1.8.</span> <span class="nav-text">git commit 的特殊姿势</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Collie</p>
+  <div class="site-description" itemprop="description">Collie</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">54</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Collie</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">NaNm</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">NaN:aN</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
