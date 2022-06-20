@@ -493,139 +493,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://collie2nd.github.io/2019/09/05/redis%20%E4%BA%8B%E5%8A%A1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/blue.gif">
-      <meta itemprop="name" content="Collie">
-      <meta itemprop="description" content="Collie">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Collie">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/09/05/redis%20%E4%BA%8B%E5%8A%A1/" class="post-title-link" itemprop="url">redis 事务</a>
-        </h2>
-
-        <div class="post-meta">
-
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2019-09-05 00:00:00" itemprop="dateCreated datePublished" datetime="2019-09-05T00:00:00+08:00">2019-09-05</time>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2019/09/05/redis%20%E4%BA%8B%E5%8A%A1/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2019/09/05/redis%20%E4%BA%8B%E5%8A%A1/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>649</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="redis-事务"><a href="#redis-事务" class="headerlink" title="redis 事务"></a>redis 事务</h1></br>
-
-<p>redis 事务可以一次执行多个命令。</p>
-</br>
-
-<p>常用命令：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">multi       //开起一个事务，标记一个事务块的开始，multi即multiple</span><br><span class="line"></span><br><span class="line"><span class="built_in">exec</span>        //执行事务块内的命令</span><br><span class="line"></span><br><span class="line">discard     //取消事务</span><br></pre></td></tr></table></figure>
-
-<p>使用步骤：</p>
-<ol>
-<li>先使用 multi 命令标记事务开始</li>
-<li>将多个命令入队( queue ，队列)</li>
-<li>使用 exec 命令执行事务</li>
-</ol>
-<!---more--->
-
-</br>
-
-<p>示例：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">multi                   //标记事务开始</span><br><span class="line"><span class="built_in">set</span> name <span class="string">&quot;zhangsan&quot;</span>     //依次输入多个命令。输入一条命令后会提示“QUEUED”，表示此条命令已入队</span><br><span class="line"><span class="built_in">set</span> age 20 </span><br><span class="line">get name </span><br><span class="line"><span class="built_in">exec</span>                    //执行事务，会依次执行事务块内的命令，依次显示执行结果。</span><br><span class="line">//exec是执行事务，如果想取消事务，将<span class="built_in">exec</span>换为discard即可。</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g6pmw8jc4pj30g60egq3t.jpg"></p>
-</br>
-</br>
-
-<p>单个 redis 命令的执行是原子性的，但 redis 并没有在事务上增加任何维持原子性的机制，所以 redis 事务的执行不是原子性的。</p>
-</br>
-
-<p>事务可以理解为一个打包的批量执行脚本，但批量指令并非原子化的操作，中间某条指令的失败不会导致前面已做指令的回滚，也不会造成后续的指令不做。</p>
-</br>
-
-<p>比如执行事务时，第一条执行成功，第二条执行失败，此时并不会回滚之前的操作（此处指第一条、第二条命令），而是继续执行后面的命令。但会显示第二条的结果是Fail。</p>
-</br>
-
-<p>即事务中任意命令执行失败，其余的命令依然被执行。</p>
-</br>
-
-<p>在事务执行过程中，其他客户端提交的命令请求不会插入到事务执行命令队列中。</p>
-</br>
-
-<p>redis2.6 以后的版本，在服务器内置了 Lua 环境（Lua解释器），可以通过<code>eval</code>命令执行Lua脚本。</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-
-  </div>
-
-  <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2018/12/11/Moments 朋友圈应用设计/" title="Moments 朋友圈应用设计" rel="bookmark">Moments 朋友圈应用设计</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2019/09/05/redis Hash(哈希表:字典)/" title="redis Hash(哈希表/字典)" rel="bookmark">redis Hash(哈希表/字典)</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2019/09/05/redis KEY 键的操作/" title="redis KEY 键的操作" rel="bookmark">redis KEY 键的操作</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2019/09/05/redis List(列表)/" title="redis List(列表)" rel="bookmark">redis List(列表)</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2019/09/05/redis Set(集合)/" title="redis Set(集合)" rel="bookmark">redis Set(集合)</a></h3></div></li></ul>
-
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://collie2nd.github.io/2019/09/05/redis%20%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -748,6 +615,139 @@
 
 <h2 id="相关命令"><a href="#相关命令" class="headerlink" title="相关命令"></a>相关命令</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">subscribe channel1 channel2 ...     //订阅一个或多个频道</span><br><span class="line"></span><br><span class="line">unsubscribe channel1 channel2 ...   //退订一个或多个频道。多了un</span><br><span class="line"></span><br><span class="line">psubscribe pattern1 pattern2 ...    //多了一个p，即pattern，订阅该模式匹配的所有频道，可以有多个匹配模式。</span><br><span class="line"></span><br><span class="line">//示例：</span><br><span class="line">psubscribe tv       //订阅频道tv</span><br><span class="line">psubscribe *home    //订阅所有以home结尾的频道</span><br><span class="line">psubscribe china*   //订阅所有以china开头的频道</span><br><span class="line"></span><br><span class="line">punsubscribe pattern1 pattern2 ...  //退订符合匹配的所有频道，可指定多个匹配模式，满足pattern1或者满足pattern2.....,，注意是或。</span><br><span class="line"></span><br><span class="line">publish channel message             //推送消息到某个频道</span><br></pre></td></tr></table></figure>
 
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+
+  </div>
+
+  <ul class="popular-posts"><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2018/12/11/Moments 朋友圈应用设计/" title="Moments 朋友圈应用设计" rel="bookmark">Moments 朋友圈应用设计</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2019/09/05/redis Hash(哈希表:字典)/" title="redis Hash(哈希表/字典)" rel="bookmark">redis Hash(哈希表/字典)</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2019/09/05/redis KEY 键的操作/" title="redis KEY 键的操作" rel="bookmark">redis KEY 键的操作</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2019/09/05/redis List(列表)/" title="redis List(列表)" rel="bookmark">redis List(列表)</a></h3></div></li><li class="popular-posts-item"><div class="popular-posts-title"><h3><a href="/2019/09/05/redis Set(集合)/" title="redis Set(集合)" rel="bookmark">redis Set(集合)</a></h3></div></li></ul>
+
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://collie2nd.github.io/2019/09/05/redis%20%E4%BA%8B%E5%8A%A1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/blue.gif">
+      <meta itemprop="name" content="Collie">
+      <meta itemprop="description" content="Collie">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Collie">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/09/05/redis%20%E4%BA%8B%E5%8A%A1/" class="post-title-link" itemprop="url">redis 事务</a>
+        </h2>
+
+        <div class="post-meta">
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2019-09-05 00:00:00" itemprop="dateCreated datePublished" datetime="2019-09-05T00:00:00+08:00">2019-09-05</time>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2019/09/05/redis%20%E4%BA%8B%E5%8A%A1/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/09/05/redis%20%E4%BA%8B%E5%8A%A1/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>649</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="redis-事务"><a href="#redis-事务" class="headerlink" title="redis 事务"></a>redis 事务</h1></br>
+
+<p>redis 事务可以一次执行多个命令。</p>
+</br>
+
+<p>常用命令：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">multi       //开起一个事务，标记一个事务块的开始，multi即multiple</span><br><span class="line"></span><br><span class="line"><span class="built_in">exec</span>        //执行事务块内的命令</span><br><span class="line"></span><br><span class="line">discard     //取消事务</span><br></pre></td></tr></table></figure>
+
+<p>使用步骤：</p>
+<ol>
+<li>先使用 multi 命令标记事务开始</li>
+<li>将多个命令入队( queue ，队列)</li>
+<li>使用 exec 命令执行事务</li>
+</ol>
+<!---more--->
+
+</br>
+
+<p>示例：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">multi                   //标记事务开始</span><br><span class="line"><span class="built_in">set</span> name <span class="string">&quot;zhangsan&quot;</span>     //依次输入多个命令。输入一条命令后会提示“QUEUED”，表示此条命令已入队</span><br><span class="line"><span class="built_in">set</span> age 20 </span><br><span class="line">get name </span><br><span class="line"><span class="built_in">exec</span>                    //执行事务，会依次执行事务块内的命令，依次显示执行结果。</span><br><span class="line">//exec是执行事务，如果想取消事务，将<span class="built_in">exec</span>换为discard即可。</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://tva1.sinaimg.cn/large/006y8mN6gy1g6pmw8jc4pj30g60egq3t.jpg"></p>
+</br>
+</br>
+
+<p>单个 redis 命令的执行是原子性的，但 redis 并没有在事务上增加任何维持原子性的机制，所以 redis 事务的执行不是原子性的。</p>
+</br>
+
+<p>事务可以理解为一个打包的批量执行脚本，但批量指令并非原子化的操作，中间某条指令的失败不会导致前面已做指令的回滚，也不会造成后续的指令不做。</p>
+</br>
+
+<p>比如执行事务时，第一条执行成功，第二条执行失败，此时并不会回滚之前的操作（此处指第一条、第二条命令），而是继续执行后面的命令。但会显示第二条的结果是Fail。</p>
+</br>
+
+<p>即事务中任意命令执行失败，其余的命令依然被执行。</p>
+</br>
+
+<p>在事务执行过程中，其他客户端提交的命令请求不会插入到事务执行命令队列中。</p>
+</br>
+
+<p>redis2.6 以后的版本，在服务器内置了 Lua 环境（Lua解释器），可以通过<code>eval</code>命令执行Lua脚本。</p>
 
       
     </div>
