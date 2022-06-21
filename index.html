@@ -547,20 +547,14 @@
 <li>防止分支大幅偏离主干</li>
 </ul>
 <p>持续集成强调开发人员提交了新代码之后，<strong>立刻进行构建、测试。根据测试结果来判断新代码是否和原有代码正确集成在一起。</strong></p>
-<h2 id="持续交付（CD）"><a href="#持续交付（CD）" class="headerlink" title="持续交付（CD）"></a>持续交付（CD）</h2><blockquote>
-<p>Continuous Delivery<br>频繁地将软件的新版本交付给质量团队或用户，以供评审。如果通过，代码就进入生产阶段。</p>
-</blockquote>
-<p>持续交付强调的是<strong>代码不管怎么更新，软件是随时可以交付的。</strong></p>
-<p>自动部署到类生产环境完成更多的测试，如果代码没有问题，可以继续手动部署到生产环境中。</p>
-<h2 id="持续部署（CD）"><a href="#持续部署（CD）" class="headerlink" title="持续部署（CD）"></a>持续部署（CD）</h2><blockquote>
-<p>Continuous Deployment<br>和持续交付的区别在于自动化部署到生产环境。</p>
-</blockquote>
-<p>持续部署强调的是<strong>代码在任何时刻都是可部署的，可以进入生产阶段。</strong></p>
-<p>持续部署的前提是能自动化完成测试、构建、部署等步骤。</p>
-<h1 id="Jenkins"><a href="#Jenkins" class="headerlink" title="Jenkins"></a>Jenkins</h1><blockquote>
-<p>开源 CI&amp;CD 软件 <a target="_blank" rel="noopener" href="http://jenkins-ci.org/">官方网站</a></p>
-</blockquote>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/07/21/backend_dev/kubernetes/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -805,117 +799,14 @@
 <li><code>-P</code>：将容器内部使用的网络端口随机映射到我们使用的主机上。</li>
 </ul>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker commit &lt;CONTAINER ID&gt; &lt;REPOSITORY&gt;</span><br></pre></td></tr></table></figure>
-
-<p><strong>参数含义：</strong><br><code>-a</code>：提交的镜像作者;<br><code>-c</code>：使用Dockerfile指令来创建镜像;<br><code>-m</code>：提交时的说明文字;<br><code>-p</code>：在commit时，将容器暂停</p>
-<table>
-<thead>
-<tr>
-<th>commend</th>
-<th>result</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>docker ps</code></td>
-<td>查看正在运行的容器</td>
-</tr>
-<tr>
-<td><code>docker ps -a</code></td>
-<td>查看所有容器</td>
-</tr>
-<tr>
-<td><code>docker stop &lt;CONTAINER ID/REPOSITORY&gt;</code></td>
-<td>关闭容器</td>
-</tr>
-<tr>
-<td><code>docker logs &lt;CONTAINER ID/REPOSITORY&gt;</code></td>
-<td>查看容器内的标准输出</td>
-</tr>
-<tr>
-<td><code>docker pull &lt;IMAGE_NAME&gt;</code></td>
-<td>载入镜像</td>
-</tr>
-<tr>
-<td><code>docker restart &lt;CONTAINER ID&gt;</code></td>
-<td>重启停止的容器</td>
-</tr>
-<tr>
-<td><code>docker attach &lt;CONTAINER ID&gt;</code></td>
-<td>进入后台运行中的容器</td>
-</tr>
-<tr>
-<td><code>docker exec &lt;CONTAINER ID&gt;</code></td>
-<td>退出容器，不会导致容器的停止</td>
-</tr>
-<tr>
-<td><code>docker export &lt;CONTAINER ID&gt; &gt; xxx.tar</code></td>
-<td>导出本地某个容器</td>
-</tr>
-<tr>
-<td>&#96;cat docker&#x2F;xxx.tar</td>
-<td>docker import - <EPOSITORY>:<TAG>&#96;</td>
-</tr>
-<tr>
-<td><code>docker import &lt;URL&gt; &lt;EPOSITORY&gt;</code></td>
-<td>导入容器快照</td>
-</tr>
-<tr>
-<td><code>docker rm -f &lt;CONTAINER ID&gt;</code></td>
-<td>删除容器<code>-f</code>:强制删除;<code>-no-prune</code>:不要删除未带标签的父镜像</td>
-</tr>
-<tr>
-<td><code>docker container prune</code></td>
-<td>清理掉所有处于终止状态的容器</td>
-</tr>
-<tr>
-<td><code>docker rm $(docker container ls -aq)</code></td>
-<td>删除所有容器</td>
-</tr>
-<tr>
-<td><code>docker commit &lt;CONTAINER ID&gt; &lt;REPOSITORY&gt;</code></td>
-<td>把容器打包成镜像</td>
-</tr>
-<tr>
-<td><code>docker inspect &lt;REPOSITORY&gt;:&lt;CONTAINER ID&gt;</code></td>
-<td>查看镜像的详细信息</td>
-</tr>
-<tr>
-<td><code>docker rm $(docker container ls -f &quot;status=exited&quot; -q)</code></td>
-<td>同时删除多个符合筛选条件(状态为“exited”)的容器</td>
-</tr>
-</tbody></table>
-<h1 id="Docker-复杂操作合集"><a href="#Docker-复杂操作合集" class="headerlink" title="Docker 复杂操作合集"></a>Docker 复杂操作合集</h1><h2 id="端口映射"><a href="#端口映射" class="headerlink" title="端口映射"></a>端口映射</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it -p 8080:18026 &lt;REPOSITORY&gt;:&lt;TAG&gt; /bin/bash</span><br></pre></td></tr></table></figure>
-
-<p><code>-p</code>：是容器内部端口绑定到指定的主机端口。这里指将主机的8080端口映射到容器的18026端口。-p可以多个端口映射同时存在以实现复杂功能</p>
-</br>
-
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it -p 127.0.0.1:8080:18026 &lt;REPOSITORY&gt;:&lt;TAG&gt; /bin/bash</span><br></pre></td></tr></table></figure>
-
-<p>这样我们就可以通过访问 127.0.0.1:8080 来访问容器的 18026 端口。</p>
-</br>
-
-<p>上面的例子中，默认都是绑定 tcp 端口，如果要绑定 UDP 端口，可以在端口后面加上 &#x2F;udp。</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it -p 127.0.0.1:8080:18026/udp &lt;REPOSITORY&gt;:&lt;TAG&gt; /bin/bash</span><br></pre></td></tr></table></figure>
-
-</br>
-
-<p><code>docker port &lt;CONTAINER ID&gt; &lt;PORT&gt;</code>命令可以让我们快捷地查看端口的绑定情况。</p>
-<h2 id="代码调试"><a href="#代码调试" class="headerlink" title="代码调试"></a>代码调试</h2><p>centos的依赖<code>cmake/gcc/gdb/gdb-gdbserver/openssh-server/openssh-clients</code></p>
-<p>docker要以特权模式启动</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --privileged=<span class="literal">true</span> -v /Users/liuxing1/Files/Docker_Files/Shared\ Folders/:/tmp -p 8080:22 -p 8000:18080 mdm_docker /usr/sbin/init</span><br></pre></td></tr></table></figure>
-
-<p>然后通过<code>docker exec -it &lt;Container_ID&gt; /bin/bash</code>进入容器操作</p>
-<p>启动sshd服务</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#启动</span></span><br><span class="line">systemctl start sshd</span><br><span class="line"> </span><br><span class="line"><span class="comment">#设置开机自启动</span></span><br><span class="line">systemctl <span class="built_in">enable</span> sshd</span><br><span class="line"></span><br><span class="line"><span class="comment">#设置密码</span></span><br><span class="line">passwd</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="容器和本机互传文件"><a href="#容器和本机互传文件" class="headerlink" title="容器和本机互传文件"></a>容器和本机互传文件</h2><p>首先需要确定 docker 容器的<code>container_id</code>,可以使用<code>docker ps -a</code>查看你要操作的 docker 容器的<code>container_id</code></p>
-<h3 id="容器向本机传送文件"><a href="#容器向本机传送文件" class="headerlink" title="容器向本机传送文件"></a>容器向本机传送文件</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">cp</span> container_id:docker容器内的文件全路径 本机保存文件的全路径</span><br></pre></td></tr></table></figure>
-
-<p><strong>例如：</strong><code>docker cp 4a2f08d2c1f8:/data1/configure.txt E:\PHP\configure.txt</code></p>
-<h3 id="本机向容器传送文件"><a href="#本机向容器传送文件" class="headerlink" title="本机向容器传送文件"></a>本机向容器传送文件</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">cp</span> 本机保存文件的全路径 container_id:docker容器内的文件全路径</span><br></pre></td></tr></table></figure>
-
-<p><strong>例如：</strong><code>docker cp E:\PHP\configure.txt 4a2f08d2c1f8:/data1/configure.txt</code></p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/06/18/backend_dev/docker/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1370,74 +1261,14 @@
     
     <div class="post-body" itemprop="articleBody">
           <h1 id="git-基本命令"><a href="#git-基本命令" class="headerlink" title="git 基本命令"></a>git 基本命令</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">&#x27;XXX&#x27;</span></span><br><span class="line">git config --global user.email <span class="string">&#x27;XXX&#x27;</span></span><br><span class="line">git init                    // 初始化代码仓库</span><br><span class="line">git add learngit.txt        // 把所有要提交的文件修改放到暂存区</span><br><span class="line">git commit -m <span class="string">&#x27;add a file&#x27;</span>  // 把暂存区的所有内容提交到当前分支</span><br><span class="line">git commit -s -m            // 添加 signed-off-by 信息，在日志中增加提交者签名</span><br><span class="line">git commit -a -m            // 相当于git add . 与git commit –m “本次提交描述”两句操作合并为一句进行使用。</span><br><span class="line">git status                  // 查看工作区状态</span><br><span class="line">git status -s               // 查看改变的文件列表简化版</span><br><span class="line">git diff                    // 查看不在缓冲区的文件的修改内容</span><br><span class="line">git diff --cached           // 查看缓冲区的文件发生的改变</span><br><span class="line">git diff --staged           // 查看缓冲区的文件发生的改变</span><br><span class="line">git diff HEAD               // 是 git diff 和 git diff --cached 的合并</span><br><span class="line">git <span class="built_in">log</span>                     // 查看提交历史</span><br><span class="line">git <span class="built_in">log</span> --pretty=oneline    // 单行显示</span><br><span class="line">git reset --hard HEAD^      // 回退到上一个版本，其中（HEAD^^(上上版本),HEAD~100(往上100个版本)）</span><br><span class="line">git reset --hard &lt;commit_id&gt;//(版本号) 可回到指定版本</span><br><span class="line">git reflog                  // 查看历史命令</span><br><span class="line"></span><br><span class="line">git diff HEAD -- &lt;file&gt;     // 查看工作区和版本库里最新版本的区别</span><br><span class="line">git checkout -- &lt;file&gt;      // 用版本库的版本替换工作区的版本，无论是工作区的修改还是删除，都可以<span class="string">&#x27;一键还原&#x27;</span></span><br><span class="line">git reset HEAD &lt;file&gt;       // 把暂存区的修改撤销掉，重新放回工作区。</span><br><span class="line">git <span class="built_in">rm</span> &lt;file&gt;               // 删除文件，若文件已提交到版本库，不用担心误删，但是只能恢复文件到最新版本</span><br><span class="line"></span><br><span class="line">git checkout -b dev         // 创建并切换分支</span><br><span class="line"><span class="comment">#相当于git branch dev 和git checkout dev </span></span><br><span class="line">git branch                  // 查看当前分支，当前分支前有个*号</span><br><span class="line">git branch &lt;name&gt;           // 创建分支</span><br><span class="line">git checkout &lt;name&gt;         // 切换分支</span><br><span class="line">git merge &lt;name&gt;            // 合并某个分支到当前分支</span><br><span class="line">git branch -d &lt;name&gt;        // 删除分支</span><br><span class="line">git <span class="built_in">log</span> --graph             // 查看分支合并图</span><br><span class="line">/* 禁用Fast forward合并dev分支*/</span><br><span class="line">git merge --no-ff -m <span class="string">&#x27;message&#x27;</span> dev</span><br><span class="line">git stash                   // 隐藏当前工作现场，等恢复后继续工作</span><br><span class="line">git stash list              // 查看stash记录</span><br><span class="line">git stash apply             // 仅恢复现场，不删除stash内容</span><br><span class="line">git stash drop              // 删除stash内容</span><br><span class="line">git stash pop               // 恢复现场的同时删除stash内容</span><br><span class="line">git branch -D &lt;name&gt;        // 强行删除某个未合并的分支</span><br><span class="line"><span class="comment">#开发新feature最好新建一个分支</span></span><br><span class="line">git remote                  // 查看远程仓库</span><br><span class="line">git remote -v               // 查看远程库详细信息</span><br><span class="line">git pull                    // 抓取远程提交</span><br><span class="line">/* 在本地创建和远程分支对应的分支*/</span><br><span class="line">git checkout -b branch-name origin/branch-name</span><br><span class="line">/* 建立本地分支和远程分支的关联*/</span><br><span class="line">git branch --set-upstream branch-name origin/branch-name</span><br></pre></td></tr></table></figure>
-
-<h1 id="ssh"><a href="#ssh" class="headerlink" title="ssh"></a>ssh</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// 创建SSH Key</span><br><span class="line">ssh-keygen -t rsa -C <span class="string">&#x27;your_email&#x27;</span></span><br><span class="line"></span><br><span class="line">// 关联本地仓库，远程库的名字为origin   </span><br><span class="line">git remote add origin git@github.com:username/repostery.git</span><br><span class="line"></span><br><span class="line">// 第一次把当前分支master推送到远程时要加 -u</span><br><span class="line">// -u 参数不但推送，而且将本地的分支和远程的分支关联起来</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
-
-
-<h1 id="tag"><a href="#tag" class="headerlink" title="tag"></a>tag</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">git tag v1.0                    //给当前分支最新的commit打标签sh</span><br><span class="line">/* -a指定标签名，-m指定说明文字*/</span><br><span class="line">git tag -a v0.1 -m <span class="string">&#x27;version 0.1 released&#x27;</span> 3628164</span><br><span class="line">git tag -s &lt;tagname&gt; -m <span class="string">&#x27;blabla&#x27;</span>//可以用PGP签名标签</span><br><span class="line">git tag                         //查看所有标签</span><br><span class="line">git show v1.0                   //查看标签信息</span><br><span class="line">git tag -d v0.1                 //删除标签</span><br><span class="line">git push origin &lt;tagname&gt;       //推送某个标签到远程</span><br><span class="line">git push origin --tags          //推送所有尚未推送的本地标签</span><br></pre></td></tr></table></figure>
-
-<h1 id="reset"><a href="#reset" class="headerlink" title="reset"></a>reset</h1><p><code>git reset –option &lt;commitid&gt;</code>是回滚命令，option 有三个参数可选：</p>
-<ol>
-<li><code>–mixed</code>，这也是默认方式（即不带参数默认是这种），回退暂存区和版本库信息，<strong>工作区的源码不会变化</strong>，可以重新add，重新commit。</li>
-<li><code>-soft</code>，回退版本库信息，<strong>暂存区和工作区都不会变化</strong>，如果还要提交，暂存区已经 add 完毕，直接 commit 即可。</li>
-<li><code>–hard</code>，彻底回退，<strong>版本库信息、暂存区和工作区都回退到历史某个版本</strong>。</li>
-</ol>
-<h1 id="git-复杂操作合集"><a href="#git-复杂操作合集" class="headerlink" title="git 复杂操作合集"></a>git 复杂操作合集</h1><h2 id="回滚某个文件"><a href="#回滚某个文件" class="headerlink" title="回滚某个文件"></a>回滚某个文件</h2><ol>
-<li><code>git log –pretty=oneline &lt;file&gt;</code>可以查看某个文件的修改历史。</li>
-<li><code>git show commit_id &lt;file&gt;</code>可以查看对应某个<code>commit</code>时期<code>file</code>的内容。</li>
-<li><code>git reset commit_id &lt;file&gt;</code>可以将<code>file</code>回退到某个版本</li>
-<li>执行完第3步后提示：</li>
-</ol>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Unstaged changes after reset:</span><br><span class="line">M       README.md</span><br></pre></td></tr></table></figure>
-
-<p>执行<code>git status</code>，提示：</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Changes to be committed:</span><br><span class="line">  (use <span class="string">&quot;git reset HEAD &lt;file&gt;...&quot;</span> to unstage)</span><br><span class="line"></span><br><span class="line">        modified:   README.md</span><br><span class="line"></span><br><span class="line">Changes not staged <span class="keyword">for</span> commit:</span><br><span class="line">  (use <span class="string">&quot;git add &lt;file&gt;...&quot;</span> to update what will be committed)</span><br><span class="line">  (use <span class="string">&quot;git checkout -- &lt;file&gt;...&quot;</span> to discard changes <span class="keyword">in</span> working directory)</span><br><span class="line"></span><br><span class="line">        modified:   README.md</span><br></pre></td></tr></table></figure>
-
-<p>执行<code>git checkout — &lt;file&gt;</code>后，README.md成功回滚到指定版本。</p>
-<h2 id="聚合commit-msg"><a href="#聚合commit-msg" class="headerlink" title="聚合commit_msg"></a>聚合commit_msg</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">git rebase -i &lt;commit_ID&gt;</span><br><span class="line">git rebase -i master</span><br><span class="line">git rebase -i HEAD~&lt;num&gt;</span><br><span class="line"></span><br><span class="line">// squash：将这一行的 commit 与上一个 commit 进行合并</span><br><span class="line">// fixup：与 squash 相同，只是不会保留这行 commit 的提交 message 信息</span><br><span class="line"></span><br><span class="line">// 修改上一次 commit 提交的 message</span><br><span class="line">git commit --amend</span><br><span class="line">// 不过只能修正上一次的 commit。如果很多个 commit 之前就有 message 写错，就得用上我们之前说的 git rebase 了</span><br><span class="line"></span><br><span class="line">// 自动标记这一次的 commit 为上一个 commit 的 fix</span><br><span class="line">git commit --fixup &lt;commit&gt;</span><br><span class="line">// 自动组织合并两个 commit</span><br><span class="line">git rebase -i --autosquash</span><br><span class="line"></span><br><span class="line">// 撤销过去的 commit 重建一个新的</span><br><span class="line">git reset HEAD~2</span><br><span class="line">git add .</span><br><span class="line">git commit -am <span class="string">&quot;This is the new feature&quot;</span></span><br><span class="line">git push --force</span><br></pre></td></tr></table></figure>
-
-<h2 id="修改提交至其他分支"><a href="#修改提交至其他分支" class="headerlink" title="修改提交至其他分支"></a>修改提交至其他分支</h2><blockquote>
-<p>当前处于 A 分支，需要将此次的代码提交至 B 分支，则在没有进行 commit 之前可以进行以下操作</p>
-</blockquote>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// 1、通过git stash将工作区恢复到上次提交的内容，同时备份本地所做的修改</span><br><span class="line">git stash</span><br><span class="line"></span><br><span class="line">// 2、然后切换至B分支</span><br><span class="line">git checkout B</span><br><span class="line"></span><br><span class="line">// 3、从git栈中获取到最近一次stash进去的内容，恢复工作区的内容，获取之后，会删除栈中对应的stash</span><br><span class="line">git stash pop</span><br><span class="line"></span><br><span class="line">// 4、然后进行正常的提交代码步骤即可</span><br><span class="line">git add ...</span><br><span class="line">git commit -m <span class="string">&quot;功能开发&quot;</span></span><br><span class="line">git pull origin &lt;分支名称&gt;</span><br><span class="line">git push origin &lt;分支名称&gt;</span><br></pre></td></tr></table></figure>
-
-<h2 id="本地连接远端仓库"><a href="#本地连接远端仓库" class="headerlink" title="本地连接远端仓库"></a>本地连接远端仓库</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin &lt;url&gt;</span><br><span class="line">git pull --rebase origin master</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
-
-<h2 id="强制拉取最新代码"><a href="#强制拉取最新代码" class="headerlink" title="强制拉取最新代码"></a>强制拉取最新代码</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git fetch --all</span><br><span class="line">git reset --hard origin/&lt;develop&gt;</span><br><span class="line">git pull</span><br></pre></td></tr></table></figure>
-
-
-<h1 id="出错解决方案合集"><a href="#出错解决方案合集" class="headerlink" title="出错解决方案合集"></a>出错解决方案合集</h1><ul>
-<li>‘fatal:remote origin already exists’</li>
-</ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git remote <span class="built_in">rm</span> origin</span><br><span class="line">git remote add origin XXX</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>如何删除 git 远程仓库项目的所有内容，重新提交所有内容</li>
-</ul>
-<blockquote>
-<p>忘记添加 <strong>gitignore</strong> 文件</p>
-</blockquote>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">rm</span> -r --cache .</span><br><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">&quot;gitignore working&quot;</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>git 取消本地修改</li>
-</ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">// 未添加到暂存区</span><br><span class="line">git checkout -- &lt;filepathname&gt;</span><br><span class="line"></span><br><span class="line">// 放弃所有的文件修改</span><br><span class="line">git checkout .  </span><br><span class="line"></span><br><span class="line">// add 到了缓存区的代码</span><br><span class="line">git reset HEAD &lt;filepathname&gt;</span><br><span class="line"></span><br><span class="line">// 放弃所有缓存区代码，回退到已修改但未存到缓存区的状态</span><br><span class="line">git reset HEAD .</span><br><span class="line"></span><br><span class="line">// 已经提交了代码</span><br><span class="line">git reset --hard HEAD^</span><br><span class="line"></span><br><span class="line">// 若想回退到任意版本</span><br><span class="line">git reset --hard commit_id</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>清理版本库信息</li>
-</ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 删除文件夹下的所有 .svn 文件</span><br><span class="line">find . -name <span class="string">&quot;.svn&quot;</span> | xargs <span class="built_in">rm</span> -Rf</span><br><span class="line">// 删除文件夹下的所有 .git 文件</span><br><span class="line">find . -name <span class="string">&quot;.git&quot;</span> | xargs <span class="built_in">rm</span> -Rf</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>git clone 反复需要输入用户名密码</li>
-</ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global credential.helper store</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>文件修改后<code>git add</code>了，也<code>git commit</code>了，发现哪里错了或者是漏<code>add</code>了一个文件。</li>
-</ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 添加新修改到暂存区</span><br><span class="line">git add file</span><br><span class="line">git commit –amend -m <span class="string">&quot;xxx&quot;</span> // 这样只会记录一次`commit`</span><br><span class="line">// 相当于将两次 commit 合并成了一次，保留最后一次 message 内容</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/10/16/backend_dev/git/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 

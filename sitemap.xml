@@ -313,14 +313,14 @@
   </url>
   
   <url>
-    <loc>http://collie2nd.github.io/tags/git/</loc>
+    <loc>http://collie2nd.github.io/tags/docker/</loc>
     <lastmod>2022-06-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://collie2nd.github.io/tags/docker/</loc>
+    <loc>http://collie2nd.github.io/tags/git/</loc>
     <lastmod>2022-06-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -385,14 +385,14 @@
   </url>
   
   <url>
-    <loc>http://collie2nd.github.io/categories/%E8%BD%AF%E6%8A%80%E8%83%BD/</loc>
+    <loc>http://collie2nd.github.io/categories/%E9%A1%B9%E7%9B%AE%E7%BB%8F%E5%8E%86/</loc>
     <lastmod>2022-06-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://collie2nd.github.io/categories/%E9%A1%B9%E7%9B%AE%E7%BB%8F%E5%8E%86/</loc>
+    <loc>http://collie2nd.github.io/categories/%E8%BD%AF%E6%8A%80%E8%83%BD/</loc>
     <lastmod>2022-06-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
