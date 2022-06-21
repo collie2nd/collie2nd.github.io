@@ -85,7 +85,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">16</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">1</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">54</span></a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">11</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">3</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">27</span></a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -156,17 +156,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">54</span>
+          <span class="site-state-item-count">27</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">1</span>
-        <span class="site-state-item-name">分类</span>
+          <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -230,7 +231,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://collie2nd.github.io/2020/10/16/Git%20%E6%92%A4%E9%94%80%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/">
+    <link itemprop="mainEntityOfPage" href="http://collie2nd.github.io/2020/08/29/backend_dev/cpp/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/blue.gif">
@@ -248,432 +249,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/10/16/Git%20%E6%92%A4%E9%94%80%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/" class="post-title-link" itemprop="url">Git 撤销命令详解</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-10-16 00:00:00" itemprop="dateCreated datePublished" datetime="2020-10-16T00:00:00+08:00">2020-10-16</time>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2020/10/16/Git%20%E6%92%A4%E9%94%80%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/10/16/Git%20%E6%92%A4%E9%94%80%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>1.1k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="撤销命令详解"><a href="#撤销命令详解" class="headerlink" title="撤销命令详解"></a>撤销命令详解</h1><h2 id="修改最后一次commit的内容"><a href="#修改最后一次commit的内容" class="headerlink" title="修改最后一次commit的内容"></a>修改最后一次commit的内容</h2><p>文件修改后<code>git add</code>了，也<code>git commit</code>了，发现哪里错了或者是漏<code>add</code>了一个文件，可以先<code>git add file</code>后，再<code>git commit –amend</code>这样只会记录一次<code>commit</code>（相当于将两次<code>commit</code>合并成了一次<code>commit</code>）。</p>
-<h2 id="取消加入暂存区的文件"><a href="#取消加入暂存区的文件" class="headerlink" title="取消加入暂存区的文件"></a>取消加入暂存区的文件</h2><p>不小心用了<code>git add .</code>将所有文件加入了暂存区或者是<code>add</code>多了文件，可以使用<code>git reset HEAD &lt;file&gt;</code>将文件拉回到已修改但是未提交到暂存区的状态。（在<code>add</code>后，通过<code>git status</code>可以看到相应提示，教你如何撤销提交）</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/10/16/Git%20%E6%92%A4%E9%94%80%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://collie2nd.github.io/2020/10/01/2020.07-2020.09%20%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/blue.gif">
-      <meta itemprop="name" content="Collie">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="试过重启了吗">
-      <meta itemprop="description" content="less is more">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 试过重启了吗">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/10/01/2020.07-2020.09%20%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/" class="post-title-link" itemprop="url">2020.07-2020.09 学习总结</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-10-01 00:00:00" itemprop="dateCreated datePublished" datetime="2020-10-01T00:00:00+08:00">2020-10-01</time>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2020/10/01/2020.07-2020.09%20%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/10/01/2020.07-2020.09%20%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>41k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>37 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <div align='center' ><font size='70'>2020.07-2020.09 学习总结</font></div>
-
-<hr>
-<p><span id="toc"></span></p>
-<p>[TOC]</p>
-<hr>
-<h1 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h1><p><a href="#toc">&lt;返回目录&gt;</a></p>
-<h2 id="C-基于容器（docker）的开发环境配置"><a href="#C-基于容器（docker）的开发环境配置" class="headerlink" title="C++ 基于容器（docker）的开发环境配置"></a>C++ 基于容器（docker）的开发环境配置</h2><p><a href="#toc">&lt;返回目录&gt;</a></p>
-<h3 id="配置ODBC"><a href="#配置ODBC" class="headerlink" title="配置ODBC"></a>配置ODBC</h3><p>在<strong>安装</strong>配置之前，需要先大概了解一下 MyODBC 的架构，MyODBC 体系结构建立在 5 个组件上，如下图所示：<br><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ggwm30f77xj30a20b3aah.jpg"></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/10/01/2020.07-2020.09%20%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://collie2nd.github.io/2020/10/01/MacOS%20%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/blue.gif">
-      <meta itemprop="name" content="Collie">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="试过重启了吗">
-      <meta itemprop="description" content="less is more">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 试过重启了吗">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/10/01/MacOS%20%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" class="post-title-link" itemprop="url">MacOS 使用技巧</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-10-01 00:00:00" itemprop="dateCreated datePublished" datetime="2020-10-01T00:00:00+08:00">2020-10-01</time>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2020/10/01/MacOS%20%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/10/01/MacOS%20%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>1.1k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="MacOS-使用技巧"><a href="#MacOS-使用技巧" class="headerlink" title="MacOS 使用技巧"></a>MacOS 使用技巧</h1><h1 id="VIM常用快捷键"><a href="#VIM常用快捷键" class="headerlink" title="VIM常用快捷键"></a>VIM常用快捷键</h1><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">$ </span><br><span class="line">// 光标移动到最后一个字符</span><br><span class="line"></span><br><span class="line"><span class="number">0</span> </span><br><span class="line">// 光标移动到首位</span><br><span class="line"></span><br><span class="line">ZZ </span><br><span class="line">// 保存退出</span><br><span class="line"></span><br><span class="line">dt<span class="symbol">&lt;character&gt;</span></span><br><span class="line">// 删除到该字符</span><br><span class="line"></span><br><span class="line"><span class="keyword">f</span><span class="symbol">&lt;character&gt;</span></span><br><span class="line">// 将光标移动到，从光标当前位置开始第一个该字符的位置</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/10/01/MacOS%20%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://collie2nd.github.io/2020/10/01/linux:MacOS%20%E6%93%8D%E4%BD%9C%E6%8A%80%E5%B7%A7%E5%90%88%E9%9B%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/blue.gif">
-      <meta itemprop="name" content="Collie">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="试过重启了吗">
-      <meta itemprop="description" content="less is more">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 试过重启了吗">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/10/01/linux:MacOS%20%E6%93%8D%E4%BD%9C%E6%8A%80%E5%B7%A7%E5%90%88%E9%9B%86/" class="post-title-link" itemprop="url">linux/MacOS 操作技巧合集</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-10-01 00:00:00" itemprop="dateCreated datePublished" datetime="2020-10-01T00:00:00+08:00">2020-10-01</time>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2020/10/01/linux:MacOS%20%E6%93%8D%E4%BD%9C%E6%8A%80%E5%B7%A7%E5%90%88%E9%9B%86/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/10/01/linux:MacOS%20%E6%93%8D%E4%BD%9C%E6%8A%80%E5%B7%A7%E5%90%88%E9%9B%86/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>2.1k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="访问本机接口"><a href="#访问本机接口" class="headerlink" title="访问本机接口"></a>访问本机接口</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">curl --location --request POST <span class="string">&#x27;http://本机IP/接口&#x27;</span> --header <span class="string">&#x27;Content-Type: application/x-www-form-urlencoded&#x27;</span> --data-urlencode <span class="string">&#x27;data=[&#123;&quot;type&quot;:1,&quot;brand&quot;:&quot;GE&quot;,&quot;ae_oe_code&quot;:&quot;9261317&quot;&#125;]&#x27;</span></span><br><span class="line"></span><br><span class="line">curl --location --request GET <span class="string">&#x27;http://127.0.0.1:18016/honda/oe_by_std_name?vin=LVHRM1836D5019492&amp;std_name=%E6%B3%A2%E7%AE%B1%E6%B2%B9&#x27;</span></span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/10/01/linux:MacOS%20%E6%93%8D%E4%BD%9C%E6%8A%80%E5%B7%A7%E5%90%88%E9%9B%86/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://collie2nd.github.io/2020/08/29/C++%20spawn-fcgi%20%E7%94%A8%E6%B3%95%E4%BA%86%E8%A7%A3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/blue.gif">
-      <meta itemprop="name" content="Collie">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="试过重启了吗">
-      <meta itemprop="description" content="less is more">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 试过重启了吗">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/08/29/C++%20spawn-fcgi%20%E7%94%A8%E6%B3%95%E4%BA%86%E8%A7%A3/" class="post-title-link" itemprop="url">spawn-fcgi 用法了解</a>
+          <a href="/2020/08/29/backend_dev/cpp/" class="post-title-link" itemprop="url">cpp 学习笔记</a>
         </h2>
 
         <div class="post-meta-container">
@@ -686,6 +262,15 @@
 
       <time title="创建时间：2020-08-29 00:00:00" itemprop="dateCreated datePublished" datetime="2020-08-29T00:00:00+08:00">2020-08-29</time>
     </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%90%8E%E7%AB%AF%E6%8A%80%E8%83%BD/" itemprop="url" rel="index"><span itemprop="name">后端技能</span></a>
+        </span>
+    </span>
 
   
   
@@ -696,8 +281,126 @@
     </span>
     <span class="post-meta-item-text">Waline：</span>
   
-    <a title="waline" href="/2020/08/29/C++%20spawn-fcgi%20%E7%94%A8%E6%B3%95%E4%BA%86%E8%A7%A3/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/08/29/C++%20spawn-fcgi%20%E7%94%A8%E6%B3%95%E4%BA%86%E8%A7%A3/" itemprop="commentCount"></span>
+    <a title="waline" href="/2020/08/29/backend_dev/cpp/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2020/08/29/backend_dev/cpp/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>4k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>4 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Vector-遍历"><a href="#Vector-遍历" class="headerlink" title="Vector 遍历"></a>Vector 遍历</h1><blockquote>
+<p><code>vector&lt;int&gt; v1&#123;1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10&#125;;</code></p>
+</blockquote>
+<h2 id="通过数组下标遍历"><a href="#通过数组下标遍历" class="headerlink" title="通过数组下标遍历"></a>通过数组下标遍历</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">size_t</span> i = <span class="number">0</span>; i &lt; v1.<span class="built_in">size</span>(); i++)</span><br><span class="line">&#123;</span><br><span class="line">	cout &lt;&lt; v1[i] &lt;&lt; <span class="string">&quot;; &quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line">cout &lt;&lt; endl;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">for</span> (<span class="type">size_t</span> i = <span class="number">0</span>; i &lt; v1.<span class="built_in">size</span>(); i++)</span><br><span class="line">&#123;</span><br><span class="line">    cout &lt;&lt; v1.<span class="built_in">at</span>(i) &lt;&lt; <span class="string">&quot;; &quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line">cout &lt;&lt; endl;</span><br><span class="line"> </span><br><span class="line"><span class="number">2</span>; <span class="number">3</span>; <span class="number">4</span>; <span class="number">5</span>; <span class="number">6</span>; <span class="number">7</span>; <span class="number">8</span>; <span class="number">9</span>; <span class="number">10</span>; <span class="number">10</span>; <span class="number">10</span>;</span><br><span class="line"><span class="number">1</span>; <span class="number">2</span>; <span class="number">3</span>; <span class="number">4</span>; <span class="number">5</span>; <span class="number">6</span>; <span class="number">7</span>; <span class="number">8</span>; <span class="number">9</span>; <span class="number">10</span>; <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="通过迭代器遍历"><a href="#通过迭代器遍历" class="headerlink" title="通过迭代器遍历"></a>通过迭代器遍历</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (vector&lt;<span class="type">int</span>&gt;::iterator iter = v1.<span class="built_in">begin</span>(); iter != v1.<span class="built_in">end</span>(); iter++)</span><br><span class="line">&#123;</span><br><span class="line">	std::cout &lt;&lt; *iter &lt;&lt; <span class="string">&quot;; &quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line">cout &lt;&lt; endl;</span><br><span class="line"><span class="number">1</span>; <span class="number">2</span>; <span class="number">3</span>; <span class="number">4</span>; <span class="number">5</span>; <span class="number">6</span>; <span class="number">7</span>; <span class="number">8</span>; <span class="number">9</span>; <span class="number">10</span>; <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/08/29/backend_dev/cpp/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://collie2nd.github.io/2020/08/29/project_experience/spawn-fcgi/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/blue.gif">
+      <meta itemprop="name" content="Collie">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="试过重启了吗">
+      <meta itemprop="description" content="less is more">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 试过重启了吗">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/08/29/project_experience/spawn-fcgi/" class="post-title-link" itemprop="url">spawn-fcgi 学习笔记</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-08-29 00:00:00" itemprop="dateCreated datePublished" datetime="2020-08-29T00:00:00+08:00">2020-08-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E9%A1%B9%E7%9B%AE%E7%BB%8F%E5%8E%86/" itemprop="url" rel="index"><span itemprop="name">项目经历</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2020/08/29/project_experience/spawn-fcgi/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2020/08/29/project_experience/spawn-fcgi/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -728,9 +431,11 @@
           <h1 id="spawn-fcgi-用法了解"><a href="#spawn-fcgi-用法了解" class="headerlink" title="spawn-fcgi 用法了解"></a>spawn-fcgi 用法了解</h1><p>spawn-fcgi 是一个小程序，作用是管理 fast-cgi 进程。</p>
 <p>用 spawn 启动 FCGI 程序的方式为：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./spawn-fcgi -a 127.0.0.1 -p 8080 -F <span class="variable">$&#123;count&#125;</span> -f <span class="variable">$&#123;webroot&#125;</span>/bin/demo.fcgi</span><br></pre></td></tr></table></figure>
+
+<p>这样就会启动 count 个 demo.fcgi 程序，他们共同监听同一个 listen 端口 8080，从而提供服务。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/08/29/C++%20spawn-fcgi%20%E7%94%A8%E6%B3%95%E4%BA%86%E8%A7%A3/#more" rel="contents">
+              <a class="btn" href="/2020/08/29/project_experience/spawn-fcgi/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -761,7 +466,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://collie2nd.github.io/2020/08/29/C++%20%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/">
+    <link itemprop="mainEntityOfPage" href="http://collie2nd.github.io/2020/07/20/backend_dev/mysql/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/blue.gif">
@@ -779,7 +484,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/08/29/C++%20%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/" class="post-title-link" itemprop="url">C++ 知识总结</a>
+          <a href="/2020/07/20/backend_dev/mysql/" class="post-title-link" itemprop="url">MySQL 学习笔记</a>
         </h2>
 
         <div class="post-meta-container">
@@ -790,7 +495,16 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2020-08-29 00:00:00" itemprop="dateCreated datePublished" datetime="2020-08-29T00:00:00+08:00">2020-08-29</time>
+      <time title="创建时间：2020-07-20 00:00:00" itemprop="dateCreated datePublished" datetime="2020-07-20T00:00:00+08:00">2020-07-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%90%8E%E7%AB%AF%E6%8A%80%E8%83%BD/" itemprop="url" rel="index"><span itemprop="name">后端技能</span></a>
+        </span>
     </span>
 
   
@@ -802,8 +516,8 @@
     </span>
     <span class="post-meta-item-text">Waline：</span>
   
-    <a title="waline" href="/2020/08/29/C++%20%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/08/29/C++%20%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/" itemprop="commentCount"></span>
+    <a title="waline" href="/2020/07/20/backend_dev/mysql/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2020/07/20/backend_dev/mysql/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -813,14 +527,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>3.6k</span>
+      <span>5.4k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>3 分钟</span>
+      <span>5 分钟</span>
     </span>
 </div>
 
@@ -831,15 +545,258 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="C-Vector-遍历"><a href="#C-Vector-遍历" class="headerlink" title="C++ Vector 遍历"></a>C++ Vector 遍历</h1><blockquote>
-<p><code>vector&lt;int&gt; v1&#123;1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10&#125;;</code></p>
+          <h1 id="MySQL-一些不熟的语句"><a href="#MySQL-一些不熟的语句" class="headerlink" title="MySQL 一些不熟的语句"></a>MySQL 一些不熟的语句</h1><h2 id="DISTINCT"><a href="#DISTINCT" class="headerlink" title="DISTINCT"></a>DISTINCT</h2><p>DISTINCT 关键词用于返回唯一不同的值。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> column_name,column_name <span class="keyword">FROM</span> table_name;</span><br></pre></td></tr></table></figure>
+
+<h2 id="UPDATE"><a href="#UPDATE" class="headerlink" title="UPDATE"></a>UPDATE</h2><p>UPDATE 语句用于更新表中已存在的记录。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> table_name <span class="keyword">SET</span> column1<span class="operator">=</span>value1,column2<span class="operator">=</span>value2,... <span class="keyword">WHERE</span> some_column<span class="operator">=</span>some_value;</span><br></pre></td></tr></table></figure>
+
+<p>注意 : UPDATE 语句中的 WHERE 子句！WHERE 子句规定哪条记录或者哪些记录需要更新。如果您省略了 WHERE 子句，所有的记录都将被更新！</p>
+<h2 id="DELETE"><a href="#DELETE" class="headerlink" title="DELETE"></a>DELETE</h2><p>DELETE 语句用于删除表中的行(记录)。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> table_name <span class="keyword">WHERE</span> some_column<span class="operator">=</span>some_value;</span><br></pre></td></tr></table></figure>
+
+<p>注意 : SQL DELETE 语句中的 WHERE 子句！WHERE 子句规定哪条记录或者哪些记录需要删除。如果您省略了 WHERE 子句，所有的记录都将被删除！</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/07/20/backend_dev/mysql/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://collie2nd.github.io/2020/07/20/backend_dev/nginx/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/blue.gif">
+      <meta itemprop="name" content="Collie">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="试过重启了吗">
+      <meta itemprop="description" content="less is more">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 试过重启了吗">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/07/20/backend_dev/nginx/" class="post-title-link" itemprop="url">nginx 学习笔记</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-07-20 00:00:00" itemprop="dateCreated datePublished" datetime="2020-07-20T00:00:00+08:00">2020-07-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%90%8E%E7%AB%AF%E6%8A%80%E8%83%BD/" itemprop="url" rel="index"><span itemprop="name">后端技能</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2020/07/20/backend_dev/nginx/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2020/07/20/backend_dev/nginx/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>835</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="nginx"><a href="#nginx" class="headerlink" title="nginx"></a>nginx</h1><h2 id="nginx-配置"><a href="#nginx-配置" class="headerlink" title="nginx 配置"></a>nginx 配置</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> /etc/nginx/nginx.conf</span><br><span class="line"><span class="built_in">cat</span> /etc/nginx/conf.d/xxxxxxxx.conf</span><br></pre></td></tr></table></figure>
+
+<p>示例：路由 stdname 设置 <strong>nginx 监听 18026</strong> 收到请求后<strong>转发</strong>至 stdnameSvr 的 <strong>监听端口 19026</strong>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">        listen       18026;</span><br><span class="line">        server_name  localhost;</span><br><span class="line"></span><br><span class="line">        location /stdname/  &#123;</span><br><span class="line">                fastcgi_pass   127.0.0.1:19026;</span><br><span class="line">                fastcgi_index  index.cgi;</span><br><span class="line">                include        fastcgi_params;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/07/20/backend_dev/nginx/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://collie2nd.github.io/2020/07/20/project_experience/odbc/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/blue.gif">
+      <meta itemprop="name" content="Collie">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="试过重启了吗">
+      <meta itemprop="description" content="less is more">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 试过重启了吗">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/07/20/project_experience/odbc/" class="post-title-link" itemprop="url">odbc 的配置</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-07-20 00:00:00" itemprop="dateCreated datePublished" datetime="2020-07-20T00:00:00+08:00">2020-07-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E9%A1%B9%E7%9B%AE%E7%BB%8F%E5%8E%86/" itemprop="url" rel="index"><span itemprop="name">项目经历</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2020/07/20/project_experience/odbc/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2020/07/20/project_experience/odbc/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>5.8k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>5 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="odbc-的配置"><a href="#odbc-的配置" class="headerlink" title="odbc 的配置"></a>odbc 的配置</h1><blockquote>
+<p>相关技术栈：linux、mysql</p>
 </blockquote>
-<h2 id="一、通过数组下标遍历"><a href="#一、通过数组下标遍历" class="headerlink" title="一、通过数组下标遍历"></a>一、通过数组下标遍历</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">size_t</span> i = <span class="number">0</span>; i &lt; v1.<span class="built_in">size</span>(); i++)</span><br><span class="line">&#123;</span><br><span class="line">	cout &lt;&lt; v1[i] &lt;&lt; <span class="string">&quot;; &quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line">cout &lt;&lt; endl;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">for</span> (<span class="type">size_t</span> i = <span class="number">0</span>; i &lt; v1.<span class="built_in">size</span>(); i++)</span><br><span class="line">&#123;</span><br><span class="line">    cout &lt;&lt; v1.<span class="built_in">at</span>(i) &lt;&lt; <span class="string">&quot;; &quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line">cout &lt;&lt; endl;</span><br><span class="line"> </span><br><span class="line"><span class="number">2</span>; <span class="number">3</span>; <span class="number">4</span>; <span class="number">5</span>; <span class="number">6</span>; <span class="number">7</span>; <span class="number">8</span>; <span class="number">9</span>; <span class="number">10</span>; <span class="number">10</span>; <span class="number">10</span>;</span><br><span class="line"><span class="number">1</span>; <span class="number">2</span>; <span class="number">3</span>; <span class="number">4</span>; <span class="number">5</span>; <span class="number">6</span>; <span class="number">7</span>; <span class="number">8</span>; <span class="number">9</span>; <span class="number">10</span>; <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
-
-<h2 id="二、通过迭代器遍历"><a href="#二、通过迭代器遍历" class="headerlink" title="二、通过迭代器遍历"></a>二、通过迭代器遍历</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (vector&lt;<span class="type">int</span>&gt;::iterator iter = v1.<span class="built_in">begin</span>(); iter != v1.<span class="built_in">end</span>(); iter++)</span><br><span class="line">&#123;</span><br><span class="line">	std::cout &lt;&lt; *iter &lt;&lt; <span class="string">&quot;; &quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line">cout &lt;&lt; endl;</span><br><span class="line"><span class="number">1</span>; <span class="number">2</span>; <span class="number">3</span>; <span class="number">4</span>; <span class="number">5</span>; <span class="number">6</span>; <span class="number">7</span>; <span class="number">8</span>; <span class="number">9</span>; <span class="number">10</span>; <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+<p>在<strong>安装</strong>配置之前，需要先大概了解一下 MyODBC 的架构，MyODBC 体系结构建立在 5 个组件上，如下图所示：</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ggwm30f77xj30a20b3aah.jpg"></p>
+<p><strong>Driver Manager</strong><br>负责管理应用程序和驱动程序间的通信，主要功能包括：解析 DSN (数据源名称，ODBC 的数据源名称在 odbc.ini 文件中配置)，加载和卸载驱动程序，处理 ODBC 调用，将其传递给驱动程序。</p>
+<p><strong>ODBC.INI</strong><br>odbc.ini 是 ODBC 配置文件，记录了连接到服务器所需的驱动信息和数据库信息xxxxxx。Driver Manager 将使用它来确定加载哪个驱动程序（使用数据源名 DSN ）。驱动程序将根据指定的DSN来读取连接参数。</p>
+<p><strong>Connector&#x2F;ODBC(MyODBC驱动程序)</strong><br>实现 ODBC API 所提供的功能，它负责处理 ODBC 函数调用，将 SQL 请求提交给 MySQL 服务器，并将结果返回给应用程序。</p>
+<p>在 Linux 下配置 mysql ODBC 需要有以下步骤：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. 安装 Driver Manager，本案例使用 unixODBC 来作为 Driver Manager。</span><br><span class="line">2. 安装 MySQL 驱动程序，本案例使用 Connector/ODBC。</span><br><span class="line">3. 配置 ODBC.INI</span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/08/29/C++%20%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/#more" rel="contents">
+              <a class="btn" href="/2020/07/20/project_experience/odbc/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -870,7 +827,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://collie2nd.github.io/2020/08/29/C++%20%E9%82%A3%E4%BA%9B%E5%B9%B4%E6%88%91%E4%BB%AC%E6%80%BB%E4%BC%9A%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91/">
+    <link itemprop="mainEntityOfPage" href="http://collie2nd.github.io/2019/09/06/backend_dev/redis/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/blue.gif">
@@ -888,7 +845,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/08/29/C++%20%E9%82%A3%E4%BA%9B%E5%B9%B4%E6%88%91%E4%BB%AC%E6%80%BB%E4%BC%9A%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91/" class="post-title-link" itemprop="url">C++ 那些年我们总会遇到的坑</a>
+          <a href="/2019/09/06/backend_dev/redis/" class="post-title-link" itemprop="url">redis 学习笔记</a>
         </h2>
 
         <div class="post-meta-container">
@@ -899,7 +856,16 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2020-08-29 00:00:00" itemprop="dateCreated datePublished" datetime="2020-08-29T00:00:00+08:00">2020-08-29</time>
+      <time title="创建时间：2019-09-06 00:00:00" itemprop="dateCreated datePublished" datetime="2019-09-06T00:00:00+08:00">2019-09-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%90%8E%E7%AB%AF%E6%8A%80%E8%83%BD/" itemprop="url" rel="index"><span itemprop="name">后端技能</span></a>
+        </span>
     </span>
 
   
@@ -911,8 +877,8 @@
     </span>
     <span class="post-meta-item-text">Waline：</span>
   
-    <a title="waline" href="/2020/08/29/C++%20%E9%82%A3%E4%BA%9B%E5%B9%B4%E6%88%91%E4%BB%AC%E6%80%BB%E4%BC%9A%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/08/29/C++%20%E9%82%A3%E4%BA%9B%E5%B9%B4%E6%88%91%E4%BB%AC%E6%80%BB%E4%BC%9A%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91/" itemprop="commentCount"></span>
+    <a title="waline" href="/2019/09/06/backend_dev/redis/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2019/09/06/backend_dev/redis/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -922,7 +888,362 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>420</span>
+      <span>17k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>16 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="redis"><a href="#redis" class="headerlink" title="redis"></a>redis</h1><h1 id="redis-简介"><a href="#redis-简介" class="headerlink" title="redis 简介"></a>redis 简介</h1><p>redis 是一个开源的使用 ANSI C 语言编写、<strong>基于内存亦可持久化</strong>的<strong>日志型</strong>、<strong>Key-Value 数据库</strong>，并提供了对多种编程语言的支持。</p>
+<p>支持存储的 value 类型包括 <strong>string（字符串）、list（链表）、set （集合）、zset（sorted set –有序集合）和 hash（哈希）</strong>，所以 redis 也被称为数据结构服务器。这些数据类型都支持 <strong>push&#x2F;pop 、 add&#x2F;remove 及取交集并集和差集</strong>等操作，且 redis 支持各种不同方式的排序。为了保证效率，数据都是缓存在内存中。 redis 会<strong>周期性的把更新的数据写入磁盘或者把修改操作写入追加的记录文件</strong>，并且在此基础上实现了主从（master-slave）同步。</p>
+<p>redis 支持<strong>主从同步</strong>。数据可以从主服务器向任意数量的从服务器上同步，从服务器可以是关联其他从服务器的主服务器。这使得 redis 可执行<strong>单层树复制</strong>。存盘可以有意无意的对数据进行写操作。由于完全实现了<strong>发布&#x2F;订阅机制</strong>，使得从数据库在任何地方同步树时，可订阅一个频道并接收主服务器完整的消息发布记录。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/09/06/backend_dev/redis/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://collie2nd.github.io/2019/09/05/project_experience/OpenSSL/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/blue.gif">
+      <meta itemprop="name" content="Collie">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="试过重启了吗">
+      <meta itemprop="description" content="less is more">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 试过重启了吗">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/09/05/project_experience/OpenSSL/" class="post-title-link" itemprop="url">OpenSSL</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-09-05 00:00:00" itemprop="dateCreated datePublished" datetime="2019-09-05T00:00:00+08:00">2019-09-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E9%A1%B9%E7%9B%AE%E7%BB%8F%E5%8E%86/" itemprop="url" rel="index"><span itemprop="name">项目经历</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2019/09/05/project_experience/OpenSSL/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2019/09/05/project_experience/OpenSSL/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>8.1k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>7 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="OpenSSL"><a href="#OpenSSL" class="headerlink" title="OpenSSL"></a>OpenSSL</h1><blockquote>
+<p>相关技术栈：linux、http&#x2F;https、web</p>
+</blockquote>
+<h2 id="什么是-SSL？"><a href="#什么是-SSL？" class="headerlink" title="什么是 SSL？"></a>什么是 SSL？</h2><p>SSL 是一个缩写，代表的是 Secure Sockets Layer（<strong>安全套接层</strong>）。它是支持在 Internet 上进行<strong>安全通信的标准，并且将数据密码术集成到了协议之中。数据在离开您的计算机之前就已经被加密，然后只有到达它预定的目标后才被解密。</strong> 底层实现是证书和密码学算法。</p>
+<p>理论上，如果加密的数据在到达目标之前被截取或窃听，那些数据是不可能被破解的。不过，由于计算机的变化一年比一年快，而且密码翻译方法有了新的发展，因此，SSL 中使用的加密协议被破解的可能性也在增大。</p>
+<p><strong>可以将 SSL 和安全连接用于 Internet 上任何类型的协议</strong>，不管是 HTTP、POP3，还是 FTP。还可以用 SSL 来保护 Telnet 会话。虽然可以用 SSL 保护任何连接，但是不必对每一类连接都使用 SSL。<strong>如果连接传输敏感信息，则应使用 SSL。</strong></p>
+<h2 id="什么是-OpenSSL？"><a href="#什么是-OpenSSL？" class="headerlink" title="什么是 OpenSSL？"></a>什么是 OpenSSL？</h2><p>OpenSSL 不仅仅是 SSL。它可以实现<strong>消息摘要、文件的加密和解密、数字证书、数字签名和随机数字</strong>。</p>
+<p>OpenSSL 不只是 <strong>API</strong>，它还是一个<strong>命令行工具</strong>。命令行工具可以完成与 API 同样的工作， 而且可以测试 SSL 服务器和客户机。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/09/05/project_experience/OpenSSL/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://collie2nd.github.io/2019/08/02/project_experience/cJson%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/blue.gif">
+      <meta itemprop="name" content="Collie">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="试过重启了吗">
+      <meta itemprop="description" content="less is more">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 试过重启了吗">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/08/02/project_experience/cJson%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">cJson 学习笔记</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-08-02 00:00:00" itemprop="dateCreated datePublished" datetime="2019-08-02T00:00:00+08:00">2019-08-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E9%A1%B9%E7%9B%AE%E7%BB%8F%E5%8E%86/" itemprop="url" rel="index"><span itemprop="name">项目经历</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2019/08/02/project_experience/cJson%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2019/08/02/project_experience/cJson%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>8.7k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>8 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="cJSON-的使用方法"><a href="#cJSON-的使用方法" class="headerlink" title="cJSON 的使用方法"></a>cJSON 的使用方法</h1><h2 id="JSON-格式简述"><a href="#JSON-格式简述" class="headerlink" title="JSON 格式简述"></a>JSON 格式简述</h2><blockquote>
+<p>JSON(JavaScript Object Notation) 是一种轻量级的数据交换格式。易于人阅读和编写，同时也易于机器解析和生成。它基于JavaScript（Standard ECMA-262 3rd Edition - December 1999）的一个子集。 JSON采用完全独立于语言的文本格式，但是也使用了类似于C语言家族的习惯（包括C, C++, C#, Java, JavaScript, Perl, Python等）。这些特性使JSON成为理想的数据交换语言。（来自“开源中国”资料）。</p>
+</blockquote>
+<p>cJSON从名字可知，整个项目都是以极标准的C来写的，意思说，可以跨各种平台使用了。cJSON是一个超轻巧，携带方便，单文件，简单的可以作为ANSI-C标准的JSON解析器。</p>
+<p>cJSON 开源项目位置：<a target="_blank" rel="noopener" href="https://github.com/DaveGamble/cJSON">DaveGamble&#x2F;cJSON</a><br>更加详细的解释和示例请查看<a target="_blank" rel="noopener" href="http://www.json.org/">主页</a>。</p>
+<p>cJSON，目前来说，就只有两个文件，一个cJSON.c 一个cJSON.h文件。使用的时候，自己创建好一个main.c文件后，将头文件include进去。<br>如果是在linux pc上，请使用以下命令进行编译：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc  *.c  cJSON.c    -lm</span><br></pre></td></tr></table></figure>
+<p>记得编译时末尾链接libm库。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2019/08/02/project_experience/cJson%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://collie2nd.github.io/2019/07/12/project_experience/MQTT/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/blue.gif">
+      <meta itemprop="name" content="Collie">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="试过重启了吗">
+      <meta itemprop="description" content="less is more">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 试过重启了吗">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2019/07/12/project_experience/MQTT/" class="post-title-link" itemprop="url">MQTT</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-07-12 00:00:00" itemprop="dateCreated datePublished" datetime="2019-07-12T00:00:00+08:00">2019-07-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E9%A1%B9%E7%9B%AE%E7%BB%8F%E5%8E%86/" itemprop="url" rel="index"><span itemprop="name">项目经历</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2019/07/12/project_experience/MQTT/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2019/07/12/project_experience/MQTT/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.6k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -940,14 +1261,26 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="那些年我们总会遇到的坑"><a href="#那些年我们总会遇到的坑" class="headerlink" title="那些年我们总会遇到的坑"></a>那些年我们总会遇到的坑</h1><h1 id="1-curl"><a href="#1-curl" class="headerlink" title="1. curl"></a>1. curl</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">CurlCXX <span class="title">curl</span><span class="params">(url, <span class="number">1</span>)</span></span>; <span class="comment">//1s timeout</span></span><br><span class="line">curl.<span class="built_in">post</span>(body);</span><br></pre></td></tr></table></figure>
-
+          <h1 id="MQTT-协议"><a href="#MQTT-协议" class="headerlink" title="MQTT 协议"></a>MQTT 协议</h1><blockquote>
+<p>相关技术栈：linux、http&#x2F;https、web</p>
+</blockquote>
+<h2 id="MQTT-协议的概念"><a href="#MQTT-协议的概念" class="headerlink" title="MQTT 协议的概念"></a>MQTT 协议的概念</h2><p>MQTT协议，全称 Message Queue Telemetry Transport 消息队列遥测传输协议 ，是一种<strong>基于发布&#x2F;订阅的轻量级通讯协议</strong>。</p>
+<p><strong>适用于条件较差的网络环境</strong>，如：网络延迟高、带宽低、通信讯号不稳定等情况。</p>
+<h2 id="MQTT协议的特点"><a href="#MQTT协议的特点" class="headerlink" title="MQTT协议的特点"></a>MQTT协议的特点</h2><ul>
+<li><strong>构建于 TCP&#x2F;IP 协议之上</strong></li>
+</ul>
+<blockquote>
+<p>TCP&#x2F;IP参考模型可分为四层：<strong>应用层、传输层、网络层、链路层</strong>。TCP、UDP 协议均属于传输层，MQTT 运行与 TCP 之上，属于<strong>应用层协议</strong>，只要支持 TCP&#x2F;IP 协议栈的地方都可应用 MQTT。</p>
+</blockquote>
 <ul>
-<li>注意学会<code>curl</code>发包的用法，并且<code>post</code>时，<code>body</code>当中要注意<code>fastcgi</code>框架当中约定了<code>post</code>数据格式为<code>x-www-form-urlencoded/form-data</code>，因此一定要注意<code>body</code>里面的数据，单个字段内不能出现容易导致解析错误的<code>&#39;&amp;&#39;</code>字符，若不得不包含<code>&#39;&amp;&#39;</code>字符，则要用转义字符<code>&#39;\&amp;&#39;</code>包起来，否则会导致参数错误。</li>
+<li><strong>基于 C-S 架构</strong>的消息发布&#x2F;订阅，提供一对多的消息发布，作为客户端之间的中间介质，解除应用程序的耦合。</li>
+<li><strong>对负载内容屏蔽</strong>的消息传输</li>
+<li>使用 <strong>TCP</strong> 连接进行数据推送</li>
+<li>三种消息发布 QoS</li>
 </ul>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/08/29/C++%20%E9%82%A3%E4%BA%9B%E5%B9%B4%E6%88%91%E4%BB%AC%E6%80%BB%E4%BC%9A%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91/#more" rel="contents">
+              <a class="btn" href="/2019/07/12/project_experience/MQTT/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -978,7 +1311,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://collie2nd.github.io/2020/08/29/Golang%20%E9%9D%A2%E8%AF%95%E6%8C%87%E5%AF%BC/">
+    <link itemprop="mainEntityOfPage" href="http://collie2nd.github.io/2019/06/04/project_experience/2019.06/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/blue.gif">
@@ -996,7 +1329,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/08/29/Golang%20%E9%9D%A2%E8%AF%95%E6%8C%87%E5%AF%BC/" class="post-title-link" itemprop="url">Golang 面试指导</a>
+          <a href="/2019/06/04/project_experience/2019.06/" class="post-title-link" itemprop="url">2019.05-2019.06 学习总结</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1007,7 +1340,16 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2020-08-29 00:00:00" itemprop="dateCreated datePublished" datetime="2020-08-29T00:00:00+08:00">2020-08-29</time>
+      <time title="创建时间：2019-06-04 00:00:00" itemprop="dateCreated datePublished" datetime="2019-06-04T00:00:00+08:00">2019-06-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E9%A1%B9%E7%9B%AE%E7%BB%8F%E5%8E%86/" itemprop="url" rel="index"><span itemprop="name">项目经历</span></a>
+        </span>
     </span>
 
   
@@ -1019,8 +1361,8 @@
     </span>
     <span class="post-meta-item-text">Waline：</span>
   
-    <a title="waline" href="/2020/08/29/Golang%20%E9%9D%A2%E8%AF%95%E6%8C%87%E5%AF%BC/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/08/29/Golang%20%E9%9D%A2%E8%AF%95%E6%8C%87%E5%AF%BC/" itemprop="commentCount"></span>
+    <a title="waline" href="/2019/06/04/project_experience/2019.06/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2019/06/04/project_experience/2019.06/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -1030,7 +1372,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>566</span>
+      <span>661</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -1048,229 +1390,19 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="如果你是一个Golang面试官，你会问哪些问题"><a href="#如果你是一个Golang面试官，你会问哪些问题" class="headerlink" title="如果你是一个Golang面试官，你会问哪些问题?"></a>如果你是一个Golang面试官，你会问哪些问题?</h1><ul>
-<li>语言设计中空引用(null reference)的存在有什么问题？假设你想要将空引用的概念从你的首选语言中移除，可能导致什么结果？</li>
-<li>为什么函数式编程重要？什么时候适用函数式语言？</li>
-<li>设计(design)、架构(architecture)、功能(functionality)和美学(aesthetic)之间有什么区别？讨论一下。</li>
-<li>微软、谷歌、欧朋(opera)和火狐这类公司是如何从他们的浏览器中获利的?</li>
-<li>为什么打开TCP套接字有很大的开销？ 封装的重要性体现在哪儿？</li>
-<li>什么是实时系统？它与普通系统有什么区别？ 实时语言(real-time language)和堆内存分配(heap memory allocation)之间的关系是什么？ 不变性(Immutability)是指?</li>
-<li>(变量的)值只能在创建的时候被设置一次，之后就不能被改变。为什么不变性对写更加安全的代码有帮助？ </li>
-<li>可变值(mutable values)和不可变值(immutable values)有哪些优缺点？ </li>
-<li>什么是O&#x2F;R阻抗失衡(Object-Relational impedence mismatch)？ </li>
-<li>如果你需要使用缓存，你使用哪些原则来确定缓存的大小？ TCP和HTTP有什么区别？</li>
-</ul>
+          <div align='center' ><font size='70'>2019.05-2019.06 学习总结</font></div>
+
+<hr>
+<p><span id="toc"></span></p>
+<p>[TOC]</p>
+<hr>
+<h2 id="阶段一：基础知识回顾"><a href="#阶段一：基础知识回顾" class="headerlink" title="阶段一：基础知识回顾"></a>阶段一：基础知识回顾</h2><h3 id="gt-C语言基础语法回顾："><a href="#gt-C语言基础语法回顾：" class="headerlink" title="&gt; C语言基础语法回顾："></a>&gt; C语言基础语法回顾：</h3><blockquote>
+<p>变更代码习惯，转语言——“倒时差”</p>
+</blockquote>
+<h4 id="gt-相关留存资料："><a href="#gt-相关留存资料：" class="headerlink" title="&gt; 相关留存资料："></a>&gt; 相关留存资料：</h4><div class="pdf-container" data-target="https://drive.google.com/file/d/1644m_lW65hk8UBkXqBdFv61zy-y17bBq/preview" data-height="500px"></div>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/08/29/Golang%20%E9%9D%A2%E8%AF%95%E6%8C%87%E5%AF%BC/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://collie2nd.github.io/2020/08/14/python%20%E6%96%87%E4%BB%B6%E5%A4%84%E7%90%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/blue.gif">
-      <meta itemprop="name" content="Collie">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="试过重启了吗">
-      <meta itemprop="description" content="less is more">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 试过重启了吗">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/08/14/python%20%E6%96%87%E4%BB%B6%E5%A4%84%E7%90%86/" class="post-title-link" itemprop="url">python 文件处理</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-08-14 00:00:00" itemprop="dateCreated datePublished" datetime="2020-08-14T00:00:00+08:00">2020-08-14</time>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2020/08/14/python%20%E6%96%87%E4%BB%B6%E5%A4%84%E7%90%86/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/08/14/python%20%E6%96%87%E4%BB%B6%E5%A4%84%E7%90%86/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>3.3k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>3 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="python-读取-Excel-文档"><a href="#python-读取-Excel-文档" class="headerlink" title="python 读取 Excel 文档"></a>python 读取 Excel 文档</h1><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">read_excel</span>(<span class="params">self, path</span>):</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        logger.info(<span class="string">&quot;begin read %s&quot;</span> % path)</span><br><span class="line">        <span class="comment"># 读取 Excel 预处理动作↓，使用 xlrd 包将 Excel 文件读入 book 中</span></span><br><span class="line">        book = xlrd.open_workbook(path,encoding_override=<span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">        data = <span class="built_in">dict</span>()</span><br><span class="line">        sheets = book.sheets()</span><br><span class="line">        <span class="keyword">for</span> cur <span class="keyword">in</span> sheets:</span><br><span class="line">            sheet_name = cur.name</span><br><span class="line">            nrows = cur.nrows</span><br><span class="line">            ncols = cur.ncols</span><br><span class="line">            logger.info(<span class="string">&quot;nrows=%d,ncols=%d&quot;</span> % (nrows, ncols))</span><br><span class="line">            sheet_val = <span class="built_in">list</span>()</span><br><span class="line">            <span class="keyword">for</span> idx <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, nrows):</span><br><span class="line">                line = cur.row_values(idx)</span><br><span class="line">                <span class="comment"># sheet_val 为对应该页面每行数据的 list 数据</span></span><br><span class="line">                sheet_val.append(line)</span><br><span class="line">            <span class="comment"># data 为整个 Excel 文件每一张 sheet 的 Map 数据</span></span><br><span class="line">            data[sheet_name] = sheet_val</span><br><span class="line">        logger.info(<span class="string">&quot;read end, sheet=%d&quot;</span> % <span class="built_in">len</span>(data))</span><br><span class="line">        <span class="keyword">return</span> data</span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        logger.info(<span class="string">&quot;read %s fail, err=%s&quot;</span> % (path, <span class="built_in">str</span>(e)))</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span></span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/08/14/python%20%E6%96%87%E4%BB%B6%E5%A4%84%E7%90%86/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://collie2nd.github.io/2020/08/14/python%20%E8%AF%AD%E6%B3%95%E6%80%BB%E7%BB%93/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/blue.gif">
-      <meta itemprop="name" content="Collie">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="试过重启了吗">
-      <meta itemprop="description" content="less is more">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 试过重启了吗">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/08/14/python%20%E8%AF%AD%E6%B3%95%E6%80%BB%E7%BB%93/" class="post-title-link" itemprop="url">python 语法总结</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-08-14 00:00:00" itemprop="dateCreated datePublished" datetime="2020-08-14T00:00:00+08:00">2020-08-14</time>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2020/08/14/python%20%E8%AF%AD%E6%B3%95%E6%80%BB%E7%BB%93/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/08/14/python%20%E8%AF%AD%E6%B3%95%E6%80%BB%E7%BB%93/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>4.8k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>4 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="python-字符串处理"><a href="#python-字符串处理" class="headerlink" title="python 字符串处理"></a>python 字符串处理</h1><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将变量转化成字符串类型</span></span><br><span class="line"><span class="built_in">str</span>(line)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将字符串全大写/全小写</span></span><br><span class="line">name = name.upper()</span><br><span class="line">name = name.lower()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 类 C 语言中的字符串格式化语言，python 中用 % 处理变量转化</span></span><br><span class="line">ftp_name = <span class="string">&quot;%s_%s&quot;</span>%(cass_id, sec[<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># strip()去掉字符串首位多余字符，为空时去掉多余空格</span></span><br><span class="line"><span class="comment"># split()将字符串通过参数中的字符，分割成若干字符串存在数组中</span></span><br><span class="line">plist = pic_advantage.strip().split(<span class="string">&quot;，&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># re模块处理正则表达式，以下为将 code 转化为[^a-zA-Z0-9]字符的函数</span></span><br><span class="line">pattern_code_trim = re.<span class="built_in">compile</span>(<span class="string">&quot;[^a-zA-Z0-9]&quot;</span>)</span><br><span class="line">src_code_trim = pattern_code_trim.sub(<span class="string">&#x27;&#x27;</span>, code)</span><br><span class="line"></span><br><span class="line"><span class="comment"># python中没有自增</span></span><br><span class="line">i = i + <span class="number">1</span></span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/08/14/python%20%E8%AF%AD%E6%B3%95%E6%80%BB%E7%BB%93/#more" rel="contents">
+              <a class="btn" href="/2019/06/04/project_experience/2019.06/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1294,7 +1426,7 @@
 
 
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 </div>
@@ -1317,13 +1449,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">194k</span>
+    <span title="站点总字数">170k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:57</span>
+    <span title="站点阅读时长">2:34</span>
   </span>
 </div>
 
