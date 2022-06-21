@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"collie2nd.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Docker 端口映射1docker run -it -p 8080:18026 &lt;REPOSITORY&gt;:&lt;TAG&gt; &#x2F;bin&#x2F;bash  -p：是容器内部端口绑定到指定的主机端口。这里指将主机的8080端口映射到容器的18026端口。-p可以多个端口映射同时存在以实现复杂功能   1docker run -it -p 127.0.0.1:8080:18026 &lt;R">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Docker 知识总结">
+<meta property="og:url" content="http://collie2nd.github.io/2021/07/18/Docker%20%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:site_name" content="Collie">
+<meta property="og:description" content="Docker 端口映射1docker run -it -p 8080:18026 &lt;REPOSITORY&gt;:&lt;TAG&gt; &#x2F;bin&#x2F;bash  -p：是容器内部端口绑定到指定的主机端口。这里指将主机的8080端口映射到容器的18026端口。-p可以多个端口映射同时存在以实现复杂功能   1docker run -it -p 127.0.0.1:8080:18026 &lt;R">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-07-17T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-07-17T16:00:00.000Z">
+<meta property="article:author" content="Collie">
+<meta property="article:tag" content="Docker">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://collie2nd.github.io/2021/07/18/Docker%20%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://collie2nd.github.io/2021/07/18/Docker%20%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/","path":"2021/07/18/Docker 知识总结/","title":"Docker 知识总结"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Docker 知识总结 | Collie</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Collie</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Docker-%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84"><span class="nav-number">1.</span> <span class="nav-text">Docker 端口映射</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker-%E4%BB%A3%E7%A0%81%E8%B0%83%E8%AF%95"><span class="nav-number">1.1.</span> <span class="nav-text">Docker 代码调试</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Docker-%E5%AE%B9%E5%99%A8%E5%92%8C%E6%9C%AC%E6%9C%BA%E4%BA%92%E4%BC%A0%E6%96%87%E4%BB%B6"><span class="nav-number">2.</span> <span class="nav-text">Docker 容器和本机互传文件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker-%E5%AE%B9%E5%99%A8%E5%90%91%E6%9C%AC%E6%9C%BA%E4%BC%A0%E9%80%81%E6%96%87%E4%BB%B6"><span class="nav-number">2.1.</span> <span class="nav-text">Docker 容器向本机传送文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%AC%E6%9C%BA%E5%90%91-Docker-%E5%AE%B9%E5%99%A8%E4%BC%A0%E9%80%81%E6%96%87%E4%BB%B6"><span class="nav-number">2.2.</span> <span class="nav-text">本机向 Docker 容器传送文件</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Collie</p>
+  <div class="site-description" itemprop="description">Collie</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">54</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://collie2nd.github.io/2021/07/18/Docker%20%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Collie">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Collie">
+      <meta itemprop="description" content="Collie">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Docker 知识总结 | Collie">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Docker 知识总结
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-07-18 00:00:00" itemprop="dateCreated datePublished" datetime="2021-07-18T00:00:00+08:00">2021-07-18</time>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.1k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="Docker-端口映射"><a href="#Docker-端口映射" class="headerlink" title="Docker 端口映射"></a>Docker 端口映射</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it -p 8080:18026 &lt;REPOSITORY&gt;:&lt;TAG&gt; /bin/bash</span><br></pre></td></tr></table></figure>
+
+<p><code>-p</code>：是容器内部端口绑定到指定的主机端口。这里指将主机的8080端口映射到容器的18026端口。-p可以多个端口映射同时存在以实现复杂功能</p>
+</br>
+
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it -p 127.0.0.1:8080:18026 &lt;REPOSITORY&gt;:&lt;TAG&gt; /bin/bash</span><br></pre></td></tr></table></figure>
+
+<p>这样我们就可以通过访问 127.0.0.1:8080 来访问容器的 18026 端口。</p>
+ <span id="more"></span>
+</br>
+
+<p>上面的例子中，默认都是绑定 tcp 端口，如果要绑定 UDP 端口，可以在端口后面加上 &#x2F;udp。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it -p 127.0.0.1:8080:18026/udp &lt;REPOSITORY&gt;:&lt;TAG&gt; /bin/bash</span><br></pre></td></tr></table></figure>
+
+</br>
+
+<p><code>docker port &lt;CONTAINER ID&gt; &lt;PORT&gt;</code>命令可以让我们快捷地查看端口的绑定情况。</p>
+<h2 id="Docker-代码调试"><a href="#Docker-代码调试" class="headerlink" title="Docker 代码调试"></a>Docker 代码调试</h2><p>centos的依赖<code>cmake/gcc/gdb/gdb-gdbserver/openssh-server/openssh-clients</code></p>
+<p>docker要以特权模式启动</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --privileged=<span class="literal">true</span> -v /Users/liuxing1/Files/Docker_Files/Shared\ Folders/:/tmp -p 8080:22 -p 8000:18080 mdm_docker /usr/sbin/init</span><br></pre></td></tr></table></figure>
+
+<p>然后通过<code>docker exec -it &lt;Container_ID&gt; /bin/bash</code>进入容器操作</p>
+<p>启动sshd服务</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#启动</span></span><br><span class="line">systemctl start sshd</span><br><span class="line"> </span><br><span class="line"><span class="comment">#设置开机自启动</span></span><br><span class="line">systemctl <span class="built_in">enable</span> sshd</span><br><span class="line"></span><br><span class="line"><span class="comment">#设置密码</span></span><br><span class="line">passwd</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="Docker-容器和本机互传文件"><a href="#Docker-容器和本机互传文件" class="headerlink" title="Docker 容器和本机互传文件"></a>Docker 容器和本机互传文件</h1><p>首先需要确定 docker 容器的<code>container_id</code>,可以使用<code>docker ps -a</code>查看你要操作的 docker 容器的<code>container_id</code></p>
+<h2 id="Docker-容器向本机传送文件"><a href="#Docker-容器向本机传送文件" class="headerlink" title="Docker 容器向本机传送文件"></a>Docker 容器向本机传送文件</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">cp</span> container_id:docker容器内的文件全路径 本机保存文件的全路径</span><br></pre></td></tr></table></figure>
+
+<p><strong>例如：</strong><code>docker cp 4a2f08d2c1f8:/data1/configure.txt E:\PHP\configure.txt</code></p>
+<h2 id="本机向-Docker-容器传送文件"><a href="#本机向-Docker-容器传送文件" class="headerlink" title="本机向 Docker 容器传送文件"></a>本机向 Docker 容器传送文件</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">cp</span> 本机保存文件的全路径 container_id:docker容器内的文件全路径</span><br></pre></td></tr></table></figure>
+
+<p><strong>例如：</strong><code>docker cp E:\PHP\configure.txt 4a2f08d2c1f8:/data1/configure.txt</code></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Docker/" rel="tag"># Docker</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/07/10/python%20%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C/" rel="prev" title="python 数据库操作">
+                  <i class="fa fa-chevron-left"></i> python 数据库操作
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/07/21/%E6%9C%8D%E5%8A%A1%E4%B8%8AKubernetes%E5%9F%BA%E6%9C%AC%E6%B5%81%E7%A8%8B%E5%92%8C%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9/" rel="next" title="Kubernetes注意事项">
+                  Kubernetes注意事项 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Collie</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">194k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">2:57</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

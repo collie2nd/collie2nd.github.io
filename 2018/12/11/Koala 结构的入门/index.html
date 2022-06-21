@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"collie2nd.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="koala框架的使用编写IDL在业务项目目录下创建helloworld目录，进入该目录，然后创建编辑hello.thrift，该文件用来生成基本框架。输入以下内容： 1234567struct Result &amp;#123;      &#x2F;&#x2F;定义了一个Result结构体，为接口返回的结构体数据    1: string response,&amp;#125;service HelloService &amp;#123;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Koala 结构的入门">
+<meta property="og:url" content="http://collie2nd.github.io/2018/12/11/Koala%20%E7%BB%93%E6%9E%84%E7%9A%84%E5%85%A5%E9%97%A8/index.html">
+<meta property="og:site_name" content="Collie">
+<meta property="og:description" content="koala框架的使用编写IDL在业务项目目录下创建helloworld目录，进入该目录，然后创建编辑hello.thrift，该文件用来生成基本框架。输入以下内容： 1234567struct Result &amp;#123;      &#x2F;&#x2F;定义了一个Result结构体，为接口返回的结构体数据    1: string response,&amp;#125;service HelloService &amp;#123;">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-12-10T16:00:00.000Z">
+<meta property="article:modified_time" content="2018-12-10T16:00:00.000Z">
+<meta property="article:author" content="Collie">
+<meta property="article:tag" content="Go">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://collie2nd.github.io/2018/12/11/Koala%20%E7%BB%93%E6%9E%84%E7%9A%84%E5%85%A5%E9%97%A8/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://collie2nd.github.io/2018/12/11/Koala%20%E7%BB%93%E6%9E%84%E7%9A%84%E5%85%A5%E9%97%A8/","path":"2018/12/11/Koala 结构的入门/","title":"Koala 结构的入门"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Koala 结构的入门 | Collie</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Collie</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#koala%E6%A1%86%E6%9E%B6%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">koala框架的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E5%86%99IDL"><span class="nav-number">1.1.</span> <span class="nav-text">编写IDL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%9F%E6%88%90%E6%A1%86%E6%9E%B6%E4%BB%A3%E7%A0%81"><span class="nav-number">1.2.</span> <span class="nav-text">生成框架代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E8%AF%91%E6%89%A7%E8%A1%8C"><span class="nav-number">1.3.</span> <span class="nav-text">编译执行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BA"><span class="nav-number">1.4.</span> <span class="nav-text">自动构建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%86%E8%A7%A3%E6%A1%86%E6%9E%B6%E4%BB%A3%E7%A0%81%E7%BB%93%E6%9E%84"><span class="nav-number">1.5.</span> <span class="nav-text">了解框架代码结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0HelloWorld%E6%8E%A5%E5%8F%A3"><span class="nav-number">1.6.</span> <span class="nav-text">实现HelloWorld接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E7%BB%84%E5%90%8D%E5%92%8C%E6%9C%8D%E5%8A%A1%E5%90%8D"><span class="nav-number">1.7.</span> <span class="nav-text">配置组名和服务名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8%E6%9C%8D%E5%8A%A1HelloService"><span class="nav-number">1.8.</span> <span class="nav-text">启动服务HelloService</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%B0%83%E7%94%A8%E5%92%8C%E6%B5%8B%E8%AF%95"><span class="nav-number">2.</span> <span class="nav-text">调用和测试</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%9F%E6%88%90SDK"><span class="nav-number">2.1.</span> <span class="nav-text">生成SDK</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E5%86%99%E6%B5%8B%E8%AF%95%E4%BB%A3%E7%A0%81"><span class="nav-number">2.2.</span> <span class="nav-text">编写测试代码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%9A%E8%BF%87IP%E8%B0%83%E7%94%A8"><span class="nav-number">2.2.1.</span> <span class="nav-text">通过IP调用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%9A%E8%BF%87%E6%9C%8D%E5%8A%A1%E5%90%8D%E8%B0%83%E7%94%A8"><span class="nav-number">2.2.2.</span> <span class="nav-text">通过服务名调用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C%E6%B5%8B%E8%AF%95%E7%A8%8B%E5%BA%8F"><span class="nav-number">2.3.</span> <span class="nav-text">运行测试程序</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Collie</p>
+  <div class="site-description" itemprop="description">Collie</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">54</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://collie2nd.github.io/2018/12/11/Koala%20%E7%BB%93%E6%9E%84%E7%9A%84%E5%85%A5%E9%97%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Collie">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Collie">
+      <meta itemprop="description" content="Collie">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Koala 结构的入门 | Collie">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Koala 结构的入门
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-12-11 00:00:00" itemprop="dateCreated datePublished" datetime="2018-12-11T00:00:00+08:00">2018-12-11</time>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>5.2k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>5 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="koala框架的使用"><a href="#koala框架的使用" class="headerlink" title="koala框架的使用"></a>koala框架的使用</h1><h2 id="编写IDL"><a href="#编写IDL" class="headerlink" title="编写IDL"></a>编写IDL</h2><p>在业务项目目录下创建helloworld目录，进入该目录，然后创建编辑hello.thrift，该文件用来生成基本框架。输入以下内容：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> Result &#123;      <span class="comment">//定义了一个Result结构体，为接口返回的结构体数据</span></span><br><span class="line">    <span class="number">1</span>: <span class="type">string</span> response,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">service HelloService &#123;    <span class="comment">//定义了一个服务，只有一个接口↓</span></span><br><span class="line">    Result HelloWorld(<span class="number">1</span>:<span class="type">string</span> name);  <span class="comment">//HelloWorld,该接口接收一个string参数，返回一个Result结构体，见上。</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+ <span id="more"></span>
+
+<h2 id="生成框架代码"><a href="#生成框架代码" class="headerlink" title="生成框架代码"></a>生成框架代码</h2><p>键入如下命令生成框架代码，请下载最新版本的<a target="_blank" rel="noopener" href="http://micode.be.xiaomi.com/soa/soa_tools">thrift工具</a></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/path/to/soa_tools/thrift --gen go --packagePath micode.be.xiaomi.com/systech/helloworld hello.thrift</span><br></pre></td></tr></table></figure>
+
+<h2 id="编译执行"><a href="#编译执行" class="headerlink" title="编译执行"></a>编译执行</h2><p>执行 .&#x2F;build.sh 进行编译，编译成功后，生成的程序在bin目录下。</p>
+<h2 id="自动构建"><a href="#自动构建" class="headerlink" title="自动构建"></a>自动构建</h2><p>启动自动构建程序(auto_build.sh)，自动构建程序会实时检测项目目录下源码的是否变更，如果有变更将自动进行编译、重启程序。</p>
+<h2 id="了解框架代码结构"><a href="#了解框架代码结构" class="headerlink" title="了解框架代码结构"></a>了解框架代码结构</h2><p>生成的框架代码如下所示：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── auto_build.sh                           //自动构建脚本</span><br><span class="line">├── bin</span><br><span class="line">│   └── HelloService</span><br><span class="line">├── build.sh                                //编译脚本</span><br><span class="line">├── config</span><br><span class="line">│   ├── scm_config.ini                      </span><br><span class="line">│   ├── scm_config.ini.online.env           //线上配置</span><br><span class="line">│   └── scm_config.ini.test.env             //测试环境配置</span><br><span class="line">├── hello.thrift                            //接口描述文件</span><br><span class="line">├── package.sh                              //编译打包脚本，使用请参考：http://mis.n.mi.com/koala/publish/package.html</span><br><span class="line">├── README</span><br><span class="line">├── run                                     //启动脚本</span><br><span class="line">├── run.sh                                  //带supervise的启动脚本</span><br><span class="line">├── framework                               //框架基础代码（无需更改）</span><br><span class="line">│   └── app</span><br><span class="line">│       ├── app.go</span><br><span class="line">│       ├── config.go</span><br><span class="line">│       ├── generate.go</span><br><span class="line">│       ├── global.go</span><br><span class="line">│       ├── initDb.go</span><br><span class="line">│       ├── initRabbitmq.go</span><br><span class="line">│       ├── initRedis.go</span><br><span class="line">│       ├── initRedisMock.go</span><br><span class="line">│       ├── initSqlMock.go</span><br><span class="line">│       ├── manager.go</span><br><span class="line">│       ├── plugin.go</span><br><span class="line">│       ├── register.go</span><br><span class="line">│       ├── rpc.go</span><br><span class="line">│       └── user_config.go</span><br><span class="line">├── hello                                   //网络相关基础代码，无需更改</span><br><span class="line">│   ├── constants.go</span><br><span class="line">│   ├── helloservice.go</span><br><span class="line">│   ├── helloservice_host_wrapper.go</span><br><span class="line">│   ├── hello_service-remote</span><br><span class="line">│   │   └── hello_service-remote.go</span><br><span class="line">│   ├── helloservice_wrapper.go</span><br><span class="line">│   └── ttypes.go</span><br><span class="line">├── main</span><br><span class="line">│   ├── HelloService.go</span><br><span class="line">│   ├── HelloWorld_handler.go               //HelloWorld的入口文件，需要业务实现</span><br><span class="line">│   ├── hook.go                             //框架各个阶段的回调接口，可以实现自定义功能</span><br><span class="line">│   └── main.go</span><br><span class="line">└── model                                   //业务model层</span><br><span class="line">└── supervise</span><br><span class="line">    └── supervise</span><br><span class="line">└── glide.yaml                              // 依赖说明文件</span><br><span class="line">└── glide.lock                              // 依赖版本锁文件</span><br></pre></td></tr></table></figure>
+
+<p>对于 thrift IDL 中定义的每一个接口，会在 main 目录单独一个代码文件，并在接口名后面加上_handler后缀。 例如，对于 hello.thrift 定义的 HelloWorld 接口，生成的实现文件为 main&#x2F;HelloWorld_handler.go。</p>
+<h2 id="实现HelloWorld接口"><a href="#实现HelloWorld接口" class="headerlink" title="实现HelloWorld接口"></a>实现HelloWorld接口</h2><p>打开 main&#x2F;HelloWorld_handler.go文件，框架生成的源代码如下：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">&quot;micode.be.xiaomi.com/systech/helloworld/hello&quot;</span></span><br><span class="line">    <span class="string">&quot;micode.be.xiaomi.com/systech/soa/context&quot;</span></span><br><span class="line">)</span><br><span class="line"><span class="comment">//ctx 用来记录请求在框架运行中当中的上下文，比如traceid以及appid等公共信息</span></span><br><span class="line"><span class="comment">//name 也就是我们IDL中定义的参数</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(p *HelloServiceHandler)</span></span> HelloWorld(ctx *context.XContext, name <span class="type">string</span>) (r *hello.Result_, errRet <span class="type">error</span>) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>该接口返回一个hello.Result结构，以及若有错误产生，返回一个errRet。<br>我们记得，hello.Result_结构体的定义如下：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Result_ <span class="keyword">struct</span> &#123;</span><br><span class="line">    Response <span class="type">string</span> <span class="string">`thrift:&quot;response,1&quot; json:&quot;response&quot;`</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当处理正常时，返回一个Response字符串。因此，我们的HelloWorld接口非常简单，实现如下：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">&quot;micode.be.xiaomi.com/systech/helloworld/hello&quot;</span></span><br><span class="line">    <span class="string">&quot;micode.be.xiaomi.com/systech/soa/context&quot;</span></span><br><span class="line">    <span class="string">&quot;fmt&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(p *HelloServiceHandler)</span></span> HelloWorld(context *context.XContext, name <span class="type">string</span>) (r *hello.Result_, err <span class="type">error</span>) &#123;</span><br><span class="line"></span><br><span class="line">    r = &amp;hello.Result_&#123;&#125;</span><br><span class="line">    r.Response = fmt.Sprintf(<span class="string">&quot;hello world,%s&quot;</span>, name)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="配置组名和服务名"><a href="#配置组名和服务名" class="headerlink" title="配置组名和服务名"></a>配置组名和服务名</h2><p>启动服务之前必须先在config&#x2F;scm_config.ini中配置组名和服务名。<br>打开config&#x2F;scm_config.ini，在group和service两个字段，填入相应的信息。如下所示：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">;基础配置</span><br><span class="line">[xbase]</span><br><span class="line">config_type=<span class="built_in">local</span> <span class="comment">#local or etcd</span></span><br><span class="line">config_addr=http://etcd.test.mi.com <span class="comment">#配置中心地址</span></span><br><span class="line">;项目所在的小组名,一定要配置，不配置将会panic，详情请参见mis.n.mi.com</span><br><span class="line">group=systech</span><br><span class="line">;项目的服务名，一定要配置，不配置将会panic，详情请参见mis.n.mi.com </span><br><span class="line">service=hello</span><br><span class="line">....</span><br></pre></td></tr></table></figure>
+
+<p>(注)服务名：服务开发完了之后，通过SOA平台进行注册，注册服务的时候会分配一个唯一的服务名。</p>
+<h2 id="启动服务HelloService"><a href="#启动服务HelloService" class="headerlink" title="启动服务HelloService"></a>启动服务HelloService</h2><p>使用如下命令进行启动：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./bin/HelloService</span><br></pre></td></tr></table></figure>
+
+<h1 id="调用和测试"><a href="#调用和测试" class="headerlink" title="调用和测试"></a>调用和测试</h1><h2 id="生成SDK"><a href="#生成SDK" class="headerlink" title="生成SDK"></a>生成SDK</h2><p>通过以下命令，生成Golang的SDK：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/path/to/soa_tools/thrift --gen go --packagePath micode.be.xiaomi.com/your/project ./hello.thrift</span><br></pre></td></tr></table></figure>
+
+<p>生成的SDK在当前目录sdk&#x2F;v3&#x2F;目录下。</p>
+<p><strong>如果基于 koala v3 开发的项目需要生成 sdk 给 koala v1 或 v2 的项目使用，请使用命令：</strong></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/path/to/soa_tools/thrift --gen go --v1 ./hello.thrift</span><br><span class="line">/path/to/soa_tools/thrift --gen go --v2 ./hello.thrift</span><br></pre></td></tr></table></figure>
+
+<p><strong>生成的 SDK 在 sdk&#x2F;v1&#x2F; sdk&#x2F;v2 目录下。</strong></p>
+<h2 id="编写测试代码"><a href="#编写测试代码" class="headerlink" title="编写测试代码"></a>编写测试代码</h2><p>golang版rpc包括两种调用方式：</p>
+<h3 id="通过IP调用"><a href="#通过IP调用" class="headerlink" title="通过IP调用"></a>通过IP调用</h3><p>一般在开发过程，为了简化调用流程，我们可以直接指定后端服务ip和port进行调用。 在项目目录下(位置任意，只要import了…&#x2F;helloworld&#x2F;sdk&#x2F;v3&#x2F;hello包即可)新建main.go文件，编辑以下代码：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">&quot;fmt&quot;</span></span><br><span class="line">	<span class="string">&quot;micode.be.xiaomi.com/systech/helloworld/sdk/v3/hello&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	client:=hello.NewHelloServiceClientHostWrapper(<span class="string">&quot;127.0.0.1&quot;</span>,<span class="number">12508</span>,<span class="string">&quot;xxx&quot;</span>)</span><br><span class="line">	fmt.Println(client.HelloWorld(<span class="string">&quot;xiaoming&quot;</span>))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>由于我们代码依赖koala基础库，为了简化编译步骤，我们采用脚本进行编译运行，在当前目录下 打开run.sh，输入以下内容：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line">curdir=`<span class="built_in">pwd</span>`</span><br><span class="line">glide init &amp;&amp; glide up</span><br><span class="line">go run <span class="variable">$curdir</span>/main.go</span><br></pre></td></tr></table></figure>
+<p>运行run.sh，即可看到程序运行结果。</p>
+<h3 id="通过服务名调用"><a href="#通过服务名调用" class="headerlink" title="通过服务名调用"></a>通过服务名调用</h3><p>在测试或线上环境中，我们需要在SOA平台上进行订阅xm_ip_service，然后通过服务名进行调用。 调用代码如下，保存为main.go：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span>(</span><br><span class="line">    <span class="string">&quot;fmt&quot;</span></span><br><span class="line">    <span class="string">&quot;micode.be.xiaomi.com/your/project/sdk/v3/ip&quot;</span></span><br><span class="line">    <span class="string">&quot;micode.be.xiaomi.com/systech/soa/xrpc&quot;</span></span><br><span class="line">    <span class="string">&quot;micode.be.xiaomi.com/systech/soa/thrift&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">init</span><span class="params">()</span></span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//初始化rpc组件,必须要到平台上订阅xm_ip_service服务</span></span><br><span class="line">    <span class="comment">//在本例中，xm_ip_service_client已经订阅了xm_ip_service服务，所以能够调用成功</span></span><br><span class="line">    <span class="comment">//参数1：group 订阅者所在的组名</span></span><br><span class="line">    <span class="comment">//参数2：service 订阅者所在的服务名（项目名）</span></span><br><span class="line">    <span class="comment">//参数3：etcd_host etcd地址，</span></span><br><span class="line">             <span class="number">1.</span> 测试环境为http:<span class="comment">//etcd.test.mi.com </span></span><br><span class="line">             <span class="number">1.</span> 线上环境为http:<span class="comment">//soa01.etcd.b2c.srv:4001</span></span><br><span class="line">    _, err := xrpc.NewXRpcDefault(<span class="string">&quot;misite&quot;</span>, <span class="string">&quot;xm_ip_service_client&quot;</span>, <span class="string">&quot;http://etcd.test.mi.com&quot;</span>)</span><br><span class="line">    <span class="keyword">if</span> (err != <span class="literal">nil</span>) &#123;</span><br><span class="line">        fmt.Println(err)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//参数1：serviceName 调用方的服务名</span></span><br><span class="line">    <span class="comment">//参数2：logid 用来标识一次请求，一般从上游获取，没有可以自己随机生成</span></span><br><span class="line">    <span class="comment">//参数3：rpcId 填0即可</span></span><br><span class="line">    context := thrift.NewXContext(<span class="string">&quot;xm_ip_service_client&quot;</span>, <span class="number">1000</span>, <span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">//1. 参数1：serviceName 服务提供方的服务名</span></span><br><span class="line">    <span class="comment">//2. 参数2：ctx 调用上下文</span></span><br><span class="line">    client := ip.NewIPServiceClientWrapper2(<span class="string">&quot;xm_ip_service&quot;</span>, context)</span><br><span class="line"></span><br><span class="line">    ipList := <span class="built_in">make</span>([]<span class="type">string</span>, <span class="number">2</span>)</span><br><span class="line">    ipList = <span class="built_in">append</span>(ipList, <span class="string">&quot;100.200.39.4&quot;</span>)</span><br><span class="line">    fmt.Println(client.QueryGeoInfoByIP(ipList))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="运行测试程序"><a href="#运行测试程序" class="headerlink" title="运行测试程序"></a>运行测试程序</h2><p>正常情况下，将会返回类似如下结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Result_(&#123;Response:hello world,liuxing1&#125;) &lt;nil&gt;</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Go/" rel="tag"># Go</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2018/12/11/Moments%20%E6%9C%8B%E5%8F%8B%E5%9C%88%E5%BA%94%E7%94%A8%E8%AE%BE%E8%AE%A1/" rel="prev" title="Moments 朋友圈应用设计">
+                  <i class="fa fa-chevron-left"></i> Moments 朋友圈应用设计
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2019/04/08/LeetCode%E7%B2%BE%E9%80%89%E7%AE%97%E6%B3%95%E5%90%88%E9%9B%86(Go)/" rel="next" title="LeetCode精选算法合集(Go)">
+                  LeetCode精选算法合集(Go) <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Collie</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">194k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">2:57</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
