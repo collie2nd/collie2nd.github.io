@@ -1101,7 +1101,7 @@
 </blockquote>
 <h3 id="锚点与链接-Links"><a href="#锚点与链接-Links" class="headerlink" title="锚点与链接 Links"></a>锚点与链接 Links</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[普通链接](https://www.mdeditor.com/)</span><br><span class="line">[普通链接带标题](https://www.mdeditor.com/ &quot;普通链接带标题&quot;)</span><br><span class="line">直接链接：&lt;https://www.mdeditor.com&gt;</span><br><span class="line">[锚点链接][anchor-id]</span><br><span class="line">[anchor-id]: https://www.mdeditor.com/</span><br><span class="line">[mailto:test.test@gmail.com](mailto:test.test@gmail.com)</span><br><span class="line">GFM a-tail link @pandao</span><br><span class="line">邮箱地址自动链接 test.test@gmail.com  www@vip.qq.com</span><br><span class="line">&gt; @pandao</span><br></pre></td></tr></table></figure>
 
-<p><a href="https://www.mdeditor.com/">普通链接</a><br><a href="https://www.mdeditor.com/" title="普通链接带标题">普通链接带标题</a><br>直接链接：<a href="https://www.mdeditor.com/">https://www.mdeditor.com</a><br>[锚点链接][anchor-id]<br>[anchor-id]: <a href="https://www.mdeditor.com/">https://www.mdeditor.com/</a><br><a href="mailto:test.test@gmail.com">mailto:test.test@gmail.com</a><br>GFM a-tail link @pandao<br>邮箱地址自动链接 <a href="mailto:&#116;&#x65;&#x73;&#x74;&#x2e;&#x74;&#x65;&#115;&#x74;&#x40;&#103;&#x6d;&#x61;&#x69;&#108;&#46;&#99;&#111;&#109;">&#116;&#x65;&#x73;&#x74;&#x2e;&#x74;&#x65;&#115;&#x74;&#x40;&#103;&#x6d;&#x61;&#x69;&#108;&#46;&#99;&#111;&#109;</a>  <a href="mailto:&#119;&#119;&#x77;&#x40;&#118;&#105;&#112;&#x2e;&#113;&#x71;&#x2e;&#99;&#x6f;&#x6d;">&#119;&#119;&#x77;&#x40;&#118;&#105;&#112;&#x2e;&#113;&#x71;&#x2e;&#99;&#x6f;&#x6d;</a></p>
+<p><a href="https://www.mdeditor.com/">普通链接</a><br><a href="https://www.mdeditor.com/" title="普通链接带标题">普通链接带标题</a><br>直接链接：<a href="https://www.mdeditor.com/">https://www.mdeditor.com</a><br>[锚点链接][anchor-id]<br>[anchor-id]: <a href="https://www.mdeditor.com/">https://www.mdeditor.com/</a><br><a href="mailto:test.test@gmail.com">mailto:test.test@gmail.com</a><br>GFM a-tail link @pandao<br>邮箱地址自动链接 <a href="mailto:&#x74;&#x65;&#x73;&#116;&#x2e;&#x74;&#101;&#x73;&#x74;&#64;&#x67;&#109;&#97;&#x69;&#x6c;&#x2e;&#99;&#x6f;&#x6d;">&#x74;&#x65;&#x73;&#116;&#x2e;&#x74;&#101;&#x73;&#x74;&#64;&#x67;&#109;&#97;&#x69;&#x6c;&#x2e;&#99;&#x6f;&#x6d;</a>  <a href="mailto:&#x77;&#119;&#x77;&#x40;&#x76;&#x69;&#x70;&#x2e;&#113;&#113;&#x2e;&#99;&#x6f;&#109;">&#x77;&#119;&#x77;&#x40;&#x76;&#x69;&#x70;&#x2e;&#113;&#113;&#x2e;&#99;&#x6f;&#109;</a></p>
 <blockquote>
 <p>@pandao</p>
 </blockquote>
@@ -1469,6 +1469,54 @@
       </tags>
   </entry>
   <entry>
+    <title>nginx 学习笔记</title>
+    <url>/2020/07/20/backend_dev/nginx/</url>
+    <content><![CDATA[<h1 id="nginx"><a href="#nginx" class="headerlink" title="nginx"></a>nginx</h1><h2 id="nginx-配置"><a href="#nginx-配置" class="headerlink" title="nginx 配置"></a>nginx 配置</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cat</span> /etc/nginx/nginx.conf</span><br><span class="line"><span class="built_in">cat</span> /etc/nginx/conf.d/xxxxxxxx.conf</span><br></pre></td></tr></table></figure>
+
+<p>示例：路由 stdname 设置 <strong>nginx 监听 18026</strong> 收到请求后<strong>转发</strong>至 stdnameSvr 的 <strong>监听端口 19026</strong>。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">        listen       18026;</span><br><span class="line">        server_name  localhost;</span><br><span class="line"></span><br><span class="line">        location /stdname/  &#123;</span><br><span class="line">                fastcgi_pass   127.0.0.1:19026;</span><br><span class="line">                fastcgi_index  index.cgi;</span><br><span class="line">                include        fastcgi_params;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<h2 id="nginx-常用命令"><a href="#nginx-常用命令" class="headerlink" title="nginx 常用命令"></a>nginx 常用命令</h2><ul>
+<li><code>-t</code>：加上<code>-t</code>可以测试 nginx 配置是否正确</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 验证 nginx 配置文件是否正确</span></span><br><span class="line">nginx -t</span><br><span class="line"></span><br><span class="line">nginx: the configuration file /.../nginx.conf syntax is ok</span><br><span class="line">nginx: configuration file /.../nginx.conf <span class="built_in">test</span> is successful</span><br><span class="line"></span><br><span class="line"><span class="comment"># 说明配置文件正确</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>-c</code>：指定 nginx 运行时使用的 conf 文件路径</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">nginx -c /path_of_nginx.conf/nginx.conf</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>停止 nginx</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">ps -ef | grep nginx         //查看进程号</span><br><span class="line"><span class="built_in">kill</span> -QUIT &lt;pid_of_nginx&gt;   //从容停止</span><br><span class="line"><span class="built_in">kill</span> -TERM &lt;pid_of_nginx&gt;   //快速停止</span><br><span class="line"><span class="built_in">kill</span> -INT &lt;pid_of_nginx&gt;    //快速停止</span><br><span class="line"><span class="built_in">kill</span> -9 nginx               //强制停止</span><br></pre></td></tr></table></figure>
+
+<p>或者（如果已经注册到了系统服务里）可以用系统服务命令</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">systemctl stop nginx</span><br></pre></td></tr></table></figure>
+
+
+<ul>
+<li>重启 nginx</li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">nginx -s reload</span><br></pre></td></tr></table></figure>
+
+<p>或者（如果已经注册到了系统服务里）可以用系统服务命令</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">systemctl restart nginx</span><br></pre></td></tr></table></figure>
+
+<p>或者用 kill 命令</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">kill</span> -HUP &lt;pid_of_nginx&gt;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>后端技能</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>web</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>MySQL 学习笔记</title>
     <url>/2020/07/20/backend_dev/mysql/</url>
     <content><![CDATA[<h1 id="MySQL-一些不熟的语句"><a href="#MySQL-一些不熟的语句" class="headerlink" title="MySQL 一些不熟的语句"></a>MySQL 一些不熟的语句</h1><h2 id="DISTINCT"><a href="#DISTINCT" class="headerlink" title="DISTINCT"></a>DISTINCT</h2><p>DISTINCT 关键词用于返回唯一不同的值。</p>
@@ -1624,54 +1672,6 @@
       </categories>
       <tags>
         <tag>数据库</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>nginx 学习笔记</title>
-    <url>/2020/07/20/backend_dev/nginx/</url>
-    <content><![CDATA[<h1 id="nginx"><a href="#nginx" class="headerlink" title="nginx"></a>nginx</h1><h2 id="nginx-配置"><a href="#nginx-配置" class="headerlink" title="nginx 配置"></a>nginx 配置</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cat</span> /etc/nginx/nginx.conf</span><br><span class="line"><span class="built_in">cat</span> /etc/nginx/conf.d/xxxxxxxx.conf</span><br></pre></td></tr></table></figure>
-
-<p>示例：路由 stdname 设置 <strong>nginx 监听 18026</strong> 收到请求后<strong>转发</strong>至 stdnameSvr 的 <strong>监听端口 19026</strong>。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">        listen       18026;</span><br><span class="line">        server_name  localhost;</span><br><span class="line"></span><br><span class="line">        location /stdname/  &#123;</span><br><span class="line">                fastcgi_pass   127.0.0.1:19026;</span><br><span class="line">                fastcgi_index  index.cgi;</span><br><span class="line">                include        fastcgi_params;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<span id="more"></span>
-
-<h2 id="nginx-常用命令"><a href="#nginx-常用命令" class="headerlink" title="nginx 常用命令"></a>nginx 常用命令</h2><ul>
-<li><code>-t</code>：加上<code>-t</code>可以测试 nginx 配置是否正确</li>
-</ul>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 验证 nginx 配置文件是否正确</span></span><br><span class="line">nginx -t</span><br><span class="line"></span><br><span class="line">nginx: the configuration file /.../nginx.conf syntax is ok</span><br><span class="line">nginx: configuration file /.../nginx.conf <span class="built_in">test</span> is successful</span><br><span class="line"></span><br><span class="line"><span class="comment"># 说明配置文件正确</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><code>-c</code>：指定 nginx 运行时使用的 conf 文件路径</li>
-</ul>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">nginx -c /path_of_nginx.conf/nginx.conf</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>停止 nginx</li>
-</ul>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">ps -ef | grep nginx         //查看进程号</span><br><span class="line"><span class="built_in">kill</span> -QUIT &lt;pid_of_nginx&gt;   //从容停止</span><br><span class="line"><span class="built_in">kill</span> -TERM &lt;pid_of_nginx&gt;   //快速停止</span><br><span class="line"><span class="built_in">kill</span> -INT &lt;pid_of_nginx&gt;    //快速停止</span><br><span class="line"><span class="built_in">kill</span> -9 nginx               //强制停止</span><br></pre></td></tr></table></figure>
-
-<p>或者（如果已经注册到了系统服务里）可以用系统服务命令</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">systemctl stop nginx</span><br></pre></td></tr></table></figure>
-
-
-<ul>
-<li>重启 nginx</li>
-</ul>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">nginx -s reload</span><br></pre></td></tr></table></figure>
-
-<p>或者（如果已经注册到了系统服务里）可以用系统服务命令</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">systemctl restart nginx</span><br></pre></td></tr></table></figure>
-
-<p>或者用 kill 命令</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">kill</span> -HUP &lt;pid_of_nginx&gt;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>后端技能</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
-        <tag>web</tag>
       </tags>
   </entry>
   <entry>
