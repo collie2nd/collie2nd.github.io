@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"collie2nd.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"waline","storage":true,"lazyload":false,"nav":null,"activeClass":"waline"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="GO Web 编程Go 语言介绍第一章：Go与web应用HTTP HTTP 是一种无状态、由文本构成的请求-响应(request-response)协议，这种协议使用的是客户端-服务器(client-server)计算模型 CGI 通用网管接口(Common Gateway Interface)，允许web服务器与一个独立运行于web服务器进程之外的进程对接 SSI(server-side inc">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《Go Web 编程》读书笔记">
+<meta property="og:url" content="http://collie2nd.github.io/2022/02/28/backend_dev/goweb/index.html">
+<meta property="og:site_name" content="试过重启了吗">
+<meta property="og:description" content="GO Web 编程Go 语言介绍第一章：Go与web应用HTTP HTTP 是一种无状态、由文本构成的请求-响应(request-response)协议，这种协议使用的是客户端-服务器(client-server)计算模型 CGI 通用网管接口(Common Gateway Interface)，允许web服务器与一个独立运行于web服务器进程之外的进程对接 SSI(server-side inc">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gitee.com/colliexyy/pic/raw/master/code/goweb.jpg">
+<meta property="article:published_time" content="2022-02-27T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-02-27T16:00:00.000Z">
+<meta property="article:author" content="Collie">
+<meta property="article:tag" content="golang">
+<meta property="article:tag" content="read">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/colliexyy/pic/raw/master/code/goweb.jpg">
+
+
+<link rel="canonical" href="http://collie2nd.github.io/2022/02/28/backend_dev/goweb/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://collie2nd.github.io/2022/02/28/backend_dev/goweb/","path":"2022/02/28/backend_dev/goweb/","title":"《Go Web 编程》读书笔记"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>《Go Web 编程》读书笔记 | 试过重启了吗</title>
+  
+
+
+
+
+<link rel="dns-prefetch" href="comment.colliexyy.com">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">试过重启了吗</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Collie's Site</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">14</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">3</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">37</span></a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#GO-Web-%E7%BC%96%E7%A8%8B"><span class="nav-number">1.</span> <span class="nav-text">GO Web 编程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Go-%E8%AF%AD%E8%A8%80%E4%BB%8B%E7%BB%8D"><span class="nav-number">2.</span> <span class="nav-text">Go 语言介绍</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0%EF%BC%9AGo%E4%B8%8Eweb%E5%BA%94%E7%94%A8"><span class="nav-number">3.</span> <span class="nav-text">第一章：Go与web应用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP"><span class="nav-number">3.1.</span> <span class="nav-text">HTTP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#URI"><span class="nav-number">3.2.</span> <span class="nav-text">URI</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%84%E7%90%86%E5%99%A8"><span class="nav-number">3.3.</span> <span class="nav-text">处理器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E-template-engine"><span class="nav-number">3.4.</span> <span class="nav-text">模板引擎(template engine)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0%EF%BC%9AChitChat%E8%AE%BA%E5%9D%9B"><span class="nav-number">4.</span> <span class="nav-text">第二章：ChitChat论坛</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0%EF%BC%9A%E6%8E%A5%E6%94%B6%E8%AF%B7%E6%B1%82"><span class="nav-number">5.</span> <span class="nav-text">第三章：接收请求</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#net-x2F-http%E6%A0%87%E5%87%86%E5%BA%93"><span class="nav-number">5.1.</span> <span class="nav-text">net&#x2F;http标准库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%84%E7%90%86%E5%99%A8%E5%92%8C%E5%A4%84%E7%90%86%E5%87%BD%E6%95%B0"><span class="nav-number">5.2.</span> <span class="nav-text">处理器和处理函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%84%E7%90%86%E5%99%A8-1"><span class="nav-number">5.2.1.</span> <span class="nav-text">处理器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%84%E7%90%86%E5%99%A8%E5%87%BD%E6%95%B0"><span class="nav-number">5.2.2.</span> <span class="nav-text">处理器函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%B2%E8%81%94%E5%A4%9A%E4%B8%AA%E5%A4%84%E7%90%86%E5%99%A8%E5%92%8C%E5%A4%84%E7%90%86%E5%99%A8%E5%87%BD%E6%95%B0"><span class="nav-number">5.3.</span> <span class="nav-text">串联多个处理器和处理器函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ServeMux"><span class="nav-number">5.4.</span> <span class="nav-text">ServeMux</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0%EF%BC%9A%E5%A4%84%E7%90%86%E8%AF%B7%E6%B1%82"><span class="nav-number">6.</span> <span class="nav-text">第四章：处理请求</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%B7%E6%B1%82%E5%92%8C%E5%93%8D%E5%BA%94"><span class="nav-number">6.1.</span> <span class="nav-text">请求和响应</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Request%E7%BB%93%E6%9E%84"><span class="nav-number">6.1.1.</span> <span class="nav-text">Request结构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Go%E4%B8%8EHTML%E8%A1%A8%E5%8D%95"><span class="nav-number">6.2.</span> <span class="nav-text">Go与HTML表单</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ResponseWriter"><span class="nav-number">6.3.</span> <span class="nav-text">ResponseWriter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cookie"><span class="nav-number">6.4.</span> <span class="nav-text">cookie</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Go%E4%B8%8Ecookie"><span class="nav-number">6.4.1.</span> <span class="nav-text">Go与cookie</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cookie%E5%AE%9E%E7%8E%B0%E9%97%AA%E7%8E%B0%E6%B6%88%E6%81%AF"><span class="nav-number">6.4.2.</span> <span class="nav-text">cookie实现闪现消息</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0%EF%BC%9A%E5%86%85%E5%AE%B9%E5%B1%95%E7%A4%BA"><span class="nav-number">7.</span> <span class="nav-text">第五章：内容展示</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E5%85%AD%E7%AB%A0%EF%BC%9A%E5%AD%98%E5%82%A8%E6%95%B0%E6%8D%AE"><span class="nav-number">8.</span> <span class="nav-text">第六章：存储数据</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%B8%83%E7%AB%A0%EF%BC%9AGo-Web-%E6%9C%8D%E5%8A%A1"><span class="nav-number">9.</span> <span class="nav-text">第七章：Go Web 服务</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E5%85%AB%E7%AB%A0%EF%BC%9A%E5%BA%94%E7%94%A8%E6%B5%8B%E8%AF%95"><span class="nav-number">10.</span> <span class="nav-text">第八章：应用测试</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%B9%9D%E7%AB%A0%EF%BC%9A%E5%8F%91%E6%8C%A5-Go-%E7%9A%84%E5%B9%B6%E5%8F%91%E4%BC%98%E5%8A%BF"><span class="nav-number">11.</span> <span class="nav-text">第九章：发挥 Go 的并发优势</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E5%8D%81%E7%AB%A0%EF%BC%9AGo-%E7%9A%84%E9%83%A8%E7%BD%B2"><span class="nav-number">12.</span> <span class="nav-text">第十章：Go 的部署</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Collie"
+      src="/images/blue.gif">
+  <p class="site-author-name" itemprop="name">Collie</p>
+  <div class="site-description" itemprop="description">less is more</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/collie2nd" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;collie2nd" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:collie1158@qq.com" title="E-Mail → mailto:collie1158@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/u/6213715897" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;6213715897" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/collie2nd" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;collie2nd" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/collie2nd" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;collie2nd" rel="noopener" target="_blank"><i class="fab fa-facebook fa-fw"></i>FB Page</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://instagram.com/collie2nd" title="Instagram → https:&#x2F;&#x2F;instagram.com&#x2F;collie2nd" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i>Instagram</a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/collie2nd" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://collie2nd.github.io/2022/02/28/backend_dev/goweb/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/blue.gif">
+      <meta itemprop="name" content="Collie">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="试过重启了吗">
+      <meta itemprop="description" content="less is more">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="《Go Web 编程》读书笔记 | 试过重启了吗">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          《Go Web 编程》读书笔记
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-02-28 00:00:00" itemprop="dateCreated datePublished" datetime="2022-02-28T00:00:00+08:00">2022-02-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%90%8E%E7%AB%AF%E6%8A%80%E8%83%BD/" itemprop="url" rel="index"><span itemprop="name">后端技能</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2022/02/28/backend_dev/goweb/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2022/02/28/backend_dev/goweb/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>10k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>10 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="GO-Web-编程"><a href="#GO-Web-编程" class="headerlink" title="GO Web 编程"></a>GO Web 编程</h1><h1 id="Go-语言介绍"><a href="#Go-语言介绍" class="headerlink" title="Go 语言介绍"></a>Go 语言介绍</h1><h1 id="第一章：Go与web应用"><a href="#第一章：Go与web应用" class="headerlink" title="第一章：Go与web应用"></a>第一章：Go与web应用</h1><h2 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h2><ul>
+<li>HTTP 是一种<strong>无状态、由文本构成</strong>的请求-响应(request-response)协议，这种协议使用的是客户端-服务器(client-server)计算模型</li>
+<li>CGI 通用网管接口(Common Gateway Interface)，允许web服务器与一个独立运行于web服务器进程之外的进程对接</li>
+<li>SSI(server-side includes)服务器端，允许开发者在HTML文件里包含一些指令，衍生出了JSP(Java Server Pages)，ASP(Active Server Pages)等Web模板引擎</li>
+</ul>
+<hr>
+<ul>
+<li>http请求<ul>
+<li>请求行(request-line)</li>
+<li>零个或任意多个请求首部(header)</li>
+<li>一个空行</li>
+<li>可选的报文主体(body)</li>
+</ul>
+</li>
+<li>请求方法<ul>
+<li>GET</li>
+<li>POST</li>
+<li>HEAD</li>
+<li>PUT</li>
+<li>DELETE</li>
+<li>TRACE</li>
+<li>OPTIONS</li>
+<li>CONNECT</li>
+<li>PATCH</li>
+</ul>
+</li>
+</ul>
+<span id="more"></span>
+<hr>
+<ul>
+<li>http响应<ul>
+<li>一个状态行</li>
+<li>零个或任意数量的响应首部</li>
+<li>一个空行</li>
+<li>一个可选的报文主体</li>
+</ul>
+</li>
+<li>响应状态码<ul>
+<li>1XX 情报状态码</li>
+<li>2XX 成功状态码</li>
+<li>3XX 重定向状态码</li>
+<li>4XX 客户端错误状态码</li>
+<li>5XX 服务器错误状态码</li>
+</ul>
+</li>
+<li>响应首部<ul>
+<li>Allow</li>
+<li>Content-Length</li>
+<li>Content-Type</li>
+<li>Date</li>
+<li>Location</li>
+<li>Server</li>
+<li>Set-Cookie</li>
+<li>WWW-Authenticate</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="URI"><a href="#URI" class="headerlink" title="URI"></a>URI</h2><ul>
+<li>URI一般格式为：<code>&lt;方案名称&gt;:&lt;分层部分&gt;[ ? &lt;查询参数&gt;] [ # &lt;片段&gt;]</code></li>
+<li>因每个URL都是一个单独的字符串，所以URL里不能包含空格，?和#这些符号也不能做其它用途，我们需要用URL编码(百分号编码)对这些字符进行转换，做法是**将该字符在ASCII码中的字节值转换为16进制，并在前面加上%**，例如空格就被转换为%20。</li>
+</ul>
+<h2 id="处理器"><a href="#处理器" class="headerlink" title="处理器"></a>处理器</h2><p>Web应用中的处理器出了要接收和处理客户端发来的请求，还需要调用模板引擎，然后由模板引擎生成HTML并把数据填充至将要回传给客户端的响应报文中</p>
+<h2 id="模板引擎-template-engine"><a href="#模板引擎-template-engine" class="headerlink" title="模板引擎(template engine)"></a>模板引擎(template engine)</h2><ul>
+<li>静态模板</li>
+<li>动态模板</li>
+</ul>
+<h1 id="第二章：ChitChat论坛"><a href="#第二章：ChitChat论坛" class="headerlink" title="第二章：ChitChat论坛"></a>第二章：ChitChat论坛</h1><ul>
+<li>请求的接收和处理是所有 Web 应用的核心。</li>
+<li>多路复用器会将 HTTP 请求重定向到正确的处理器进行处理，针对静态文件的请求也是如此。</li>
+<li><strong>处理器函数是一种接受 ResponseWriter 和 Request 指针作为参数的 Go 函数。</strong></li>
+<li>cookie 可以用作一种访问控制机制。</li>
+<li>对模板文件以及数据进行语法分析会产生相应的 HTML， 这些 HTML 会被用作返回给浏览器的响应数据。</li>
+<li>通过使用 sql 包以及相应的 SQL 语句，用户可以将数据持久地存储在关系数据库中。</li>
+</ul>
+<h1 id="第三章：接收请求"><a href="#第三章：接收请求" class="headerlink" title="第三章：接收请求"></a>第三章：接收请求</h1><h2 id="net-x2F-http标准库"><a href="#net-x2F-http标准库" class="headerlink" title="net&#x2F;http标准库"></a>net&#x2F;http标准库</h2><p><img src="https://gitee.com/colliexyy/pic/raw/master/code/goweb.jpg"></p>
+<p>net&#x2F;http 标准库通常包括两个部分，客户端和服务器，我们可以通过ListenAndServe创建一个简陋的服务器</p>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">&quot;net/http&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    http.ListenAndServe(<span class="string">&quot;&quot;</span>, <span class="literal">nil</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这会使用默认的80端口进行网络连接，并且使用默认的多路复用器DefaultServeMux，我们也可以通过Server结构进行更详细的配置</p>
+<figure class="highlight golang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    server := http.Server &#123;</span><br><span class="line">        Addr: <span class="string">&quot;127.0.0.1:80&quot;</span>,</span><br><span class="line">        Handler: <span class="literal">nil</span>,</span><br><span class="line">    &#125;</span><br><span class="line">    server.ListenAndServe()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="处理器和处理函数"><a href="#处理器和处理函数" class="headerlink" title="处理器和处理函数"></a>处理器和处理函数</h2><h3 id="处理器-1"><a href="#处理器-1" class="headerlink" title="处理器"></a>处理器</h3><p>前面的代码会返回404响应，因为我们还没有为请求编写相应的处理器。一个处理器就是一个拥有ServeHTTP方法的接口</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Handler <span class="keyword">interface</span> &#123;</span><br><span class="line">    ServeHTTP(ResponseWriter, *Request)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们通过实现这个接口来编写处理器</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> MyHandler <span class="keyword">struct</span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(h *MyHandler)</span></span> ServeHTTP(w http.ResponseWriter, r *http.Request) &#123;</span><br><span class="line">    fmt.Fprintf(w, <span class="string">&quot;Hello, world&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    handler := MyHandler&#123;&#125;</span><br><span class="line">    server := http.Server &#123;</span><br><span class="line">        Addr: <span class="string">&quot;127.0.0.1:80&quot;</span>,</span><br><span class="line">        Handler: &amp;handler,</span><br><span class="line">    &#125;</span><br><span class="line">    server.ListenAndServe()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们可以设置多个处理器</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> HelloHandler <span class="keyword">struct</span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(hello *HelloHandler)</span></span> ServeHTTP(w http.ResponseWriter, r *http.Request) &#123;</span><br><span class="line">    fmt.Fprintf(w, <span class="string">&quot;hello!&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> WorldHandler <span class="keyword">struct</span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(world *WorldHandler)</span></span> ServeHTTP(w http.ResponseWriter, r *http.Reuest) &#123;</span><br><span class="line">    fmt.Fprintf(w, <span class="string">&quot;world!&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    hello := HelloHandler&#123;&#125;</span><br><span class="line">    world := WorldHandler&#123;&#125;</span><br><span class="line"></span><br><span class="line">    server := http.Server &#123;</span><br><span class="line">        Addr: <span class="string">&quot;127.0.0.1:80&quot;</span>,</span><br><span class="line">    &#125;</span><br><span class="line">    http.Handle(<span class="string">&quot;/hello&quot;</span>, &amp;hello)</span><br><span class="line">    http.Handle(<span class="string">&quot;/world&quot;</span>, &amp;world)</span><br><span class="line"></span><br><span class="line">    server.ListenAndServe()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们看一下Handle函数再源码中的定义</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Handle</span><span class="params">(pattern <span class="type">string</span>, handler Handler)</span></span> &#123; </span><br><span class="line">    DefaultServeMux.Handle(pattern, handler) </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>实际上是在调用DefaultServeMux的某个方法，前面我们已经提到过了DefaultServeMux是个默认多路复用器，实际上它也是个Handler处理器，因为他是ServeMux结构的一个实例，而ServeMux也实现了Handler接口的ServeHTTP方法。这样就可以对不同的请求做出不同的响应。</p>
+<h3 id="处理器函数"><a href="#处理器函数" class="headerlink" title="处理器函数"></a>处理器函数</h3><p>处理器函数是与处理器拥有同样行为的函数，它们与ServeHTTP拥有同样的函数签名。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">hello</span> <span class="params">(w http.ResponseWriter, r *http.Request)</span></span> &#123;</span><br><span class="line">    fmt.Fprintf(w, <span class="string">&quot;Hello!&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    server := http.Server &#123;</span><br><span class="line">        Addr: <span class="string">&quot;127.0.0.1:8080&quot;</span>,</span><br><span class="line">    &#125;</span><br><span class="line">    http.HandleFunc(<span class="string">&quot;/hello&quot;</span>, hello)</span><br><span class="line"></span><br><span class="line">    server.ListenAndServe()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>HandleFunc是Go语言拥有的一种函数类型，它可以把一个带有正确签名的f转换为带有方法f的handler。</p>
+<p>来看看HandleFunc的源码</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">HandleFunc</span><span class="params">(pattern <span class="type">string</span>, handler <span class="keyword">func</span>(ResponseWriter, *Request)</span></span>) &#123;</span><br><span class="line">    DefaultServeMux.HandleFunc(pattern, handler)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(mux *ServeMux)</span></span> HandleFunc(pattern <span class="type">string</span>, handler <span class="function"><span class="keyword">func</span><span class="params">(ResponseWriter, *Request)</span></span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> handler == <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="built_in">panic</span>(<span class="string">&quot;http: nil handler&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    mux.Handle(pattern, HandlerFunc(handler))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Handle函数是不是似曾相识！</p>
+<h2 id="串联多个处理器和处理器函数"><a href="#串联多个处理器和处理器函数" class="headerlink" title="串联多个处理器和处理器函数"></a>串联多个处理器和处理器函数</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">hello</span><span class="params">(w *http.ResponseWriter, r *Request)</span></span> &#123;</span><br><span class="line">    fmt.Fprintf(w, <span class="string">&quot;Hello!&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">log</span><span class="params">(h http.Handler)</span></span> http.HandlerFunc &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">func</span><span class="params">(w http.ResponseWriter, r *http.Request)</span></span> &#123;</span><br><span class="line">        fmt.Println(<span class="string">&quot;Log!&quot;</span>)</span><br><span class="line">        h(w, r)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    server := http.Server &#123;</span><br><span class="line">        Addr: <span class="string">&quot;127.0.0.1:8080&quot;</span>,</span><br><span class="line">    &#125;</span><br><span class="line">    http.HandleFunc(<span class="string">&quot;/hello&quot;</span>, log(hello))</span><br><span class="line">    server.ListenAndServe()</span><br><span class="line">&#125;</span><br><span class="line">其中HandlerFunc是实现了Handler接口的函数类型，源码定义：</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> HandlerFunc <span class="function"><span class="keyword">func</span><span class="params">(ResponseWriter, *Request)</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(f HandlerFunc)</span></span> ServeHTTP(w ResponseWriter, r *Request) &#123;</span><br><span class="line">    f(w, r)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="ServeMux"><a href="#ServeMux" class="headerlink" title="ServeMux"></a>ServeMux</h2><p>ServeMux是一个HTTP请求多路复用器，负责接收HTTP请求并根据请求中的URL将请求重定向到正确的处理器。ServeMux包含一个映射，这个映射会将URL映射至相应的处理器。值得一提的是，ServeMux无法使用变量实现URL模式匹配，因此必要时我们完全可以用其它自建的多路复用器来代替ServeMux，如HttpRouter等高效轻量的第三方复用器</p>
+<h1 id="第四章：处理请求"><a href="#第四章：处理请求" class="headerlink" title="第四章：处理请求"></a>第四章：处理请求</h1><h2 id="请求和响应"><a href="#请求和响应" class="headerlink" title="请求和响应"></a>请求和响应</h2><h3 id="Request结构"><a href="#Request结构" class="headerlink" title="Request结构"></a>Request结构</h3><ul>
+<li>URL字段</li>
+<li>Header字段</li>
+<li>Body字段</li>
+<li>Form, PostForm, MultipartForm字段</li>
+</ul>
+<p>在处理器函数中，我们可以通过Request获取各个字段的详细信息</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">get_request_value</span><span class="params">(w *http.ResponseWriter, r *http.Request)</span></span> &#123;</span><br><span class="line">    h := r.Header</span><br><span class="line">    brower := r.Header.Get(<span class="string">&quot;User-Agent&quot;</span>)</span><br><span class="line">    fme.Fprintln(w, h)</span><br><span class="line"></span><br><span class="line">    body := <span class="built_in">make</span>([]<span class="type">byte</span>, r.ContentLength)</span><br><span class="line">    r.Body.Read(body)</span><br><span class="line">    fmt.Fprintln(w, <span class="type">string</span>(body))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Go与HTML表单"><a href="#Go与HTML表单" class="headerlink" title="Go与HTML表单"></a>Go与HTML表单</h2><p><strong>用户在表单中输入的数据会以键值对的形式记录在请求的主体中</strong>，其中表单中的<strong>enctype</strong>属性决定了以何种形式发送键值对。默认属性值为application&#x2F;x-www-form-urlencoded，这个属性会把表单中的数据编码一个连续的长查询字符串，另一种编码方式为multipart&#x2F;form-data，表单中的数据会被转换为一条MIME报文，每个键值对都构成了这个报文的一部分。简单来说，<strong>当表单只需要传送简单数据时，默认编码更加简单，高效；而当表单需要传输大量数据(如文件)时，使用后一种编码方式会更好。</strong> 有些时候，用户可以通过Base64编码，以文本方式传送二进制数据。</p>
+<p>使用Request结构获取表单数据的一般步骤是：</p>
+<ol>
+<li>调用ParseForm或者ParseMultipartForm方法进行语法分析</li>
+<li>访问Form, PostForm, MultipartForm等字段获取数据</li>
+</ol>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">get_form_data1</span><span class="params">(w http.ResponseWriter, r *http.Request)</span></span> &#123;</span><br><span class="line">    r.ParseForm()</span><br><span class="line">    fmt.Fprintln(w, r.Form)</span><br><span class="line">    <span class="comment">// PostForm字段只支持默认编码，并且只返回表单值，不返回URL查询值</span></span><br><span class="line">    fmt.Fprintln(w, r.PostForm)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当使用multipart&#x2F;form-data编码时，表单数据会被存储到MultipartForm字段中</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">get_form_data2</span><span class="params">(w http.ResponseWriter, r *http.Request)</span></span> &#123;</span><br><span class="line">    r.ParseMultipartForm(<span class="number">1024</span>)</span><br><span class="line">    fmt.Fprintln(w, r.MultipartForm)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们也可以使用FormValue或者PostFormValue快速获取表单值，也两个方法会自动调用ParseForm或者ParseMultipartForm方法，其中PostFormValue只会返回表单键值对而不会返回URL键值对</p>
+<p>使用FormFile方法可以快速的获取被上传的文件</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">process</span><span class="params">(w http.ResponseWriter, r *http.Request)</span></span> &#123;</span><br><span class="line">    file, _, err := r.FormFile(<span class="string">&quot;upload&quot;</span>)</span><br><span class="line">    <span class="keyword">if</span> err == <span class="literal">nil</span> &#123;</span><br><span class="line">        data, err := ioutil.ReadAll(file)</span><br><span class="line">        <span class="keyword">if</span> err == <span class="literal">nil</span> &#123;</span><br><span class="line">            fmt.Fprintln(w, <span class="type">string</span>(data))</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="ResponseWriter"><a href="#ResponseWriter" class="headerlink" title="ResponseWriter"></a>ResponseWriter</h2><ul>
+<li>Write 接收一个字节数组，并写入到HTTP响应主体中</li>
+<li>WriteHeader 改变HTTP响应状态码</li>
+<li>Header 修改HTTP响应首部</li>
+</ul>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    json2 <span class="string">&quot;encoding/json&quot;</span></span><br><span class="line">    <span class="string">&quot;fmt&quot;</span></span><br><span class="line">    <span class="string">&quot;net/http&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">type</span> Post <span class="keyword">struct</span> &#123;</span><br><span class="line">    User <span class="type">string</span></span><br><span class="line">    Threads []<span class="type">string</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">writeExample</span><span class="params">(w http.ResponseWriter, r *http.Request)</span></span> &#123;</span><br><span class="line">    str := <span class="string">`&lt;html&gt;</span></span><br><span class="line"><span class="string">            &lt;head&gt;&lt;title&gt;Go&lt;/title&gt;&lt;/head&gt;</span></span><br><span class="line"><span class="string">            &lt;body&gt;&lt;h1&gt;Hello world&lt;/h1&gt;&lt;/body&gt;</span></span><br><span class="line"><span class="string">            &lt;/html&gt;`</span></span><br><span class="line">    w.Write([]<span class="type">byte</span>(str))</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">writeHeaderExample</span><span class="params">(w http.ResponseWriter, r *http.Request)</span></span> &#123;</span><br><span class="line">    w.WriteHeader(<span class="number">501</span>)</span><br><span class="line">    fmt.Fprintln(w, <span class="string">&quot;No such service, try next door&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">headerExample</span><span class="params">(w http.ResponseWriter, r *http.Request)</span></span> &#123;</span><br><span class="line">    w.Header().Set(<span class="string">&quot;Location&quot;</span>, <span class="string">&quot;http://baidu.com&quot;</span>)</span><br><span class="line">    w.WriteHeader(<span class="number">302</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">jsonExample</span><span class="params">(w http.ResponseWriter, r *http.Request)</span></span> &#123;</span><br><span class="line">    w.Header().Set(<span class="string">&quot;Content-Type&quot;</span>, <span class="string">&quot;application/json&quot;</span>)</span><br><span class="line">    post := &amp;Post&#123;</span><br><span class="line">        User: <span class="string">&quot;authetic&quot;</span>,</span><br><span class="line">        Threads: []<span class="type">string</span>&#123;<span class="string">&quot;first&quot;</span>, <span class="string">&quot;second&quot;</span>&#125;,</span><br><span class="line">    &#125;</span><br><span class="line">    json, _ := json2.Marshal(post)</span><br><span class="line">    w.Write(json)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    server := http.Server&#123;</span><br><span class="line">        Addr: <span class="string">&quot;127.0.0.1:8080&quot;</span>,</span><br><span class="line">    &#125;</span><br><span class="line">    http.HandleFunc(<span class="string">&quot;/write&quot;</span>, writeExample)</span><br><span class="line">    http.HandleFunc(<span class="string">&quot;/writeheader&quot;</span>, writeHeaderExample)</span><br><span class="line">    http.HandleFunc(<span class="string">&quot;/redirect&quot;</span>, headerExample)</span><br><span class="line">    http.HandleFunc(<span class="string">&quot;/json&quot;</span>, jsonExample)</span><br><span class="line">    server.ListenAndServe()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h2><h3 id="Go与cookie"><a href="#Go与cookie" class="headerlink" title="Go与cookie"></a>Go与cookie</h3><p>响应头部没有设置Expires字段的通常被成为会话cookie，浏览器关闭或刷新cookie就会消失，设置了Expires字段的通常被称为持久cookie，在过期时间之前会一直存在。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">set_cookie</span><span class="params">(w http.ResponseWriter, r *http.Request)</span></span> &#123;</span><br><span class="line">    c1 := http.Cookie&#123;</span><br><span class="line">        Name: <span class="string">&quot;first_cookie&quot;</span>,</span><br><span class="line">        Value: <span class="string">&quot;Go Web&quot;</span>,</span><br><span class="line">        HttpOnly: <span class="literal">true</span>,</span><br><span class="line">    &#125;</span><br><span class="line">    c2 := http.Cookie&#123;</span><br><span class="line">        Name: <span class="string">&quot;second_cookie&quot;</span>,</span><br><span class="line">        Value: <span class="string">&quot;Go Web&quot;</span>,</span><br><span class="line">        HttpOnly: <span class="literal">true</span>,</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    http.SetCookie(w, &amp;c1)</span><br><span class="line">    http.SetCookie(w, &amp;c2)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">get_cookie</span><span class="params">(w http.ResponseWriter, r *http.Request)</span></span> &#123;</span><br><span class="line">    <span class="comment">// h := r.Header[&quot;Cookie&quot;]</span></span><br><span class="line">    cl, err := r.Cookie(<span class="string">&quot;first_cookie&quot;</span>)</span><br><span class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">        fmt.Fprintln(w, <span class="string">&quot;Something wrong&quot;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    cs := r.Cookies()</span><br><span class="line">    fmt.Fprintln(w, cl)</span><br><span class="line">    fmt.Fprintln(w, cs)</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="cookie实现闪现消息"><a href="#cookie实现闪现消息" class="headerlink" title="cookie实现闪现消息"></a>cookie实现闪现消息</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">setMessage</span><span class="params">(w http.ResponseWriter, r *http.Request)</span></span> &#123;</span><br><span class="line">    msg := []<span class="type">byte</span>(<span class="string">&quot;Hello Go&quot;</span>)</span><br><span class="line">    c := http.Cookie&#123;</span><br><span class="line">        Name: <span class="string">&quot;flash&quot;</span>,</span><br><span class="line">        Value: base64.URLEncoding.EncodeToString(msg),</span><br><span class="line">    &#125;</span><br><span class="line">    http.SetCookie(w, &amp;c)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">showMessage</span><span class="params">(w http.ResponseWriter, r *http.Request)</span></span> &#123;</span><br><span class="line">    c, err := r.Cookie(<span class="string">&quot;flash&quot;</span>)</span><br><span class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> err == http.ErrNoCookie &#123;</span><br><span class="line">            fmt.Fprintln(w, <span class="string">&quot;No message found&quot;</span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        rc := http.Cookie&#123;</span><br><span class="line">            Name: <span class="string">&quot;flash&quot;</span>,</span><br><span class="line">            MaxAge: <span class="number">-1</span>,</span><br><span class="line">            Expires: time.Unix(<span class="number">1</span>, <span class="number">0</span>),</span><br><span class="line">        &#125;</span><br><span class="line">        http.SetCookie(w, &amp;rc)</span><br><span class="line">        val, _ := base64.URLEncoding.DecodeString(c.Value)</span><br><span class="line">        fmt.Fprintln(w, <span class="type">string</span>(val))</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h1 id="第五章：内容展示"><a href="#第五章：内容展示" class="headerlink" title="第五章：内容展示"></a>第五章：内容展示</h1><ul>
+<li>在 Web 应用中，模板引擎会把模板和数据进行合并，生成将要返回给客户端的 HTML。</li>
+<li>Go 的标准模板引擎定义在 html&#x2F;template 包当中。</li>
+<li>Go 模板引擎的工作方式就是对一个模板进行语法分析，接着在执行这个模板的时候，将一个ResponseWriter 以及一些数据传递给它。被调用的模板引擎会对传入的已分析模板以及数据进行合并，然后把合并的结果传递给 ResponseWriter。</li>
+<li>Go 的模板拥有一系列丰富多样并且威力强大的动作，这些动作就是一系列命令，它们可以告诉模板应该以何种方式与数据合并。</li>
+<li>除了动作之外，模板还可以包含参数、管道和变量：其中<strong>参数用于表示模板中的数据值，管道用于串联起多个参数和函数，至于变量则会作为动作的组件而存在。</strong></li>
+<li>Go 拥有一系列受限的模板函数。此外，通过创建一个函数映射并将它与模板进行绑定，用户也可以创建出自己的模板函数。</li>
+<li>Go 的模板引擎可以根据数据所在的位置改变数据的显示方式，这种上下文感知特性能够有效地防御 XSS 攻击。</li>
+<li>人们在设计一个拥有一致外观和使用感受的 Web 应用时，常常会用到 Web 布局，Go可以使用嵌套模板来实现 Web 布局。</li>
+</ul>
+<h1 id="第六章：存储数据"><a href="#第六章：存储数据" class="headerlink" title="第六章：存储数据"></a>第六章：存储数据</h1><ul>
+<li>通过使用结构将数据存储在<strong>内存</strong>里面，以此来构建数据缓存机制并提高响应速度。</li>
+<li>通过使用 CSV 或者 gob 二进制格式将数据存储在<strong>文件</strong>里面，可以对用户提交的文件进行处理，或者为缓存数据提供备份。</li>
+<li>通过使用 database&#x2F;sql 包，可以对关系数据库执行 CRUD 操作，并在不同的数据之间建立起相应的关系。</li>
+<li>通过 Sqlx 和 Gorm 这样的第三方数据访问库，可以使用威力更强大的工具去操纵<strong>数据库</strong>中的数据。</li>
+</ul>
+<h1 id="第七章：Go-Web-服务"><a href="#第七章：Go-Web-服务" class="headerlink" title="第七章：Go Web 服务"></a>第七章：Go Web 服务</h1><ul>
+<li>编写 Web 服务是 Go 语言目前非常常见的用途之一，了解如何构建 Web 服务是一项非常有价值的技能。</li>
+<li>Web 服务主要分为两种类型——一种是基于 SOAP 的 Web 服务，而另一种则是基于 REST 的 Web 服务<ul>
+<li>SOAP 是一种协议，它能够对定义在 XML 中的结构化数据进行交换。但是，因为 SOAP 的 WSDL 报文有可能会变得非常复杂，所以基于 SOAP 的 Web 服务没有基于 REST 的 Web 服务那么流行。</li>
+<li>基于 REST 的 Web 服务通过 HTTP 协议向外界公开自己拥有的资源，并允许外界通过 HTTP 协议对这些资源执行指定的动作。</li>
+</ul>
+</li>
+<li>创建和分析 XML 以及 JSON 的步骤都是相似的，用户要么根据指定的结构去生成 XML 或者JSON，要么从指定的结构里面提取数据到 XML 或者 JSON 里面，前一种操作称为封装，而后一种操作则称为解封。</li>
+</ul>
+<h1 id="第八章：应用测试"><a href="#第八章：应用测试" class="headerlink" title="第八章：应用测试"></a>第八章：应用测试</h1><ul>
+<li>Go 通过 go test 命令为用户提供了内置的测试工具，并提供了 testing 包以便实现单元测试。</li>
+<li>testing 包提供了基本的功能测试以及基准测试能力。</li>
+<li>对于 Go 语言来说，Web 应用的单元测试可以通过 testing&#x2F;httptest 包来完成。</li>
+<li>使用测试替身可以让测试用例变得更加独立</li>
+<li>实现测试替身的一种方法是使用<strong>依赖注入设计模式</strong>。</li>
+<li>Go 语言拥有许多第三方测试库，其中包括对 Go 的测试功能进行扩展的 Gocheck 包，以及实现了行为驱动测试的 Ginkgo 包。</li>
+</ul>
+<h1 id="第九章：发挥-Go-的并发优势"><a href="#第九章：发挥-Go-的并发优势" class="headerlink" title="第九章：发挥 Go 的并发优势"></a>第九章：发挥 Go 的并发优势</h1><ul>
+<li>Go web 服务器本身是并发的，服务器会把接收到的每条请求都放到独立的 goroutine 里运行。</li>
+<li>并发和并行是两个相辅相成的概念，但它们并不相同。并发指的是两个或多个任务在同一时间段内启动、运行和结束，并且这些任务可能会彼此互动，而并行则是单纯地同时运行多个任务。</li>
+<li>Go 通过 goroutine 和通道这两个重要的特性直接支持并发，但 Go 并不直接支特并行。</li>
+<li>goroutine 用于编写并发程序，而通道则用于为不同的 goroutine 之间提供通信功能。</li>
+<li>无缓冲通道都是同步的，尝试向一个已经包含数据的无缓冲通道推入新的数据将被阻塞；但是，有缓冲通道在被填满之前都是异步的。</li>
+<li><strong>select 语句可以以先到先服务的方式，从多个通道里选出一个已经准备好执行接收操作的通道</strong></li>
+<li>WaitGroup 同样可以用于对多个通道进行同步。</li>
+<li>并发程序的性能一般都会比相应的非并发程序要高，而具体提升多少则取决于所使用的算法（即使在只使用一个 CPU 的情况下，也是如此）。</li>
+<li>在条件允许的情况下，并发的 Web 应用将自动地获得并行带来的优势。</li>
+</ul>
+<h1 id="第十章：Go-的部署"><a href="#第十章：Go-的部署" class="headerlink" title="第十章：Go 的部署"></a>第十章：Go 的部署</h1><ul>
+<li>部署 Go Web 服务最简单的方法就是直接将二进制可执行文件放置到服务器里面（这个服务器可以是虚拟机，也可以是实际存在的服务器），然后通过配置 Upstart 来保证服务可以随系统启动并持续地运行下去。</li>
+<li>Docker 是一种最近开始崭露头角并且威力强大的 Web 服务和 Web 应用部署方式。用户首先需要将被部署的 Go Web服务 Docker 化为容器，然后才能在本地 Docker 宿主或者云端的远程 Docker 宿主上部署这个容器。</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+      
+
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>Buy me a coffee</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.jpg" alt="Collie 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.jpg" alt="Collie 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Collie
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://collie2nd.github.io/2022/02/28/backend_dev/goweb/" title="《Go Web 编程》读书笔记">http://collie2nd.github.io/2022/02/28/backend_dev/goweb/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://twitter.com/LIUVOUS">
+          <span class="icon">
+            <i class="fab fa-twitter"></i>
+          </span>
+
+          <span class="label">Twitter</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="/images/t_me.jpg">
+          <span class="icon">
+            <i class="fab fa-telegram"></i>
+          </span>
+
+          <span class="label">Telegram</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="/images/wechat_channel.jpg">
+          <span class="icon">
+            <i class="fab fa-weixin"></i>
+          </span>
+
+          <span class="label">WeChat</span>
+        </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/golang/" rel="tag"><i class="fa fa-tag"></i> golang</a>
+              <a href="/tags/read/" rel="tag"><i class="fa fa-tag"></i> read</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/01/25/backend_dev/db_select/" rel="prev" title="如何做数据库选型">
+                  <i class="fa fa-chevron-left"></i> 如何做数据库选型
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/04/20/backend_dev/goinaction/" rel="next" title="《Go in Action》读书笔记">
+                  《Go in Action》读书笔记 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="waline"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Collie</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">233k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:31</span>
+  </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.2.8/pdfobject.min.js","integrity":"sha256-tu9j5pBilBQrWSDePOOajCUdz6hWsid/lBNzK4KgEPM="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+
+
+
+  
+
+
+
+
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"comment.colliexyy.com","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":false,"placeholder":"ヾﾉ≧∀≦)o来啊，快活啊!","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"visitor":false,"comment_count":true,"requiredFields":["nick"],"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","el":"#waline","comment":true,"path":"/2022/02/28/backend_dev/goweb/"}</script>
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.waline.el).then(() =>
+    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
+  ).then(() => 
+    Waline.init(Object.assign({}, CONFIG.waline,{ el: document.querySelector(CONFIG.waline.el) }))
+  );
+});
+</script>
+
+</body>
+</html>

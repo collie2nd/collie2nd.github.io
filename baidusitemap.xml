@@ -1,6 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://collie2nd.github.io/2022/06/01/backend_dev/golang_upload_download/</loc>
+    <lastmod>2022-05-31</lastmod>
+  </url>
+  <url>
+    <loc>http://collie2nd.github.io/2022/05/30/backend_dev/algorithm/</loc>
+    <lastmod>2022-05-29</lastmod>
+  </url>
+  <url>
+    <loc>http://collie2nd.github.io/2022/05/30/backend_dev/golang_excel/</loc>
+    <lastmod>2022-05-29</lastmod>
+  </url>
+  <url>
+    <loc>http://collie2nd.github.io/2022/04/20/backend_dev/goinaction/</loc>
+    <lastmod>2022-04-19</lastmod>
+  </url>
+  <url>
+    <loc>http://collie2nd.github.io/2022/02/28/backend_dev/goweb/</loc>
+    <lastmod>2022-02-27</lastmod>
+  </url>
+  <url>
+    <loc>http://collie2nd.github.io/2022/01/25/backend_dev/db_select/</loc>
+    <lastmod>2022-01-24</lastmod>
+  </url>
+  <url>
+    <loc>http://collie2nd.github.io/2021/12/10/backend_dev/golang_package/</loc>
+    <lastmod>2021-12-09</lastmod>
+  </url>
+  <url>
+    <loc>http://collie2nd.github.io/2021/11/18/backend_dev/ppt/</loc>
+    <lastmod>2021-11-17</lastmod>
+  </url>
+  <url>
+    <loc>http://collie2nd.github.io/2021/11/10/backend_dev/network_qa/</loc>
+    <lastmod>2021-11-09</lastmod>
+  </url>
+  <url>
+    <loc>http://collie2nd.github.io/2021/10/30/backend_dev/mysql_qa/</loc>
+    <lastmod>2021-10-29</lastmod>
+  </url>
+  <url>
     <loc>http://collie2nd.github.io/2021/07/21/backend_dev/kubernetes/</loc>
     <lastmod>2021-07-20</lastmod>
   </url>
@@ -33,11 +73,11 @@
     <lastmod>2020-09-30</lastmod>
   </url>
   <url>
-    <loc>http://collie2nd.github.io/2020/10/01/soft_power/mac_os/</loc>
+    <loc>http://collie2nd.github.io/2020/10/01/project_experience/2020.10/</loc>
     <lastmod>2020-09-30</lastmod>
   </url>
   <url>
-    <loc>http://collie2nd.github.io/2020/10/01/project_experience/2020.10/</loc>
+    <loc>http://collie2nd.github.io/2020/10/01/soft_power/mac_os/</loc>
     <lastmod>2020-09-30</lastmod>
   </url>
   <url>
