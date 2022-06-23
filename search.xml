@@ -1,36 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>MacOS_SOP</title>
-    <url>/2020/10/01/soft_power/mac_os/</url>
-    <content><![CDATA[<h1 id="MacOS-使用技巧"><a href="#MacOS-使用技巧" class="headerlink" title="MacOS 使用技巧"></a>MacOS 使用技巧</h1><h1 id="VIM常用快捷键"><a href="#VIM常用快捷键" class="headerlink" title="VIM常用快捷键"></a>VIM常用快捷键</h1><figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">$ </span><br><span class="line">// 光标移动到最后一个字符</span><br><span class="line"></span><br><span class="line"><span class="number">0</span> </span><br><span class="line">// 光标移动到首位</span><br><span class="line"></span><br><span class="line">ZZ </span><br><span class="line">// 保存退出</span><br><span class="line"></span><br><span class="line">dt<span class="symbol">&lt;character&gt;</span></span><br><span class="line">// 删除到该字符</span><br><span class="line"></span><br><span class="line"><span class="keyword">f</span><span class="symbol">&lt;character&gt;</span></span><br><span class="line">// 将光标移动到，从光标当前位置开始第一个该字符的位置</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<span id="more"></span>
-<h1 id="Homebrew"><a href="#Homebrew" class="headerlink" title="Homebrew"></a>Homebrew</h1><h2 id="brew-相关命令"><a href="#brew-相关命令" class="headerlink" title="brew 相关命令"></a>brew 相关命令</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">更新：brew update</span><br><span class="line">查看版本：brew -v</span><br><span class="line">帮助信息：brew -h</span><br><span class="line"></span><br><span class="line">查询软件的详细信息：brew info &lt;软件名&gt;</span><br><span class="line">查看安装列表：brew list</span><br><span class="line"></span><br><span class="line">安装软件包：brew install &lt;软件名&gt;</span><br><span class="line">卸载软件包：brew uninstall &lt;软件名&gt;</span><br><span class="line">彻底卸载指定软件，包括旧版本：brew uninstall --force &lt;软件名&gt;</span><br><span class="line"></span><br><span class="line">搜索软件：brew search &lt;正则表达式/软件名&gt;</span><br><span class="line">更新所有软件包：brew upgrade &lt;软件名&gt;</span><br><span class="line">查询有更新版本的软件：brew outdated</span><br><span class="line">清理指定软件的过时包：brew cleanup &lt;软件名&gt;</span><br><span class="line">清理所有的过时软件：brew cleanup</span><br><span class="line">列出需要清理的内容：brew cleanup -n</span><br><span class="line"></span><br><span class="line">用浏览器打开相关包的页面：brew home &lt;软件名&gt;</span><br><span class="line">显示包依赖：brew deps &lt;软件名&gt;</span><br><span class="line">锁定某个包：brew pin $FORMULA</span><br><span class="line">取消锁定：brew unpin $FORMULA</span><br><span class="line">查看已安装的包的依赖，树形显示：brew deps --installed --tree </span><br></pre></td></tr></table></figure>
-
-<h2 id="brew-应用包"><a href="#brew-应用包" class="headerlink" title="brew 应用包"></a>brew 应用包</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">tree</span><br><span class="line">// 显示目录层级关系</span><br><span class="line"></span><br><span class="line">youtube-dl</span><br><span class="line">// 下载youtube视频</span><br><span class="line"></span><br><span class="line">ncdu</span><br><span class="line">// 查看磁盘占用情况</span><br><span class="line"></span><br><span class="line">ffmpeg</span><br><span class="line">// 音视频格式转换转码</span><br><span class="line"></span><br><span class="line">you-get</span><br><span class="line">// 下载爬取视频</span><br><span class="line"></span><br><span class="line">thefuck</span><br><span class="line">// 自动重输正确的建议命令</span><br></pre></td></tr></table></figure>
-
-<h1 id="zsh-iterm2"><a href="#zsh-iterm2" class="headerlink" title="zsh + iterm2"></a>zsh + iterm2</h1><h2 id="zsh-插件的使用"><a href="#zsh-插件的使用" class="headerlink" title="zsh 插件的使用"></a>zsh 插件的使用</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git</span><br><span class="line">// git 快捷指令 由↓查看快捷指令</span><br><span class="line">// <span class="built_in">cat</span> ~/.oh-my-zsh/plugins/git/git.plugin.zsh</span><br><span class="line"></span><br><span class="line">gitignore</span><br><span class="line">// 自动生成gitignore文件</span><br><span class="line">// gi &lt;c/c++/python/...&gt; &gt; .gitignore</span><br><span class="line"></span><br><span class="line">zsh_reload</span><br><span class="line">// src 重载zsh</span><br><span class="line"></span><br><span class="line">git-open</span><br><span class="line">// 在任何一个git目录，输入git-open 就可以打开github对应的页面</span><br><span class="line"></span><br><span class="line">safe-paste</span><br><span class="line">// 当你往 zsh 粘贴脚本时，它不会被立刻运行</span><br><span class="line"></span><br><span class="line">extract</span><br><span class="line">// 万能解压命令</span><br><span class="line"></span><br><span class="line">gh-md-toc</span><br><span class="line">// md目录生成工具，<span class="built_in">alias</span> -&gt; mdtoc</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>iterm2 支持 option + 光标点选直接移动光标位置。</li>
-<li>iterm2 通过<code>Command + K</code>实现清屏。</li>
-</ul>
-<h1 id="Hexo版本升级"><a href="#Hexo版本升级" class="headerlink" title="Hexo版本升级"></a>Hexo版本升级</h1><p>1、全局升级<code>hexo-cli</code>，先<code>hexo version</code>查看当前版本，然后<code>npm i hexo-cli -g</code>，再次<code>hexo version</code>查看是否升级成功。</p>
-<p>2、使用<code>npm install -g npm-check</code>和<code>npm-check</code>，检查系统中的插件是否有升级的，可以看到自己前面都安装了那些插件</p>
-<p>3、使用<code>npm install -g npm-upgrade</code>和<code>npm-upgrade</code>，升级系统中的插件</p>
-<p>4、使用<code>npm update -g</code>和<code>npm update --save</code></p>
-<p>如果遇到报错，需要重装xcode-cli：</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">sudo <span class="built_in">rm</span> -rf /Library/Developer/CommandLineTools</span><br><span class="line">xcode-select --install</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>软实力</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
-        <tag>productivity</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>linux_SOP</title>
     <url>/2020/10/01/backend_dev/linux_SOP/</url>
     <content><![CDATA[<h1 id="vim-常用快捷键"><a href="#vim-常用快捷键" class="headerlink" title="vim 常用快捷键"></a>vim 常用快捷键</h1><p><img src="https://gitee.com/colliexyy/pic/raw/master/code/vim_sop.jpg" alt="vim快捷键"></p>
@@ -159,6 +129,36 @@
       </categories>
       <tags>
         <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MacOS_SOP</title>
+    <url>/2020/10/01/soft_power/mac_os/</url>
+    <content><![CDATA[<h1 id="MacOS-使用技巧"><a href="#MacOS-使用技巧" class="headerlink" title="MacOS 使用技巧"></a>MacOS 使用技巧</h1><h1 id="VIM常用快捷键"><a href="#VIM常用快捷键" class="headerlink" title="VIM常用快捷键"></a>VIM常用快捷键</h1><figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">$ </span><br><span class="line">// 光标移动到最后一个字符</span><br><span class="line"></span><br><span class="line"><span class="number">0</span> </span><br><span class="line">// 光标移动到首位</span><br><span class="line"></span><br><span class="line">ZZ </span><br><span class="line">// 保存退出</span><br><span class="line"></span><br><span class="line">dt<span class="symbol">&lt;character&gt;</span></span><br><span class="line">// 删除到该字符</span><br><span class="line"></span><br><span class="line"><span class="keyword">f</span><span class="symbol">&lt;character&gt;</span></span><br><span class="line">// 将光标移动到，从光标当前位置开始第一个该字符的位置</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+<h1 id="Homebrew"><a href="#Homebrew" class="headerlink" title="Homebrew"></a>Homebrew</h1><h2 id="brew-相关命令"><a href="#brew-相关命令" class="headerlink" title="brew 相关命令"></a>brew 相关命令</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">更新：brew update</span><br><span class="line">查看版本：brew -v</span><br><span class="line">帮助信息：brew -h</span><br><span class="line"></span><br><span class="line">查询软件的详细信息：brew info &lt;软件名&gt;</span><br><span class="line">查看安装列表：brew list</span><br><span class="line"></span><br><span class="line">安装软件包：brew install &lt;软件名&gt;</span><br><span class="line">卸载软件包：brew uninstall &lt;软件名&gt;</span><br><span class="line">彻底卸载指定软件，包括旧版本：brew uninstall --force &lt;软件名&gt;</span><br><span class="line"></span><br><span class="line">搜索软件：brew search &lt;正则表达式/软件名&gt;</span><br><span class="line">更新所有软件包：brew upgrade &lt;软件名&gt;</span><br><span class="line">查询有更新版本的软件：brew outdated</span><br><span class="line">清理指定软件的过时包：brew cleanup &lt;软件名&gt;</span><br><span class="line">清理所有的过时软件：brew cleanup</span><br><span class="line">列出需要清理的内容：brew cleanup -n</span><br><span class="line"></span><br><span class="line">用浏览器打开相关包的页面：brew home &lt;软件名&gt;</span><br><span class="line">显示包依赖：brew deps &lt;软件名&gt;</span><br><span class="line">锁定某个包：brew pin $FORMULA</span><br><span class="line">取消锁定：brew unpin $FORMULA</span><br><span class="line">查看已安装的包的依赖，树形显示：brew deps --installed --tree </span><br></pre></td></tr></table></figure>
+
+<h2 id="brew-应用包"><a href="#brew-应用包" class="headerlink" title="brew 应用包"></a>brew 应用包</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">tree</span><br><span class="line">// 显示目录层级关系</span><br><span class="line"></span><br><span class="line">youtube-dl</span><br><span class="line">// 下载youtube视频</span><br><span class="line"></span><br><span class="line">ncdu</span><br><span class="line">// 查看磁盘占用情况</span><br><span class="line"></span><br><span class="line">ffmpeg</span><br><span class="line">// 音视频格式转换转码</span><br><span class="line"></span><br><span class="line">you-get</span><br><span class="line">// 下载爬取视频</span><br><span class="line"></span><br><span class="line">thefuck</span><br><span class="line">// 自动重输正确的建议命令</span><br></pre></td></tr></table></figure>
+
+<h1 id="zsh-iterm2"><a href="#zsh-iterm2" class="headerlink" title="zsh + iterm2"></a>zsh + iterm2</h1><h2 id="zsh-插件的使用"><a href="#zsh-插件的使用" class="headerlink" title="zsh 插件的使用"></a>zsh 插件的使用</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git</span><br><span class="line">// git 快捷指令 由↓查看快捷指令</span><br><span class="line">// <span class="built_in">cat</span> ~/.oh-my-zsh/plugins/git/git.plugin.zsh</span><br><span class="line"></span><br><span class="line">gitignore</span><br><span class="line">// 自动生成gitignore文件</span><br><span class="line">// gi &lt;c/c++/python/...&gt; &gt; .gitignore</span><br><span class="line"></span><br><span class="line">zsh_reload</span><br><span class="line">// src 重载zsh</span><br><span class="line"></span><br><span class="line">git-open</span><br><span class="line">// 在任何一个git目录，输入git-open 就可以打开github对应的页面</span><br><span class="line"></span><br><span class="line">safe-paste</span><br><span class="line">// 当你往 zsh 粘贴脚本时，它不会被立刻运行</span><br><span class="line"></span><br><span class="line">extract</span><br><span class="line">// 万能解压命令</span><br><span class="line"></span><br><span class="line">gh-md-toc</span><br><span class="line">// md目录生成工具，<span class="built_in">alias</span> -&gt; mdtoc</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>iterm2 支持 option + 光标点选直接移动光标位置。</li>
+<li>iterm2 通过<code>Command + K</code>实现清屏。</li>
+</ul>
+<h1 id="Hexo版本升级"><a href="#Hexo版本升级" class="headerlink" title="Hexo版本升级"></a>Hexo版本升级</h1><p>1、全局升级<code>hexo-cli</code>，先<code>hexo version</code>查看当前版本，然后<code>npm i hexo-cli -g</code>，再次<code>hexo version</code>查看是否升级成功。</p>
+<p>2、使用<code>npm install -g npm-check</code>和<code>npm-check</code>，检查系统中的插件是否有升级的，可以看到自己前面都安装了那些插件</p>
+<p>3、使用<code>npm install -g npm-upgrade</code>和<code>npm-upgrade</code>，升级系统中的插件</p>
+<p>4、使用<code>npm update -g</code>和<code>npm update --save</code></p>
+<p>如果遇到报错，需要重装xcode-cli：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">sudo <span class="built_in">rm</span> -rf /Library/Developer/CommandLineTools</span><br><span class="line">xcode-select --install</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>软实力</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>productivity</tag>
       </tags>
   </entry>
   <entry>
@@ -859,8 +859,8 @@
         <category>后端技能</category>
       </categories>
       <tags>
-        <tag>read</tag>
         <tag>golang</tag>
+        <tag>read</tag>
       </tags>
   </entry>
   <entry>
@@ -1062,8 +1062,8 @@
         <category>后端技能</category>
       </categories>
       <tags>
-        <tag>read</tag>
         <tag>golang</tag>
+        <tag>read</tag>
       </tags>
   </entry>
   <entry>
@@ -1828,8 +1828,8 @@
         <category>后端技能</category>
       </categories>
       <tags>
-        <tag>linux</tag>
         <tag>golang</tag>
+        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
@@ -2612,7 +2612,7 @@
 </blockquote>
 <h3 id="锚点与链接-Links"><a href="#锚点与链接-Links" class="headerlink" title="锚点与链接 Links"></a>锚点与链接 Links</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[普通链接](https://www.mdeditor.com/)</span><br><span class="line">[普通链接带标题](https://www.mdeditor.com/ &quot;普通链接带标题&quot;)</span><br><span class="line">直接链接：&lt;https://www.mdeditor.com&gt;</span><br><span class="line">[锚点链接][anchor-id]</span><br><span class="line">[anchor-id]: https://www.mdeditor.com/</span><br><span class="line">[mailto:test.test@gmail.com](mailto:test.test@gmail.com)</span><br><span class="line">GFM a-tail link @pandao</span><br><span class="line">邮箱地址自动链接 test.test@gmail.com  www@vip.qq.com</span><br><span class="line">&gt; @pandao</span><br></pre></td></tr></table></figure>
 
-<p><a href="https://www.mdeditor.com/">普通链接</a><br><a href="https://www.mdeditor.com/" title="普通链接带标题">普通链接带标题</a><br>直接链接：<a href="https://www.mdeditor.com/">https://www.mdeditor.com</a><br>[锚点链接][anchor-id]<br>[anchor-id]: <a href="https://www.mdeditor.com/">https://www.mdeditor.com/</a><br><a href="mailto:test.test@gmail.com">mailto:test.test@gmail.com</a><br>GFM a-tail link @pandao<br>邮箱地址自动链接 <a href="mailto:&#x74;&#x65;&#x73;&#x74;&#46;&#x74;&#x65;&#115;&#116;&#64;&#103;&#109;&#97;&#x69;&#108;&#x2e;&#x63;&#x6f;&#x6d;">&#x74;&#x65;&#x73;&#x74;&#46;&#x74;&#x65;&#115;&#116;&#64;&#103;&#109;&#97;&#x69;&#108;&#x2e;&#x63;&#x6f;&#x6d;</a>  <a href="mailto:&#119;&#x77;&#x77;&#x40;&#x76;&#105;&#112;&#46;&#113;&#x71;&#46;&#x63;&#x6f;&#x6d;">&#119;&#x77;&#x77;&#x40;&#x76;&#105;&#112;&#46;&#113;&#x71;&#46;&#x63;&#x6f;&#x6d;</a></p>
+<p><a href="https://www.mdeditor.com/">普通链接</a><br><a href="https://www.mdeditor.com/" title="普通链接带标题">普通链接带标题</a><br>直接链接：<a href="https://www.mdeditor.com/">https://www.mdeditor.com</a><br>[锚点链接][anchor-id]<br>[anchor-id]: <a href="https://www.mdeditor.com/">https://www.mdeditor.com/</a><br><a href="mailto:test.test@gmail.com">mailto:test.test@gmail.com</a><br>GFM a-tail link @pandao<br>邮箱地址自动链接 <a href="mailto:&#x74;&#x65;&#115;&#116;&#x2e;&#116;&#101;&#115;&#x74;&#x40;&#103;&#x6d;&#x61;&#105;&#108;&#46;&#99;&#x6f;&#109;">&#x74;&#x65;&#115;&#116;&#x2e;&#116;&#101;&#115;&#x74;&#x40;&#103;&#x6d;&#x61;&#105;&#108;&#46;&#99;&#x6f;&#109;</a>  <a href="mailto:&#x77;&#x77;&#x77;&#x40;&#x76;&#105;&#x70;&#x2e;&#x71;&#113;&#46;&#x63;&#x6f;&#109;">&#x77;&#x77;&#x77;&#x40;&#x76;&#105;&#x70;&#x2e;&#x71;&#113;&#46;&#x63;&#x6f;&#109;</a></p>
 <blockquote>
 <p>@pandao</p>
 </blockquote>
@@ -4391,6 +4391,134 @@
       </tags>
   </entry>
   <entry>
+    <title>MySQL_SOP</title>
+    <url>/2018/12/11/project_experience/MySQL_SOP/</url>
+    <content><![CDATA[<h1 id="MySQL-使用规范"><a href="#MySQL-使用规范" class="headerlink" title="MySQL 使用规范"></a>MySQL 使用规范</h1><h2 id="一、基本规范"><a href="#一、基本规范" class="headerlink" title="一、基本规范"></a>一、基本规范</h2><ol>
+<li>使用 <strong>INNODB</strong> 存储引擎</li>
+<li>表字符集使用 <strong>UTF8</strong>，如遇到 EMOJI 等表情符号的存储需求，可申请使用 <strong>UTF8MB4</strong> 字符集</li>
+<li>所有表都需要添加<strong>注释</strong></li>
+<li>单表数据量建<strong>字符类型居多</strong>的表建议控制在 <strong>3000W 以内</strong>，<strong>整型居多</strong>的表建议控制在 <strong>5000W 以内</strong></li>
+<li>不在数据库中存储图⽚、文件等大数据</li>
+<li>禁止在线上做数据库压力测试</li>
+<li>禁⽌从测试、开发环境直连数据库</li>
+</ol>
+<h2 id="二、命名规范"><a href="#二、命名规范" class="headerlink" title="二、命名规范"></a>二、命名规范</h2><ol>
+<li>库名、表名、字段名必须有<strong>固定的命名长度</strong>，12个字符以内</li>
+<li>库名、表名、字段名<strong>禁⽌使⽤ MySQL 保留字</strong>，比如订单表不要直接叫做order</li>
+<li>临时库、临时表，命名必须<strong>以 tmp 为前缀，并以⽇日期为后缀</strong></li>
+<li>备份库、备份表，命名必须<strong>以 bak 为前缀，并以日期为后缀</strong></li>
+</ol>
+<span id="more"></span>
+
+<h2 id="三、库、表、字段设计规范"><a href="#三、库、表、字段设计规范" class="headerlink" title="三、库、表、字段设计规范"></a>三、库、表、字段设计规范</h2><ol>
+<li>建表<strong>默认5字段：主键、创建时间、创建人、修改时间、修改人</strong>。id、create_time、creator、update_time、updator</li>
+<li>禁⽌使用分区表</li>
+<li>拆分大字段和访问频率低的字段，<strong>分离冷热数据</strong></li>
+<li>按日期时间分表需符合例如 table_201401、table_20140422 格式</li>
+<li>采用合适的分库分表策略</li>
+<li>用 <strong>DECIMAL</strong> 代替 FLOAT 和 DOUBLE 存储精确浮点数</li>
+<li><strong>越简单越好</strong>：将字符转化为数字、使用 TINYINT 来代替 ENUM 类型</li>
+<li>若使用 ENUM 类型，不允许修改默认值，只允许顺序添加</li>
+<li>所有字段均定义为 <strong>NOT NULL</strong></li>
+<li>INT类型固定占用 4 字节存储</li>
+<li>使用 <strong>timestamp</strong> 存储时间</li>
+<li>使用 <strong>VARBINARY</strong> 存储大小写敏感的变长字符串</li>
+<li>禁止在数据库中存储明文密码，把<strong>密码加密后存储</strong></li>
+<li>用好数值类型字段</li>
+<li><strong>存储 ip 最好用 int</strong> 存储而非 char(15)</li>
+<li><strong>避免使用 NULL</strong>， NULL 字段很难查询优化，NULL字段的索引需要额外空间，NULL字段的复合索引无效</li>
+<li>少用 text&#x2F;blob ， varchar 的性能会比 text 高很多，实在避免不了blob，请拆表</li>
+<li>数据库中<strong>不允许存储大文件</strong>，或者照片，可以将大对象放到磁盘上，<strong>数据库中存储它的路径</strong></li>
+</ol>
+<h2 id="四、索引规范"><a href="#四、索引规范" class="headerlink" title="四、索引规范"></a>四、索引规范</h2><p>1、索引的数量要控制：</p>
+<ul>
+<li>单张表中<strong>索引数量</strong>不超过 5 个</li>
+<li>单个索引中的<strong>字段数</strong>不超过 5 个</li>
+<li><strong>对字符串使⽤用前缀索引</strong>，前缀索引长度不超过 8 个字符</li>
+<li>建议<strong>优先考虑前缀索引</strong>，必要时可<strong>添加伪列并建立索引</strong></li>
+</ul>
+<p>2、主键准则</p>
+<ul>
+<li>表必须有主键</li>
+<li><strong>不使用更新频繁的列作为主键</strong></li>
+<li><strong>尽量不选择字符串列作为主键</strong></li>
+<li><strong>不使用 UUID MD5 HASH 这些作为主键(数值太离散了)</strong></li>
+<li>默认使⽤非空的唯一键作为主键</li>
+<li><strong>建议选择自增或发号器</strong></li>
+</ul>
+<p>3、<strong>重要的 SQL 必须被索引</strong></p>
+<ul>
+<li>比如：UPDATE 、 DELETE 语句的 WHERE 条件列，ORDER BY 、 GROUPBY 、 DISTINCT 的字段</li>
+</ul>
+<p>4、多表 JOIN 的字段注意以下</p>
+<ul>
+<li><strong>区分度最大的字段放在前面</strong></li>
+<li>核⼼ SQL 优先考虑覆盖索引</li>
+<li>避免冗余和重复索引</li>
+<li><strong>索引要综合评估数据密度和分布以及考虑查询和更新比例</strong></li>
+</ul>
+<p>5、索引禁忌</p>
+<ul>
+<li><strong>不在低基数列上建立索引</strong>，例如“性别”</li>
+<li><strong>不在索引列进行数学运算和函数运算</strong></li>
+</ul>
+<p>6、<strong>尽量不使用外键</strong></p>
+<ul>
+<li>外键用来保护参照完整性，可在业务端实现</li>
+<li>对父表和子表的操作会相互影响，降低可用性</li>
+</ul>
+<p>7、索引命名：</p>
+<ul>
+<li>非唯一索引必须以 idx_字段1_字段2 命名，唯一所以必须以 uniq_字段1_字段2 命名，<strong>索引名称必须全部小写</strong></li>
+</ul>
+<p>8、新建的唯一索引必须不能和主键重复</p>
+<p>9、<strong>索引字段的默认值不能为 NULL</strong> ，要改为其他的 default 或者空。 NULL 非常影响索引的查询效率</p>
+<p>10、反复查看与表相关的 SQL</p>
+<ul>
+<li><strong>符合最左前缀的特点建立索引。</strong> 多条字段重复的语句，要修改语句条件字段的顺序，为其建立一条联合索引，减少索引数量</li>
+</ul>
+<p>11、<strong>能使用唯一索引就要使用唯一索引</strong>，提高查询效率</p>
+<p>12、研发要经常使用 explain ，如果发现索引选择性差，必须让他们学会使用 hint</p>
+<p>13、<strong>合理创建联合索引，(a，b，c)</strong> 相当于 (a) 、(a，b) 、(a，b，c)</p>
+<p>14、<strong>不对过长的 VARCHAR 字段建立索引。</strong> 建议优先考虑<strong>添加 CRC32 或 MD5 伪列，并对伪列建立索引</strong>，减少索引长度，提高效率。</p>
+<h1 id="五、SQL规范"><a href="#五、SQL规范" class="headerlink" title="五、SQL规范"></a>五、SQL规范</h1><ol>
+<li>使用 <strong>prepared statement</strong>，可以提升性能并避免 SQL 注入。</li>
+<li><strong>减少与数据库交互次数</strong>，尽量采用<strong>批量提交 SQL 语句</strong><code>INSERT INTO table （column1、column2、column3） VALUES(),(),();</code>，不宜过多看字符个数 <strong>500-1000</strong> 即可。</li>
+<li><strong>SQL 语句尽可能简单</strong>，大的 SQL 想办法拆成小的 SQL 语句(充分利用句QUERYCACHE 和充分利用多核 CPU)</li>
+<li><strong>事务要简单</strong>，整个事务的时间长度不要太长</li>
+<li>避免使用触发器、函数、存储过程</li>
+<li>降低业务耦合度，为 sacle out 、 sharding 留有余地</li>
+<li><strong>避免在数据库中进⾏数学运算</strong>(MySQL不擅长数学运算和逻辑判断)</li>
+<li><strong>不要用 <code>SELECT *</code></strong> ，查询哪几个字段就SELECT这几个字段</li>
+<li>SQL 中使用到 <strong>OR 的改写为用 IN()</strong> (OR的效率没有IN的效率高)，里面数字的<strong>个数建议控制在 1000 以内</strong>。</li>
+<li>LIMIT 分页注意效率。</li>
+<li><strong>使用 UNION ALL 替代 UNION</strong></li>
+<li>避免使用大表的 JOIN</li>
+<li>使用 GROUP BY 分组、自动排序</li>
+<li><strong>对数据的更新要打散后批量更新，不要一次更新太多数据</strong></li>
+<li>注意使用性能分析工具</li>
+<li>SQL explain &#x2F; showprofile &#x2F; mySQLsla，尽量避免 extra 列出现：Using File Sort、Using Temporary。</li>
+<li>SQL 语句要求所有研发，<strong>SQL 关键字全部是大写，每个词只允许有一个空格</strong>。</li>
+<li>SQL 语句<strong>不可以出现隐式转换</strong>，比如<code>SELECT id FROM TABLE WHERE id=&#39;1&#39;</code>。</li>
+<li>IN 条件里面的数据数量要少，1000 个以内，要学会使用 EXIST 代替IN，EXIST 在一些场景查询会比 IN 快。</li>
+<li><strong>NOT IN 能不用就不用</strong>，会把空和 NULL 给查出来。</li>
+<li>在 SQL 语句中，<strong>禁止使用前缀是 % 的 LIKE</strong></li>
+<li><strong>不使用负向查询</strong>，如 <code>NOT IN</code> &#x2F; <code>NOT LIKE</code> &#x2F; <code>!=</code> &#x2F; <code>&lt; &gt;</code></li>
+<li>程序里建议合理使用分页来提高查询效率。</li>
+<li>使⽤预编译语句，只传参数，比传递 SQL 语句更高效；一次解析，多次使用；降低 SQL 注入概率</li>
+<li><strong>禁止使 ORDER BY RAND()</strong></li>
+<li><strong>禁⽌单条 SQL 语句同时更新多个表</strong></li>
+<li><strong>禁止使用 % 前导查询</strong>，例如：like “%abc”，无法利用到索引。</li>
+</ol>
+]]></content>
+      <categories>
+        <category>后端技能</category>
+      </categories>
+      <tags>
+        <tag>数据库</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>koala 学习笔记</title>
     <url>/2018/12/11/project_experience/koala/</url>
     <content><![CDATA[<h1 id="koala-学习笔记"><a href="#koala-学习笔记" class="headerlink" title="koala 学习笔记"></a>koala 学习笔记</h1><blockquote>
@@ -4697,134 +4825,6 @@
       <categories>
         <category>项目经历</category>
       </categories>
-  </entry>
-  <entry>
-    <title>MySQL_SOP</title>
-    <url>/2018/12/11/project_experience/MySQL_SOP/</url>
-    <content><![CDATA[<h1 id="MySQL-使用规范"><a href="#MySQL-使用规范" class="headerlink" title="MySQL 使用规范"></a>MySQL 使用规范</h1><h2 id="一、基本规范"><a href="#一、基本规范" class="headerlink" title="一、基本规范"></a>一、基本规范</h2><ol>
-<li>使用 <strong>INNODB</strong> 存储引擎</li>
-<li>表字符集使用 <strong>UTF8</strong>，如遇到 EMOJI 等表情符号的存储需求，可申请使用 <strong>UTF8MB4</strong> 字符集</li>
-<li>所有表都需要添加<strong>注释</strong></li>
-<li>单表数据量建<strong>字符类型居多</strong>的表建议控制在 <strong>3000W 以内</strong>，<strong>整型居多</strong>的表建议控制在 <strong>5000W 以内</strong></li>
-<li>不在数据库中存储图⽚、文件等大数据</li>
-<li>禁止在线上做数据库压力测试</li>
-<li>禁⽌从测试、开发环境直连数据库</li>
-</ol>
-<h2 id="二、命名规范"><a href="#二、命名规范" class="headerlink" title="二、命名规范"></a>二、命名规范</h2><ol>
-<li>库名、表名、字段名必须有<strong>固定的命名长度</strong>，12个字符以内</li>
-<li>库名、表名、字段名<strong>禁⽌使⽤ MySQL 保留字</strong>，比如订单表不要直接叫做order</li>
-<li>临时库、临时表，命名必须<strong>以 tmp 为前缀，并以⽇日期为后缀</strong></li>
-<li>备份库、备份表，命名必须<strong>以 bak 为前缀，并以日期为后缀</strong></li>
-</ol>
-<span id="more"></span>
-
-<h2 id="三、库、表、字段设计规范"><a href="#三、库、表、字段设计规范" class="headerlink" title="三、库、表、字段设计规范"></a>三、库、表、字段设计规范</h2><ol>
-<li>建表<strong>默认5字段：主键、创建时间、创建人、修改时间、修改人</strong>。id、create_time、creator、update_time、updator</li>
-<li>禁⽌使用分区表</li>
-<li>拆分大字段和访问频率低的字段，<strong>分离冷热数据</strong></li>
-<li>按日期时间分表需符合例如 table_201401、table_20140422 格式</li>
-<li>采用合适的分库分表策略</li>
-<li>用 <strong>DECIMAL</strong> 代替 FLOAT 和 DOUBLE 存储精确浮点数</li>
-<li><strong>越简单越好</strong>：将字符转化为数字、使用 TINYINT 来代替 ENUM 类型</li>
-<li>若使用 ENUM 类型，不允许修改默认值，只允许顺序添加</li>
-<li>所有字段均定义为 <strong>NOT NULL</strong></li>
-<li>INT类型固定占用 4 字节存储</li>
-<li>使用 <strong>timestamp</strong> 存储时间</li>
-<li>使用 <strong>VARBINARY</strong> 存储大小写敏感的变长字符串</li>
-<li>禁止在数据库中存储明文密码，把<strong>密码加密后存储</strong></li>
-<li>用好数值类型字段</li>
-<li><strong>存储 ip 最好用 int</strong> 存储而非 char(15)</li>
-<li><strong>避免使用 NULL</strong>， NULL 字段很难查询优化，NULL字段的索引需要额外空间，NULL字段的复合索引无效</li>
-<li>少用 text&#x2F;blob ， varchar 的性能会比 text 高很多，实在避免不了blob，请拆表</li>
-<li>数据库中<strong>不允许存储大文件</strong>，或者照片，可以将大对象放到磁盘上，<strong>数据库中存储它的路径</strong></li>
-</ol>
-<h2 id="四、索引规范"><a href="#四、索引规范" class="headerlink" title="四、索引规范"></a>四、索引规范</h2><p>1、索引的数量要控制：</p>
-<ul>
-<li>单张表中<strong>索引数量</strong>不超过 5 个</li>
-<li>单个索引中的<strong>字段数</strong>不超过 5 个</li>
-<li><strong>对字符串使⽤用前缀索引</strong>，前缀索引长度不超过 8 个字符</li>
-<li>建议<strong>优先考虑前缀索引</strong>，必要时可<strong>添加伪列并建立索引</strong></li>
-</ul>
-<p>2、主键准则</p>
-<ul>
-<li>表必须有主键</li>
-<li><strong>不使用更新频繁的列作为主键</strong></li>
-<li><strong>尽量不选择字符串列作为主键</strong></li>
-<li><strong>不使用 UUID MD5 HASH 这些作为主键(数值太离散了)</strong></li>
-<li>默认使⽤非空的唯一键作为主键</li>
-<li><strong>建议选择自增或发号器</strong></li>
-</ul>
-<p>3、<strong>重要的 SQL 必须被索引</strong></p>
-<ul>
-<li>比如：UPDATE 、 DELETE 语句的 WHERE 条件列，ORDER BY 、 GROUPBY 、 DISTINCT 的字段</li>
-</ul>
-<p>4、多表 JOIN 的字段注意以下</p>
-<ul>
-<li><strong>区分度最大的字段放在前面</strong></li>
-<li>核⼼ SQL 优先考虑覆盖索引</li>
-<li>避免冗余和重复索引</li>
-<li><strong>索引要综合评估数据密度和分布以及考虑查询和更新比例</strong></li>
-</ul>
-<p>5、索引禁忌</p>
-<ul>
-<li><strong>不在低基数列上建立索引</strong>，例如“性别”</li>
-<li><strong>不在索引列进行数学运算和函数运算</strong></li>
-</ul>
-<p>6、<strong>尽量不使用外键</strong></p>
-<ul>
-<li>外键用来保护参照完整性，可在业务端实现</li>
-<li>对父表和子表的操作会相互影响，降低可用性</li>
-</ul>
-<p>7、索引命名：</p>
-<ul>
-<li>非唯一索引必须以 idx_字段1_字段2 命名，唯一所以必须以 uniq_字段1_字段2 命名，<strong>索引名称必须全部小写</strong></li>
-</ul>
-<p>8、新建的唯一索引必须不能和主键重复</p>
-<p>9、<strong>索引字段的默认值不能为 NULL</strong> ，要改为其他的 default 或者空。 NULL 非常影响索引的查询效率</p>
-<p>10、反复查看与表相关的 SQL</p>
-<ul>
-<li><strong>符合最左前缀的特点建立索引。</strong> 多条字段重复的语句，要修改语句条件字段的顺序，为其建立一条联合索引，减少索引数量</li>
-</ul>
-<p>11、<strong>能使用唯一索引就要使用唯一索引</strong>，提高查询效率</p>
-<p>12、研发要经常使用 explain ，如果发现索引选择性差，必须让他们学会使用 hint</p>
-<p>13、<strong>合理创建联合索引，(a，b，c)</strong> 相当于 (a) 、(a，b) 、(a，b，c)</p>
-<p>14、<strong>不对过长的 VARCHAR 字段建立索引。</strong> 建议优先考虑<strong>添加 CRC32 或 MD5 伪列，并对伪列建立索引</strong>，减少索引长度，提高效率。</p>
-<h1 id="五、SQL规范"><a href="#五、SQL规范" class="headerlink" title="五、SQL规范"></a>五、SQL规范</h1><ol>
-<li>使用 <strong>prepared statement</strong>，可以提升性能并避免 SQL 注入。</li>
-<li><strong>减少与数据库交互次数</strong>，尽量采用<strong>批量提交 SQL 语句</strong><code>INSERT INTO table （column1、column2、column3） VALUES(),(),();</code>，不宜过多看字符个数 <strong>500-1000</strong> 即可。</li>
-<li><strong>SQL 语句尽可能简单</strong>，大的 SQL 想办法拆成小的 SQL 语句(充分利用句QUERYCACHE 和充分利用多核 CPU)</li>
-<li><strong>事务要简单</strong>，整个事务的时间长度不要太长</li>
-<li>避免使用触发器、函数、存储过程</li>
-<li>降低业务耦合度，为 sacle out 、 sharding 留有余地</li>
-<li><strong>避免在数据库中进⾏数学运算</strong>(MySQL不擅长数学运算和逻辑判断)</li>
-<li><strong>不要用 <code>SELECT *</code></strong> ，查询哪几个字段就SELECT这几个字段</li>
-<li>SQL 中使用到 <strong>OR 的改写为用 IN()</strong> (OR的效率没有IN的效率高)，里面数字的<strong>个数建议控制在 1000 以内</strong>。</li>
-<li>LIMIT 分页注意效率。</li>
-<li><strong>使用 UNION ALL 替代 UNION</strong></li>
-<li>避免使用大表的 JOIN</li>
-<li>使用 GROUP BY 分组、自动排序</li>
-<li><strong>对数据的更新要打散后批量更新，不要一次更新太多数据</strong></li>
-<li>注意使用性能分析工具</li>
-<li>SQL explain &#x2F; showprofile &#x2F; mySQLsla，尽量避免 extra 列出现：Using File Sort、Using Temporary。</li>
-<li>SQL 语句要求所有研发，<strong>SQL 关键字全部是大写，每个词只允许有一个空格</strong>。</li>
-<li>SQL 语句<strong>不可以出现隐式转换</strong>，比如<code>SELECT id FROM TABLE WHERE id=&#39;1&#39;</code>。</li>
-<li>IN 条件里面的数据数量要少，1000 个以内，要学会使用 EXIST 代替IN，EXIST 在一些场景查询会比 IN 快。</li>
-<li><strong>NOT IN 能不用就不用</strong>，会把空和 NULL 给查出来。</li>
-<li>在 SQL 语句中，<strong>禁止使用前缀是 % 的 LIKE</strong></li>
-<li><strong>不使用负向查询</strong>，如 <code>NOT IN</code> &#x2F; <code>NOT LIKE</code> &#x2F; <code>!=</code> &#x2F; <code>&lt; &gt;</code></li>
-<li>程序里建议合理使用分页来提高查询效率。</li>
-<li>使⽤预编译语句，只传参数，比传递 SQL 语句更高效；一次解析，多次使用；降低 SQL 注入概率</li>
-<li><strong>禁止使 ORDER BY RAND()</strong></li>
-<li><strong>禁⽌单条 SQL 语句同时更新多个表</strong></li>
-<li><strong>禁止使用 % 前导查询</strong>，例如：like “%abc”，无法利用到索引。</li>
-</ol>
-]]></content>
-      <categories>
-        <category>后端技能</category>
-      </categories>
-      <tags>
-        <tag>数据库</tag>
-      </tags>
   </entry>
   <entry>
     <title>xm_ip_service</title>
