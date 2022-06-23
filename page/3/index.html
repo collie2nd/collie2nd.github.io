@@ -310,14 +310,12 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1>Vector 遍历</h1>
-<blockquote>
+          <h1 id="Vector-遍历"><a href="#Vector-遍历" class="headerlink" title="Vector 遍历"></a>Vector 遍历</h1><blockquote>
 <p><code>vector&lt;int&gt; v1&#123;1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10&#125;;</code></p>
 </blockquote>
-<h2 id="通过数组下标遍历">通过数组下标遍历</h2>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">size_t</span> i = <span class="number">0</span>; i &lt; v1.<span class="built_in">size</span>(); i++)</span><br><span class="line">&#123;</span><br><span class="line">	cout &lt;&lt; v1[i] &lt;&lt; <span class="string">&quot;; &quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line">cout &lt;&lt; endl;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">for</span> (<span class="type">size_t</span> i = <span class="number">0</span>; i &lt; v1.<span class="built_in">size</span>(); i++)</span><br><span class="line">&#123;</span><br><span class="line">    cout &lt;&lt; v1.<span class="built_in">at</span>(i) &lt;&lt; <span class="string">&quot;; &quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line">cout &lt;&lt; endl;</span><br><span class="line"> </span><br><span class="line"><span class="number">2</span>; <span class="number">3</span>; <span class="number">4</span>; <span class="number">5</span>; <span class="number">6</span>; <span class="number">7</span>; <span class="number">8</span>; <span class="number">9</span>; <span class="number">10</span>; <span class="number">10</span>; <span class="number">10</span>;</span><br><span class="line"><span class="number">1</span>; <span class="number">2</span>; <span class="number">3</span>; <span class="number">4</span>; <span class="number">5</span>; <span class="number">6</span>; <span class="number">7</span>; <span class="number">8</span>; <span class="number">9</span>; <span class="number">10</span>; <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
-<h2 id="通过迭代器遍历">通过迭代器遍历</h2>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (vector&lt;<span class="type">int</span>&gt;::iterator iter = v1.<span class="built_in">begin</span>(); iter != v1.<span class="built_in">end</span>(); iter++)</span><br><span class="line">&#123;</span><br><span class="line">	std::cout &lt;&lt; *iter &lt;&lt; <span class="string">&quot;; &quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line">cout &lt;&lt; endl;</span><br><span class="line"><span class="number">1</span>; <span class="number">2</span>; <span class="number">3</span>; <span class="number">4</span>; <span class="number">5</span>; <span class="number">6</span>; <span class="number">7</span>; <span class="number">8</span>; <span class="number">9</span>; <span class="number">10</span>; <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="通过数组下标遍历"><a href="#通过数组下标遍历" class="headerlink" title="通过数组下标遍历"></a>通过数组下标遍历</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">size_t</span> i = <span class="number">0</span>; i &lt; v1.<span class="built_in">size</span>(); i++)</span><br><span class="line">&#123;</span><br><span class="line">	cout &lt;&lt; v1[i] &lt;&lt; <span class="string">&quot;; &quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line">cout &lt;&lt; endl;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">for</span> (<span class="type">size_t</span> i = <span class="number">0</span>; i &lt; v1.<span class="built_in">size</span>(); i++)</span><br><span class="line">&#123;</span><br><span class="line">    cout &lt;&lt; v1.<span class="built_in">at</span>(i) &lt;&lt; <span class="string">&quot;; &quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line">cout &lt;&lt; endl;</span><br><span class="line"> </span><br><span class="line"><span class="number">2</span>; <span class="number">3</span>; <span class="number">4</span>; <span class="number">5</span>; <span class="number">6</span>; <span class="number">7</span>; <span class="number">8</span>; <span class="number">9</span>; <span class="number">10</span>; <span class="number">10</span>; <span class="number">10</span>;</span><br><span class="line"><span class="number">1</span>; <span class="number">2</span>; <span class="number">3</span>; <span class="number">4</span>; <span class="number">5</span>; <span class="number">6</span>; <span class="number">7</span>; <span class="number">8</span>; <span class="number">9</span>; <span class="number">10</span>; <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="通过迭代器遍历"><a href="#通过迭代器遍历" class="headerlink" title="通过迭代器遍历"></a>通过迭代器遍历</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (vector&lt;<span class="type">int</span>&gt;::iterator iter = v1.<span class="built_in">begin</span>(); iter != v1.<span class="built_in">end</span>(); iter++)</span><br><span class="line">&#123;</span><br><span class="line">	std::cout &lt;&lt; *iter &lt;&lt; <span class="string">&quot;; &quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line">cout &lt;&lt; endl;</span><br><span class="line"><span class="number">1</span>; <span class="number">2</span>; <span class="number">3</span>; <span class="number">4</span>; <span class="number">5</span>; <span class="number">6</span>; <span class="number">7</span>; <span class="number">8</span>; <span class="number">9</span>; <span class="number">10</span>; <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/08/29/backend_dev/cpp/#more" rel="contents">
@@ -430,10 +428,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1>spawn-fcgi 用法了解</h1>
-<p>spawn-fcgi 是一个小程序，作用是管理 fast-cgi 进程。</p>
+          <h1 id="spawn-fcgi-用法了解"><a href="#spawn-fcgi-用法了解" class="headerlink" title="spawn-fcgi 用法了解"></a>spawn-fcgi 用法了解</h1><p>spawn-fcgi 是一个小程序，作用是管理 fast-cgi 进程。</p>
 <p>用 spawn 启动 FCGI 程序的方式为：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./spawn-fcgi -a 127.0.0.1 -p 8080 -F <span class="variable">$&#123;count&#125;</span> -f <span class="variable">$&#123;webroot&#125;</span>/bin/demo.fcgi</span><br></pre></td></tr></table></figure>
+
 <p>这样就会启动 count 个 demo.fcgi 程序，他们共同监听同一个 listen 端口 8080，从而提供服务。</p>
           <!--noindex-->
             <div class="post-button">
@@ -547,17 +545,16 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1>MySQL 一些不熟的语句</h1>
-<h2 id="DISTINCT">DISTINCT</h2>
-<p>DISTINCT 关键词用于返回唯一不同的值。</p>
+          <h1 id="MySQL-一些不熟的语句"><a href="#MySQL-一些不熟的语句" class="headerlink" title="MySQL 一些不熟的语句"></a>MySQL 一些不熟的语句</h1><h2 id="DISTINCT"><a href="#DISTINCT" class="headerlink" title="DISTINCT"></a>DISTINCT</h2><p>DISTINCT 关键词用于返回唯一不同的值。</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> column_name,column_name <span class="keyword">FROM</span> table_name;</span><br></pre></td></tr></table></figure>
-<h2 id="UPDATE">UPDATE</h2>
-<p>UPDATE 语句用于更新表中已存在的记录。</p>
+
+<h2 id="UPDATE"><a href="#UPDATE" class="headerlink" title="UPDATE"></a>UPDATE</h2><p>UPDATE 语句用于更新表中已存在的记录。</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> table_name <span class="keyword">SET</span> column1<span class="operator">=</span>value1,column2<span class="operator">=</span>value2,... <span class="keyword">WHERE</span> some_column<span class="operator">=</span>some_value;</span><br></pre></td></tr></table></figure>
+
 <p>注意 : UPDATE 语句中的 WHERE 子句！WHERE 子句规定哪条记录或者哪些记录需要更新。如果您省略了 WHERE 子句，所有的记录都将被更新！</p>
-<h2 id="DELETE">DELETE</h2>
-<p>DELETE 语句用于删除表中的行(记录)。</p>
+<h2 id="DELETE"><a href="#DELETE" class="headerlink" title="DELETE"></a>DELETE</h2><p>DELETE 语句用于删除表中的行(记录)。</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> table_name <span class="keyword">WHERE</span> some_column<span class="operator">=</span>some_value;</span><br></pre></td></tr></table></figure>
+
 <p>注意 : SQL DELETE 语句中的 WHERE 子句！WHERE 子句规定哪条记录或者哪些记录需要删除。如果您省略了 WHERE 子句，所有的记录都将被删除！</p>
           <!--noindex-->
             <div class="post-button">
@@ -671,9 +668,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1>nginx</h1>
-<h2 id="nginx-配置">nginx 配置</h2>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> /etc/nginx/nginx.conf</span><br><span class="line"><span class="built_in">cat</span> /etc/nginx/conf.d/xxxxxxxx.conf</span><br></pre></td></tr></table></figure>
+          <h1 id="nginx"><a href="#nginx" class="headerlink" title="nginx"></a>nginx</h1><h2 id="nginx-配置"><a href="#nginx-配置" class="headerlink" title="nginx 配置"></a>nginx 配置</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> /etc/nginx/nginx.conf</span><br><span class="line"><span class="built_in">cat</span> /etc/nginx/conf.d/xxxxxxxx.conf</span><br></pre></td></tr></table></figure>
+
 <p>示例：路由 stdname 设置 <strong>nginx 监听 18026</strong> 收到请求后<strong>转发</strong>至 stdnameSvr 的 <strong>监听端口 19026</strong>。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">        listen       18026;</span><br><span class="line">        server_name  localhost;</span><br><span class="line"></span><br><span class="line">        location /stdname/  &#123;</span><br><span class="line">                fastcgi_pass   127.0.0.1:19026;</span><br><span class="line">                fastcgi_index  index.cgi;</span><br><span class="line">                include        fastcgi_params;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           <!--noindex-->
@@ -770,7 +766,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>5.7k</span>
+      <span>5.8k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -788,18 +784,14 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1>odbc 的配置</h1>
-<blockquote>
+          <h1 id="odbc-的配置"><a href="#odbc-的配置" class="headerlink" title="odbc 的配置"></a>odbc 的配置</h1><blockquote>
 <p>相关技术栈：linux、mysql</p>
 </blockquote>
 <p>在<strong>安装</strong>配置之前，需要先大概了解一下 MyODBC 的架构，MyODBC 体系结构建立在 5 个组件上，如下图所示：</p>
-<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ggwm30f77xj30a20b3aah.jpg" alt=""></p>
-<p><strong>Driver Manager</strong><br>
-负责管理应用程序和驱动程序间的通信，主要功能包括：解析 DSN (数据源名称，ODBC 的数据源名称在 odbc.ini 文件中配置)，加载和卸载驱动程序，处理 ODBC 调用，将其传递给驱动程序。</p>
-<p><strong>ODBC.INI</strong><br>
-odbc.ini 是 ODBC 配置文件，记录了连接到服务器所需的驱动信息和数据库信息xxxxxx。Driver Manager 将使用它来确定加载哪个驱动程序（使用数据源名 DSN ）。驱动程序将根据指定的DSN来读取连接参数。</p>
-<p><strong>Connector/ODBC(MyODBC驱动程序)</strong><br>
-实现 ODBC API 所提供的功能，它负责处理 ODBC 函数调用，将 SQL 请求提交给 MySQL 服务器，并将结果返回给应用程序。</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1ggwm30f77xj30a20b3aah.jpg"></p>
+<p><strong>Driver Manager</strong><br>负责管理应用程序和驱动程序间的通信，主要功能包括：解析 DSN (数据源名称，ODBC 的数据源名称在 odbc.ini 文件中配置)，加载和卸载驱动程序，处理 ODBC 调用，将其传递给驱动程序。</p>
+<p><strong>ODBC.INI</strong><br>odbc.ini 是 ODBC 配置文件，记录了连接到服务器所需的驱动信息和数据库信息xxxxxx。Driver Manager 将使用它来确定加载哪个驱动程序（使用数据源名 DSN ）。驱动程序将根据指定的DSN来读取连接参数。</p>
+<p><strong>Connector&#x2F;ODBC(MyODBC驱动程序)</strong><br>实现 ODBC API 所提供的功能，它负责处理 ODBC 函数调用，将 SQL 请求提交给 MySQL 服务器，并将结果返回给应用程序。</p>
 <p>在 Linux 下配置 mysql ODBC 需要有以下步骤：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. 安装 Driver Manager，本案例使用 unixODBC 来作为 Driver Manager。</span><br><span class="line">2. 安装 MySQL 驱动程序，本案例使用 Connector/ODBC。</span><br><span class="line">3. 配置 ODBC.INI</span><br></pre></td></tr></table></figure>
           <!--noindex-->
@@ -914,11 +906,9 @@ odbc.ini 是 ODBC 配置文件，记录了连接到服务器所需的驱动信�
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1>redis</h1>
-<h1>redis 简介</h1>
-<p>redis 是一个开源的使用 ANSI C 语言编写、<strong>基于内存亦可持久化</strong>的<strong>日志型</strong>、<strong>Key-Value 数据库</strong>，并提供了对多种编程语言的支持。</p>
-<p>支持存储的 value 类型包括 <strong>string（字符串）、list（链表）、set （集合）、zset（sorted set --有序集合）和 hash（哈希）</strong>，所以 redis 也被称为数据结构服务器。这些数据类型都支持 <strong>push/pop 、 add/remove 及取交集并集和差集</strong>等操作，且 redis 支持各种不同方式的排序。为了保证效率，数据都是缓存在内存中。 redis 会<strong>周期性的把更新的数据写入磁盘或者把修改操作写入追加的记录文件</strong>，并且在此基础上实现了主从（master-slave）同步。</p>
-<p>redis 支持<strong>主从同步</strong>。数据可以从主服务器向任意数量的从服务器上同步，从服务器可以是关联其他从服务器的主服务器。这使得 redis 可执行<strong>单层树复制</strong>。存盘可以有意无意的对数据进行写操作。由于完全实现了<strong>发布/订阅机制</strong>，使得从数据库在任何地方同步树时，可订阅一个频道并接收主服务器完整的消息发布记录。</p>
+          <h1 id="redis"><a href="#redis" class="headerlink" title="redis"></a>redis</h1><h1 id="redis-简介"><a href="#redis-简介" class="headerlink" title="redis 简介"></a>redis 简介</h1><p>redis 是一个开源的使用 ANSI C 语言编写、<strong>基于内存亦可持久化</strong>的<strong>日志型</strong>、<strong>Key-Value 数据库</strong>，并提供了对多种编程语言的支持。</p>
+<p>支持存储的 value 类型包括 <strong>string（字符串）、list（链表）、set （集合）、zset（sorted set –有序集合）和 hash（哈希）</strong>，所以 redis 也被称为数据结构服务器。这些数据类型都支持 <strong>push&#x2F;pop 、 add&#x2F;remove 及取交集并集和差集</strong>等操作，且 redis 支持各种不同方式的排序。为了保证效率，数据都是缓存在内存中。 redis 会<strong>周期性的把更新的数据写入磁盘或者把修改操作写入追加的记录文件</strong>，并且在此基础上实现了主从（master-slave）同步。</p>
+<p>redis 支持<strong>主从同步</strong>。数据可以从主服务器向任意数量的从服务器上同步，从服务器可以是关联其他从服务器的主服务器。这使得 redis 可执行<strong>单层树复制</strong>。存盘可以有意无意的对数据进行写操作。由于完全实现了<strong>发布&#x2F;订阅机制</strong>，使得从数据库在任何地方同步树时，可订阅一个频道并接收主服务器完整的消息发布记录。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2019/09/06/backend_dev/redis/#more" rel="contents">
@@ -1031,16 +1021,13 @@ odbc.ini 是 ODBC 配置文件，记录了连接到服务器所需的驱动信�
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1>OpenSSL</h1>
-<blockquote>
-<p>相关技术栈：linux、http/https、web</p>
+          <h1 id="OpenSSL"><a href="#OpenSSL" class="headerlink" title="OpenSSL"></a>OpenSSL</h1><blockquote>
+<p>相关技术栈：linux、http&#x2F;https、web</p>
 </blockquote>
-<h2 id="什么是-SSL？">什么是 SSL？</h2>
-<p>SSL 是一个缩写，代表的是 Secure Sockets Layer（<strong>安全套接层</strong>）。它是支持在 Internet 上进行<strong>安全通信的标准，并且将数据密码术集成到了协议之中。数据在离开您的计算机之前就已经被加密，然后只有到达它预定的目标后才被解密。</strong> 底层实现是证书和密码学算法。</p>
+<h2 id="什么是-SSL？"><a href="#什么是-SSL？" class="headerlink" title="什么是 SSL？"></a>什么是 SSL？</h2><p>SSL 是一个缩写，代表的是 Secure Sockets Layer（<strong>安全套接层</strong>）。它是支持在 Internet 上进行<strong>安全通信的标准，并且将数据密码术集成到了协议之中。数据在离开您的计算机之前就已经被加密，然后只有到达它预定的目标后才被解密。</strong> 底层实现是证书和密码学算法。</p>
 <p>理论上，如果加密的数据在到达目标之前被截取或窃听，那些数据是不可能被破解的。不过，由于计算机的变化一年比一年快，而且密码翻译方法有了新的发展，因此，SSL 中使用的加密协议被破解的可能性也在增大。</p>
 <p><strong>可以将 SSL 和安全连接用于 Internet 上任何类型的协议</strong>，不管是 HTTP、POP3，还是 FTP。还可以用 SSL 来保护 Telnet 会话。虽然可以用 SSL 保护任何连接，但是不必对每一类连接都使用 SSL。<strong>如果连接传输敏感信息，则应使用 SSL。</strong></p>
-<h2 id="什么是-OpenSSL？">什么是 OpenSSL？</h2>
-<p>OpenSSL 不仅仅是 SSL。它可以实现<strong>消息摘要、文件的加密和解密、数字证书、数字签名和随机数字</strong>。</p>
+<h2 id="什么是-OpenSSL？"><a href="#什么是-OpenSSL？" class="headerlink" title="什么是 OpenSSL？"></a>什么是 OpenSSL？</h2><p>OpenSSL 不仅仅是 SSL。它可以实现<strong>消息摘要、文件的加密和解密、数字证书、数字签名和随机数字</strong>。</p>
 <p>OpenSSL 不只是 <strong>API</strong>，它还是一个<strong>命令行工具</strong>。命令行工具可以完成与 API 同样的工作， 而且可以测试 SSL 服务器和客户机。</p>
           <!--noindex-->
             <div class="post-button">
@@ -1154,16 +1141,12 @@ odbc.ini 是 ODBC 配置文件，记录了连接到服务器所需的驱动信�
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1>cJSON 的使用方法</h1>
-<h2 id="JSON-格式简述">JSON 格式简述</h2>
-<blockquote>
+          <h1 id="cJSON-的使用方法"><a href="#cJSON-的使用方法" class="headerlink" title="cJSON 的使用方法"></a>cJSON 的使用方法</h1><h2 id="JSON-格式简述"><a href="#JSON-格式简述" class="headerlink" title="JSON 格式简述"></a>JSON 格式简述</h2><blockquote>
 <p>JSON(JavaScript Object Notation) 是一种轻量级的数据交换格式。易于人阅读和编写，同时也易于机器解析和生成。它基于JavaScript（Standard ECMA-262 3rd Edition - December 1999）的一个子集。 JSON采用完全独立于语言的文本格式，但是也使用了类似于C语言家族的习惯（包括C, C++, C#, Java, JavaScript, Perl, Python等）。这些特性使JSON成为理想的数据交换语言。（来自“开源中国”资料）。</p>
 </blockquote>
 <p>cJSON从名字可知，整个项目都是以极标准的C来写的，意思说，可以跨各种平台使用了。cJSON是一个超轻巧，携带方便，单文件，简单的可以作为ANSI-C标准的JSON解析器。</p>
-<p>cJSON 开源项目位置：<a target="_blank" rel="noopener" href="https://github.com/DaveGamble/cJSON">DaveGamble/cJSON</a><br>
-更加详细的解释和示例请查看<a target="_blank" rel="noopener" href="http://www.json.org/">主页</a>。</p>
-<p>cJSON，目前来说，就只有两个文件，一个cJSON.c 一个cJSON.h文件。使用的时候，自己创建好一个main.c文件后，将头文件include进去。<br>
-如果是在linux pc上，请使用以下命令进行编译：</p>
+<p>cJSON 开源项目位置：<a target="_blank" rel="noopener" href="https://github.com/DaveGamble/cJSON">DaveGamble&#x2F;cJSON</a><br>更加详细的解释和示例请查看<a target="_blank" rel="noopener" href="http://www.json.org/">主页</a>。</p>
+<p>cJSON，目前来说，就只有两个文件，一个cJSON.c 一个cJSON.h文件。使用的时候，自己创建好一个main.c文件后，将头文件include进去。<br>如果是在linux pc上，请使用以下命令进行编译：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc  *.c  cJSON.c    -lm</span><br></pre></td></tr></table></figure>
 <p>记得编译时末尾链接libm库。</p>
           <!--noindex-->
@@ -1278,22 +1261,19 @@ odbc.ini 是 ODBC 配置文件，记录了连接到服务器所需的驱动信�
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1>MQTT 协议</h1>
-<blockquote>
-<p>相关技术栈：linux、http/https、web</p>
+          <h1 id="MQTT-协议"><a href="#MQTT-协议" class="headerlink" title="MQTT 协议"></a>MQTT 协议</h1><blockquote>
+<p>相关技术栈：linux、http&#x2F;https、web</p>
 </blockquote>
-<h2 id="MQTT-协议的概念">MQTT 协议的概念</h2>
-<p>MQTT协议，全称 Message Queue Telemetry Transport 消息队列遥测传输协议 ，是一种<strong>基于发布/订阅的轻量级通讯协议</strong>。</p>
+<h2 id="MQTT-协议的概念"><a href="#MQTT-协议的概念" class="headerlink" title="MQTT 协议的概念"></a>MQTT 协议的概念</h2><p>MQTT协议，全称 Message Queue Telemetry Transport 消息队列遥测传输协议 ，是一种<strong>基于发布&#x2F;订阅的轻量级通讯协议</strong>。</p>
 <p><strong>适用于条件较差的网络环境</strong>，如：网络延迟高、带宽低、通信讯号不稳定等情况。</p>
-<h2 id="MQTT协议的特点">MQTT协议的特点</h2>
-<ul>
-<li><strong>构建于 TCP/IP 协议之上</strong></li>
+<h2 id="MQTT协议的特点"><a href="#MQTT协议的特点" class="headerlink" title="MQTT协议的特点"></a>MQTT协议的特点</h2><ul>
+<li><strong>构建于 TCP&#x2F;IP 协议之上</strong></li>
 </ul>
 <blockquote>
-<p>TCP/IP参考模型可分为四层：<strong>应用层、传输层、网络层、链路层</strong>。TCP、UDP 协议均属于传输层，MQTT 运行与 TCP 之上，属于<strong>应用层协议</strong>，只要支持 TCP/IP 协议栈的地方都可应用 MQTT。</p>
+<p>TCP&#x2F;IP参考模型可分为四层：<strong>应用层、传输层、网络层、链路层</strong>。TCP、UDP 协议均属于传输层，MQTT 运行与 TCP 之上，属于<strong>应用层协议</strong>，只要支持 TCP&#x2F;IP 协议栈的地方都可应用 MQTT。</p>
 </blockquote>
 <ul>
-<li><strong>基于 C-S 架构</strong>的消息发布/订阅，提供一对多的消息发布，作为客户端之间的中间介质，解除应用程序的耦合。</li>
+<li><strong>基于 C-S 架构</strong>的消息发布&#x2F;订阅，提供一对多的消息发布，作为客户端之间的中间介质，解除应用程序的耦合。</li>
 <li><strong>对负载内容屏蔽</strong>的消息传输</li>
 <li>使用 <strong>TCP</strong> 连接进行数据推送</li>
 <li>三种消息发布 QoS</li>
@@ -1392,7 +1372,7 @@ odbc.ini 是 ODBC 配置文件，记录了连接到服务器所需的驱动信�
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>616</span>
+      <span>661</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -1411,17 +1391,15 @@ odbc.ini 是 ODBC 配置文件，记录了连接到服务器所需的驱动信�
     
     <div class="post-body" itemprop="articleBody">
           <div align='center' ><font size='70'>2019.05-2019.06 学习总结</font></div>
+
 <hr>
 <p><span id="toc"></span></p>
 <p>[TOC]</p>
 <hr>
-<h2 id="阶段一：基础知识回顾">阶段一：基础知识回顾</h2>
-<h3 id="C语言基础语法回顾：">&gt; C语言基础语法回顾：</h3>
-<blockquote>
+<h2 id="阶段一：基础知识回顾"><a href="#阶段一：基础知识回顾" class="headerlink" title="阶段一：基础知识回顾"></a>阶段一：基础知识回顾</h2><h3 id="gt-C语言基础语法回顾："><a href="#gt-C语言基础语法回顾：" class="headerlink" title="&gt; C语言基础语法回顾："></a>&gt; C语言基础语法回顾：</h3><blockquote>
 <p>变更代码习惯，转语言——“倒时差”</p>
 </blockquote>
-<h4 id="相关留存资料：">&gt; 相关留存资料：</h4>
-<div class="pdf-container" data-target="https://drive.google.com/file/d/1644m_lW65hk8UBkXqBdFv61zy-y17bBq/preview" data-height="500px"></div>
+<h4 id="gt-相关留存资料："><a href="#gt-相关留存资料：" class="headerlink" title="&gt; 相关留存资料："></a>&gt; 相关留存资料：</h4><div class="pdf-container" data-target="https://drive.google.com/file/d/1644m_lW65hk8UBkXqBdFv61zy-y17bBq/preview" data-height="500px"></div>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2019/06/04/project_experience/2019.06/#more" rel="contents">
@@ -1471,13 +1449,13 @@ odbc.ini 是 ODBC 配置文件，记录了连接到服务器所需的驱动信�
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">231k</span>
+    <span title="站点总字数">233k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:30</span>
+    <span title="站点阅读时长">3:31</span>
   </span>
 </div>
 
