@@ -20,12 +20,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"collie2nd.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"waline","storage":true,"lazyload":false,"nav":null,"activeClass":"waline"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Docker 基础知识1docker run ubuntu:15.10 &#x2F;bin&#x2F;echo &quot;Hello world&quot;  参数含义：  docker：Docker 的二进制执行文件。 run：与前面的 docker 组合来运行一个容器。 ubuntu:15.10：指定要运行的镜像，Docker 首先从本地主机上查找镜像是否存在，如果不存在，Docker 就会从镜像仓库 Dock">
+    <meta name="description" content="Docker 基础知识 1docker run ubuntu:15.10 &#x2F;bin&#x2F;echo &quot;Hello world&quot; 参数含义：  docker：Docker 的二进制执行文件。 run：与前面的 docker 组合来运行一个容器。 ubuntu:15.10：指定要运行的镜像，Docker 首先从本地主机上查找镜像是否存在，如果不存在，Docker 就会从镜像仓库 Dock">
 <meta property="og:type" content="article">
 <meta property="og:title" content="docker 学习笔记">
 <meta property="og:url" content="http://collie2nd.github.io/2021/06/18/backend_dev/docker/index.html">
 <meta property="og:site_name" content="试过重启了吗">
-<meta property="og:description" content="Docker 基础知识1docker run ubuntu:15.10 &#x2F;bin&#x2F;echo &quot;Hello world&quot;  参数含义：  docker：Docker 的二进制执行文件。 run：与前面的 docker 组合来运行一个容器。 ubuntu:15.10：指定要运行的镜像，Docker 首先从本地主机上查找镜像是否存在，如果不存在，Docker 就会从镜像仓库 Dock">
+<meta property="og:description" content="Docker 基础知识 1docker run ubuntu:15.10 &#x2F;bin&#x2F;echo &quot;Hello world&quot; 参数含义：  docker：Docker 的二进制执行文件。 run：与前面的 docker 组合来运行一个容器。 ubuntu:15.10：指定要运行的镜像，Docker 首先从本地主机上查找镜像是否存在，如果不存在，Docker 就会从镜像仓库 Dock">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-06-17T16:00:00.000Z">
 <meta property="article:modified_time" content="2021-06-17T16:00:00.000Z">
@@ -145,7 +145,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Docker-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="nav-number">1.</span> <span class="nav-text">Docker 基础知识</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Docker-%E5%A4%8D%E6%9D%82%E6%93%8D%E4%BD%9C%E5%90%88%E9%9B%86"><span class="nav-number">2.</span> <span class="nav-text">Docker 复杂操作合集</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84"><span class="nav-number">2.1.</span> <span class="nav-text">端口映射</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E8%B0%83%E8%AF%95"><span class="nav-number">2.2.</span> <span class="nav-text">代码调试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%B9%E5%99%A8%E5%92%8C%E6%9C%AC%E6%9C%BA%E4%BA%92%E4%BC%A0%E6%96%87%E4%BB%B6"><span class="nav-number">2.3.</span> <span class="nav-text">容器和本机互传文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%B9%E5%99%A8%E5%90%91%E6%9C%AC%E6%9C%BA%E4%BC%A0%E9%80%81%E6%96%87%E4%BB%B6"><span class="nav-number">2.3.1.</span> <span class="nav-text">容器向本机传送文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%AC%E6%9C%BA%E5%90%91%E5%AE%B9%E5%99%A8%E4%BC%A0%E9%80%81%E6%96%87%E4%BB%B6"><span class="nav-number">2.3.2.</span> <span class="nav-text">本机向容器传送文件</span></a></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">Docker 基础知识</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">Docker 复杂操作合集</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84"><span class="nav-number">2.1.</span> <span class="nav-text">端口映射</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E8%B0%83%E8%AF%95"><span class="nav-number">2.2.</span> <span class="nav-text">代码调试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%B9%E5%99%A8%E5%92%8C%E6%9C%AC%E6%9C%BA%E4%BA%92%E4%BC%A0%E6%96%87%E4%BB%B6"><span class="nav-number">2.3.</span> <span class="nav-text">容器和本机互传文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%B9%E5%99%A8%E5%90%91%E6%9C%AC%E6%9C%BA%E4%BC%A0%E9%80%81%E6%96%87%E4%BB%B6"><span class="nav-number">2.3.1.</span> <span class="nav-text">容器向本机传送文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%AC%E6%9C%BA%E5%90%91%E5%AE%B9%E5%99%A8%E4%BC%A0%E9%80%81%E6%96%87%E4%BB%B6"><span class="nav-number">2.3.2.</span> <span class="nav-text">本机向容器传送文件</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -315,8 +315,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="Docker-基础知识"><a href="#Docker-基础知识" class="headerlink" title="Docker 基础知识"></a>Docker 基础知识</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run ubuntu:15.10 /bin/echo <span class="string">&quot;Hello world&quot;</span></span><br></pre></td></tr></table></figure>
-
+        <h1>Docker 基础知识</h1>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run ubuntu:15.10 /bin/echo <span class="string">&quot;Hello world&quot;</span></span><br></pre></td></tr></table></figure>
 <p><strong>参数含义：</strong></p>
 <ul>
 <li><code>docker</code>：Docker 的二进制执行文件。</li>
@@ -325,7 +325,6 @@
 <li><code>/bin/echo &quot;Hello world&quot;</code>：在启动的容器里执行的命令</li>
 </ul>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -i -t ubuntu:15.10 /bin/bash</span><br></pre></td></tr></table></figure>
-
 <p><strong>参数含义：</strong></p>
 <ul>
 <li><code>-t</code>：在新容器内指定一个伪终端或终端。</li>
@@ -333,16 +332,17 @@
 <li>可以通过运行 <code>exit</code> 命令或者使用 <code>ctrl+D</code> 来退出容器，会导致容器停止</li>
 </ul>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -P training/webapp python app.py</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li><code>-d</code>：让容器在后台运行。</li>
 <li><code>-P</code>：将容器内部使用的网络端口随机映射到我们使用的主机上。</li>
 </ul>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker commit &lt;CONTAINER ID&gt; &lt;REPOSITORY&gt;</span><br></pre></td></tr></table></figure>
-
 <span id="more"></span>
-
-<p><strong>参数含义：</strong><br><code>-a</code>：提交的镜像作者;<br><code>-c</code>：使用Dockerfile指令来创建镜像;<br><code>-m</code>：提交时的说明文字;<br><code>-p</code>：在commit时，将容器暂停</p>
+<p><strong>参数含义：</strong><br>
+<code>-a</code>：提交的镜像作者;<br>
+<code>-c</code>：使用Dockerfile指令来创建镜像;<br>
+<code>-m</code>：提交时的说明文字;<br>
+<code>-p</code>：在commit时，将容器暂停</p>
 <table>
 <thead>
 <tr>
@@ -350,7 +350,8 @@
 <th>result</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td><code>docker ps</code></td>
 <td>查看正在运行的容器</td>
 </tr>
@@ -387,8 +388,8 @@
 <td>导出本地某个容器</td>
 </tr>
 <tr>
-<td>&#96;cat docker&#x2F;xxx.tar</td>
-<td>docker import - <EPOSITORY>:<TAG>&#96;</td>
+<td>`cat docker/xxx.tar</td>
+<td>docker import - <EPOSITORY>:<TAG>`</td>
 </tr>
 <tr>
 <td><code>docker import &lt;URL&gt; &lt;EPOSITORY&gt;</code></td>
@@ -418,38 +419,34 @@
 <td><code>docker rm $(docker container ls -f &quot;status=exited&quot; -q)</code></td>
 <td>同时删除多个符合筛选条件(状态为“exited”)的容器</td>
 </tr>
-</tbody></table>
-<h1 id="Docker-复杂操作合集"><a href="#Docker-复杂操作合集" class="headerlink" title="Docker 复杂操作合集"></a>Docker 复杂操作合集</h1><h2 id="端口映射"><a href="#端口映射" class="headerlink" title="端口映射"></a>端口映射</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it -p 8080:18026 &lt;REPOSITORY&gt;:&lt;TAG&gt; /bin/bash</span><br></pre></td></tr></table></figure>
-
+</tbody>
+</table>
+<h1>Docker 复杂操作合集</h1>
+<h2 id="端口映射">端口映射</h2>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it -p 8080:18026 &lt;REPOSITORY&gt;:&lt;TAG&gt; /bin/bash</span><br></pre></td></tr></table></figure>
 <p><code>-p</code>：是容器内部端口绑定到指定的主机端口。这里指将主机的8080端口映射到容器的18026端口。-p可以多个端口映射同时存在以实现复杂功能</p>
 </br>
-
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it -p 127.0.0.1:8080:18026 &lt;REPOSITORY&gt;:&lt;TAG&gt; /bin/bash</span><br></pre></td></tr></table></figure>
-
 <p>这样我们就可以通过访问 127.0.0.1:8080 来访问容器的 18026 端口。</p>
 </br>
-
-<p>上面的例子中，默认都是绑定 tcp 端口，如果要绑定 UDP 端口，可以在端口后面加上 &#x2F;udp。</p>
+<p>上面的例子中，默认都是绑定 tcp 端口，如果要绑定 UDP 端口，可以在端口后面加上 /udp。</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -it -p 127.0.0.1:8080:18026/udp &lt;REPOSITORY&gt;:&lt;TAG&gt; /bin/bash</span><br></pre></td></tr></table></figure>
-
 </br>
-
 <p><code>docker port &lt;CONTAINER ID&gt; &lt;PORT&gt;</code>命令可以让我们快捷地查看端口的绑定情况。</p>
-<h2 id="代码调试"><a href="#代码调试" class="headerlink" title="代码调试"></a>代码调试</h2><p>centos的依赖<code>cmake/gcc/gdb/gdb-gdbserver/openssh-server/openssh-clients</code></p>
+<h2 id="代码调试">代码调试</h2>
+<p>centos的依赖<code>cmake/gcc/gdb/gdb-gdbserver/openssh-server/openssh-clients</code></p>
 <p>docker要以特权模式启动</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --privileged=<span class="literal">true</span> -v /Users/liuxing1/Files/Docker_Files/Shared\ Folders/:/tmp -p 8080:22 -p 8000:18080 mdm_docker /usr/sbin/init</span><br></pre></td></tr></table></figure>
-
 <p>然后通过<code>docker exec -it &lt;Container_ID&gt; /bin/bash</code>进入容器操作</p>
 <p>启动sshd服务</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#启动</span></span><br><span class="line">systemctl start sshd</span><br><span class="line"> </span><br><span class="line"><span class="comment">#设置开机自启动</span></span><br><span class="line">systemctl <span class="built_in">enable</span> sshd</span><br><span class="line"></span><br><span class="line"><span class="comment">#设置密码</span></span><br><span class="line">passwd</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="容器和本机互传文件"><a href="#容器和本机互传文件" class="headerlink" title="容器和本机互传文件"></a>容器和本机互传文件</h2><p>首先需要确定 docker 容器的<code>container_id</code>,可以使用<code>docker ps -a</code>查看你要操作的 docker 容器的<code>container_id</code></p>
-<h3 id="容器向本机传送文件"><a href="#容器向本机传送文件" class="headerlink" title="容器向本机传送文件"></a>容器向本机传送文件</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">cp</span> container_id:docker容器内的文件全路径 本机保存文件的全路径</span><br></pre></td></tr></table></figure>
-
+<h2 id="容器和本机互传文件">容器和本机互传文件</h2>
+<p>首先需要确定 docker 容器的<code>container_id</code>,可以使用<code>docker ps -a</code>查看你要操作的 docker 容器的<code>container_id</code></p>
+<h3 id="容器向本机传送文件">容器向本机传送文件</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">cp</span> container_id:docker容器内的文件全路径 本机保存文件的全路径</span><br></pre></td></tr></table></figure>
 <p><strong>例如：</strong><code>docker cp 4a2f08d2c1f8:/data1/configure.txt E:\PHP\configure.txt</code></p>
-<h3 id="本机向容器传送文件"><a href="#本机向容器传送文件" class="headerlink" title="本机向容器传送文件"></a>本机向容器传送文件</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">cp</span> 本机保存文件的全路径 container_id:docker容器内的文件全路径</span><br></pre></td></tr></table></figure>
-
+<h3 id="本机向容器传送文件">本机向容器传送文件</h3>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">cp</span> 本机保存文件的全路径 container_id:docker容器内的文件全路径</span><br></pre></td></tr></table></figure>
 <p><strong>例如：</strong><code>docker cp E:\PHP\configure.txt 4a2f08d2c1f8:/data1/configure.txt</code></p>
 
     </div>
@@ -582,13 +579,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">233k</span>
+    <span title="站点总字数">231k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:31</span>
+    <span title="站点阅读时长">3:30</span>
   </span>
 </div>
 
