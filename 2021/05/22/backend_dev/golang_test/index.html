@@ -20,18 +20,18 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"collie2nd.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"waline","storage":true,"lazyload":false,"nav":null,"activeClass":"waline"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="性能测试 注册 pprof 服务 12345678910111213141516171819202122232425262728293031 &#x2F;&#x2F; 开启服务pprofOpen :&#x3D; c.GetBool(&quot;pprof.open&quot;)if pprofOpen &amp;#123;	&#x2F;&#x2F; 运行pprof服务器，其路由已在pprof包自动注册	pprofPort :&#x3D; c.GetInt(&amp;quo">
+    <meta name="description" content="性能测试注册 pprof 服务 12345678910111213141516171819202122232425262728293031 &#x2F;&#x2F; 开启服务pprofOpen :&#x3D; c.GetBool(&quot;pprof.open&quot;)if pprofOpen &amp;#123;	&#x2F;&#x2F; 运行pprof服务器，其路由已在pprof包自动注册	pprofPort :&#x3D; c.GetInt(&amp;quot">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Go 代码的测试方法">
 <meta property="og:url" content="http://collie2nd.github.io/2021/05/22/backend_dev/golang_test/index.html">
 <meta property="og:site_name" content="试过重启了吗">
-<meta property="og:description" content="性能测试 注册 pprof 服务 12345678910111213141516171819202122232425262728293031 &#x2F;&#x2F; 开启服务pprofOpen :&#x3D; c.GetBool(&quot;pprof.open&quot;)if pprofOpen &amp;#123;	&#x2F;&#x2F; 运行pprof服务器，其路由已在pprof包自动注册	pprofPort :&#x3D; c.GetInt(&amp;quo">
+<meta property="og:description" content="性能测试注册 pprof 服务 12345678910111213141516171819202122232425262728293031 &#x2F;&#x2F; 开启服务pprofOpen :&#x3D; c.GetBool(&quot;pprof.open&quot;)if pprofOpen &amp;#123;	&#x2F;&#x2F; 运行pprof服务器，其路由已在pprof包自动注册	pprofPort :&#x3D; c.GetInt(&amp;quot">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-05-21T16:00:00.000Z">
 <meta property="article:modified_time" content="2021-05-21T16:00:00.000Z">
 <meta property="article:author" content="Collie">
-<meta property="article:tag" content="linux">
 <meta property="article:tag" content="golang">
+<meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary">
 
 
@@ -145,7 +145,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">性能测试</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95"><span class="nav-number">1.</span> <span class="nav-text">性能测试</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -315,11 +315,13 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1>性能测试</h1>
-<p>注册 pprof 服务</p>
+        <h1 id="性能测试"><a href="#性能测试" class="headerlink" title="性能测试"></a>性能测试</h1><p>注册 pprof 服务</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">// 开启服务</span></span><br><span class="line">pprofOpen := c.GetBool(<span class="string">&quot;pprof.open&quot;</span>)</span><br><span class="line"><span class="keyword">if</span> pprofOpen &#123;</span><br><span class="line">	<span class="comment">// 运行pprof服务器，其路由已在pprof包自动注册</span></span><br><span class="line">	pprofPort := c.GetInt(<span class="string">&quot;pprof.port&quot;</span>)</span><br><span class="line">	s.pprofSvr = &amp;http.Server&#123;</span><br><span class="line">		Addr:    <span class="string">&quot;:&quot;</span> + strconv.Itoa(pprofPort),</span><br><span class="line">		Handler: <span class="literal">nil</span>,</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">		err := s.pprofSvr.ListenAndServe()</span><br><span class="line">		log.Infof(<span class="string">&quot;pprof server down: %+v&quot;</span>, err)</span><br><span class="line">	&#125;()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 停止服务</span></span><br><span class="line">c := config.GetConfig()</span><br><span class="line">pprofOpen := c.GetBool(<span class="string">&quot;pprof.open&quot;</span>)</span><br><span class="line"><span class="keyword">if</span> pprofOpen &#123;</span><br><span class="line">	wg.Add(<span class="number">1</span>)</span><br><span class="line">	<span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">		<span class="keyword">defer</span> wg.Done()</span><br><span class="line">		<span class="comment">// 开始关闭pprof服务器</span></span><br><span class="line">		ctx, cancel := context.WithTimeout(context.Background(), <span class="number">5</span>*time.Second)</span><br><span class="line">		<span class="keyword">defer</span> cancel()</span><br><span class="line">		<span class="keyword">if</span> err := s.pprofSvr.Shutdown(ctx); err != <span class="literal">nil</span> &#123;</span><br><span class="line">			log.Infof(<span class="string">&quot;Server Shutdown: &quot;</span>, err)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;()</span><br><span class="line">&#125;</span><br><span class="line">wg.Wait()</span><br></pre></td></tr></table></figure>
+
 <span id="more"></span>
+
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">go tool pprof --seconds 60 http://127.0.0.1:8098/debug/pprof/profile</span><br><span class="line">&gt;&gt; web</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[pprof]</span></span><br><span class="line"><span class="attr">open</span> = <span class="literal">true</span></span><br><span class="line"><span class="attr">port</span> = <span class="number">8098</span></span><br></pre></td></tr></table></figure>
     </div>
 
@@ -403,8 +405,8 @@
 </div>
 
           <div class="post-tags">
-              <a href="/tags/linux/" rel="tag"><i class="fa fa-tag"></i> linux</a>
               <a href="/tags/golang/" rel="tag"><i class="fa fa-tag"></i> golang</a>
+              <a href="/tags/linux/" rel="tag"><i class="fa fa-tag"></i> linux</a>
           </div>
 
         
@@ -451,13 +453,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">231k</span>
+    <span title="站点总字数">233k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:30</span>
+    <span title="站点阅读时长">3:31</span>
   </span>
 </div>
 
