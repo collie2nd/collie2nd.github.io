@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"collie2nd.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"waline","storage":true,"lazyload":false,"nav":null,"activeClass":"waline"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="ClickHouse 优缺点及性能情况 「优点」  为了高效的使用CPU，数据不仅仅按列存储，同时还按向量进行处理； 数据压缩空间大，减少IO；处理单查询高吞吐量每台服务器每秒最多数十亿行； 索引非B树结构，不需要满足最左原则；只要过滤条件在索引列中包含即可；即使在使用的数据不在索引中，由于各种并行处理机制 ClickHouse 全表扫描的速度也很快； 写入速度非常快，50-200M&#x2F;s，对于大量">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ClickHouse 学习笔记">
+<meta property="og:url" content="http://collie2nd.github.io/2022/09/10/backend_dev/clickhouse/index.html">
+<meta property="og:site_name" content="试过重启了吗">
+<meta property="og:description" content="ClickHouse 优缺点及性能情况 「优点」  为了高效的使用CPU，数据不仅仅按列存储，同时还按向量进行处理； 数据压缩空间大，减少IO；处理单查询高吞吐量每台服务器每秒最多数十亿行； 索引非B树结构，不需要满足最左原则；只要过滤条件在索引列中包含即可；即使在使用的数据不在索引中，由于各种并行处理机制 ClickHouse 全表扫描的速度也很快； 写入速度非常快，50-200M&#x2F;s，对于大量">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://pic.colliexyy.com/16703128757110.jpg">
+<meta property="og:image" content="http://pic.colliexyy.com/16703128950073.jpg">
+<meta property="og:image" content="http://pic.colliexyy.com/mweb/16703129353056.jpg">
+<meta property="og:image" content="http://pic.colliexyy.com/mweb/16703129407769.jpg">
+<meta property="og:image" content="http://pic.colliexyy.com/mweb/16703129549911.jpg">
+<meta property="og:image" content="http://pic.colliexyy.com/mweb/16703129635522.jpg">
+<meta property="og:image" content="http://pic.colliexyy.com/mweb/16703129762924.jpg">
+<meta property="og:image" content="http://pic.colliexyy.com/mweb/16703129843815.jpg">
+<meta property="article:published_time" content="2022-09-09T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-09-09T16:00:00.000Z">
+<meta property="article:author" content="Collie">
+<meta property="article:tag" content="数据库">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://pic.colliexyy.com/16703128757110.jpg">
+
+
+<link rel="canonical" href="http://collie2nd.github.io/2022/09/10/backend_dev/clickhouse/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://collie2nd.github.io/2022/09/10/backend_dev/clickhouse/","path":"2022/09/10/backend_dev/clickhouse/","title":"ClickHouse 学习笔记"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>ClickHouse 学习笔记 | 试过重启了吗</title>
+  
+
+
+
+
+<link rel="dns-prefetch" href="comment.colliexyy.com">
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">试过重启了吗</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Collie's Site</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">14</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">3</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">42</span></a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">ClickHouse 优缺点及性能情况</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">ClickHouse 建宽表多少列最合适？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">3.</span> <span class="nav-text">ClickHouse 数据导入</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">4.</span> <span class="nav-text">ClickHouse 相关优化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">5.</span> <span class="nav-text">ClickHouse性能情况</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">6.</span> <span class="nav-text">ClickHouse 常见参数配置推荐</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">7.</span> <span class="nav-text">ClickHouse与MySQL区别对比：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">8.</span> <span class="nav-text">避坑指南</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Collie"
+      src="/images/blue.gif">
+  <p class="site-author-name" itemprop="name">Collie</p>
+  <div class="site-description" itemprop="description">less is more</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">42</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/collie2nd" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;collie2nd" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:collie1158@qq.com" title="E-Mail → mailto:collie1158@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/u/6213715897" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;6213715897" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/collie2nd" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;collie2nd" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/collie2nd" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;collie2nd" rel="noopener" target="_blank"><i class="fab fa-facebook fa-fw"></i>FB Page</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://instagram.com/collie2nd" title="Instagram → https:&#x2F;&#x2F;instagram.com&#x2F;collie2nd" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i>Instagram</a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/collie2nd" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://collie2nd.github.io/2022/09/10/backend_dev/clickhouse/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/blue.gif">
+      <meta itemprop="name" content="Collie">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="试过重启了吗">
+      <meta itemprop="description" content="less is more">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="ClickHouse 学习笔记 | 试过重启了吗">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          ClickHouse 学习笔记
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-09-10 00:00:00" itemprop="dateCreated datePublished" datetime="2022-09-10T00:00:00+08:00">2022-09-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%90%8E%E7%AB%AF%E6%8A%80%E8%83%BD/" itemprop="url" rel="index"><span itemprop="name">后端技能</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2022/09/10/backend_dev/clickhouse/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2022/09/10/backend_dev/clickhouse/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>4.3k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>4 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1>ClickHouse 优缺点及性能情况</h1>
+<p><strong>「优点」</strong></p>
+<ol>
+<li>为了高效的使用CPU，数据不仅仅按列存储，同时还按向量进行处理；</li>
+<li>数据压缩空间大，减少IO；处理单查询高吞吐量每台服务器每秒最多数十亿行；</li>
+<li>索引非B树结构，不需要满足最左原则；只要过滤条件在索引列中包含即可；即使在使用的数据不在索引中，由于各种并行处理机制 ClickHouse 全表扫描的速度也很快；</li>
+<li>写入速度非常快，50-200M/s，对于大量的数据更新非常适用。</li>
+</ol>
+<p><strong>「缺点」</strong></p>
+<ol>
+<li>不支持事务，不支持真正的删除/更新；</li>
+<li>不支持高并发，官方建议qps为100，可以通过修改配置文件增加连接数，但是在服务器足够好的情况下；</li>
+<li>SQL满足日常使用80%以上的语法，join写法比较特殊；最新版已支持类似SQL的join，但性能不好；</li>
+<li>尽量做1000条以上批量的写入，避免逐行insert或小批量的insert，update，delete操作，因为ClickHouse底层会不断的做异步的数据合并，会影响查询性能，这个在做实时数据写入的时候要尽量避开；</li>
+<li>Clickhouse快是因为采用了并行处理机制，即使一个查询，也会用服务器一半的CPU去执行，所以ClickHouse不能支持高并发的使用场景，默认单查询使用CPU核数为服务器核数的一半，安装时会自动识别服务器核数，可以通过配置文件修改该参数。</li>
+</ol>
+<h1>ClickHouse 建宽表多少列最合适？</h1>
+<p>ClickHouse 对于10000列也是能扛住的，但是在插入数据和执行维护操作(例如合并或突变)时可能需要额外的调优和大量 RAM。但只要 RAM 足够，用户可以获得出色的 ClickHouse 查询性能。对于典型的分析查询，10个列表和10000个列表没有什么不同。当不需要处理数千列时，可以使用 Map 数据类型。它可以在方便性和性能之间提供很好的折衷，特别是对于稀疏表，因为在一行中只使用了10K 列的一小部分。</p>
+<p>10000列调优解决方案：</p>
+<blockquote>
+<ul>
+<li>将 max_query_size 设置增加到1M，这是处理大型 SQL 所必需的</li>
+<li>将 max_ast_element 设置增加到256K，这也是处理大型 SQL 所必需的</li>
+<li>内存超过64GB</li>
+<li>如果内存不足，减小 max_block_size。</li>
+<li>使用紧凑的部件可能会降低 RAM 的利用率，但也有其他缺点，如插入速度较慢和合并速度非常慢。</li>
+</ul>
+</blockquote>
+<p>结论：1000列内都可以，原因看<a target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv17502956/">奇想派文章</a>实验即可。</p>
+<h1>ClickHouse 数据导入</h1>
+<ul>
+<li>
+<p>全量数据导入：<br>
+数据导入临时表 -&gt; 导入完成后，将原表改名为tmp1 -&gt; 将临时表改名为正式表 -&gt; 删除原表</p>
+</li>
+<li>
+<p>增量数据导入：<br>
+增量数据导入临时表 -&gt; 将原数据除增量外的也导入临时表 -&gt; 导入完成后，将原表改名为tmp1-&gt; 将临时表改成正式表-&gt; 删除原数据表</p>
+</li>
+</ul>
+<p>有人可能觉得上面的数据导入的时候，数据肯定缓存在内存里了，这个的确，但是ClickHouse基本上是顺序IO。对IO基本没有太高要求，当然，磁盘越快，上层处理越快，但是99%的情况是，CPU先跑满了（数据库里太少见了，大多数都是IO不够用）。</p>
+<h1>ClickHouse 相关优化</h1>
+<ol>
+<li>关闭虚拟内存，物理内存和虚拟内存的数据交换，会导致查询变慢。</li>
+<li>为每一个账户添加 join_use_nulls 配置，左表中的一条记录在右表中不存在，右表的相应字段会返回该字段相应数据类型的默认值，而不是标准 SQL 中的 Null 值。</li>
+<li>JOIN 操作时一定要把数据量小的表放在右边，ClickHouse 中无论是 Left Join 、Right Join 还是 Inner Join 永远都是拿着右表中的每一条记录到左表中查找该记录是否存在，所以右表必须是小表。</li>
+<li>批量写入数据时，必须控制每个批次的数据中涉及到的分区的数量，在写入之前最好对需要导入的数据进行排序。无序的数据或者涉及的分区太多，会导致ClickHouse无法及时对新导入的数据进行合并，从而影响查询性能。</li>
+<li>尽量减少JOIN时的左右表的数据量，必要时可以提前对某张表进行聚合操作，减少数据条数。有些时候，先GROUP BY再JOIN比先JOIN再GROUP BY查询时间更短。</li>
+<li>ClickHouse的分布式表性能性价比不如物理表高，建表分区字段值不宜过多，防止数据导入过程磁盘可能会被打满。</li>
+<li>CPU一般在50%左右会出现查询波动，达到70%会出现大范围的查询超时，CPU是最关键的指标，要非常关注。</li>
+</ol>
+<h1>ClickHouse性能情况</h1>
+<ol>
+<li>单个查询吞吐量：如果数据被放置在page cache中，则一个不太复杂的查询在单个服务器上大约能够以2-10GB／s（未压缩）的速度进行处理（对于简单的查询，速度可以达到30GB／s）。如果数据没有在page cache中的话，那么速度将取决于你的磁盘系统和数据的压缩率。例如，如果一个磁盘允许以400MB／s的速度读取数据，并且数据压缩率是3，则数据的处理速度为1.2GB/s。这意味着，如果你是在提取一个10字节的列，那么它的处理速度大约是1-2亿行每秒。对于分布式处理，处理速度几乎是线性扩展的，但这受限于聚合或排序的结果不是那么大的情况下。</li>
+<li>处理短查询的延时时间：数据被page cache缓存的情况下，它的延迟应该小于50毫秒(最佳情况下应该小于10毫秒)。 否则，延迟取决于数据的查找次数。延迟可以通过以下公式计算得知： 查找时间（10 ms） * 查询的列的数量 * 查询的数据块的数量。</li>
+<li>处理大量短查询：ClickHouse可以在单个服务器上每秒处理数百个查询（在最佳的情况下最多可以处理数千个）。但是由于这不适用于分析型场景。建议每秒最多查询100次。</li>
+<li>数据写入性能：建议每次写入不少于1000行的批量写入，或每秒不超过一个写入请求。当使用tab-separated格式将一份数据写入到MergeTree表中时，写入速度大约为50到200MB/s。如果您写入的数据每行为1Kb，那么写入的速度为50，000到200，000行每秒。如果您的行更小，那么写入速度将更高。为了提高写入性能，您可以使用多个INSERT进行并行写入，这将带来线性的性能提升。</li>
+</ol>
+<ul>
+<li>count: 千万级别，500毫秒，1亿 800毫秒  2亿 900毫秒 3亿 1.1秒</li>
+<li>group: 百万级别 200毫米，千万 1秒，1亿 10秒，2亿 20秒，3亿 30秒</li>
+<li>join: 千万-十万 600 毫秒， 千万-百万：10秒，千万-千万 150秒</li>
+</ul>
+<h1>ClickHouse 常见参数配置推荐</h1>
+<ol>
+<li>max_concurrent_queries</li>
+</ol>
+<blockquote>
+<p>最大并发处理的请求数(包含select,insert等)，默认值100，推荐150(不够再加)，在我们的集群中出现过“max concurrent queries”的问题。</p>
+</blockquote>
+<p><img src="http://pic.colliexyy.com/16703128757110.jpg" alt=""></p>
+<ol start="2">
+<li>max_bytes_before_external_sort</li>
+</ol>
+<blockquote>
+<p>当order by已使用max_bytes_before_external_sort内存就进行溢写磁盘(基于磁盘排序)，如果不设置该值，那么当内存不够时直接抛错，设置了该值order by可以正常完成，但是速度相对存内存来说肯定要慢点（实测慢的非常多，无法接受）。</p>
+</blockquote>
+<p><img src="http://pic.colliexyy.com/16703128950073.jpg" alt=""></p>
+<ol start="3">
+<li>max_thread_pool_size</li>
+</ol>
+<blockquote>
+<p>后台线程池的大小，merge线程就是在该线程池中执行，当然该线程池不仅仅是给merge线程用的，默认值16，推荐32提升merge的速度（CPU允许的前提下）。</p>
+</blockquote>
+<p><img src="http://pic.colliexyy.com/mweb/16703129353056.jpg" alt=""></p>
+<p><img src="http://pic.colliexyy.com/mweb/16703129407769.jpg" alt=""></p>
+<ol start="4">
+<li>max_server_memory_usage</li>
+</ol>
+<blockquote>
+<p>单个SQL在单台机器最大内存使用量，该值可以设置的比较大，这样可以提升集群查询的上限。</p>
+</blockquote>
+<p><img src="http://pic.colliexyy.com/mweb/16703129549911.jpg" alt=""></p>
+<p><img src="http://pic.colliexyy.com/mweb/16703129635522.jpg" alt=""></p>
+<ol start="5">
+<li>max_memory_usage_for_all_queries</li>
+</ol>
+<blockquote>
+<p>单机最大的内存使用量可以设置略小于机器的物理内存(留一点内操作系统)。</p>
+</blockquote>
+<p><img src="http://pic.colliexyy.com/mweb/16703129762924.jpg" alt=""></p>
+<ol start="6">
+<li>max_bytes_before_external_group_by</li>
+</ol>
+<blockquote>
+<p>在进行group by的时候，内存使用量已经达到了max_bytes_before_external_group_by的时候就进行写磁盘(基于磁盘的group by相对于基于磁盘的order by性能损耗要好很多的)，一般max_bytes_before_external_group_by设置为max_memory_usage / 2</p>
+</blockquote>
+<p><img src="http://pic.colliexyy.com/mweb/16703129843815.jpg" alt=""></p>
+<ol start="7">
+<li>max_bytes_before_external_sort</li>
+</ol>
+<blockquote>
+<p>调整orderby参数：max_bytes_before_external_sort更少的RAM使用，如果一个足够小LIMIT除了指定ORDERBY，否则，所花费的内存量与用于排序的数据量成正比。对于分布式查询处理，如果GROUPBY省略排序，在远程服务器上部分完成排序，并将结果合并到请求者服务器上。这意味着对于分布式排序，要排序的数据量可以大于单个服务器上的内存量。如果没有足够的RAM，则可以在外部存储器中执行排序（在磁盘上创建临时文件）。使用设置max_bytes_before_external_sort为此目的。如果将其设置为0（默认值），则禁用外部排序。如果启用，则当要排序的数据量达到指定的字节数时，将对收集的数据进行排序并转储到临时文件中。读取所有数据后，将合并所有已排序的文件并输出结果。文件被写入到/var/lib/clickhouse/tmp/目录中的配置（默认情况下，但你可以使用tmp_path参数来更改此设置）。运行查询可能占用的内存比max_bytes_before_external_sort大。因此，此设置的值必须大大小于max_memory_usage.例如，如果您的服务器有128GB的RAM，并且您需要运行单个查询，请设置max_memory_usage到100GB，和max_bytes_before_external_sort至80GB。外部排序的工作效率远远低于在RAM中进行排序。</p>
+</blockquote>
+<ol start="8">
+<li>max_execution_time</li>
+</ol>
+<blockquote>
+<p>最大查询执行时间（以秒为单位）。<br>
+此时，不会检查其中一个排序阶段，也不会在合并和最终确定聚合函数时进行检查。</p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">max_execution_time</span>&gt;</span>3600<span class="tag">&lt;/<span class="name">max_execution_time</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h1>ClickHouse与MySQL区别对比：</h1>
+<ol>
+<li>MySQL单条SQL是单线程的，只能跑满一个core，ClickHouse相反，有多少CPU，吃多少资源，所以飞快；</li>
+<li>ClickHouse不支持事务，不存在隔离级别。ClickHouse的定位是分析性数据库，而不是严格的关系型数据库。</li>
+<li>IO方面，MySQL是行存储，ClickHouse是列存储，后者在count()这类操作天然有优势，同时，在IO方面，MySQL需要大量随机IO，ClickHouse基本是顺序IO。</li>
+</ol>
+<h1>避坑指南</h1>
+<ul>
+<li>Golang-banding-validator注册翻译接口的时候，不可以放在中间件中，会导致多次注册，使得map同时读取写入panic。</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+      
+
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>Buy me a coffee</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.jpg" alt="Collie 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.jpg" alt="Collie 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Collie
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="http://collie2nd.github.io/2022/09/10/backend_dev/clickhouse/" title="ClickHouse 学习笔记">http://collie2nd.github.io/2022/09/10/backend_dev/clickhouse/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="https://twitter.com/LIUVOUS">
+          <span class="icon">
+            <i class="fab fa-twitter"></i>
+          </span>
+
+          <span class="label">Twitter</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="/images/t_me.jpg">
+          <span class="icon">
+            <i class="fab fa-telegram"></i>
+          </span>
+
+          <span class="label">Telegram</span>
+        </a>
+      </div>
+
+      <div class="social-item">
+        <a target="_blank" class="social-link" href="/images/wechat_channel.jpg">
+          <span class="icon">
+            <i class="fab fa-weixin"></i>
+          </span>
+
+          <span class="label">WeChat</span>
+        </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag"><i class="fa fa-tag"></i> 数据库</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/07/20/project_experience/code_thinking/" rel="prev" title="关于路由层及逻辑层框架设计的思考">
+                  <i class="fa fa-chevron-left"></i> 关于路由层及逻辑层框架设计的思考
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/11/21/backend_dev/unknown/" rel="next" title="摆脱未知">
+                  摆脱未知 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments" id="waline"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Collie</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">242k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:40</span>
+  </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.0/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+  <script class="next-config" data-name="pdf" type="application/json">{"object_url":{"url":"https://cdnjs.cloudflare.com/ajax/libs/pdfobject/2.2.8/pdfobject.min.js","integrity":"sha256-tu9j5pBilBQrWSDePOOajCUdz6hWsid/lBNzK4KgEPM="},"url":"/lib/pdf/web/viewer.html"}</script>
+  <script src="/js/third-party/tags/pdf.js"></script>
+
+
+
+
+  
+
+
+
+
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-cn","enable":true,"serverURL":"comment.colliexyy.com","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":false,"placeholder":"ヾﾉ≧∀≦)o来啊，快活啊!","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"visitor":false,"comment_count":true,"requiredFields":["nick"],"libUrl":"//unpkg.com/@waline/client@v2/dist/waline.js","el":"#waline","comment":true,"path":"/2022/09/10/backend_dev/clickhouse/"}</script>
+<link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
+<script>
+document.addEventListener('page:loaded', () => {
+  NexT.utils.loadComments(CONFIG.waline.el).then(() =>
+    NexT.utils.getScript(CONFIG.waline.libUrl, { condition: window.Waline })
+  ).then(() => 
+    Waline.init(Object.assign({}, CONFIG.waline,{ el: document.querySelector(CONFIG.waline.el) }))
+  );
+});
+</script>
+
+</body>
+</html>

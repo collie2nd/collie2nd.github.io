@@ -85,7 +85,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">14</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">3</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">37</span></a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">14</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">3</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">42</span></a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -156,7 +156,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">37</span>
+          <span class="site-state-item-count">42</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -222,6 +222,707 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://collie2nd.github.io/2022/03/16/backend_dev/Go%20%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%AE%9E%E6%88%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/blue.gif">
+      <meta itemprop="name" content="Collie">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="试过重启了吗">
+      <meta itemprop="description" content="less is more">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 试过重启了吗">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/03/16/backend_dev/Go%20%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%AE%9E%E6%88%98/" class="post-title-link" itemprop="url">《Go 并发编程实战》读书笔记</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-03-16 00:00:00" itemprop="dateCreated datePublished" datetime="2022-03-16T00:00:00+08:00">2022-03-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%90%8E%E7%AB%AF%E6%8A%80%E8%83%BD/" itemprop="url" rel="index"><span itemprop="name">后端技能</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2022/03/16/backend_dev/Go%20%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%AE%9E%E6%88%98/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2022/03/16/backend_dev/Go%20%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%AE%9E%E6%88%98/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.3k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1>GO 并发编程实战</h1>
+<h1>第 1 章：初始 Go 语言</h1>
+<ul>
+<li>访问控制级别：公开、包级私有之外，还有一种——模块级私有。通过吧名称首字母大写的程序实体放入 internal 代码包实现的。</li>
+<li>多编程范式：Go 支持函数式编程。函数类型为第一等类型，可以方便地传递和赋值。此外，它还支持面向对象编程，有接口类型与实现类型的概念，但用嵌入替代了继承。</li>
+<li>Go 命令：
+<ul>
+<li>clean。用于清除因执行其他 go 命令而遗留下来的临时目录和文件。</li>
+<li>doc。用于显示Go语言代码包以及程序实体的文档。</li>
+<li>fix。用于修正指定代码包的源码文件中包含的过时语法和代码调用。这使得我们在升级Go语言版本时，可以非常方便地同步升级程序。</li>
+<li>fmt。用于格式化指定代码包中的Go源码文件。实际上，它是通过执行gofmt命令来实现功能的。</li>
+<li>generate。用于识别指定代码包中源码文件中的<code>go:generate</code>注释，并执行其携带的任意命令。该命令独立于 Go 语言标准的编译和安装体系。如果你有需要解析的<code>go:generate</code>注释，就单独运行它。这个命令非常有用，我常用它自动生成或改动 Go 源码文件。</li>
+<li>list。用于显示指定代码包的信息，它可谓是代码包分析的一大便捷工具。利用 go 语言标准库代码包 text/template 中规定的模板语法，你可以非常灵活地控制输出信息。</li>
+<li>tool。用于运行 Go 语言的特殊工具。</li>
+<li>vet。用于检查指定代码包中的 Go 语言源码，并报告发现可疑代码问题。该命令提供了除编译以外的又一个程序检查方法，可用于找到程序中的潜在错误。</li>
+</ul>
+</li>
+<li>命令额外标记：
+<ul>
+<li>-a：用于强调重新编译所有涉及的 Go 语言代码包。</li>
+<li>-n：使命令仅打印其执行过程中用到的所有命令，而不真正执行它们。</li>
+<li>-race：用于检测程序中的数据竞争问题。</li>
+<li>-v：用于打印命令执行过程中涉及的代码包。</li>
+<li>-work：用于打印命令执行时生成和使用的临时工作目录的名字，且命令执行完成后不删除它们。</li>
+<li>-x：使命令仅打印其执行过程中用到的所有命令，同时执行它们。</li>
+</ul>
+</li>
+<li>pprof：用于以交互的方式访问一些性能概要文件。命令将会分析给定的概要文件并根据要求提供高可读性的输出信息。这个工具可以分析的概要文件包括 CPU 概要文件、内存概要文件和程序阻塞概要文件。这些包含 Go 程序运行信息的概要文件，可以通过标准库代码包 runtime 和 runtime/pprof 中的程序来生成。</li>
+<li>trace：用于读取 Go 程序踪迹文件，并以图形化的方式展示出来。它能够让我们深入了解 Go 程序在运行过程中的内部情况。比如，当前进程中堆的大小及使用情况。又比如，程序中的多个 goroutine 是怎样被调度的，以及它们在某个时刻被调度的原因。Go 程序踪迹文件可以通过标准库代码包 runtime/trace 和 net/http/pprof 中的程序来生成。</li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/03/16/backend_dev/Go%20%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%AE%9E%E6%88%98/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://collie2nd.github.io/2022/02/28/backend_dev/goweb/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/blue.gif">
+      <meta itemprop="name" content="Collie">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="试过重启了吗">
+      <meta itemprop="description" content="less is more">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 试过重启了吗">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/02/28/backend_dev/goweb/" class="post-title-link" itemprop="url">《Go Web 编程》读书笔记</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-02-28 00:00:00" itemprop="dateCreated datePublished" datetime="2022-02-28T00:00:00+08:00">2022-02-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%90%8E%E7%AB%AF%E6%8A%80%E8%83%BD/" itemprop="url" rel="index"><span itemprop="name">后端技能</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2022/02/28/backend_dev/goweb/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2022/02/28/backend_dev/goweb/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>10k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>10 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="GO-Web-编程"><a href="#GO-Web-编程" class="headerlink" title="GO Web 编程"></a>GO Web 编程</h1><h1 id="Go-语言介绍"><a href="#Go-语言介绍" class="headerlink" title="Go 语言介绍"></a>Go 语言介绍</h1><h1 id="第一章：Go与web应用"><a href="#第一章：Go与web应用" class="headerlink" title="第一章：Go与web应用"></a>第一章：Go与web应用</h1><h2 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h2><ul>
+<li>HTTP 是一种<strong>无状态、由文本构成</strong>的请求-响应(request-response)协议，这种协议使用的是客户端-服务器(client-server)计算模型</li>
+<li>CGI 通用网管接口(Common Gateway Interface)，允许web服务器与一个独立运行于web服务器进程之外的进程对接</li>
+<li>SSI(server-side includes)服务器端，允许开发者在HTML文件里包含一些指令，衍生出了JSP(Java Server Pages)，ASP(Active Server Pages)等Web模板引擎</li>
+</ul>
+<hr>
+<ul>
+<li>http请求<ul>
+<li>请求行(request-line)</li>
+<li>零个或任意多个请求首部(header)</li>
+<li>一个空行</li>
+<li>可选的报文主体(body)</li>
+</ul>
+</li>
+<li>请求方法<ul>
+<li>GET</li>
+<li>POST</li>
+<li>HEAD</li>
+<li>PUT</li>
+<li>DELETE</li>
+<li>TRACE</li>
+<li>OPTIONS</li>
+<li>CONNECT</li>
+<li>PATCH</li>
+</ul>
+</li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/02/28/backend_dev/goweb/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://collie2nd.github.io/2022/01/25/backend_dev/db_select/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/blue.gif">
+      <meta itemprop="name" content="Collie">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="试过重启了吗">
+      <meta itemprop="description" content="less is more">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 试过重启了吗">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/01/25/backend_dev/db_select/" class="post-title-link" itemprop="url">如何做数据库选型</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-01-25 00:00:00" itemprop="dateCreated datePublished" datetime="2022-01-25T00:00:00+08:00">2022-01-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%90%8E%E7%AB%AF%E6%8A%80%E8%83%BD/" itemprop="url" rel="index"><span itemprop="name">后端技能</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2022/01/25/backend_dev/db_select/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2022/01/25/backend_dev/db_select/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>6.2k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>6 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="常见数据库分类"><a href="#常见数据库分类" class="headerlink" title="常见数据库分类"></a>常见数据库分类</h1><p>在微服务设计中，数据库的选型是不可缺少的一环，后台的核心是与数据打交道，在不同的业务场景选择的数据库不一样，好的数据库选型能够解决业务的性能瓶颈，如果数据库选择不恰当，会使得服务的性能上不去，因此我们需要对一些常用的数据库有一些了解，这样才能因地制宜，发挥系统最好的性能。</p>
+<table>
+<thead>
+<tr>
+<th align="left">数据库类型</th>
+<th align="left">数据库名称</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">关系型数据库</td>
+<td align="left">MySQL，Oracle，PostgreSQL</td>
+</tr>
+<tr>
+<td align="left">内存数据库</td>
+<td align="left">Redis，Memcache，Riak</td>
+</tr>
+<tr>
+<td align="left">时序数据库</td>
+<td align="left">Prometheus，InfluxDB，OpenTSDB</td>
+</tr>
+<tr>
+<td align="left">文档型数据库</td>
+<td align="left">MongoDB，CouchDB，RavenDB</td>
+</tr>
+<tr>
+<td align="left">分布式数据库</td>
+<td align="left">TIDB</td>
+</tr>
+<tr>
+<td align="left">图数据库</td>
+<td align="left">Neo4J，InfiniteGraph，OrientDB，Dgraph</td>
+</tr>
+<tr>
+<td align="left">列式存储数据库</td>
+<td align="left">Cassandra，HBase，ClickHouse，Elasticsearch</td>
+</tr>
+<tr>
+<td align="left">文件存储</td>
+<td align="left">EPH，GlusterFS</td>
+</tr>
+</tbody></table>
+<h1 id="考虑角度汇总"><a href="#考虑角度汇总" class="headerlink" title="考虑角度汇总"></a>考虑角度汇总</h1><p><img src="http://pic.colliexyy.com/db_select.jpg"></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/01/25/backend_dev/db_select/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://collie2nd.github.io/2021/12/10/backend_dev/golang_package/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/blue.gif">
+      <meta itemprop="name" content="Collie">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="试过重启了吗">
+      <meta itemprop="description" content="less is more">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 试过重启了吗">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/12/10/backend_dev/golang_package/" class="post-title-link" itemprop="url">Go 包/中间件</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-12-10 00:00:00" itemprop="dateCreated datePublished" datetime="2021-12-10T00:00:00+08:00">2021-12-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%90%8E%E7%AB%AF%E6%8A%80%E8%83%BD/" itemprop="url" rel="index"><span itemprop="name">后端技能</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2021/12/10/backend_dev/golang_package/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2021/12/10/backend_dev/golang_package/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.2k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1><a target="_blank" rel="noopener" href="https://github.com/casbin/casbin">casbin</a></h1>
+<blockquote>
+<p>权限管理。</p>
+</blockquote>
+<h2 id="简介">简介</h2>
+<p>权限管理在几乎每个系统中都是必备的模块。如果项目开发每次都要实现一次权限管理，无疑会浪费开发时间，增加开发成本。因此，casbin库出现了。casbin是一个强大、高效的访问控制库。支持常用的多种访问控制模型，如ACL/RBAC/ABAC等。可以实现灵活的访问权限控制。同时，casbin支持多种编程语言，Go/Java/Node/PHP/Python/.NET/Rust。我们只需要一次学习，多处运用。</p>
+<h2 id="结构">结构</h2>
+<p>权限实际上就是控制<strong>谁</strong>能对什么<strong>资源</strong>进行什么操作。casbin 将访问控制模型抽象到一个基于 PERM（Policy，Effect，Request，Matchers） 元模型的配置文件（模型文件）中。因此切换或更新授权机制只需要简单地修改配置文件。</p>
+<p>policy 是策略或者说是规则的定义。它定义了具体的规则。</p>
+<p>effect 根据对请求运用匹配器得出的所有结果进行汇总，来决定该请求是允许还是拒绝。</p>
+<p>request 是对访问请求的抽象，它与 e.Enforce() 函数的参数是一一对应的</p>
+<p>matcher 匹配器会将请求与定义的每个 policy 一一匹配，生成多个匹配结果。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/12/10/backend_dev/golang_package/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://collie2nd.github.io/2021/11/18/soft_power/ppt/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/blue.gif">
+      <meta itemprop="name" content="Collie">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="试过重启了吗">
+      <meta itemprop="description" content="less is more">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 试过重启了吗">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/11/18/soft_power/ppt/" class="post-title-link" itemprop="url">PPT 学习笔记</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-11-18 00:00:00" itemprop="dateCreated datePublished" datetime="2021-11-18T00:00:00+08:00">2021-11-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%BD%AF%E5%AE%9E%E5%8A%9B/" itemprop="url" rel="index"><span itemprop="name">软实力</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2021/11/18/soft_power/ppt/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2021/11/18/soft_power/ppt/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.5k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <hr>
+<h1 id="PPT-美化四步法"><a href="#PPT-美化四步法" class="headerlink" title="PPT 美化四步法"></a>PPT 美化四步法</h1><ol>
+<li><strong>统一字体</strong>。微软雅黑（安全性有保证）。</li>
+<li><strong>突出标题</strong>。长短设计，动词短句。</li>
+<li><strong>巧取颜色</strong>。从模板和LOGO里面提取强调色。</li>
+<li><strong>快速配图</strong>。</li>
+</ol>
+<h2 id="统一字体"><a href="#统一字体" class="headerlink" title="统一字体"></a>统一字体</h2><p><strong>微软雅黑。</strong></p>
+<ul>
+<li>一级标题字号设置<strong>32号及以上</strong>。</li>
+<li>二级标题字号设置<strong>24~28</strong>。</li>
+<li>正文字号设置<strong>18~20</strong>。</li>
+<li>标题和正文在纵向上需要有一定的错位。<strong>TAB</strong></li>
+<li><strong>填充颜色</strong>，字体设置白色的方式，形成颜色的反差，形成层次感。</li>
+</ul>
+<h2 id="突出标题"><a href="#突出标题" class="headerlink" title="突出标题"></a>突出标题</h2><ul>
+<li>长度统一。</li>
+<li>动词短句。</li>
+<li>一级大标题可以设置阴影。</li>
+</ul>
+<h2 id="巧取颜色"><a href="#巧取颜色" class="headerlink" title="巧取颜色"></a>巧取颜色</h2><ul>
+<li>注意颜色搭配。eg: 红&#x2F;黑。</li>
+<li>正文颜色可以适当灰度处理，突出标题即可。eg: 正文调整为深灰色。</li>
+</ul>
+<h2 id="快速配图"><a href="#快速配图" class="headerlink" title="快速配图"></a>快速配图</h2><ul>
+<li>根据标题查找相关图片，注意图文关联。</li>
+<li>图片有底色的时候，添加色块来统一底色。</li>
+<li>培训类PPT，可以配一些微笑人脸进行情绪调动。</li>
+<li>搜图的时候，要打开想象力，用具体场景进行联想搜图，避免和别人重复。</li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/11/18/soft_power/ppt/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -834,591 +1535,8 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://collie2nd.github.io/2021/05/22/backend_dev/golang_test/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/blue.gif">
-      <meta itemprop="name" content="Collie">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="试过重启了吗">
-      <meta itemprop="description" content="less is more">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 试过重启了吗">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/05/22/backend_dev/golang_test/" class="post-title-link" itemprop="url">Go 代码的测试方法</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-05-22 00:00:00" itemprop="dateCreated datePublished" datetime="2021-05-22T00:00:00+08:00">2021-05-22</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%90%8E%E7%AB%AF%E6%8A%80%E8%83%BD/" itemprop="url" rel="index"><span itemprop="name">后端技能</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2021/05/22/backend_dev/golang_test/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2021/05/22/backend_dev/golang_test/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>844</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="性能测试"><a href="#性能测试" class="headerlink" title="性能测试"></a>性能测试</h1><p>注册 pprof 服务</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">// 开启服务</span></span><br><span class="line">pprofOpen := c.GetBool(<span class="string">&quot;pprof.open&quot;</span>)</span><br><span class="line"><span class="keyword">if</span> pprofOpen &#123;</span><br><span class="line">	<span class="comment">// 运行pprof服务器，其路由已在pprof包自动注册</span></span><br><span class="line">	pprofPort := c.GetInt(<span class="string">&quot;pprof.port&quot;</span>)</span><br><span class="line">	s.pprofSvr = &amp;http.Server&#123;</span><br><span class="line">		Addr:    <span class="string">&quot;:&quot;</span> + strconv.Itoa(pprofPort),</span><br><span class="line">		Handler: <span class="literal">nil</span>,</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">		err := s.pprofSvr.ListenAndServe()</span><br><span class="line">		log.Infof(<span class="string">&quot;pprof server down: %+v&quot;</span>, err)</span><br><span class="line">	&#125;()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 停止服务</span></span><br><span class="line">c := config.GetConfig()</span><br><span class="line">pprofOpen := c.GetBool(<span class="string">&quot;pprof.open&quot;</span>)</span><br><span class="line"><span class="keyword">if</span> pprofOpen &#123;</span><br><span class="line">	wg.Add(<span class="number">1</span>)</span><br><span class="line">	<span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">		<span class="keyword">defer</span> wg.Done()</span><br><span class="line">		<span class="comment">// 开始关闭pprof服务器</span></span><br><span class="line">		ctx, cancel := context.WithTimeout(context.Background(), <span class="number">5</span>*time.Second)</span><br><span class="line">		<span class="keyword">defer</span> cancel()</span><br><span class="line">		<span class="keyword">if</span> err := s.pprofSvr.Shutdown(ctx); err != <span class="literal">nil</span> &#123;</span><br><span class="line">			log.Infof(<span class="string">&quot;Server Shutdown: &quot;</span>, err)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;()</span><br><span class="line">&#125;</span><br><span class="line">wg.Wait()</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/05/22/backend_dev/golang_test/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://collie2nd.github.io/2021/02/21/project_experience/md5_mysql/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/blue.gif">
-      <meta itemprop="name" content="Collie">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="试过重启了吗">
-      <meta itemprop="description" content="less is more">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 试过重启了吗">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/02/21/project_experience/md5_mysql/" class="post-title-link" itemprop="url">md5 工具使用说明</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-02-21 00:00:00" itemprop="dateCreated datePublished" datetime="2021-02-21T00:00:00+08:00">2021-02-21</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E9%A1%B9%E7%9B%AE%E7%BB%8F%E5%8E%86/" itemprop="url" rel="index"><span itemprop="name">项目经历</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2021/02/21/project_experience/md5_mysql/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2021/02/21/project_experience/md5_mysql/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>1.3k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="md5-工具使用说明"><a href="#md5-工具使用说明" class="headerlink" title="md5 工具使用说明"></a>md5 工具使用说明</h1><blockquote>
-<p>相关技术栈：linux、mysql</p>
-</blockquote>
-<h2 id="STEP-1"><a href="#STEP-1" class="headerlink" title="STEP 1"></a>STEP 1</h2><p>在车型数据库里，运行这两条sql语句</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> `std_name_modify_record` (</span><br><span class="line">	`id` <span class="type">INT</span> ( <span class="number">11</span> ) <span class="keyword">NOT</span> <span class="keyword">NULL</span> AUTO_INCREMENT,</span><br><span class="line">	`md5` <span class="type">VARCHAR</span> ( <span class="number">40</span> ) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;md5值&#x27;</span>,</span><br><span class="line">	`ori_std_name` <span class="type">VARCHAR</span> ( <span class="number">32</span> ) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span>,</span><br><span class="line">	`new_std_name` <span class="type">VARCHAR</span> ( <span class="number">32</span> ) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span>,</span><br><span class="line">	`creator` <span class="type">VARCHAR</span> ( <span class="number">64</span> ) <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">&#x27;&#x27;</span> COMMENT <span class="string">&#x27;创建者&#x27;</span>,</span><br><span class="line">	`create_time` datetime <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="built_in">CURRENT_TIMESTAMP</span> COMMENT <span class="string">&#x27;创建时间&#x27;</span>,</span><br><span class="line">	`updator` <span class="type">VARCHAR</span> ( <span class="number">64</span> ) <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">&#x27;&#x27;</span> COMMENT <span class="string">&#x27;操作人&#x27;</span>,</span><br><span class="line">	`update_time` datetime <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="built_in">CURRENT_TIMESTAMP</span> <span class="keyword">ON</span> <span class="keyword">UPDATE</span> <span class="built_in">CURRENT_TIMESTAMP</span> COMMENT <span class="string">&#x27;更新时间&#x27;</span>,</span><br><span class="line">	<span class="keyword">PRIMARY</span> KEY ( `id` ),</span><br><span class="line">	<span class="keyword">UNIQUE</span> KEY `uniq_md5` ( `md5` ) <span class="keyword">USING</span> BTREE,</span><br><span class="line">	KEY `idx_create_time` ( `create_time` ) <span class="keyword">USING</span> BTREE,</span><br><span class="line">KEY `idx_update_time` ( `update_time` ) <span class="keyword">USING</span> BTREE </span><br><span class="line">) ENGINE <span class="operator">=</span> INNODB <span class="keyword">DEFAULT</span> CHARSET <span class="operator">=</span> utf8 COMMENT <span class="operator">=</span> <span class="string">&#x27;标名修改记录表&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> `oe2modelcatalog` <span class="keyword">ADD</span> `md5` <span class="type">VARCHAR</span> ( <span class="number">40</span> ) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;md5值&#x27;</span>;</span><br></pre></td></tr></table></figure>
-
-<p>建立标名修改记录表，并在行记录表里增加md5字段。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/02/21/project_experience/md5_mysql/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://collie2nd.github.io/2020/10/22/backend_dev/golang_default/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/blue.gif">
-      <meta itemprop="name" content="Collie">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="试过重启了吗">
-      <meta itemprop="description" content="less is more">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 试过重启了吗">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/10/22/backend_dev/golang_default/" class="post-title-link" itemprop="url">golang 学习笔记</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-10-22 00:00:00" itemprop="dateCreated datePublished" datetime="2020-10-22T00:00:00+08:00">2020-10-22</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%90%8E%E7%AB%AF%E6%8A%80%E8%83%BD/" itemprop="url" rel="index"><span itemprop="name">后端技能</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2020/10/22/backend_dev/golang_default/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/10/22/backend_dev/golang_default/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>5.3k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>5 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="array"><a href="#array" class="headerlink" title="array"></a>array</h1><ul>
-<li>数组初始化</li>
-</ul>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"># 一维数组</span><br><span class="line"><span class="keyword">var</span> a [<span class="number">4</span>]<span class="type">int</span> 					<span class="comment">//元素自动初始化为零[0 0 0 0] </span></span><br><span class="line">b := [<span class="number">4</span>]<span class="type">int</span>&#123;<span class="number">2</span>, <span class="number">5</span>&#125; 				<span class="comment">//未提供初始化值得元素自动初始化为0  [2 5 0 0] </span></span><br><span class="line">c := [...]<span class="type">int</span>&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125; 			<span class="comment">//编译器按初始化值数量确定数组长度 [1 2 3] </span></span><br><span class="line">d := [<span class="number">2</span>]<span class="type">string</span>&#123;<span class="string">&quot;TigerwolfC&quot;</span>, <span class="string">&quot;chen_peggy&quot;</span>&#125;</span><br><span class="line">e := [...]<span class="type">int</span>&#123;<span class="number">10</span>, <span class="number">3</span>: <span class="number">100</span>&#125; 		<span class="comment">//支持索引初始化，但注意数组长度与此有关 [10 0 0 100]</span></span><br><span class="line">f := [<span class="number">4</span>]<span class="type">string</span>&#123;<span class="number">1</span>: <span class="string">&quot;b&quot;</span>, <span class="number">3</span>: <span class="string">&quot;c&quot;</span>&#125; 	<span class="comment">// 可以指定初始化的位置</span></span><br><span class="line"></span><br><span class="line"># 复合类型数组</span><br><span class="line"><span class="keyword">type</span> User <span class="keyword">struct</span> &#123;</span><br><span class="line">	Name <span class="type">string</span></span><br><span class="line">	Age  <span class="type">byte</span></span><br><span class="line">&#125;</span><br><span class="line">d := [...]user&#123;</span><br><span class="line">		&#123;<span class="string">&quot;TigerwolfC&quot;</span>, <span class="number">20</span>&#125;, <span class="comment">// 可省略元素类型。</span></span><br><span class="line">		&#123;<span class="string">&quot;chen_peggy&quot;</span>, <span class="number">18</span>&#125;, <span class="comment">// 别忘了最后一行的逗号。</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/10/22/backend_dev/golang_default/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://collie2nd.github.io/2020/10/16/backend_dev/git/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/blue.gif">
-      <meta itemprop="name" content="Collie">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="试过重启了吗">
-      <meta itemprop="description" content="less is more">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 试过重启了吗">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/10/16/backend_dev/git/" class="post-title-link" itemprop="url">git</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-10-16 00:00:00" itemprop="dateCreated datePublished" datetime="2020-10-16T00:00:00+08:00">2020-10-16</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%90%8E%E7%AB%AF%E6%8A%80%E8%83%BD/" itemprop="url" rel="index"><span itemprop="name">后端技能</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2020/10/16/backend_dev/git/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/10/16/backend_dev/git/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>5.2k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>5 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="git-基本命令"><a href="#git-基本命令" class="headerlink" title="git 基本命令"></a>git 基本命令</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">&#x27;XXX&#x27;</span></span><br><span class="line">git config --global user.email <span class="string">&#x27;XXX&#x27;</span></span><br><span class="line">git init                    // 初始化代码仓库</span><br><span class="line">git add learngit.txt        // 把所有要提交的文件修改放到暂存区</span><br><span class="line">git commit -m <span class="string">&#x27;add a file&#x27;</span>  // 把暂存区的所有内容提交到当前分支</span><br><span class="line">git commit -s -m            // 添加 signed-off-by 信息，在日志中增加提交者签名</span><br><span class="line">git commit -a -m            // 相当于git add . 与git commit –m “本次提交描述”两句操作合并为一句进行使用。</span><br><span class="line">git status                  // 查看工作区状态</span><br><span class="line">git status -s               // 查看改变的文件列表简化版</span><br><span class="line">git diff                    // 查看不在缓冲区的文件的修改内容</span><br><span class="line">git diff --cached           // 查看缓冲区的文件发生的改变</span><br><span class="line">git diff --staged           // 查看缓冲区的文件发生的改变</span><br><span class="line">git diff HEAD               // 是 git diff 和 git diff --cached 的合并</span><br><span class="line">git <span class="built_in">log</span>                     // 查看提交历史</span><br><span class="line">git <span class="built_in">log</span> --pretty=oneline    // 单行显示</span><br><span class="line">git reset --hard HEAD^      // 回退到上一个版本，其中（HEAD^^(上上版本),HEAD~100(往上100个版本)）</span><br><span class="line">git reset --hard &lt;commit_id&gt;//(版本号) 可回到指定版本</span><br><span class="line">git reflog                  // 查看历史命令</span><br><span class="line"></span><br><span class="line">git diff HEAD -- &lt;file&gt;     // 查看工作区和版本库里最新版本的区别</span><br><span class="line">git checkout -- &lt;file&gt;      // 用版本库的版本替换工作区的版本，无论是工作区的修改还是删除，都可以<span class="string">&#x27;一键还原&#x27;</span></span><br><span class="line">git reset HEAD &lt;file&gt;       // 把暂存区的修改撤销掉，重新放回工作区。</span><br><span class="line">git <span class="built_in">rm</span> &lt;file&gt;               // 删除文件，若文件已提交到版本库，不用担心误删，但是只能恢复文件到最新版本</span><br><span class="line"></span><br><span class="line">git checkout -b dev         // 创建并切换分支</span><br><span class="line"><span class="comment">#相当于git branch dev 和git checkout dev </span></span><br><span class="line">git branch                  // 查看当前分支，当前分支前有个*号</span><br><span class="line">git branch &lt;name&gt;           // 创建分支</span><br><span class="line">git checkout &lt;name&gt;         // 切换分支</span><br><span class="line">git merge &lt;name&gt;            // 合并某个分支到当前分支</span><br><span class="line">git branch -d &lt;name&gt;        // 删除分支</span><br><span class="line">git <span class="built_in">log</span> --graph             // 查看分支合并图</span><br><span class="line">/* 禁用Fast forward合并dev分支*/</span><br><span class="line">git merge --no-ff -m <span class="string">&#x27;message&#x27;</span> dev</span><br><span class="line">git stash                   // 隐藏当前工作现场，等恢复后继续工作</span><br><span class="line">git stash list              // 查看stash记录</span><br><span class="line">git stash apply             // 仅恢复现场，不删除stash内容</span><br><span class="line">git stash drop              // 删除stash内容</span><br><span class="line">git stash pop               // 恢复现场的同时删除stash内容</span><br><span class="line">git branch -D &lt;name&gt;        // 强行删除某个未合并的分支</span><br><span class="line"><span class="comment">#开发新feature最好新建一个分支</span></span><br><span class="line">git remote                  // 查看远程仓库</span><br><span class="line">git remote -v               // 查看远程库详细信息</span><br><span class="line">git pull                    // 抓取远程提交</span><br><span class="line">/* 在本地创建和远程分支对应的分支*/</span><br><span class="line">git checkout -b branch-name origin/branch-name</span><br><span class="line">/* 建立本地分支和远程分支的关联*/</span><br><span class="line">git branch --set-upstream branch-name origin/branch-name</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/10/16/backend_dev/git/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://collie2nd.github.io/2020/10/01/project_experience/2020.10/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/blue.gif">
-      <meta itemprop="name" content="Collie">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="试过重启了吗">
-      <meta itemprop="description" content="less is more">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 试过重启了吗">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/10/01/project_experience/2020.10/" class="post-title-link" itemprop="url">2020.07-2020.09 学习总结</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-10-01 00:00:00" itemprop="dateCreated datePublished" datetime="2020-10-01T00:00:00+08:00">2020-10-01</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E9%A1%B9%E7%9B%AE%E7%BB%8F%E5%8E%86/" itemprop="url" rel="index"><span itemprop="name">项目经历</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2020/10/01/project_experience/2020.10/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/10/01/project_experience/2020.10/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>41k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>37 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <div align='center' ><font size='70'>2020.07-2020.09 学习总结</font></div>
-
-<hr>
-<p><span id="toc"></span></p>
-<p>[TOC]</p>
-<hr>
-<h1 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h1><p><a href="#toc">&lt;返回目录&gt;</a></p>
-<h2 id="C-基于容器（docker）的开发环境配置"><a href="#C-基于容器（docker）的开发环境配置" class="headerlink" title="C++ 基于容器（docker）的开发环境配置"></a>C++ 基于容器（docker）的开发环境配置</h2><p><a href="#toc">&lt;返回目录&gt;</a></p>
-<h3 id="配置ODBC"><a href="#配置ODBC" class="headerlink" title="配置ODBC"></a>配置ODBC</h3><p>在<strong>安装</strong>配置之前，需要先大概了解一下 MyODBC 的架构，MyODBC 体系结构建立在 5 个组件上，如下图所示：<br><img src="http://pic.colliexyy.com/16566671925562.jpg"></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/10/01/project_experience/2020.10/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 </div>
@@ -1441,13 +1559,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">233k</span>
+    <span title="站点总字数">242k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:31</span>
+    <span title="站点阅读时长">3:40</span>
   </span>
 </div>
 
