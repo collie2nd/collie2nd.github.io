@@ -441,7 +441,7 @@
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>10 分钟</span>
+      <span>9 分钟</span>
     </span>
 </div>
 
@@ -452,21 +452,27 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="GO-Web-编程"><a href="#GO-Web-编程" class="headerlink" title="GO Web 编程"></a>GO Web 编程</h1><h1 id="Go-语言介绍"><a href="#Go-语言介绍" class="headerlink" title="Go 语言介绍"></a>Go 语言介绍</h1><h1 id="第一章：Go与web应用"><a href="#第一章：Go与web应用" class="headerlink" title="第一章：Go与web应用"></a>第一章：Go与web应用</h1><h2 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h2><ul>
+          <h1>GO Web 编程</h1>
+<h1>Go 语言介绍</h1>
+<h1>第一章：Go与web应用</h1>
+<h2 id="HTTP">HTTP</h2>
+<ul>
 <li>HTTP 是一种<strong>无状态、由文本构成</strong>的请求-响应(request-response)协议，这种协议使用的是客户端-服务器(client-server)计算模型</li>
 <li>CGI 通用网管接口(Common Gateway Interface)，允许web服务器与一个独立运行于web服务器进程之外的进程对接</li>
 <li>SSI(server-side includes)服务器端，允许开发者在HTML文件里包含一些指令，衍生出了JSP(Java Server Pages)，ASP(Active Server Pages)等Web模板引擎</li>
 </ul>
 <hr>
 <ul>
-<li>http请求<ul>
+<li>http请求
+<ul>
 <li>请求行(request-line)</li>
 <li>零个或任意多个请求首部(header)</li>
 <li>一个空行</li>
 <li>可选的报文主体(body)</li>
 </ul>
 </li>
-<li>请求方法<ul>
+<li>请求方法
+<ul>
 <li>GET</li>
 <li>POST</li>
 <li>HEAD</li>
@@ -591,48 +597,52 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="常见数据库分类"><a href="#常见数据库分类" class="headerlink" title="常见数据库分类"></a>常见数据库分类</h1><p>在微服务设计中，数据库的选型是不可缺少的一环，后台的核心是与数据打交道，在不同的业务场景选择的数据库不一样，好的数据库选型能够解决业务的性能瓶颈，如果数据库选择不恰当，会使得服务的性能上不去，因此我们需要对一些常用的数据库有一些了解，这样才能因地制宜，发挥系统最好的性能。</p>
+          <h1>常见数据库分类</h1>
+<p>在微服务设计中，数据库的选型是不可缺少的一环，后台的核心是与数据打交道，在不同的业务场景选择的数据库不一样，好的数据库选型能够解决业务的性能瓶颈，如果数据库选择不恰当，会使得服务的性能上不去，因此我们需要对一些常用的数据库有一些了解，这样才能因地制宜，发挥系统最好的性能。</p>
 <table>
 <thead>
 <tr>
-<th align="left">数据库类型</th>
-<th align="left">数据库名称</th>
+<th style="text-align:left">数据库类型</th>
+<th style="text-align:left">数据库名称</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left">关系型数据库</td>
-<td align="left">MySQL，Oracle，PostgreSQL</td>
+<tbody>
+<tr>
+<td style="text-align:left">关系型数据库</td>
+<td style="text-align:left">MySQL，Oracle，PostgreSQL</td>
 </tr>
 <tr>
-<td align="left">内存数据库</td>
-<td align="left">Redis，Memcache，Riak</td>
+<td style="text-align:left">内存数据库</td>
+<td style="text-align:left">Redis，Memcache，Riak</td>
 </tr>
 <tr>
-<td align="left">时序数据库</td>
-<td align="left">Prometheus，InfluxDB，OpenTSDB</td>
+<td style="text-align:left">时序数据库</td>
+<td style="text-align:left">Prometheus，InfluxDB，OpenTSDB</td>
 </tr>
 <tr>
-<td align="left">文档型数据库</td>
-<td align="left">MongoDB，CouchDB，RavenDB</td>
+<td style="text-align:left">文档型数据库</td>
+<td style="text-align:left">MongoDB，CouchDB，RavenDB</td>
 </tr>
 <tr>
-<td align="left">分布式数据库</td>
-<td align="left">TIDB</td>
+<td style="text-align:left">分布式数据库</td>
+<td style="text-align:left">TIDB</td>
 </tr>
 <tr>
-<td align="left">图数据库</td>
-<td align="left">Neo4J，InfiniteGraph，OrientDB，Dgraph</td>
+<td style="text-align:left">图数据库</td>
+<td style="text-align:left">Neo4J，InfiniteGraph，OrientDB，Dgraph</td>
 </tr>
 <tr>
-<td align="left">列式存储数据库</td>
-<td align="left">Cassandra，HBase，ClickHouse，Elasticsearch</td>
+<td style="text-align:left">列式存储数据库</td>
+<td style="text-align:left">Cassandra，HBase，ClickHouse，Elasticsearch</td>
 </tr>
 <tr>
-<td align="left">文件存储</td>
-<td align="left">EPH，GlusterFS</td>
+<td style="text-align:left">文件存储</td>
+<td style="text-align:left">EPH，GlusterFS</td>
 </tr>
-</tbody></table>
-<h1 id="考虑角度汇总"><a href="#考虑角度汇总" class="headerlink" title="考虑角度汇总"></a>考虑角度汇总</h1><p><img src="http://pic.colliexyy.com/db_select.jpg"></p>
+</tbody>
+</table>
+<h1>考虑角度汇总</h1>
+<p><img src="http://pic.colliexyy.com/db_select.jpg" alt=""></p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/01/25/backend_dev/db_select/#more" rel="contents">
@@ -870,13 +880,15 @@
     
     <div class="post-body" itemprop="articleBody">
           <hr>
-<h1 id="PPT-美化四步法"><a href="#PPT-美化四步法" class="headerlink" title="PPT 美化四步法"></a>PPT 美化四步法</h1><ol>
+<h1>PPT 美化四步法</h1>
+<ol>
 <li><strong>统一字体</strong>。微软雅黑（安全性有保证）。</li>
 <li><strong>突出标题</strong>。长短设计，动词短句。</li>
 <li><strong>巧取颜色</strong>。从模板和LOGO里面提取强调色。</li>
 <li><strong>快速配图</strong>。</li>
 </ol>
-<h2 id="统一字体"><a href="#统一字体" class="headerlink" title="统一字体"></a>统一字体</h2><p><strong>微软雅黑。</strong></p>
+<h2 id="统一字体">统一字体</h2>
+<p><strong>微软雅黑。</strong></p>
 <ul>
 <li>一级标题字号设置<strong>32号及以上</strong>。</li>
 <li>二级标题字号设置<strong>24~28</strong>。</li>
@@ -884,16 +896,19 @@
 <li>标题和正文在纵向上需要有一定的错位。<strong>TAB</strong></li>
 <li><strong>填充颜色</strong>，字体设置白色的方式，形成颜色的反差，形成层次感。</li>
 </ul>
-<h2 id="突出标题"><a href="#突出标题" class="headerlink" title="突出标题"></a>突出标题</h2><ul>
+<h2 id="突出标题">突出标题</h2>
+<ul>
 <li>长度统一。</li>
 <li>动词短句。</li>
 <li>一级大标题可以设置阴影。</li>
 </ul>
-<h2 id="巧取颜色"><a href="#巧取颜色" class="headerlink" title="巧取颜色"></a>巧取颜色</h2><ul>
-<li>注意颜色搭配。eg: 红&#x2F;黑。</li>
+<h2 id="巧取颜色">巧取颜色</h2>
+<ul>
+<li>注意颜色搭配。eg: 红/黑。</li>
 <li>正文颜色可以适当灰度处理，突出标题即可。eg: 正文调整为深灰色。</li>
 </ul>
-<h2 id="快速配图"><a href="#快速配图" class="headerlink" title="快速配图"></a>快速配图</h2><ul>
+<h2 id="快速配图">快速配图</h2>
+<ul>
 <li>根据标题查找相关图片，注意图文关联。</li>
 <li>图片有底色的时候，添加色块来统一底色。</li>
 <li>培训类PPT，可以配一些微笑人脸进行情绪调动。</li>
@@ -1011,15 +1026,25 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="计算机网络应用层协议有哪些"><a href="#计算机网络应用层协议有哪些" class="headerlink" title="计算机网络应用层协议有哪些?"></a>计算机网络应用层协议有哪些?</h1><p>应用层协议：</p>
-<p>1、远程登录协议（Telnet)<br>2、文件传输协议（FTP）<br>3、超文本传输协议（HTTP）<br>4、域名服务协议（DNS）<br>5、简单邮件传输协议（SMTP）<br>6、邮局协议（POP3）</p>
+          <h1>计算机网络应用层协议有哪些?</h1>
+<p>应用层协议：</p>
+<p>1、远程登录协议（Telnet)<br>
+2、文件传输协议（FTP）<br>
+3、超文本传输协议（HTTP）<br>
+4、域名服务协议（DNS）<br>
+5、简单邮件传输协议（SMTP）<br>
+6、邮局协议（POP3）</p>
 <p>其中，从网络上下载文件时使用的是FTP协议，上网游览网页时使用的是HTTP协议；在网络上访问一台主机时，通常不直接输入IP地址，而是输入域名，用的是DNS服务协议，它会将域名解析为IP地址；通过FoxMail发送电子邮件时，使用SMTP协议，接收电子邮件时就使用POP3协议。</p>
 <p>传输层协议：</p>
-<p>1、传输控制协议 TCP<br>2、用户数据报协议 UDP</p>
+<p>1、传输控制协议 TCP<br>
+2、用户数据报协议 UDP</p>
 <p>TCP协议：面向连接的可靠传输协议。利用TCP进行通信时，首先要通过三步握手，以建立通信双方的连接。TCP提供了数据的确认和数据重传的机制，保证发送的数据一定能到达通信的对方。</p>
 <p>UDP协议：是无连接的，不可靠的传输协议。采用UDP进行通信时不用建立连接，可以直接向一个IP地址发送数据，但是不能保证对方是否能收到。</p>
 <p>网络层协议：</p>
-<p>1、网际协议 IP<br>2、Internet互联网控制报文协议 ICMP<br>3、Internet组织管理协议 IGMP<br>4、地址解析协议 ARP</p>
+<p>1、网际协议 IP<br>
+2、Internet互联网控制报文协议 ICMP<br>
+3、Internet组织管理协议 IGMP<br>
+4、地址解析协议 ARP</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2021/11/10/backend_dev/network_qa/#more" rel="contents">
@@ -1132,10 +1157,17 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="MySQL的基本架构"><a href="#MySQL的基本架构" class="headerlink" title="MySQL的基本架构"></a>MySQL的基本架构</h1><p>Server 层：主要包括连接器、查询缓存、分析器、优化器、执行器等，所有跨存储引擎的功能都在这一层实现，比如存储过程、触发器、视图，函数等，还有一个通用的日志模块 binglog 日志模块。</p>
+          <h1>MySQL的基本架构</h1>
+<p>Server 层：主要包括连接器、查询缓存、分析器、优化器、执行器等，所有跨存储引擎的功能都在这一层实现，比如存储过程、触发器、视图，函数等，还有一个通用的日志模块 binglog 日志模块。</p>
 <p>存储引擎层： 主要负责数据的存储和读取，采用可以替换的插件式架构，支持 InnoDB、MyISAM、Memory 等多个存储引擎，其中 InnoDB 引擎有自有的日志模块 redolog 模块。现在最常用的存储引擎是 InnoDB，它从 MySQL 5.5.5 版本开始就被当做默认存储引擎了。</p>
-<h1 id="查询语句执行过程解析"><a href="#查询语句执行过程解析" class="headerlink" title="查询语句执行过程解析"></a>查询语句执行过程解析</h1><p>1、客户端发起一个请求时，首先会建立一个连接<br>2、服务端会检查缓存，如果命中则直接返回，否则继续之后后面步骤<br>3、服务器端根据收到的sql语句进行解析，然后对其进行词法分析，语法分析以及预处理<br>4、由优化器生成执行计划<br>5、调用存储引擎层API来执行查询<br>6、返回查询到的结果</p>
-<p><img src="http://pic.colliexyy.com/mysql_qa.jpg"></p>
+<h1>查询语句执行过程解析</h1>
+<p>1、客户端发起一个请求时，首先会建立一个连接<br>
+2、服务端会检查缓存，如果命中则直接返回，否则继续之后后面步骤<br>
+3、服务器端根据收到的sql语句进行解析，然后对其进行词法分析，语法分析以及预处理<br>
+4、由优化器生成执行计划<br>
+5、调用存储引擎层API来执行查询<br>
+6、返回查询到的结果</p>
+<p><img src="http://pic.colliexyy.com/mysql_qa.jpg" alt=""></p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2021/10/30/backend_dev/mysql_qa/#more" rel="contents">
@@ -1230,7 +1262,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>525</span>
+      <span>515</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -1248,8 +1280,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="CI-x2F-CD-基本原理"><a href="#CI-x2F-CD-基本原理" class="headerlink" title="CI &#x2F; CD 基本原理"></a>CI &#x2F; CD 基本原理</h1><p>CI&#x2F;CD 是两个流水线，持续集成 Continuous Integration（CI）是<strong>服务构建流程</strong>，持续部署 Continuous Deployment（CD）是<strong>服务发布流程</strong>。也可以视作三个流水线，加上持续交付 Continuous Delivery（CD）给测试和质量团队的中间过程。</p>
-<h2 id="持续集成（CI）"><a href="#持续集成（CI）" class="headerlink" title="持续集成（CI）"></a>持续集成（CI）</h2><blockquote>
+          <h1>CI / CD 基本原理</h1>
+<p>CI/CD 是两个流水线，持续集成 Continuous Integration（CI）是<strong>服务构建流程</strong>，持续部署 Continuous Deployment（CD）是<strong>服务发布流程</strong>。也可以视作三个流水线，加上持续交付 Continuous Delivery（CD）给测试和质量团队的中间过程。</p>
+<h2 id="持续集成（CI）">持续集成（CI）</h2>
+<blockquote>
 <p>持续将代码集成到主干。</p>
 </blockquote>
 <p>好处：</p>
@@ -1370,8 +1404,11 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="python-复制操作合集"><a href="#python-复制操作合集" class="headerlink" title="python 复制操作合集"></a>python 复制操作合集</h1><h2 id="通过跳转机连接-mysql"><a href="#通过跳转机连接-mysql" class="headerlink" title="通过跳转机连接 mysql"></a>通过跳转机连接 mysql</h2><blockquote>
-<p>场景：本地-&gt;跳转机-&gt;mysql服务器<br>分两步：1.通过 sshtunnel 登陆跳转机；2.创建数据库连接。</p>
+          <h1>python 复制操作合集</h1>
+<h2 id="通过跳转机连接-mysql">通过跳转机连接 mysql</h2>
+<blockquote>
+<p>场景：本地-&gt;跳转机-&gt;mysql服务器<br>
+分两步：1.通过 sshtunnel 登陆跳转机；2.创建数据库连接。</p>
 </blockquote>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pymysql</span><br><span class="line"><span class="keyword">from</span> sshtunnel <span class="keyword">import</span> SSHTunnelForwarder</span><br><span class="line"> </span><br><span class="line"><span class="keyword">with</span> SSHTunnelForwarder(</span><br><span class="line">        (<span class="string">&#x27;*.*.*.*&#x27;</span>, <span class="number">11690</span>),  <span class="comment"># 指定ssh登录的跳转机的address，端口号</span></span><br><span class="line">        ssh_username=<span class="string">&quot;***&quot;</span>,  <span class="comment"># 跳转机的用户</span></span><br><span class="line">        ssh_pkey=<span class="string">&quot;/Users/.ssh/id_rsa&quot;</span>, <span class="comment">#私钥路径</span></span><br><span class="line">        ssh_private_key_password=<span class="string">&quot;***&quot;</span>, <span class="comment">#密码（电脑开机密码）</span></span><br><span class="line">        remote_bind_address=(<span class="string">&#x27;*.*.*.*&#x27;</span>, <span class="number">3306</span>)) <span class="keyword">as</span> server:  <span class="comment"># mysql服务器的address，端口号</span></span><br><span class="line">    conn = pymysql.connect(host=<span class="string">&#x27;127.0.0.1&#x27;</span>,  <span class="comment"># 此处必须是是127.0.0.1</span></span><br><span class="line">                           port=server.local_bind_port,</span><br><span class="line">                           user=<span class="string">&#x27;**&#x27;</span>, <span class="comment">#数据库用户名</span></span><br><span class="line">                           passwd=<span class="string">&#x27;**&#x27;</span>, <span class="comment">#数据库密码</span></span><br><span class="line">                           db=<span class="string">&#x27;**&#x27;</span> <span class="comment">#数据库名称)</span></span><br><span class="line"> </span><br><span class="line">    cursor = conn.cursor()</span><br><span class="line">    <span class="comment"># 使用 execute()  方法执行 SQL 查询</span></span><br><span class="line">    cursor.execute(<span class="string">&quot;SELECT VERSION()；&quot;</span>)</span><br><span class="line"> </span><br><span class="line">    <span class="comment"># 使用 fetchone() 方法获取单条数据.</span></span><br><span class="line">    data = cursor.fetchone()</span><br><span class="line"> </span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Database version : %s &quot;</span> % data)</span><br><span class="line">    <span class="comment"># 关闭数据库连接</span></span><br><span class="line">    cursor.close()</span><br></pre></td></tr></table></figure>
           <!--noindex-->
@@ -1486,8 +1523,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="Docker-基础知识"><a href="#Docker-基础知识" class="headerlink" title="Docker 基础知识"></a>Docker 基础知识</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run ubuntu:15.10 /bin/echo <span class="string">&quot;Hello world&quot;</span></span><br></pre></td></tr></table></figure>
-
+          <h1>Docker 基础知识</h1>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run ubuntu:15.10 /bin/echo <span class="string">&quot;Hello world&quot;</span></span><br></pre></td></tr></table></figure>
 <p><strong>参数含义：</strong></p>
 <ul>
 <li><code>docker</code>：Docker 的二进制执行文件。</li>
@@ -1496,7 +1533,6 @@
 <li><code>/bin/echo &quot;Hello world&quot;</code>：在启动的容器里执行的命令</li>
 </ul>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -i -t ubuntu:15.10 /bin/bash</span><br></pre></td></tr></table></figure>
-
 <p><strong>参数含义：</strong></p>
 <ul>
 <li><code>-t</code>：在新容器内指定一个伪终端或终端。</li>
@@ -1504,7 +1540,6 @@
 <li>可以通过运行 <code>exit</code> 命令或者使用 <code>ctrl+D</code> 来退出容器，会导致容器停止</li>
 </ul>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -P training/webapp python app.py</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li><code>-d</code>：让容器在后台运行。</li>
 <li><code>-P</code>：将容器内部使用的网络端口随机映射到我们使用的主机上。</li>
@@ -1559,13 +1594,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">242k</span>
+    <span title="站点总字数">240k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:40</span>
+    <span title="站点阅读时长">3:38</span>
   </span>
 </div>
 
