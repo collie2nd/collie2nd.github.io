@@ -1361,7 +1361,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://collie2nd.github.io/2018/12/11/project_experience/koala/">
+    <link itemprop="mainEntityOfPage" href="http://collie2nd.github.io/2018/12/11/project_experience/moments%20%E9%A1%B9%E7%9B%AE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/blue.gif">
@@ -1379,7 +1379,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2018/12/11/project_experience/koala/" class="post-title-link" itemprop="url">koala 学习笔记</a>
+          <a href="/2018/12/11/project_experience/moments%20%E9%A1%B9%E7%9B%AE/" class="post-title-link" itemprop="url">moments 项目</a>
         </h2>
 
         <div class="post-meta-container">
@@ -1411,8 +1411,8 @@
     </span>
     <span class="post-meta-item-text">Waline：</span>
   
-    <a title="waline" href="/2018/12/11/project_experience/koala/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2018/12/11/project_experience/koala/" itemprop="commentCount"></span>
+    <a title="waline" href="/2018/12/11/project_experience/moments%20%E9%A1%B9%E7%9B%AE/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2018/12/11/project_experience/moments%20%E9%A1%B9%E7%9B%AE/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -1422,14 +1422,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>5.3k</span>
+      <span>13k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>5 分钟</span>
+      <span>12 分钟</span>
     </span>
 </div>
 
@@ -1440,19 +1440,33 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="koala-学习笔记"><a href="#koala-学习笔记" class="headerlink" title="koala 学习笔记"></a>koala 学习笔记</h1><blockquote>
-<p>相关技术栈：linux、golang</p>
+          <h1 id="moment项目需求"><a href="#moment项目需求" class="headerlink" title="moment项目需求"></a>moment项目需求</h1><blockquote>
+<p>相关技术栈：redis、golang、MySQL、linux</p>
 </blockquote>
-<h2 id="编写IDL"><a href="#编写IDL" class="headerlink" title="编写IDL"></a>编写IDL</h2><p>在业务项目目录下创建helloworld目录，进入该目录，然后创建编辑hello.thrift，该文件用来生成基本框架。输入以下内容：</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> Result &#123;      <span class="comment">//定义了一个Result结构体，为接口返回的结构体数据</span></span><br><span class="line">    <span class="number">1</span>: <span class="type">string</span> response,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">service HelloService &#123;    <span class="comment">//定义了一个服务，只有一个接口↓</span></span><br><span class="line">    Result HelloWorld(<span class="number">1</span>:<span class="type">string</span> name);  <span class="comment">//HelloWorld,该接口接收一个string参数，返回一个Result结构体，见上。</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="生成框架代码"><a href="#生成框架代码" class="headerlink" title="生成框架代码"></a>生成框架代码</h2><p>键入如下命令生成框架代码，请下载最新版本的<a target="_blank" rel="noopener" href="http://micode.be.xiaomi.com/soa/soa_tools">thrift工具</a></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/path/to/soa_tools/thrift --gen go --packagePath micode.be.xiaomi.com/systech/helloworld hello.thrift</span><br></pre></td></tr></table></figure>
-
-<h2 id="编译执行"><a href="#编译执行" class="headerlink" title="编译执行"></a>编译执行</h2><p>执行 .&#x2F;build.sh 进行编译，编译成功后，生成的程序在bin目录下。</p>
+<p>做一个看板任务(照着微信朋友圈来,不过所有用户全部看成朋友即可)</p>
+<blockquote>
+<ol>
+<li>用户可以登录,可以保持登录状态</li>
+<li>用户可以发布一个想法,包含一段文字,0-4张图片(保存图片链接即可)</li>
+<li>用户可以查看大家发布的说说,按时间顺序从新展示,需分页,一页20个</li>
+<li>用户可以评论想法,也可以删除自己的评论</li>
+<li>用户可以点赞&#x2F;取消点赞想法</li>
+<li>消息通知,点赞回复要通知所有和说说相关的人</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>不做界面,规划好接口,数据库,且完成即可<br>数据库尽可能满足 一对一  一对多  多对多 关系,不要求字段冗余<br>使用HTTP协议,框架自选(iris,beego等都行)  </p>
+</blockquote>
+<p>进度安排:</p>
+<ol>
+<li>设计好数据库</li>
+<li>规划好接口</li>
+<li>做好登录认证</li>
+<li>完成接口</li>
+</ol>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2018/12/11/project_experience/koala/#more" rel="contents">
+              <a class="btn" href="/2018/12/11/project_experience/moments%20%E9%A1%B9%E7%9B%AE/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
