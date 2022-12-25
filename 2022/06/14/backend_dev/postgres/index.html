@@ -324,6 +324,8 @@
 <li>DROP SCHEMA 时添加 CASCADE 参数，自动删除该模式下数据库对象。对应的，添加 RESTRICT 参数，如果该模式下还存在数据库对象，则不允许删除该模式，RESTRICT 为缺省值。</li>
 <li><code>TRUNCATE TABLE xxx RESTART IDENTITY;</code>：重置自增主键为 1 。</li>
 </ul>
+<span id="more"></span>
+
 <h1 id="避坑指南"><a href="#避坑指南" class="headerlink" title="避坑指南"></a>避坑指南</h1><ul>
 <li>postgre 使用 limit offset 在排序字段值相同情况下不能达到目标效果 会表现为乱序 且postgre多字段排序写法与常规写法不同 应为 column1 desc,column2 desc 而非 column1 column2,desc 当写为后者时 不能达到先按column1排序 当column1值相同时按column2排序的预期</li>
 </ul>

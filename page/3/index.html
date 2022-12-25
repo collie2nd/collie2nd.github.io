@@ -814,6 +814,123 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://collie2nd.github.io/2020/08/29/project_experience/spawn-fcgi/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/blue.gif">
+      <meta itemprop="name" content="Collie">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="试过重启了吗">
+      <meta itemprop="description" content="less is more">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | 试过重启了吗">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/08/29/project_experience/spawn-fcgi/" class="post-title-link" itemprop="url">spawn-fcgi 学习笔记</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-08-29 00:00:00" itemprop="dateCreated datePublished" datetime="2020-08-29T00:00:00+08:00">2020-08-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E9%A1%B9%E7%9B%AE%E7%BB%8F%E5%8E%86/" itemprop="url" rel="index"><span itemprop="name">项目经历</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2020/08/29/project_experience/spawn-fcgi/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2020/08/29/project_experience/spawn-fcgi/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.4k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="spawn-fcgi-用法了解"><a href="#spawn-fcgi-用法了解" class="headerlink" title="spawn-fcgi 用法了解"></a>spawn-fcgi 用法了解</h1><p>spawn-fcgi 是一个小程序，作用是管理 fast-cgi 进程。</p>
+<p>用 spawn 启动 FCGI 程序的方式为：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./spawn-fcgi -a 127.0.0.1 -p 8080 -F <span class="variable">$&#123;count&#125;</span> -f <span class="variable">$&#123;webroot&#125;</span>/bin/demo.fcgi</span><br></pre></td></tr></table></figure>
+
+<p>这样就会启动 count 个 demo.fcgi 程序，他们共同监听同一个 listen 端口 8080，从而提供服务。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/08/29/project_experience/spawn-fcgi/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="http://collie2nd.github.io/2020/08/29/backend_dev/cpp/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -932,7 +1049,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://collie2nd.github.io/2020/08/29/project_experience/spawn-fcgi/">
+    <link itemprop="mainEntityOfPage" href="http://collie2nd.github.io/2020/07/20/project_experience/odbc/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/blue.gif">
@@ -950,7 +1067,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/08/29/project_experience/spawn-fcgi/" class="post-title-link" itemprop="url">spawn-fcgi 学习笔记</a>
+          <a href="/2020/07/20/project_experience/odbc/" class="post-title-link" itemprop="url">odbc 的配置</a>
         </h2>
 
         <div class="post-meta-container">
@@ -961,7 +1078,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2020-08-29 00:00:00" itemprop="dateCreated datePublished" datetime="2020-08-29T00:00:00+08:00">2020-08-29</time>
+      <time title="创建时间：2020-07-20 00:00:00" itemprop="dateCreated datePublished" datetime="2020-07-20T00:00:00+08:00">2020-07-20</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -982,8 +1099,8 @@
     </span>
     <span class="post-meta-item-text">Waline：</span>
   
-    <a title="waline" href="/2020/08/29/project_experience/spawn-fcgi/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/08/29/project_experience/spawn-fcgi/" itemprop="commentCount"></span>
+    <a title="waline" href="/2020/07/20/project_experience/odbc/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2020/07/20/project_experience/odbc/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -993,14 +1110,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.4k</span>
+      <span>5.8k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
+      <span>5 分钟</span>
     </span>
 </div>
 
@@ -1011,14 +1128,19 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="spawn-fcgi-用法了解"><a href="#spawn-fcgi-用法了解" class="headerlink" title="spawn-fcgi 用法了解"></a>spawn-fcgi 用法了解</h1><p>spawn-fcgi 是一个小程序，作用是管理 fast-cgi 进程。</p>
-<p>用 spawn 启动 FCGI 程序的方式为：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./spawn-fcgi -a 127.0.0.1 -p 8080 -F <span class="variable">$&#123;count&#125;</span> -f <span class="variable">$&#123;webroot&#125;</span>/bin/demo.fcgi</span><br></pre></td></tr></table></figure>
-
-<p>这样就会启动 count 个 demo.fcgi 程序，他们共同监听同一个 listen 端口 8080，从而提供服务。</p>
+          <h1 id="odbc-的配置"><a href="#odbc-的配置" class="headerlink" title="odbc 的配置"></a>odbc 的配置</h1><blockquote>
+<p>相关技术栈：linux、mysql</p>
+</blockquote>
+<p>在<strong>安装</strong>配置之前，需要先大概了解一下 MyODBC 的架构，MyODBC 体系结构建立在 5 个组件上，如下图所示：</p>
+<p><img src="http://pic.colliexyy.com/16566671925562.jpg"></p>
+<p><strong>Driver Manager</strong><br>负责管理应用程序和驱动程序间的通信，主要功能包括：解析 DSN (数据源名称，ODBC 的数据源名称在 odbc.ini 文件中配置)，加载和卸载驱动程序，处理 ODBC 调用，将其传递给驱动程序。</p>
+<p><strong>ODBC.INI</strong><br>odbc.ini 是 ODBC 配置文件，记录了连接到服务器所需的驱动信息和数据库信息xxxxxx。Driver Manager 将使用它来确定加载哪个驱动程序（使用数据源名 DSN ）。驱动程序将根据指定的DSN来读取连接参数。</p>
+<p><strong>Connector&#x2F;ODBC(MyODBC驱动程序)</strong><br>实现 ODBC API 所提供的功能，它负责处理 ODBC 函数调用，将 SQL 请求提交给 MySQL 服务器，并将结果返回给应用程序。</p>
+<p>在 Linux 下配置 mysql ODBC 需要有以下步骤：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. 安装 Driver Manager，本案例使用 unixODBC 来作为 Driver Manager。</span><br><span class="line">2. 安装 MySQL 驱动程序，本案例使用 Connector/ODBC。</span><br><span class="line">3. 配置 ODBC.INI</span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/08/29/project_experience/spawn-fcgi/#more" rel="contents">
+              <a class="btn" href="/2020/07/20/project_experience/odbc/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1258,128 +1380,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/07/20/backend_dev/nginx/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://collie2nd.github.io/2020/07/20/project_experience/odbc/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/blue.gif">
-      <meta itemprop="name" content="Collie">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="试过重启了吗">
-      <meta itemprop="description" content="less is more">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 试过重启了吗">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/07/20/project_experience/odbc/" class="post-title-link" itemprop="url">odbc 的配置</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-07-20 00:00:00" itemprop="dateCreated datePublished" datetime="2020-07-20T00:00:00+08:00">2020-07-20</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E9%A1%B9%E7%9B%AE%E7%BB%8F%E5%8E%86/" itemprop="url" rel="index"><span itemprop="name">项目经历</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2020/07/20/project_experience/odbc/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/07/20/project_experience/odbc/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>5.8k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>5 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="odbc-的配置"><a href="#odbc-的配置" class="headerlink" title="odbc 的配置"></a>odbc 的配置</h1><blockquote>
-<p>相关技术栈：linux、mysql</p>
-</blockquote>
-<p>在<strong>安装</strong>配置之前，需要先大概了解一下 MyODBC 的架构，MyODBC 体系结构建立在 5 个组件上，如下图所示：</p>
-<p><img src="http://pic.colliexyy.com/16566671925562.jpg"></p>
-<p><strong>Driver Manager</strong><br>负责管理应用程序和驱动程序间的通信，主要功能包括：解析 DSN (数据源名称，ODBC 的数据源名称在 odbc.ini 文件中配置)，加载和卸载驱动程序，处理 ODBC 调用，将其传递给驱动程序。</p>
-<p><strong>ODBC.INI</strong><br>odbc.ini 是 ODBC 配置文件，记录了连接到服务器所需的驱动信息和数据库信息xxxxxx。Driver Manager 将使用它来确定加载哪个驱动程序（使用数据源名 DSN ）。驱动程序将根据指定的DSN来读取连接参数。</p>
-<p><strong>Connector&#x2F;ODBC(MyODBC驱动程序)</strong><br>实现 ODBC API 所提供的功能，它负责处理 ODBC 函数调用，将 SQL 请求提交给 MySQL 服务器，并将结果返回给应用程序。</p>
-<p>在 Linux 下配置 mysql ODBC 需要有以下步骤：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. 安装 Driver Manager，本案例使用 unixODBC 来作为 Driver Manager。</span><br><span class="line">2. 安装 MySQL 驱动程序，本案例使用 Connector/ODBC。</span><br><span class="line">3. 配置 ODBC.INI</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/07/20/project_experience/odbc/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>

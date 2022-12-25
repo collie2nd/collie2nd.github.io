@@ -1,6 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>MacOS_SOP</title>
+    <url>/2020/10/01/soft_power/mac_os/</url>
+    <content><![CDATA[<h1 id="MacOS-使用技巧"><a href="#MacOS-使用技巧" class="headerlink" title="MacOS 使用技巧"></a>MacOS 使用技巧</h1><h1 id="VIM常用快捷键"><a href="#VIM常用快捷键" class="headerlink" title="VIM常用快捷键"></a>VIM常用快捷键</h1><figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">$ </span><br><span class="line">// 光标移动到最后一个字符</span><br><span class="line"></span><br><span class="line"><span class="number">0</span> </span><br><span class="line">// 光标移动到首位</span><br><span class="line"></span><br><span class="line">ZZ </span><br><span class="line">// 保存退出</span><br><span class="line"></span><br><span class="line">dt<span class="symbol">&lt;character&gt;</span></span><br><span class="line">// 删除到该字符</span><br><span class="line"></span><br><span class="line"><span class="keyword">f</span><span class="symbol">&lt;character&gt;</span></span><br><span class="line">// 将光标移动到，从光标当前位置开始第一个该字符的位置</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+<h1 id="Homebrew"><a href="#Homebrew" class="headerlink" title="Homebrew"></a>Homebrew</h1><h2 id="brew-相关命令"><a href="#brew-相关命令" class="headerlink" title="brew 相关命令"></a>brew 相关命令</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">更新：brew update</span><br><span class="line">查看版本：brew -v</span><br><span class="line">帮助信息：brew -h</span><br><span class="line"></span><br><span class="line">查询软件的详细信息：brew info &lt;软件名&gt;</span><br><span class="line">查看安装列表：brew list</span><br><span class="line"></span><br><span class="line">安装软件包：brew install &lt;软件名&gt;</span><br><span class="line">卸载软件包：brew uninstall &lt;软件名&gt;</span><br><span class="line">彻底卸载指定软件，包括旧版本：brew uninstall --force &lt;软件名&gt;</span><br><span class="line"></span><br><span class="line">搜索软件：brew search &lt;正则表达式/软件名&gt;</span><br><span class="line">更新所有软件包：brew upgrade &lt;软件名&gt;</span><br><span class="line">查询有更新版本的软件：brew outdated</span><br><span class="line">清理指定软件的过时包：brew cleanup &lt;软件名&gt;</span><br><span class="line">清理所有的过时软件：brew cleanup</span><br><span class="line">列出需要清理的内容：brew cleanup -n</span><br><span class="line"></span><br><span class="line">用浏览器打开相关包的页面：brew home &lt;软件名&gt;</span><br><span class="line">显示包依赖：brew deps &lt;软件名&gt;</span><br><span class="line">锁定某个包：brew pin $FORMULA</span><br><span class="line">取消锁定：brew unpin $FORMULA</span><br><span class="line">查看已安装的包的依赖，树形显示：brew deps --installed --tree </span><br></pre></td></tr></table></figure>
+
+<h2 id="brew-应用包"><a href="#brew-应用包" class="headerlink" title="brew 应用包"></a>brew 应用包</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">tree</span><br><span class="line">// 显示目录层级关系</span><br><span class="line"></span><br><span class="line">youtube-dl</span><br><span class="line">// 下载youtube视频</span><br><span class="line"></span><br><span class="line">ncdu</span><br><span class="line">// 查看磁盘占用情况</span><br><span class="line"></span><br><span class="line">ffmpeg</span><br><span class="line">// 音视频格式转换转码</span><br><span class="line"></span><br><span class="line">you-get</span><br><span class="line">// 下载爬取视频</span><br><span class="line"></span><br><span class="line">thefuck</span><br><span class="line">// 自动重输正确的建议命令</span><br></pre></td></tr></table></figure>
+
+<h1 id="zsh-iterm2"><a href="#zsh-iterm2" class="headerlink" title="zsh + iterm2"></a>zsh + iterm2</h1><h2 id="zsh-插件的使用"><a href="#zsh-插件的使用" class="headerlink" title="zsh 插件的使用"></a>zsh 插件的使用</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git</span><br><span class="line">// git 快捷指令 由↓查看快捷指令</span><br><span class="line">// <span class="built_in">cat</span> ~/.oh-my-zsh/plugins/git/git.plugin.zsh</span><br><span class="line"></span><br><span class="line">gitignore</span><br><span class="line">// 自动生成gitignore文件</span><br><span class="line">// gi &lt;c/c++/python/...&gt; &gt; .gitignore</span><br><span class="line"></span><br><span class="line">zsh_reload</span><br><span class="line">// src 重载zsh</span><br><span class="line"></span><br><span class="line">git-open</span><br><span class="line">// 在任何一个git目录，输入git-open 就可以打开github对应的页面</span><br><span class="line"></span><br><span class="line">safe-paste</span><br><span class="line">// 当你往 zsh 粘贴脚本时，它不会被立刻运行</span><br><span class="line"></span><br><span class="line">extract</span><br><span class="line">// 万能解压命令</span><br><span class="line"></span><br><span class="line">gh-md-toc</span><br><span class="line">// md目录生成工具，<span class="built_in">alias</span> -&gt; mdtoc</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>iterm2 支持 option + 光标点选直接移动光标位置。</li>
+<li>iterm2 通过<code>Command + K</code>实现清屏。</li>
+</ul>
+<h1 id="Hexo版本升级"><a href="#Hexo版本升级" class="headerlink" title="Hexo版本升级"></a>Hexo版本升级</h1><p>1、全局升级<code>hexo-cli</code>，先<code>hexo version</code>查看当前版本，然后<code>npm i hexo-cli -g</code>，再次<code>hexo version</code>查看是否升级成功。</p>
+<p>2、使用<code>npm install -g npm-check</code>和<code>npm-check</code>，检查系统中的插件是否有升级的，可以看到自己前面都安装了那些插件</p>
+<p>3、使用<code>npm install -g npm-upgrade</code>和<code>npm-upgrade</code>，升级系统中的插件</p>
+<p>4、使用<code>npm update -g</code>和<code>npm update --save</code></p>
+<p>如果遇到报错，需要重装xcode-cli：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">sudo <span class="built_in">rm</span> -rf /Library/Developer/CommandLineTools</span><br><span class="line">xcode-select --install</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>软实力</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>productivity</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>linux_SOP</title>
     <url>/2020/10/01/backend_dev/linux_SOP/</url>
     <content><![CDATA[<h1 id="vim-常用快捷键"><a href="#vim-常用快捷键" class="headerlink" title="vim 常用快捷键"></a>vim 常用快捷键</h1><p><img src="http://pic.colliexyy.com/vim_sop.jpg" alt="vim快捷键"></p>
@@ -132,36 +162,6 @@
       </tags>
   </entry>
   <entry>
-    <title>MacOS_SOP</title>
-    <url>/2020/10/01/soft_power/mac_os/</url>
-    <content><![CDATA[<h1 id="MacOS-使用技巧"><a href="#MacOS-使用技巧" class="headerlink" title="MacOS 使用技巧"></a>MacOS 使用技巧</h1><h1 id="VIM常用快捷键"><a href="#VIM常用快捷键" class="headerlink" title="VIM常用快捷键"></a>VIM常用快捷键</h1><figure class="highlight vim"><table><tr><td class="code"><pre><span class="line">$ </span><br><span class="line">// 光标移动到最后一个字符</span><br><span class="line"></span><br><span class="line"><span class="number">0</span> </span><br><span class="line">// 光标移动到首位</span><br><span class="line"></span><br><span class="line">ZZ </span><br><span class="line">// 保存退出</span><br><span class="line"></span><br><span class="line">dt<span class="symbol">&lt;character&gt;</span></span><br><span class="line">// 删除到该字符</span><br><span class="line"></span><br><span class="line"><span class="keyword">f</span><span class="symbol">&lt;character&gt;</span></span><br><span class="line">// 将光标移动到，从光标当前位置开始第一个该字符的位置</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<span id="more"></span>
-<h1 id="Homebrew"><a href="#Homebrew" class="headerlink" title="Homebrew"></a>Homebrew</h1><h2 id="brew-相关命令"><a href="#brew-相关命令" class="headerlink" title="brew 相关命令"></a>brew 相关命令</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">更新：brew update</span><br><span class="line">查看版本：brew -v</span><br><span class="line">帮助信息：brew -h</span><br><span class="line"></span><br><span class="line">查询软件的详细信息：brew info &lt;软件名&gt;</span><br><span class="line">查看安装列表：brew list</span><br><span class="line"></span><br><span class="line">安装软件包：brew install &lt;软件名&gt;</span><br><span class="line">卸载软件包：brew uninstall &lt;软件名&gt;</span><br><span class="line">彻底卸载指定软件，包括旧版本：brew uninstall --force &lt;软件名&gt;</span><br><span class="line"></span><br><span class="line">搜索软件：brew search &lt;正则表达式/软件名&gt;</span><br><span class="line">更新所有软件包：brew upgrade &lt;软件名&gt;</span><br><span class="line">查询有更新版本的软件：brew outdated</span><br><span class="line">清理指定软件的过时包：brew cleanup &lt;软件名&gt;</span><br><span class="line">清理所有的过时软件：brew cleanup</span><br><span class="line">列出需要清理的内容：brew cleanup -n</span><br><span class="line"></span><br><span class="line">用浏览器打开相关包的页面：brew home &lt;软件名&gt;</span><br><span class="line">显示包依赖：brew deps &lt;软件名&gt;</span><br><span class="line">锁定某个包：brew pin $FORMULA</span><br><span class="line">取消锁定：brew unpin $FORMULA</span><br><span class="line">查看已安装的包的依赖，树形显示：brew deps --installed --tree </span><br></pre></td></tr></table></figure>
-
-<h2 id="brew-应用包"><a href="#brew-应用包" class="headerlink" title="brew 应用包"></a>brew 应用包</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">tree</span><br><span class="line">// 显示目录层级关系</span><br><span class="line"></span><br><span class="line">youtube-dl</span><br><span class="line">// 下载youtube视频</span><br><span class="line"></span><br><span class="line">ncdu</span><br><span class="line">// 查看磁盘占用情况</span><br><span class="line"></span><br><span class="line">ffmpeg</span><br><span class="line">// 音视频格式转换转码</span><br><span class="line"></span><br><span class="line">you-get</span><br><span class="line">// 下载爬取视频</span><br><span class="line"></span><br><span class="line">thefuck</span><br><span class="line">// 自动重输正确的建议命令</span><br></pre></td></tr></table></figure>
-
-<h1 id="zsh-iterm2"><a href="#zsh-iterm2" class="headerlink" title="zsh + iterm2"></a>zsh + iterm2</h1><h2 id="zsh-插件的使用"><a href="#zsh-插件的使用" class="headerlink" title="zsh 插件的使用"></a>zsh 插件的使用</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">git</span><br><span class="line">// git 快捷指令 由↓查看快捷指令</span><br><span class="line">// <span class="built_in">cat</span> ~/.oh-my-zsh/plugins/git/git.plugin.zsh</span><br><span class="line"></span><br><span class="line">gitignore</span><br><span class="line">// 自动生成gitignore文件</span><br><span class="line">// gi &lt;c/c++/python/...&gt; &gt; .gitignore</span><br><span class="line"></span><br><span class="line">zsh_reload</span><br><span class="line">// src 重载zsh</span><br><span class="line"></span><br><span class="line">git-open</span><br><span class="line">// 在任何一个git目录，输入git-open 就可以打开github对应的页面</span><br><span class="line"></span><br><span class="line">safe-paste</span><br><span class="line">// 当你往 zsh 粘贴脚本时，它不会被立刻运行</span><br><span class="line"></span><br><span class="line">extract</span><br><span class="line">// 万能解压命令</span><br><span class="line"></span><br><span class="line">gh-md-toc</span><br><span class="line">// md目录生成工具，<span class="built_in">alias</span> -&gt; mdtoc</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>iterm2 支持 option + 光标点选直接移动光标位置。</li>
-<li>iterm2 通过<code>Command + K</code>实现清屏。</li>
-</ul>
-<h1 id="Hexo版本升级"><a href="#Hexo版本升级" class="headerlink" title="Hexo版本升级"></a>Hexo版本升级</h1><p>1、全局升级<code>hexo-cli</code>，先<code>hexo version</code>查看当前版本，然后<code>npm i hexo-cli -g</code>，再次<code>hexo version</code>查看是否升级成功。</p>
-<p>2、使用<code>npm install -g npm-check</code>和<code>npm-check</code>，检查系统中的插件是否有升级的，可以看到自己前面都安装了那些插件</p>
-<p>3、使用<code>npm install -g npm-upgrade</code>和<code>npm-upgrade</code>，升级系统中的插件</p>
-<p>4、使用<code>npm update -g</code>和<code>npm update --save</code></p>
-<p>如果遇到报错，需要重装xcode-cli：</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">sudo <span class="built_in">rm</span> -rf /Library/Developer/CommandLineTools</span><br><span class="line">xcode-select --install</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>软实力</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
-        <tag>productivity</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>摆脱未知</title>
     <url>/2022/11/21/backend_dev/unknown/</url>
     <content><![CDATA[<h1 id="摆脱未知"><a href="#摆脱未知" class="headerlink" title="摆脱未知"></a>摆脱未知</h1><h2 id="lo：golang版lodash"><a href="#lo：golang版lodash" class="headerlink" title="lo：golang版lodash"></a>lo：golang版lodash</h2><p>lodash，web前端领域的“瑞士军刀”。自从上手golang以来，寻找了4年多类似lodash的golang实现，终于因为golang1.18泛型的支持，得以如愿。目前已在日志同步服务中有所应用（Chunk）。<br><a href="https://github.com/samber/lo">https://github.com/samber/lo</a></p>
@@ -193,6 +193,8 @@
 <li>尽量做1000条以上批量的写入，避免逐行insert或小批量的insert，update，delete操作，因为ClickHouse底层会不断的做异步的数据合并，会影响查询性能，这个在做实时数据写入的时候要尽量避开；</li>
 <li>Clickhouse快是因为采用了并行处理机制，即使一个查询，也会用服务器一半的CPU去执行，所以ClickHouse不能支持高并发的使用场景，默认单查询使用CPU核数为服务器核数的一半，安装时会自动识别服务器核数，可以通过配置文件修改该参数。</li>
 </ol>
+<span id="more"></span>
+
 <h1 id="ClickHouse-建宽表多少列最合适？"><a href="#ClickHouse-建宽表多少列最合适？" class="headerlink" title="ClickHouse 建宽表多少列最合适？"></a>ClickHouse 建宽表多少列最合适？</h1><p>ClickHouse 对于10000列也是能扛住的，但是在插入数据和执行维护操作(例如合并或突变)时可能需要额外的调优和大量 RAM。但只要 RAM 足够，用户可以获得出色的 ClickHouse 查询性能。对于典型的分析查询，10个列表和10000个列表没有什么不同。当不需要处理数千列时，可以使用 Map 数据类型。它可以在方便性和性能之间提供很好的折衷，特别是对于稀疏表，因为在一行中只使用了10K 列的一小部分。 </p>
 <p>10000列调优解决方案：</p>
 <blockquote>
@@ -386,6 +388,8 @@
 <li>DROP SCHEMA 时添加 CASCADE 参数，自动删除该模式下数据库对象。对应的，添加 RESTRICT 参数，如果该模式下还存在数据库对象，则不允许删除该模式，RESTRICT 为缺省值。</li>
 <li><code>TRUNCATE TABLE xxx RESTART IDENTITY;</code>：重置自增主键为 1 。</li>
 </ul>
+<span id="more"></span>
+
 <h1 id="避坑指南"><a href="#避坑指南" class="headerlink" title="避坑指南"></a>避坑指南</h1><ul>
 <li>postgre 使用 limit offset 在排序字段值相同情况下不能达到目标效果 会表现为乱序 且postgre多字段排序写法与常规写法不同 应为 column1 desc,column2 desc 而非 column1 column2,desc 当写为后者时 不能达到先按column1排序 当column1值相同时按column2排序的预期</li>
 </ul>
@@ -426,6 +430,8 @@
 <figure class="highlight go"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">str := <span class="string">&quot;hello世界&quot;</span></span><br><span class="line"><span class="comment">// 方法一</span></span><br><span class="line">strArr := []<span class="type">rune</span>(str)</span><br><span class="line">fmt.Println(<span class="built_in">len</span>(strArr))</span><br><span class="line"><span class="comment">// 方法二</span></span><br><span class="line">fmt.Println(utf8.RuneCountInString(str)) <span class="comment">// 调用 unicode/utf8 标准库</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <figure class="highlight go"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">ReverseString</span><span class="params">(str <span class="type">string</span>)</span></span> <span class="type">string</span> &#123;</span><br><span class="line">	strArr := []<span class="type">rune</span>(str)</span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="built_in">len</span>(strArr)/<span class="number">2</span>; i++ &#123;</span><br><span class="line">		strArr[<span class="built_in">len</span>(strArr)<span class="number">-1</span>-i], strArr[i] = strArr[i], strArr[<span class="built_in">len</span>(strArr)<span class="number">-1</span>-i]</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="type">string</span>(strArr)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	str := <span class="string">&quot;hello世界&quot;</span></span><br><span class="line">	fmt.Println(ReverseString(str))</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
 
 <h1 id="堆排序和快速排序的原理"><a href="#堆排序和快速排序的原理" class="headerlink" title="堆排序和快速排序的原理"></a>堆排序和快速排序的原理</h1><h2 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h2><p>原理阐述： 1. 建堆 2. 堆调整 3. 堆排序</p>
 <p>我们一般提到堆排序里的堆指的是二叉堆（binary heap），是一种完全二叉树，二叉堆有两种：最大堆和最小堆，特点是父节点的值大于（小于）两个小节点的值。完全二叉树有一个性质是，除了最底层，每一层都是满的。</p>
@@ -1095,8 +1101,8 @@
         <category>后端技能</category>
       </categories>
       <tags>
-        <tag>read</tag>
         <tag>golang</tag>
+        <tag>read</tag>
       </tags>
   </entry>
   <entry>
@@ -1153,8 +1159,8 @@
         <category>后端技能</category>
       </categories>
       <tags>
-        <tag>read</tag>
         <tag>golang</tag>
+        <tag>read</tag>
       </tags>
   </entry>
   <entry>
@@ -1356,8 +1362,8 @@
         <category>后端技能</category>
       </categories>
       <tags>
-        <tag>read</tag>
         <tag>golang</tag>
+        <tag>read</tag>
       </tags>
   </entry>
   <entry>
@@ -2125,8 +2131,8 @@
         <category>后端技能</category>
       </categories>
       <tags>
-        <tag>golang</tag>
         <tag>linux</tag>
+        <tag>golang</tag>
       </tags>
   </entry>
   <entry>
@@ -2923,7 +2929,7 @@
 </blockquote>
 <h3 id="锚点与链接-Links"><a href="#锚点与链接-Links" class="headerlink" title="锚点与链接 Links"></a>锚点与链接 Links</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[普通链接](https://www.mdeditor.com/)</span><br><span class="line">[普通链接带标题](https://www.mdeditor.com/ &quot;普通链接带标题&quot;)</span><br><span class="line">直接链接：&lt;https://www.mdeditor.com&gt;</span><br><span class="line">[锚点链接][anchor-id]</span><br><span class="line">[anchor-id]: https://www.mdeditor.com/</span><br><span class="line">[mailto:test.test@gmail.com](mailto:test.test@gmail.com)</span><br><span class="line">GFM a-tail link @pandao</span><br><span class="line">邮箱地址自动链接 test.test@gmail.com  www@vip.qq.com</span><br><span class="line">&gt; @pandao</span><br></pre></td></tr></table></figure>
 
-<p><a href="https://www.mdeditor.com/">普通链接</a><br><a href="https://www.mdeditor.com/" title="普通链接带标题">普通链接带标题</a><br>直接链接：<a href="https://www.mdeditor.com/">https://www.mdeditor.com</a><br>[锚点链接][anchor-id]<br>[anchor-id]: <a href="https://www.mdeditor.com/">https://www.mdeditor.com/</a><br><a href="mailto:test.test@gmail.com">mailto:test.test@gmail.com</a><br>GFM a-tail link @pandao<br>邮箱地址自动链接 <a href="mailto:&#x74;&#x65;&#115;&#116;&#x2e;&#116;&#x65;&#x73;&#x74;&#x40;&#103;&#x6d;&#x61;&#x69;&#108;&#x2e;&#99;&#111;&#x6d;">&#x74;&#x65;&#115;&#116;&#x2e;&#116;&#x65;&#x73;&#x74;&#x40;&#103;&#x6d;&#x61;&#x69;&#108;&#x2e;&#99;&#111;&#x6d;</a>  <a href="mailto:&#x77;&#x77;&#x77;&#64;&#118;&#x69;&#x70;&#x2e;&#x71;&#x71;&#x2e;&#99;&#x6f;&#109;">&#x77;&#x77;&#x77;&#64;&#118;&#x69;&#x70;&#x2e;&#x71;&#x71;&#x2e;&#99;&#x6f;&#109;</a></p>
+<p><a href="https://www.mdeditor.com/">普通链接</a><br><a href="https://www.mdeditor.com/" title="普通链接带标题">普通链接带标题</a><br>直接链接：<a href="https://www.mdeditor.com/">https://www.mdeditor.com</a><br>[锚点链接][anchor-id]<br>[anchor-id]: <a href="https://www.mdeditor.com/">https://www.mdeditor.com/</a><br><a href="mailto:test.test@gmail.com">mailto:test.test@gmail.com</a><br>GFM a-tail link @pandao<br>邮箱地址自动链接 <a href="mailto:&#116;&#101;&#115;&#116;&#x2e;&#x74;&#101;&#x73;&#x74;&#x40;&#103;&#x6d;&#x61;&#x69;&#x6c;&#46;&#x63;&#x6f;&#109;">&#116;&#101;&#115;&#116;&#x2e;&#x74;&#101;&#x73;&#x74;&#x40;&#103;&#x6d;&#x61;&#x69;&#x6c;&#46;&#x63;&#x6f;&#109;</a>  <a href="mailto:&#119;&#x77;&#119;&#64;&#118;&#x69;&#x70;&#46;&#x71;&#113;&#x2e;&#99;&#111;&#x6d;">&#119;&#x77;&#119;&#64;&#118;&#x69;&#x70;&#46;&#x71;&#113;&#x2e;&#99;&#111;&#x6d;</a></p>
 <blockquote>
 <p>@pandao</p>
 </blockquote>
@@ -3204,6 +3210,25 @@
       </categories>
   </entry>
   <entry>
+    <title>spawn-fcgi 学习笔记</title>
+    <url>/2020/08/29/project_experience/spawn-fcgi/</url>
+    <content><![CDATA[<h1 id="spawn-fcgi-用法了解"><a href="#spawn-fcgi-用法了解" class="headerlink" title="spawn-fcgi 用法了解"></a>spawn-fcgi 用法了解</h1><p>spawn-fcgi 是一个小程序，作用是管理 fast-cgi 进程。</p>
+<p>用 spawn 启动 FCGI 程序的方式为：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./spawn-fcgi -a 127.0.0.1 -p 8080 -F <span class="variable">$&#123;count&#125;</span> -f <span class="variable">$&#123;webroot&#125;</span>/bin/demo.fcgi</span><br></pre></td></tr></table></figure>
+
+<p>这样就会启动 count 个 demo.fcgi 程序，他们共同监听同一个 listen 端口 8080，从而提供服务。</p>
+<span id="more"></span>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./spawn_fcgi -h</span><br><span class="line">Usage: spawn-fcgi [options] [-- &lt;fcgiapp&gt; [fcgi app arguments]]</span><br><span class="line"></span><br><span class="line">spawn-fcgi v1.6.5 - spawns FastCGI processes</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line"> -f &lt;path&gt;      filename of the fcgi-application (deprecated; ignored <span class="keyword">if</span></span><br><span class="line">                &lt;fcgiapp&gt; is given; needs /bin/sh)</span><br><span class="line"> -d &lt;directory&gt; <span class="built_in">chdir</span> to directory before spawning</span><br><span class="line"> -a &lt;address&gt;   <span class="built_in">bind</span> to IPv4/IPv6 address (defaults to 0.0.0.0)</span><br><span class="line"> -p &lt;port&gt;      <span class="built_in">bind</span> to TCP-port</span><br><span class="line"> -s &lt;path&gt;      <span class="built_in">bind</span> to Unix domain socket</span><br><span class="line"> -M &lt;mode&gt;      change Unix domain socket mode (octal <span class="built_in">integer</span>, default: allow</span><br><span class="line">                <span class="built_in">read</span>+write <span class="keyword">for</span> user and group as far as <span class="built_in">umask</span> allows it)</span><br><span class="line"> -C &lt;children&gt;  (PHP only) numbers of childs to spawn (default: not setting</span><br><span class="line">                the PHP_FCGI_CHILDREN environment variable - PHP defaults to 0)</span><br><span class="line"> -F &lt;children&gt;  number of children to fork (default 1)</span><br><span class="line"> -b &lt;backlog&gt;   backlog to allow on the socket (default 1024)</span><br><span class="line"> -P &lt;path&gt;      name of PID-file <span class="keyword">for</span> spawned process (ignored <span class="keyword">in</span> no-fork mode)</span><br><span class="line"> -n             no fork (<span class="keyword">for</span> daemontools)</span><br><span class="line"> -v             show version</span><br><span class="line"> -?, -h         show this <span class="built_in">help</span></span><br><span class="line">(root only)</span><br><span class="line"> -c &lt;directory&gt; <span class="built_in">chroot</span> to directory</span><br><span class="line"> -S             create socket before <span class="built_in">chroot</span>() (default is to create the socket</span><br><span class="line">                <span class="keyword">in</span> the <span class="built_in">chroot</span>)</span><br><span class="line"> -u &lt;user&gt;      change to user-id</span><br><span class="line"> -g &lt;group&gt;     change to group-id (default: primary group of user <span class="keyword">if</span> -u</span><br><span class="line">                is given)</span><br><span class="line"> -U &lt;user&gt;      change Unix domain socket owner to user-id</span><br><span class="line"> -G &lt;group&gt;     change Unix domain socket group to group-id</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>项目经历</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>c/cpp</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>cpp 学习笔记</title>
     <url>/2020/08/29/backend_dev/cpp/</url>
     <content><![CDATA[<h1 id="Vector-遍历"><a href="#Vector-遍历" class="headerlink" title="Vector 遍历"></a>Vector 遍历</h1><blockquote>
@@ -3271,23 +3296,90 @@
       </tags>
   </entry>
   <entry>
-    <title>spawn-fcgi 学习笔记</title>
-    <url>/2020/08/29/project_experience/spawn-fcgi/</url>
-    <content><![CDATA[<h1 id="spawn-fcgi-用法了解"><a href="#spawn-fcgi-用法了解" class="headerlink" title="spawn-fcgi 用法了解"></a>spawn-fcgi 用法了解</h1><p>spawn-fcgi 是一个小程序，作用是管理 fast-cgi 进程。</p>
-<p>用 spawn 启动 FCGI 程序的方式为：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./spawn-fcgi -a 127.0.0.1 -p 8080 -F <span class="variable">$&#123;count&#125;</span> -f <span class="variable">$&#123;webroot&#125;</span>/bin/demo.fcgi</span><br></pre></td></tr></table></figure>
+    <title>odbc 的配置</title>
+    <url>/2020/07/20/project_experience/odbc/</url>
+    <content><![CDATA[<h1 id="odbc-的配置"><a href="#odbc-的配置" class="headerlink" title="odbc 的配置"></a>odbc 的配置</h1><blockquote>
+<p>相关技术栈：linux、mysql</p>
+</blockquote>
+<p>在<strong>安装</strong>配置之前，需要先大概了解一下 MyODBC 的架构，MyODBC 体系结构建立在 5 个组件上，如下图所示：</p>
+<p><img src="http://pic.colliexyy.com/16566671925562.jpg"></p>
+<p><strong>Driver Manager</strong><br>负责管理应用程序和驱动程序间的通信，主要功能包括：解析 DSN (数据源名称，ODBC 的数据源名称在 odbc.ini 文件中配置)，加载和卸载驱动程序，处理 ODBC 调用，将其传递给驱动程序。</p>
+<p><strong>ODBC.INI</strong><br>odbc.ini 是 ODBC 配置文件，记录了连接到服务器所需的驱动信息和数据库信息xxxxxx。Driver Manager 将使用它来确定加载哪个驱动程序（使用数据源名 DSN ）。驱动程序将根据指定的DSN来读取连接参数。</p>
+<p><strong>Connector&#x2F;ODBC(MyODBC驱动程序)</strong><br>实现 ODBC API 所提供的功能，它负责处理 ODBC 函数调用，将 SQL 请求提交给 MySQL 服务器，并将结果返回给应用程序。</p>
+<p>在 Linux 下配置 mysql ODBC 需要有以下步骤：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1. 安装 Driver Manager，本案例使用 unixODBC 来作为 Driver Manager。</span><br><span class="line">2. 安装 MySQL 驱动程序，本案例使用 Connector/ODBC。</span><br><span class="line">3. 配置 ODBC.INI</span><br></pre></td></tr></table></figure>
 
-<p>这样就会启动 count 个 demo.fcgi 程序，他们共同监听同一个 listen 端口 8080，从而提供服务。</p>
 <span id="more"></span>
 
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./spawn_fcgi -h</span><br><span class="line">Usage: spawn-fcgi [options] [-- &lt;fcgiapp&gt; [fcgi app arguments]]</span><br><span class="line"></span><br><span class="line">spawn-fcgi v1.6.5 - spawns FastCGI processes</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line"> -f &lt;path&gt;      filename of the fcgi-application (deprecated; ignored <span class="keyword">if</span></span><br><span class="line">                &lt;fcgiapp&gt; is given; needs /bin/sh)</span><br><span class="line"> -d &lt;directory&gt; <span class="built_in">chdir</span> to directory before spawning</span><br><span class="line"> -a &lt;address&gt;   <span class="built_in">bind</span> to IPv4/IPv6 address (defaults to 0.0.0.0)</span><br><span class="line"> -p &lt;port&gt;      <span class="built_in">bind</span> to TCP-port</span><br><span class="line"> -s &lt;path&gt;      <span class="built_in">bind</span> to Unix domain socket</span><br><span class="line"> -M &lt;mode&gt;      change Unix domain socket mode (octal <span class="built_in">integer</span>, default: allow</span><br><span class="line">                <span class="built_in">read</span>+write <span class="keyword">for</span> user and group as far as <span class="built_in">umask</span> allows it)</span><br><span class="line"> -C &lt;children&gt;  (PHP only) numbers of childs to spawn (default: not setting</span><br><span class="line">                the PHP_FCGI_CHILDREN environment variable - PHP defaults to 0)</span><br><span class="line"> -F &lt;children&gt;  number of children to fork (default 1)</span><br><span class="line"> -b &lt;backlog&gt;   backlog to allow on the socket (default 1024)</span><br><span class="line"> -P &lt;path&gt;      name of PID-file <span class="keyword">for</span> spawned process (ignored <span class="keyword">in</span> no-fork mode)</span><br><span class="line"> -n             no fork (<span class="keyword">for</span> daemontools)</span><br><span class="line"> -v             show version</span><br><span class="line"> -?, -h         show this <span class="built_in">help</span></span><br><span class="line">(root only)</span><br><span class="line"> -c &lt;directory&gt; <span class="built_in">chroot</span> to directory</span><br><span class="line"> -S             create socket before <span class="built_in">chroot</span>() (default is to create the socket</span><br><span class="line">                <span class="keyword">in</span> the <span class="built_in">chroot</span>)</span><br><span class="line"> -u &lt;user&gt;      change to user-id</span><br><span class="line"> -g &lt;group&gt;     change to group-id (default: primary group of user <span class="keyword">if</span> -u</span><br><span class="line">                is given)</span><br><span class="line"> -U &lt;user&gt;      change Unix domain socket owner to user-id</span><br><span class="line"> -G &lt;group&gt;     change Unix domain socket group to group-id</span><br></pre></td></tr></table></figure>]]></content>
+<h2 id="第一步：下载安装包"><a href="#第一步：下载安装包" class="headerlink" title="第一步：下载安装包"></a>第一步：下载安装包</h2><p>需要下载两个安装包 <code>unixODBC 2.3.0</code> 和 <code>mysql Connector/ODBC 3.51</code><br>unixODBC 源码包：<code>ftp://ftp.unixodbc.org/pub/unixODBC/unixODBC-2.3.0.tar.gz</code><br>mysql Connector&#x2F;ODBC 源码包：<code>http://dev.mysql.com/downloads/connector/odbc/3.51.html%23downloads</code><br>选择</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">版本：5.1.11</span><br><span class="line">平台：Oracle&amp;Red Hat Linux6</span><br><span class="line">下载：mysql-connector-odbc-5.1.11-linux-el6-x86-64bit.tar.gz</span><br></pre></td></tr></table></figure>
+
+<h2 id="第二步：安装-unixODBC"><a href="#第二步：安装-unixODBC" class="headerlink" title="第二步：安装 unixODBC"></a>第二步：安装 unixODBC</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">tar -zxvf unixODBC-2.3.4.tar.gz</span><br><span class="line"><span class="built_in">cd</span> unixODBC-2.3.4</span><br><span class="line">./configure --prefix=/usr/local/unixODBC-2.3.4 --includedir=/usr/include --libdir=/usr/local/lib -bindir=/usr/bin --sysconfdir=/usr/local/etc</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+
+<p>安装完成后,可以在&#x2F;usr&#x2F;bin目录下有下面的文件</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">-rwxr-xr-x 1 root root      75312 Nov 1 16:22 odbcinst</span><br><span class="line">-rwxr-xr-x 1 root root      10922 Nov 1 16:22 odbc_config</span><br><span class="line">-rwxr-xr-x 1 root root      37650 Nov 1 16:22 iusql</span><br><span class="line">-rwxr-xr-x 1 root root      44400 Nov 1 16:22 isql</span><br><span class="line">-rwxr-xr-x 1 root root      95903 Nov 1 16:22 dltest</span><br></pre></td></tr></table></figure>
+
+<p>在&#x2F;usr&#x2F;local&#x2F;lib目录下面有这些文件</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">-rwxr-xr-x 1 root root 422955 Nov 1 16:22 libodbcinst.so.1.0.0</span><br><span class="line">lrwxrwxrwx 1 root root     20 Nov 1 16:22 libodbcinst.so.1 -&gt; libodbcinst.so.1.0.0</span><br><span class="line">lrwxrwxrwx 1 root root     20 Nov 1 16:22 libodbcinst.so -&gt; libodbcinst.so.1.0.0</span><br><span class="line">-rwxr-xr-x 1 root root    981 Nov 1 16:22 libodbcinst.la</span><br><span class="line">-rwxr-xr-x 1 root root 169157 Nov 1 16:22 libodbc.so.1.0.0</span><br><span class="line">lrwxrwxrwx 1 root root     16 Nov 1 16:22 libodbc.so.1 -&gt; libodbc.so.1.0.0</span><br><span class="line">lrwxrwxrwx 1 root root     16 Nov 1 16:22 libodbc.so -&gt; libodbc.so.1.0.0</span><br><span class="line">-rwxr-xr-x 1 root root    957 Nov 1 16:22 libodbc.la</span><br><span class="line">-rwxr-xr-x 1 root root 489405 Nov 1 16:22 libodbccr.so.1.0.0</span><br><span class="line">lrwxrwxrwx 1 root root     18 Nov 1 16:22 libodbccr.so.1 -&gt; libodbccr.so.1.0.0</span><br><span class="line">lrwxrwxrwx 1 root root     18 Nov 1 16:22 libodbccr.so -&gt; libodbccr.so.1.0.0</span><br><span class="line">-rwxr-xr-x 1 root root    969 Nov 1 16:22 libodbccr.la</span><br></pre></td></tr></table></figure>
+
+<h2 id="第三步：安装-mysql-Connector-x2F-ODBC"><a href="#第三步：安装-mysql-Connector-x2F-ODBC" class="headerlink" title="第三步：安装 mysql Connector&#x2F;ODBC"></a>第三步：安装 mysql Connector&#x2F;ODBC</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">tar -zxvf mysql-connector-odbc-5.1.11-linux-el6-x86-64bit.tar.gz</span><br><span class="line"><span class="built_in">cd</span> mysql-connector-odbc-5.1.11-linux-el6-x86-64bit/lib</span><br><span class="line"><span class="built_in">cp</span> libmyodbc5.so /usr/local/lib</span><br><span class="line"><span class="built_in">cd</span> ..</span><br><span class="line"><span class="built_in">cd</span> bin</span><br></pre></td></tr></table></figure>
+
+<p><strong>注册驱动</strong></p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">./myodbc-installer -d -a -n <span class="string">&quot;MySQL ODBC 5.1 Driver&quot;</span> -t <span class="string">&quot;DRIVER=/usr/local/lib/libmyodbc5.so;SETUP=/usr/local/lib/libmyodbc5.so&quot;</span></span><br><span class="line"></span><br><span class="line">//odbc 5.3及以上是libmyodbc5a.so和libmyodbc5w.so。其中c5a是Ansi版，c5w是Unicode版</span><br></pre></td></tr></table></figure>
+
+<p>假如注册的时候报错找不到libodbc.so.2,但是之前确实装成功了unixodbc,可能是因为系统找不到&#x2F;usr&#x2F;local&#x2F;lib库目录，需要添加系统搜索库目录路径：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">vi /etc/ld.so.conf</span><br><span class="line"></span><br><span class="line">//将/usr/local/lib直接添加在配置文件里</span><br><span class="line"></span><br><span class="line">ldconfig</span><br><span class="line"></span><br><span class="line">//重新缓存配置文件(为了加快程序执行时对共享库的定位速度，避免使用搜索路径查找共享库的低效率，所以是直接读取库列表文件/etc/ld.so.cache缓存文件并从中进行搜索的)</span><br></pre></td></tr></table></figure>
+
+<h2 id="第四步：配置-ODBC-INI"><a href="#第四步：配置-ODBC-INI" class="headerlink" title="第四步：配置 ODBC.INI"></a>第四步：配置 ODBC.INI</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">odbcinst -j</span><br><span class="line"></span><br><span class="line">unixODBC 2.3.1</span><br><span class="line">DRIVERS............: /etc/odbcinst.ini</span><br><span class="line">SYSTEM DATA SOURCES: /etc/odbc.ini</span><br><span class="line">FILE DATA SOURCES..: /etc/ODBCDataSources</span><br><span class="line">USER DATA SOURCES..: /root/.odbc.ini</span><br><span class="line">SQLULEN Size.......: 8</span><br><span class="line">SQLLEN Size........: 8</span><br><span class="line">SQLSETPOSIROW Size.: 8</span><br></pre></td></tr></table></figure>
+
+<p>编辑文件<code>/etc/odbc.ini</code>，把下面的内容加上去。不同版本<code>mysql</code>驱动的配置方法，有细微差异。此处使用的版本是<code>mysql Connector 3.51</code>。</p>
+<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="section">[mysqlDSN]</span></span><br><span class="line"><span class="attr">Driver</span>      = /usr/local/lib/libmyodbc5.so</span><br><span class="line"><span class="attr">Description</span> = MyODBC <span class="number">5</span> Driver DSN</span><br><span class="line"><span class="attr">SERVER</span>      = <span class="number">172.31</span>.<span class="number">108.133</span></span><br><span class="line"><span class="attr">PORT</span>        = <span class="number">3306</span></span><br><span class="line"><span class="attr">USER</span>        = root</span><br><span class="line"><span class="attr">Password</span>    = <span class="number">123456</span></span><br><span class="line"><span class="attr">Database</span>    = PM</span><br><span class="line"><span class="attr">OPTION</span>      = <span class="number">3</span></span><br><span class="line"><span class="attr">charset</span>     = UTF8</span><br></pre></td></tr></table></figure>
+
+<h2 id="第五步：设置环境变量"><a href="#第五步：设置环境变量" class="headerlink" title="第五步：设置环境变量"></a>第五步：设置环境变量</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> DBCINI=/usr/local/etc/odbc.ini</span><br><span class="line"><span class="built_in">export</span> DBCSYSINI=/usr/local/etc</span><br></pre></td></tr></table></figure>
+
+<h2 id="第六步：重启电脑"><a href="#第六步：重启电脑" class="headerlink" title="第六步：重启电脑"></a>第六步：重启电脑</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">reboot</span><br></pre></td></tr></table></figure>
+
+<h2 id="第七步：测试ODBC配置是否成功"><a href="#第七步：测试ODBC配置是否成功" class="headerlink" title="第七步：测试ODBC配置是否成功"></a>第七步：测试ODBC配置是否成功</h2><p>isql 是 unixODBC 带的一个 ODBC 客户端访问工具，使用<code>isql +数据源名</code>来访问目标数据库。如果 ODBC 配置正确，会显示下面的界面。在<code>SQL&gt;</code>提示符下输入 SQL 语句查询数据库。</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">isql mysqlDSN</span><br><span class="line"></span><br><span class="line">+---------------------------------------+</span><br><span class="line">| Connected!                           |</span><br><span class="line">|                                      |</span><br><span class="line">| sql-statement                        |</span><br><span class="line">| <span class="built_in">help</span> [tablename]                     |</span><br><span class="line">| quit                                 |</span><br><span class="line">|                                      |</span><br><span class="line">+---------------------------------------+</span><br></pre></td></tr></table></figure>
+
+<h2 id="遇到的问题："><a href="#遇到的问题：" class="headerlink" title="遇到的问题："></a>遇到的问题：</h2><p>1、在第三步安装 mysql connector&#x2F;ODBC 中的注册驱动中，我总是会出现<code>./myodbc-installer: error while loading shared libraries: libodbc.so.2: cannot open shared object file: No such file or directory.</code>这种错误，后来发现错误有两点：</p>
+<ol>
+<li>我下载的是 mysql-connector-5.3.6 ，可能版本比较高，而我初次下载用的是unixODBC-2.3.0，版本较低，里面没有 libodbc.so.2 这个库文件（可以用<code>find / -name libodbc.so.2</code>来查）。后来下载了一个 unixODBC-2.3.4 就好了。</li>
+<li>改了版本之后，我发现还是有这个错误，在网上查了下，说是程序查找默认路径为 &#x2F;lib 和 &#x2F;usr&#x2F;lib，而我的 libmyodbc5w.so 和 libmmyodbc5a.so 都在 &#x2F;usr&#x2F;local&#x2F;lib 中，所以查不到，所以需要设置一下共享库路径，以下我贴一下网上查的内容：</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cat</span> /etc/ld.so.conf</span><br><span class="line">include ld.so.conf.d/*.conf</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;/usr/local/lib&quot;</span> &gt;&gt; /etc/ld.so.conf</span><br><span class="line">ldconfig</span><br></pre></td></tr></table></figure>
+
+<p>2、如果共享库文件安装到了其它”非 &#x2F;lib 或 &#x2F;usr&#x2F;lib “ 目录下，但是又不想在 &#x2F;etc&#x2F;ld.so.conf 中加路径(或者是没有权限加路径)。那可以 export 一个全局变量 LD_LIBRARY_PATH ，然后运行程序的时候就会去这个目录中找共享库。</p>
+<p>LD_LIBRARY_PATH 的意思是告诉 loader 在哪些目录中可以找到共享库。</p>
+<p>可以设置多个搜索目录，这些目录之间用冒号分隔开。</p>
+<p>比如：</p>
+<p>安装了一个 mysql 到 &#x2F;usr&#x2F;local&#x2F;mysql 目录下，其中有一大堆库文件在 &#x2F;usr&#x2F;local&#x2F;mysql&#x2F;lib 下面，则可以在 .bashrc 或 .bash_profile 或 shell 里加入以下语句即可：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> LD_LIBRARY_PATH=/usr/local/mysql/lib:<span class="variable">$LD_LIBRARY_PATH</span>    </span><br></pre></td></tr></table></figure>
+
+<p>一般来讲这只是一种临时的解决方案，在没有权限或临时需要的时候使用。</p>
+<p>3、如果程序需要的库文件比系统目前存在的村文件版本低，可以做一个链接<br>比如：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">error <span class="keyword">while</span> loading shared libraries: libncurses.so.4: cannot open shared</span><br><span class="line">object file: No such file or directory</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">ls</span> /usr/lib/libncu*</span><br><span class="line">/usr/lib/libncurses.a   /usr/lib/libncurses.so.5</span><br><span class="line">/usr/lib/libncurses.so  /usr/lib/libncurses.so.5.3</span><br></pre></td></tr></table></figure>
+
+<p>可见虽然没有 libncurses.so.4，但有 libncurses.so.5，是可以向下兼容的<br>建一个链接就好了</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">ln</span> -s  /usr/lib/libncurses.so.5.3  /usr/lib/libncurses.so.4</span><br></pre></td></tr></table></figure>
+
+
+<p>4、isql 连接数据库失败，重新注册驱动：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">/usr/bin/myodbc-installer  -d -a -n <span class="string">&quot;MySQL_UNICODE&quot;</span>  -t <span class="string">&quot;DRIVER=/usr/lib64/libmyodbc8w.so;SETUP=/usr/lib64/libmyodbc8w.so&quot;</span></span><br><span class="line">/usr/bin/myodbc-installer  -d -a -n <span class="string">&quot;MySQL_ANSI&quot;</span>  -t <span class="string">&quot;DRIVER=/usr/lib64/libmyodbc8a.so;SETUP=/usr/lib64/libmyodbc8a.so&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>使用 rpm 命令查看 rpm 包的内容</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">rpm -qpl xxx.rpm</span><br></pre></td></tr></table></figure>
+
+<p>可以看到<code>mysql-connector-odbc-8.0.20-1.el7.x86_64.rpm</code>的包内容</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">warning: mysql-connector-odbc-8.0.20-1.el7.x86_64.rpm: Header V3 DSA/SHA1 Signature, key ID 5072e1f5: NOKEY</span><br><span class="line">/usr/bin/myodbc-installer</span><br><span class="line">/usr/lib64/libmyodbc8a.so</span><br><span class="line">/usr/lib64/libmyodbc8w.so</span><br><span class="line">/usr/share/doc/mysql-connector-odbc-8.0.20</span><br><span class="line">/usr/share/doc/mysql-connector-odbc-8.0.20/ChangeLog</span><br><span class="line">/usr/share/doc/mysql-connector-odbc-8.0.20/INFO_BIN</span><br><span class="line">/usr/share/doc/mysql-connector-odbc-8.0.20/INFO_SRC</span><br><span class="line">/usr/share/doc/mysql-connector-odbc-8.0.20/LICENSE.txt</span><br><span class="line">/usr/share/doc/mysql-connector-odbc-8.0.20/README.txt</span><br></pre></td></tr></table></figure>
+
+<p>可以知道 rpm 包 安装的时候各个基础件的安装位置。</p>
+]]></content>
       <categories>
         <category>项目经历</category>
       </categories>
-      <tags>
-        <tag>linux</tag>
-        <tag>c/cpp</tag>
-      </tags>
   </entry>
   <entry>
     <title>MySQL 学习笔记</title>
@@ -3494,92 +3586,6 @@
         <tag>linux</tag>
         <tag>web</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>odbc 的配置</title>
-    <url>/2020/07/20/project_experience/odbc/</url>
-    <content><![CDATA[<h1 id="odbc-的配置"><a href="#odbc-的配置" class="headerlink" title="odbc 的配置"></a>odbc 的配置</h1><blockquote>
-<p>相关技术栈：linux、mysql</p>
-</blockquote>
-<p>在<strong>安装</strong>配置之前，需要先大概了解一下 MyODBC 的架构，MyODBC 体系结构建立在 5 个组件上，如下图所示：</p>
-<p><img src="http://pic.colliexyy.com/16566671925562.jpg"></p>
-<p><strong>Driver Manager</strong><br>负责管理应用程序和驱动程序间的通信，主要功能包括：解析 DSN (数据源名称，ODBC 的数据源名称在 odbc.ini 文件中配置)，加载和卸载驱动程序，处理 ODBC 调用，将其传递给驱动程序。</p>
-<p><strong>ODBC.INI</strong><br>odbc.ini 是 ODBC 配置文件，记录了连接到服务器所需的驱动信息和数据库信息xxxxxx。Driver Manager 将使用它来确定加载哪个驱动程序（使用数据源名 DSN ）。驱动程序将根据指定的DSN来读取连接参数。</p>
-<p><strong>Connector&#x2F;ODBC(MyODBC驱动程序)</strong><br>实现 ODBC API 所提供的功能，它负责处理 ODBC 函数调用，将 SQL 请求提交给 MySQL 服务器，并将结果返回给应用程序。</p>
-<p>在 Linux 下配置 mysql ODBC 需要有以下步骤：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1. 安装 Driver Manager，本案例使用 unixODBC 来作为 Driver Manager。</span><br><span class="line">2. 安装 MySQL 驱动程序，本案例使用 Connector/ODBC。</span><br><span class="line">3. 配置 ODBC.INI</span><br></pre></td></tr></table></figure>
-
-<span id="more"></span>
-
-<h2 id="第一步：下载安装包"><a href="#第一步：下载安装包" class="headerlink" title="第一步：下载安装包"></a>第一步：下载安装包</h2><p>需要下载两个安装包 <code>unixODBC 2.3.0</code> 和 <code>mysql Connector/ODBC 3.51</code><br>unixODBC 源码包：<code>ftp://ftp.unixodbc.org/pub/unixODBC/unixODBC-2.3.0.tar.gz</code><br>mysql Connector&#x2F;ODBC 源码包：<code>http://dev.mysql.com/downloads/connector/odbc/3.51.html%23downloads</code><br>选择</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">版本：5.1.11</span><br><span class="line">平台：Oracle&amp;Red Hat Linux6</span><br><span class="line">下载：mysql-connector-odbc-5.1.11-linux-el6-x86-64bit.tar.gz</span><br></pre></td></tr></table></figure>
-
-<h2 id="第二步：安装-unixODBC"><a href="#第二步：安装-unixODBC" class="headerlink" title="第二步：安装 unixODBC"></a>第二步：安装 unixODBC</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">tar -zxvf unixODBC-2.3.4.tar.gz</span><br><span class="line"><span class="built_in">cd</span> unixODBC-2.3.4</span><br><span class="line">./configure --prefix=/usr/local/unixODBC-2.3.4 --includedir=/usr/include --libdir=/usr/local/lib -bindir=/usr/bin --sysconfdir=/usr/local/etc</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
-
-<p>安装完成后,可以在&#x2F;usr&#x2F;bin目录下有下面的文件</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">-rwxr-xr-x 1 root root      75312 Nov 1 16:22 odbcinst</span><br><span class="line">-rwxr-xr-x 1 root root      10922 Nov 1 16:22 odbc_config</span><br><span class="line">-rwxr-xr-x 1 root root      37650 Nov 1 16:22 iusql</span><br><span class="line">-rwxr-xr-x 1 root root      44400 Nov 1 16:22 isql</span><br><span class="line">-rwxr-xr-x 1 root root      95903 Nov 1 16:22 dltest</span><br></pre></td></tr></table></figure>
-
-<p>在&#x2F;usr&#x2F;local&#x2F;lib目录下面有这些文件</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">-rwxr-xr-x 1 root root 422955 Nov 1 16:22 libodbcinst.so.1.0.0</span><br><span class="line">lrwxrwxrwx 1 root root     20 Nov 1 16:22 libodbcinst.so.1 -&gt; libodbcinst.so.1.0.0</span><br><span class="line">lrwxrwxrwx 1 root root     20 Nov 1 16:22 libodbcinst.so -&gt; libodbcinst.so.1.0.0</span><br><span class="line">-rwxr-xr-x 1 root root    981 Nov 1 16:22 libodbcinst.la</span><br><span class="line">-rwxr-xr-x 1 root root 169157 Nov 1 16:22 libodbc.so.1.0.0</span><br><span class="line">lrwxrwxrwx 1 root root     16 Nov 1 16:22 libodbc.so.1 -&gt; libodbc.so.1.0.0</span><br><span class="line">lrwxrwxrwx 1 root root     16 Nov 1 16:22 libodbc.so -&gt; libodbc.so.1.0.0</span><br><span class="line">-rwxr-xr-x 1 root root    957 Nov 1 16:22 libodbc.la</span><br><span class="line">-rwxr-xr-x 1 root root 489405 Nov 1 16:22 libodbccr.so.1.0.0</span><br><span class="line">lrwxrwxrwx 1 root root     18 Nov 1 16:22 libodbccr.so.1 -&gt; libodbccr.so.1.0.0</span><br><span class="line">lrwxrwxrwx 1 root root     18 Nov 1 16:22 libodbccr.so -&gt; libodbccr.so.1.0.0</span><br><span class="line">-rwxr-xr-x 1 root root    969 Nov 1 16:22 libodbccr.la</span><br></pre></td></tr></table></figure>
-
-<h2 id="第三步：安装-mysql-Connector-x2F-ODBC"><a href="#第三步：安装-mysql-Connector-x2F-ODBC" class="headerlink" title="第三步：安装 mysql Connector&#x2F;ODBC"></a>第三步：安装 mysql Connector&#x2F;ODBC</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">tar -zxvf mysql-connector-odbc-5.1.11-linux-el6-x86-64bit.tar.gz</span><br><span class="line"><span class="built_in">cd</span> mysql-connector-odbc-5.1.11-linux-el6-x86-64bit/lib</span><br><span class="line"><span class="built_in">cp</span> libmyodbc5.so /usr/local/lib</span><br><span class="line"><span class="built_in">cd</span> ..</span><br><span class="line"><span class="built_in">cd</span> bin</span><br></pre></td></tr></table></figure>
-
-<p><strong>注册驱动</strong></p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">./myodbc-installer -d -a -n <span class="string">&quot;MySQL ODBC 5.1 Driver&quot;</span> -t <span class="string">&quot;DRIVER=/usr/local/lib/libmyodbc5.so;SETUP=/usr/local/lib/libmyodbc5.so&quot;</span></span><br><span class="line"></span><br><span class="line">//odbc 5.3及以上是libmyodbc5a.so和libmyodbc5w.so。其中c5a是Ansi版，c5w是Unicode版</span><br></pre></td></tr></table></figure>
-
-<p>假如注册的时候报错找不到libodbc.so.2,但是之前确实装成功了unixodbc,可能是因为系统找不到&#x2F;usr&#x2F;local&#x2F;lib库目录，需要添加系统搜索库目录路径：</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">vi /etc/ld.so.conf</span><br><span class="line"></span><br><span class="line">//将/usr/local/lib直接添加在配置文件里</span><br><span class="line"></span><br><span class="line">ldconfig</span><br><span class="line"></span><br><span class="line">//重新缓存配置文件(为了加快程序执行时对共享库的定位速度，避免使用搜索路径查找共享库的低效率，所以是直接读取库列表文件/etc/ld.so.cache缓存文件并从中进行搜索的)</span><br></pre></td></tr></table></figure>
-
-<h2 id="第四步：配置-ODBC-INI"><a href="#第四步：配置-ODBC-INI" class="headerlink" title="第四步：配置 ODBC.INI"></a>第四步：配置 ODBC.INI</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">odbcinst -j</span><br><span class="line"></span><br><span class="line">unixODBC 2.3.1</span><br><span class="line">DRIVERS............: /etc/odbcinst.ini</span><br><span class="line">SYSTEM DATA SOURCES: /etc/odbc.ini</span><br><span class="line">FILE DATA SOURCES..: /etc/ODBCDataSources</span><br><span class="line">USER DATA SOURCES..: /root/.odbc.ini</span><br><span class="line">SQLULEN Size.......: 8</span><br><span class="line">SQLLEN Size........: 8</span><br><span class="line">SQLSETPOSIROW Size.: 8</span><br></pre></td></tr></table></figure>
-
-<p>编辑文件<code>/etc/odbc.ini</code>，把下面的内容加上去。不同版本<code>mysql</code>驱动的配置方法，有细微差异。此处使用的版本是<code>mysql Connector 3.51</code>。</p>
-<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="section">[mysqlDSN]</span></span><br><span class="line"><span class="attr">Driver</span>      = /usr/local/lib/libmyodbc5.so</span><br><span class="line"><span class="attr">Description</span> = MyODBC <span class="number">5</span> Driver DSN</span><br><span class="line"><span class="attr">SERVER</span>      = <span class="number">172.31</span>.<span class="number">108.133</span></span><br><span class="line"><span class="attr">PORT</span>        = <span class="number">3306</span></span><br><span class="line"><span class="attr">USER</span>        = root</span><br><span class="line"><span class="attr">Password</span>    = <span class="number">123456</span></span><br><span class="line"><span class="attr">Database</span>    = PM</span><br><span class="line"><span class="attr">OPTION</span>      = <span class="number">3</span></span><br><span class="line"><span class="attr">charset</span>     = UTF8</span><br></pre></td></tr></table></figure>
-
-<h2 id="第五步：设置环境变量"><a href="#第五步：设置环境变量" class="headerlink" title="第五步：设置环境变量"></a>第五步：设置环境变量</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> DBCINI=/usr/local/etc/odbc.ini</span><br><span class="line"><span class="built_in">export</span> DBCSYSINI=/usr/local/etc</span><br></pre></td></tr></table></figure>
-
-<h2 id="第六步：重启电脑"><a href="#第六步：重启电脑" class="headerlink" title="第六步：重启电脑"></a>第六步：重启电脑</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">reboot</span><br></pre></td></tr></table></figure>
-
-<h2 id="第七步：测试ODBC配置是否成功"><a href="#第七步：测试ODBC配置是否成功" class="headerlink" title="第七步：测试ODBC配置是否成功"></a>第七步：测试ODBC配置是否成功</h2><p>isql 是 unixODBC 带的一个 ODBC 客户端访问工具，使用<code>isql +数据源名</code>来访问目标数据库。如果 ODBC 配置正确，会显示下面的界面。在<code>SQL&gt;</code>提示符下输入 SQL 语句查询数据库。</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">isql mysqlDSN</span><br><span class="line"></span><br><span class="line">+---------------------------------------+</span><br><span class="line">| Connected!                           |</span><br><span class="line">|                                      |</span><br><span class="line">| sql-statement                        |</span><br><span class="line">| <span class="built_in">help</span> [tablename]                     |</span><br><span class="line">| quit                                 |</span><br><span class="line">|                                      |</span><br><span class="line">+---------------------------------------+</span><br></pre></td></tr></table></figure>
-
-<h2 id="遇到的问题："><a href="#遇到的问题：" class="headerlink" title="遇到的问题："></a>遇到的问题：</h2><p>1、在第三步安装 mysql connector&#x2F;ODBC 中的注册驱动中，我总是会出现<code>./myodbc-installer: error while loading shared libraries: libodbc.so.2: cannot open shared object file: No such file or directory.</code>这种错误，后来发现错误有两点：</p>
-<ol>
-<li>我下载的是 mysql-connector-5.3.6 ，可能版本比较高，而我初次下载用的是unixODBC-2.3.0，版本较低，里面没有 libodbc.so.2 这个库文件（可以用<code>find / -name libodbc.so.2</code>来查）。后来下载了一个 unixODBC-2.3.4 就好了。</li>
-<li>改了版本之后，我发现还是有这个错误，在网上查了下，说是程序查找默认路径为 &#x2F;lib 和 &#x2F;usr&#x2F;lib，而我的 libmyodbc5w.so 和 libmmyodbc5a.so 都在 &#x2F;usr&#x2F;local&#x2F;lib 中，所以查不到，所以需要设置一下共享库路径，以下我贴一下网上查的内容：</li>
-</ol>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cat</span> /etc/ld.so.conf</span><br><span class="line">include ld.so.conf.d/*.conf</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;/usr/local/lib&quot;</span> &gt;&gt; /etc/ld.so.conf</span><br><span class="line">ldconfig</span><br></pre></td></tr></table></figure>
-
-<p>2、如果共享库文件安装到了其它”非 &#x2F;lib 或 &#x2F;usr&#x2F;lib “ 目录下，但是又不想在 &#x2F;etc&#x2F;ld.so.conf 中加路径(或者是没有权限加路径)。那可以 export 一个全局变量 LD_LIBRARY_PATH ，然后运行程序的时候就会去这个目录中找共享库。</p>
-<p>LD_LIBRARY_PATH 的意思是告诉 loader 在哪些目录中可以找到共享库。</p>
-<p>可以设置多个搜索目录，这些目录之间用冒号分隔开。</p>
-<p>比如：</p>
-<p>安装了一个 mysql 到 &#x2F;usr&#x2F;local&#x2F;mysql 目录下，其中有一大堆库文件在 &#x2F;usr&#x2F;local&#x2F;mysql&#x2F;lib 下面，则可以在 .bashrc 或 .bash_profile 或 shell 里加入以下语句即可：</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> LD_LIBRARY_PATH=/usr/local/mysql/lib:<span class="variable">$LD_LIBRARY_PATH</span>    </span><br></pre></td></tr></table></figure>
-
-<p>一般来讲这只是一种临时的解决方案，在没有权限或临时需要的时候使用。</p>
-<p>3、如果程序需要的库文件比系统目前存在的村文件版本低，可以做一个链接<br>比如：</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">error <span class="keyword">while</span> loading shared libraries: libncurses.so.4: cannot open shared</span><br><span class="line">object file: No such file or directory</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">ls</span> /usr/lib/libncu*</span><br><span class="line">/usr/lib/libncurses.a   /usr/lib/libncurses.so.5</span><br><span class="line">/usr/lib/libncurses.so  /usr/lib/libncurses.so.5.3</span><br></pre></td></tr></table></figure>
-
-<p>可见虽然没有 libncurses.so.4，但有 libncurses.so.5，是可以向下兼容的<br>建一个链接就好了</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">ln</span> -s  /usr/lib/libncurses.so.5.3  /usr/lib/libncurses.so.4</span><br></pre></td></tr></table></figure>
-
-
-<p>4、isql 连接数据库失败，重新注册驱动：</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">/usr/bin/myodbc-installer  -d -a -n <span class="string">&quot;MySQL_UNICODE&quot;</span>  -t <span class="string">&quot;DRIVER=/usr/lib64/libmyodbc8w.so;SETUP=/usr/lib64/libmyodbc8w.so&quot;</span></span><br><span class="line">/usr/bin/myodbc-installer  -d -a -n <span class="string">&quot;MySQL_ANSI&quot;</span>  -t <span class="string">&quot;DRIVER=/usr/lib64/libmyodbc8a.so;SETUP=/usr/lib64/libmyodbc8a.so&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>使用 rpm 命令查看 rpm 包的内容</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">rpm -qpl xxx.rpm</span><br></pre></td></tr></table></figure>
-
-<p>可以看到<code>mysql-connector-odbc-8.0.20-1.el7.x86_64.rpm</code>的包内容</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">warning: mysql-connector-odbc-8.0.20-1.el7.x86_64.rpm: Header V3 DSA/SHA1 Signature, key ID 5072e1f5: NOKEY</span><br><span class="line">/usr/bin/myodbc-installer</span><br><span class="line">/usr/lib64/libmyodbc8a.so</span><br><span class="line">/usr/lib64/libmyodbc8w.so</span><br><span class="line">/usr/share/doc/mysql-connector-odbc-8.0.20</span><br><span class="line">/usr/share/doc/mysql-connector-odbc-8.0.20/ChangeLog</span><br><span class="line">/usr/share/doc/mysql-connector-odbc-8.0.20/INFO_BIN</span><br><span class="line">/usr/share/doc/mysql-connector-odbc-8.0.20/INFO_SRC</span><br><span class="line">/usr/share/doc/mysql-connector-odbc-8.0.20/LICENSE.txt</span><br><span class="line">/usr/share/doc/mysql-connector-odbc-8.0.20/README.txt</span><br></pre></td></tr></table></figure>
-
-<p>可以知道 rpm 包 安装的时候各个基础件的安装位置。</p>
-]]></content>
-      <categories>
-        <category>项目经历</category>
-      </categories>
   </entry>
   <entry>
     <title>redis 学习笔记</title>
