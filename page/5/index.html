@@ -310,7 +310,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="moment项目需求"><a href="#moment项目需求" class="headerlink" title="moment项目需求"></a>moment项目需求</h1><blockquote>
+          <h1>moment项目需求</h1>
+<blockquote>
 <p>相关技术栈：redis、golang、MySQL、linux</p>
 </blockquote>
 <p>做一个看板任务(照着微信朋友圈来,不过所有用户全部看成朋友即可)</p>
@@ -320,12 +321,14 @@
 <li>用户可以发布一个想法,包含一段文字,0-4张图片(保存图片链接即可)</li>
 <li>用户可以查看大家发布的说说,按时间顺序从新展示,需分页,一页20个</li>
 <li>用户可以评论想法,也可以删除自己的评论</li>
-<li>用户可以点赞&#x2F;取消点赞想法</li>
+<li>用户可以点赞/取消点赞想法</li>
 <li>消息通知,点赞回复要通知所有和说说相关的人</li>
 </ol>
 </blockquote>
 <blockquote>
-<p>不做界面,规划好接口,数据库,且完成即可<br>数据库尽可能满足 一对一  一对多  多对多 关系,不要求字段冗余<br>使用HTTP协议,框架自选(iris,beego等都行)  </p>
+<p>不做界面,规划好接口,数据库,且完成即可<br>
+数据库尽可能满足 一对一  一对多  多对多 关系,不要求字段冗余<br>
+使用HTTP协议,框架自选(iris,beego等都行)</p>
 </blockquote>
 <p>进度安排:</p>
 <ol>
@@ -446,11 +449,14 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="xm-ip-service"><a href="#xm-ip-service" class="headerlink" title="xm_ip_service"></a>xm_ip_service</h1><blockquote>
+          <h1>xm_ip_service</h1>
+<blockquote>
 <p>相关技术栈：golang、MySQL、PostgreSQL、linux、Web</p>
 </blockquote>
-<h2 id="项目需求"><a href="#项目需求" class="headerlink" title="项目需求"></a>项目需求</h2><p>通过IP地址（目前仅支持IPV4），进行IP地址相关地理信息的查询，查询过程分为，国内信息查询与国际信息查询两个查询方式。</p>
-<h2 id="接口定义"><a href="#接口定义" class="headerlink" title="接口定义"></a>接口定义</h2><p>接口内容</p>
+<h2 id="项目需求">项目需求</h2>
+<p>通过IP地址（目前仅支持IPV4），进行IP地址相关地理信息的查询，查询过程分为，国内信息查询与国际信息查询两个查询方式。</p>
+<h2 id="接口定义">接口定义</h2>
+<p>接口内容</p>
 <figure class="highlight thrift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">GeoInfo</span> </span>&#123;</span><br><span class="line">    <span class="number">1</span>: <span class="type">string</span> ip,</span><br><span class="line">    <span class="number">2</span>: <span class="type">string</span> geoip_country_code,</span><br><span class="line">    <span class="number">3</span>: <span class="type">string</span> geoip_country_name,</span><br><span class="line">    <span class="number">4</span>: <span class="type">string</span> geoip_city_code,</span><br><span class="line">    <span class="number">5</span>: <span class="type">string</span> geoip_city_name,</span><br><span class="line">    <span class="number">6</span>: <span class="type">i32</span> error_no,</span><br><span class="line">    <span class="number">7</span>: <span class="type">string</span> geoip_province_code,</span><br><span class="line">    <span class="number">8</span>: <span class="type">string</span> geoip_province_name,</span><br><span class="line">    <span class="number">9</span>: <span class="type">string</span> geoip_carrier,</span><br><span class="line">    <span class="number">10</span>: <span class="type">string</span> error_msg,</span><br><span class="line">    <span class="number">11</span>: <span class="type">i64</span> geoip_start_ip,</span><br><span class="line">    <span class="number">12</span>: <span class="type">i64</span> geoip_end_ip</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">GeoRequest</span> </span>&#123;</span><br><span class="line">    <span class="number">1</span>: <span class="type">list</span>&lt;<span class="type">string</span>&gt; ipList,</span><br><span class="line">    <span class="number">2</span>: <span class="type">string</span> lang <span class="comment">// en or zh-CN</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">service</span> <span class="title">IPService</span> </span>&#123;</span><br><span class="line">   <span class="type">list</span>&lt;GeoInfo&gt; queryGeoInfoByIP(<span class="number">1</span>:<span class="type">list</span>&lt;<span class="type">string</span>&gt; ipList);</span><br><span class="line"></span><br><span class="line">   <span class="type">list</span>&lt;GeoInfo&gt; queryGeoInfo(<span class="number">1</span>:GeoRequest req);</span><br><span class="line"></span><br><span class="line">   <span class="type">list</span>&lt;GeoInfo&gt; queryI18nGeoInfoByIP(<span class="number">1</span>:<span class="type">list</span>&lt;<span class="type">string</span>&gt; ipList);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
