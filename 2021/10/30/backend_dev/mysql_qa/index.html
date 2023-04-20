@@ -20,12 +20,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"collie2nd.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"waline","storage":true,"lazyload":false,"nav":null,"activeClass":"waline"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="MySQL的基本架构 Server 层：主要包括连接器、查询缓存、分析器、优化器、执行器等，所有跨存储引擎的功能都在这一层实现，比如存储过程、触发器、视图，函数等，还有一个通用的日志模块 binglog 日志模块。 存储引擎层： 主要负责数据的存储和读取，采用可以替换的插件式架构，支持 InnoDB、MyISAM、Memory 等多个存储引擎，其中 InnoDB 引擎有自有的日志模块 redolo">
+    <meta name="description" content="MySQL的基本架构Server 层：主要包括连接器、查询缓存、分析器、优化器、执行器等，所有跨存储引擎的功能都在这一层实现，比如存储过程、触发器、视图，函数等，还有一个通用的日志模块 binglog 日志模块。 存储引擎层： 主要负责数据的存储和读取，采用可以替换的插件式架构，支持 InnoDB、MyISAM、Memory 等多个存储引擎，其中 InnoDB 引擎有自有的日志模块 redolog">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySQL 架构（面试用）">
 <meta property="og:url" content="http://collie2nd.github.io/2021/10/30/backend_dev/mysql_qa/index.html">
 <meta property="og:site_name" content="试过重启了吗">
-<meta property="og:description" content="MySQL的基本架构 Server 层：主要包括连接器、查询缓存、分析器、优化器、执行器等，所有跨存储引擎的功能都在这一层实现，比如存储过程、触发器、视图，函数等，还有一个通用的日志模块 binglog 日志模块。 存储引擎层： 主要负责数据的存储和读取，采用可以替换的插件式架构，支持 InnoDB、MyISAM、Memory 等多个存储引擎，其中 InnoDB 引擎有自有的日志模块 redolo">
+<meta property="og:description" content="MySQL的基本架构Server 层：主要包括连接器、查询缓存、分析器、优化器、执行器等，所有跨存储引擎的功能都在这一层实现，比如存储过程、触发器、视图，函数等，还有一个通用的日志模块 binglog 日志模块。 存储引擎层： 主要负责数据的存储和读取，采用可以替换的插件式架构，支持 InnoDB、MyISAM、Memory 等多个存储引擎，其中 InnoDB 引擎有自有的日志模块 redolog">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://pic.colliexyy.com/mysql_qa.jpg">
 <meta property="article:published_time" content="2021-10-29T16:00:00.000Z">
@@ -146,7 +146,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">MySQL的基本架构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">查询语句执行过程解析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">3.</span> <span class="nav-text">更新语句执行过程解析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">4.</span> <span class="nav-text">bin log</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">5.</span> <span class="nav-text">redo log</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">6.</span> <span class="nav-text">bin log 和 redo log 的区别</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#MySQL%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%9E%B6%E6%9E%84"><span class="nav-number">1.</span> <span class="nav-text">MySQL的基本架构</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2%E8%AF%AD%E5%8F%A5%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B%E8%A7%A3%E6%9E%90"><span class="nav-number">2.</span> <span class="nav-text">查询语句执行过程解析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0%E8%AF%AD%E5%8F%A5%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B%E8%A7%A3%E6%9E%90"><span class="nav-number">3.</span> <span class="nav-text">更新语句执行过程解析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bin-log"><span class="nav-number">4.</span> <span class="nav-text">bin log</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#redo-log"><span class="nav-number">5.</span> <span class="nav-text">redo log</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#bin-log-%E5%92%8C-redo-log-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">6.</span> <span class="nav-text">bin log 和 redo log 的区别</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -316,32 +316,16 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1>MySQL的基本架构</h1>
-<p>Server 层：主要包括连接器、查询缓存、分析器、优化器、执行器等，所有跨存储引擎的功能都在这一层实现，比如存储过程、触发器、视图，函数等，还有一个通用的日志模块 binglog 日志模块。</p>
+        <h1 id="MySQL的基本架构"><a href="#MySQL的基本架构" class="headerlink" title="MySQL的基本架构"></a>MySQL的基本架构</h1><p>Server 层：主要包括连接器、查询缓存、分析器、优化器、执行器等，所有跨存储引擎的功能都在这一层实现，比如存储过程、触发器、视图，函数等，还有一个通用的日志模块 binglog 日志模块。</p>
 <p>存储引擎层： 主要负责数据的存储和读取，采用可以替换的插件式架构，支持 InnoDB、MyISAM、Memory 等多个存储引擎，其中 InnoDB 引擎有自有的日志模块 redolog 模块。现在最常用的存储引擎是 InnoDB，它从 MySQL 5.5.5 版本开始就被当做默认存储引擎了。</p>
-<h1>查询语句执行过程解析</h1>
-<p>1、客户端发起一个请求时，首先会建立一个连接<br>
-2、服务端会检查缓存，如果命中则直接返回，否则继续之后后面步骤<br>
-3、服务器端根据收到的sql语句进行解析，然后对其进行词法分析，语法分析以及预处理<br>
-4、由优化器生成执行计划<br>
-5、调用存储引擎层API来执行查询<br>
-6、返回查询到的结果</p>
-<p><img src="http://pic.colliexyy.com/mysql_qa.jpg" alt=""></p>
+<h1 id="查询语句执行过程解析"><a href="#查询语句执行过程解析" class="headerlink" title="查询语句执行过程解析"></a>查询语句执行过程解析</h1><p>1、客户端发起一个请求时，首先会建立一个连接<br>2、服务端会检查缓存，如果命中则直接返回，否则继续之后后面步骤<br>3、服务器端根据收到的sql语句进行解析，然后对其进行词法分析，语法分析以及预处理<br>4、由优化器生成执行计划<br>5、调用存储引擎层API来执行查询<br>6、返回查询到的结果</p>
+<p><img src="http://pic.colliexyy.com/mysql_qa.jpg"></p>
 <span id="more"></span>
-<h1>更新语句执行过程解析</h1>
-<p>1、先根据更新语句的条件，查询出对应的记录，如果有缓存，也会用到缓存<br>
-2、Server端调用InnoDB引擎API接口，InnoDB引擎将这条数据写到内存，同时写入redo log，并将redo log状态设置为prepare<br>
-3、通知Server层，可以正式提交数据了<br>
-4、Server层收到通知后立刻写入bin log，然后调用InnoD对应接口发出commit请求<br>
-5、InnoDB收到commit请求后将数据设置为commit状态</p>
-<h1>bin log</h1>
-<p>MySQL整体来看，其实就有两块：一块是 Server 层，它主要做的是 MySQL功能层面的事情；还有一块是引擎层，负责存储相关的具体事宜。上面讲的redo log是InnoDB 引擎特有的日志，而Server 层也有自己的日志，称为 bin log（归档日志），也叫做二进制日志。</p>
-<h1>redo log</h1>
-<p>redo log，即重做日志，是InnoDB引擎所特有,主要用于崩溃修复(crash-safe)。</p>
-<h1>bin log 和 redo log 的区别</h1>
-<p>1、redo log 是 InnoDB 引擎特有的；bin log 是 MySQL 的Server层实现的，所有引擎都可以使用。<br>
-2、redo log 是物理日志，记录的是“在某个数据页上做了什么修改”；bin log 是逻辑日志，记录的是这个语句的原始逻辑，比如“给id=2 这一行的c字段加 1 ”。<br>
-3、redo log 是循环写的，空间固定会用完；bin log 是可以追加写入的。“追加写”是指 bin log 文件写到一定大小后会切换到下一个，并不会覆盖以前的日志。</p>
+
+<h1 id="更新语句执行过程解析"><a href="#更新语句执行过程解析" class="headerlink" title="更新语句执行过程解析"></a>更新语句执行过程解析</h1><p>1、先根据更新语句的条件，查询出对应的记录，如果有缓存，也会用到缓存<br>2、Server端调用InnoDB引擎API接口，InnoDB引擎将这条数据写到内存，同时写入redo log，并将redo log状态设置为prepare<br>3、通知Server层，可以正式提交数据了<br>4、Server层收到通知后立刻写入bin log，然后调用InnoD对应接口发出commit请求<br>5、InnoDB收到commit请求后将数据设置为commit状态</p>
+<h1 id="bin-log"><a href="#bin-log" class="headerlink" title="bin log"></a>bin log</h1><p>MySQL整体来看，其实就有两块：一块是 Server 层，它主要做的是 MySQL功能层面的事情；还有一块是引擎层，负责存储相关的具体事宜。上面讲的redo log是InnoDB 引擎特有的日志，而Server 层也有自己的日志，称为 bin log（归档日志），也叫做二进制日志。</p>
+<h1 id="redo-log"><a href="#redo-log" class="headerlink" title="redo log"></a>redo log</h1><p>redo log，即重做日志，是InnoDB引擎所特有,主要用于崩溃修复(crash-safe)。</p>
+<h1 id="bin-log-和-redo-log-的区别"><a href="#bin-log-和-redo-log-的区别" class="headerlink" title="bin log 和 redo log 的区别"></a>bin log 和 redo log 的区别</h1><p>1、redo log 是 InnoDB 引擎特有的；bin log 是 MySQL 的Server层实现的，所有引擎都可以使用。<br>2、redo log 是物理日志，记录的是“在某个数据页上做了什么修改”；bin log 是逻辑日志，记录的是这个语句的原始逻辑，比如“给id&#x3D;2 这一行的c字段加 1 ”。<br>3、redo log 是循环写的，空间固定会用完；bin log 是可以追加写入的。“追加写”是指 bin log 文件写到一定大小后会切换到下一个，并不会覆盖以前的日志。</p>
 
     </div>
 
@@ -472,13 +456,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">242k</span>
+    <span title="站点总字数">244k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:40</span>
+    <span title="站点阅读时长">3:42</span>
   </span>
 </div>
 
