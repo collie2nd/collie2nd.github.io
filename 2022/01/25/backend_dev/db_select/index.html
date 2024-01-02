@@ -20,12 +20,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"collie2nd.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"waline","storage":true,"lazyload":false,"nav":null,"activeClass":"waline"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="常见数据库分类 在微服务设计中，数据库的选型是不可缺少的一环，后台的核心是与数据打交道，在不同的业务场景选择的数据库不一样，好的数据库选型能够解决业务的性能瓶颈，如果数据库选择不恰当，会使得服务的性能上不去，因此我们需要对一些常用的数据库有一些了解，这样才能因地制宜，发挥系统最好的性能。    数据库类型 数据库名称     关系型数据库 MySQL，Oracle，PostgreSQL   内存数">
+    <meta name="description" content="常见数据库分类在微服务设计中，数据库的选型是不可缺少的一环，后台的核心是与数据打交道，在不同的业务场景选择的数据库不一样，好的数据库选型能够解决业务的性能瓶颈，如果数据库选择不恰当，会使得服务的性能上不去，因此我们需要对一些常用的数据库有一些了解，这样才能因地制宜，发挥系统最好的性能。    数据库类型 数据库名称    关系型数据库 MySQL，Oracle，PostgreSQL   内存数据库">
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何做数据库选型">
 <meta property="og:url" content="http://collie2nd.github.io/2022/01/25/backend_dev/db_select/index.html">
-<meta property="og:site_name" content="Collie 的小站">
-<meta property="og:description" content="常见数据库分类 在微服务设计中，数据库的选型是不可缺少的一环，后台的核心是与数据打交道，在不同的业务场景选择的数据库不一样，好的数据库选型能够解决业务的性能瓶颈，如果数据库选择不恰当，会使得服务的性能上不去，因此我们需要对一些常用的数据库有一些了解，这样才能因地制宜，发挥系统最好的性能。    数据库类型 数据库名称     关系型数据库 MySQL，Oracle，PostgreSQL   内存数">
+<meta property="og:site_name" content="Collie的小站">
+<meta property="og:description" content="常见数据库分类在微服务设计中，数据库的选型是不可缺少的一环，后台的核心是与数据打交道，在不同的业务场景选择的数据库不一样，好的数据库选型能够解决业务的性能瓶颈，如果数据库选择不恰当，会使得服务的性能上不去，因此我们需要对一些常用的数据库有一些了解，这样才能因地制宜，发挥系统最好的性能。    数据库类型 数据库名称    关系型数据库 MySQL，Oracle，PostgreSQL   内存数据库">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://pic.colliexyy.com/db_select.jpg">
 <meta property="article:published_time" content="2022-01-24T16:00:00.000Z">
@@ -43,7 +43,7 @@
 <script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://collie2nd.github.io/2022/01/25/backend_dev/db_select/","path":"2022/01/25/backend_dev/db_select/","title":"如何做数据库选型"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>如何做数据库选型 | Collie 的小站</title>
+<title>如何做数据库选型 | Collie的小站</title>
   
 
 
@@ -73,7 +73,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <p class="site-title">Collie 的小站</p>
+      <p class="site-title">Collie的小站</p>
       <i class="logo-line"></i>
     </a>
       <p class="site-subtitle" itemprop="description">Collie's Site</p>
@@ -146,7 +146,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">常见数据库分类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">2.</span> <span class="nav-text">考虑角度汇总</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">3.</span> <span class="nav-text">关系型数据库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">4.</span> <span class="nav-text">内存数据库（K-V数据库）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">5.</span> <span class="nav-text">文档型数据库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">6.</span> <span class="nav-text">列式存储数据库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">7.</span> <span class="nav-text">时序数据库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">8.</span> <span class="nav-text">图数据库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">9.</span> <span class="nav-text">分布式文件存储系统</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E6%95%B0%E6%8D%AE%E5%BA%93%E5%88%86%E7%B1%BB"><span class="nav-number">1.</span> <span class="nav-text">常见数据库分类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%80%83%E8%99%91%E8%A7%92%E5%BA%A6%E6%B1%87%E6%80%BB"><span class="nav-number">2.</span> <span class="nav-text">考虑角度汇总</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">3.</span> <span class="nav-text">关系型数据库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%86%85%E5%AD%98%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%88K-V%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%89"><span class="nav-number">4.</span> <span class="nav-text">内存数据库（K-V数据库）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%87%E6%A1%A3%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">5.</span> <span class="nav-text">文档型数据库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%97%E5%BC%8F%E5%AD%98%E5%82%A8%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">6.</span> <span class="nav-text">列式存储数据库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%97%B6%E5%BA%8F%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">7.</span> <span class="nav-text">时序数据库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9B%BE%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">8.</span> <span class="nav-text">图数据库</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%86%E5%B8%83%E5%BC%8F%E6%96%87%E4%BB%B6%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F"><span class="nav-number">9.</span> <span class="nav-text">分布式文件存储系统</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -245,12 +245,12 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Collie 的小站">
+      <meta itemprop="name" content="Collie的小站">
       <meta itemprop="description" content="less is more">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="如何做数据库选型 | Collie 的小站">
+      <meta itemprop="name" content="如何做数据库选型 | Collie的小站">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
@@ -316,56 +316,52 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1>常见数据库分类</h1>
-<p>在微服务设计中，数据库的选型是不可缺少的一环，后台的核心是与数据打交道，在不同的业务场景选择的数据库不一样，好的数据库选型能够解决业务的性能瓶颈，如果数据库选择不恰当，会使得服务的性能上不去，因此我们需要对一些常用的数据库有一些了解，这样才能因地制宜，发挥系统最好的性能。</p>
+        <h1 id="常见数据库分类"><a href="#常见数据库分类" class="headerlink" title="常见数据库分类"></a>常见数据库分类</h1><p>在微服务设计中，数据库的选型是不可缺少的一环，后台的核心是与数据打交道，在不同的业务场景选择的数据库不一样，好的数据库选型能够解决业务的性能瓶颈，如果数据库选择不恰当，会使得服务的性能上不去，因此我们需要对一些常用的数据库有一些了解，这样才能因地制宜，发挥系统最好的性能。</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:left">数据库类型</th>
-<th style="text-align:left">数据库名称</th>
+<th align="left">数据库类型</th>
+<th align="left">数据库名称</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:left">关系型数据库</td>
-<td style="text-align:left">MySQL，Oracle，PostgreSQL</td>
+<tbody><tr>
+<td align="left">关系型数据库</td>
+<td align="left">MySQL，Oracle，PostgreSQL</td>
 </tr>
 <tr>
-<td style="text-align:left">内存数据库</td>
-<td style="text-align:left">Redis，Memcache，Riak</td>
+<td align="left">内存数据库</td>
+<td align="left">Redis，Memcache，Riak</td>
 </tr>
 <tr>
-<td style="text-align:left">时序数据库</td>
-<td style="text-align:left">Prometheus，InfluxDB，OpenTSDB</td>
+<td align="left">时序数据库</td>
+<td align="left">Prometheus，InfluxDB，OpenTSDB</td>
 </tr>
 <tr>
-<td style="text-align:left">文档型数据库</td>
-<td style="text-align:left">MongoDB，CouchDB，RavenDB</td>
+<td align="left">文档型数据库</td>
+<td align="left">MongoDB，CouchDB，RavenDB</td>
 </tr>
 <tr>
-<td style="text-align:left">分布式数据库</td>
-<td style="text-align:left">TIDB</td>
+<td align="left">分布式数据库</td>
+<td align="left">TIDB</td>
 </tr>
 <tr>
-<td style="text-align:left">图数据库</td>
-<td style="text-align:left">Neo4J，InfiniteGraph，OrientDB，Dgraph</td>
+<td align="left">图数据库</td>
+<td align="left">Neo4J，InfiniteGraph，OrientDB，Dgraph</td>
 </tr>
 <tr>
-<td style="text-align:left">列式存储数据库</td>
-<td style="text-align:left">Cassandra，HBase，ClickHouse，Elasticsearch</td>
+<td align="left">列式存储数据库</td>
+<td align="left">Cassandra，HBase，ClickHouse，Elasticsearch</td>
 </tr>
 <tr>
-<td style="text-align:left">文件存储</td>
-<td style="text-align:left">EPH，GlusterFS</td>
+<td align="left">文件存储</td>
+<td align="left">EPH，GlusterFS</td>
 </tr>
-</tbody>
-</table>
-<h1>考虑角度汇总</h1>
-<p><img src="http://pic.colliexyy.com/db_select.jpg" alt=""></p>
+</tbody></table>
+<h1 id="考虑角度汇总"><a href="#考虑角度汇总" class="headerlink" title="考虑角度汇总"></a>考虑角度汇总</h1><p><img src="http://pic.colliexyy.com/db_select.jpg"></p>
 <span id="more"></span>
-<h1>关系型数据库</h1>
-<p>关系数据库的适用场景通常可以分为 <a target="_blank" rel="noopener" href="https://baike.baidu.com/item/OLTP/5019563?fr=aladdin#7">OLTP</a> 和 <a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E8%81%94%E6%9C%BA%E5%88%86%E6%9E%90%E5%A4%84%E7%90%86/423874?fromtitle=OLAP&amp;fromid=1049009&amp;fr=aladdin">OLAP</a>。</p>
-<p>其中，联机事务处理（OLTP）存储/查询业务应用中<strong>活动的数据</strong>，以支撑日常的业务活动，是每个企业不可或缺的生产交易系统。这类型应用<strong>数据量普遍不大，强调实时、快速响应、数据强一致性</strong>，比如银行存取钱，购物消费。</p>
+
+<h1 id="关系型数据库"><a href="#关系型数据库" class="headerlink" title="关系型数据库"></a>关系型数据库</h1><p>关系数据库的适用场景通常可以分为 <a target="_blank" rel="noopener" href="https://baike.baidu.com/item/OLTP/5019563?fr=aladdin#7">OLTP</a> 和 <a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E8%81%94%E6%9C%BA%E5%88%86%E6%9E%90%E5%A4%84%E7%90%86/423874?fromtitle=OLAP&fromid=1049009&fr=aladdin">OLAP</a>。</p>
+<p>其中，联机事务处理（OLTP）存储&#x2F;查询业务应用中<strong>活动的数据</strong>，以支撑日常的业务活动，是每个企业不可或缺的生产交易系统。这类型应用<strong>数据量普遍不大，强调实时、快速响应、数据强一致性</strong>，比如银行存取钱，购物消费。</p>
 <p>联机分析处理（OLAP）存储历史数据以支撑复杂的分析操作，侧重于<strong>决策支持</strong>，这类应用<strong>数据量大，高并行、低并发，可用性要求不高</strong>，比如客服系统，销售系统等。</p>
 <p>以 MySQL 为例，这是当前最流行的开源关系型数据库，也是 OLTP 场景的首选数据库。</p>
 <blockquote>
@@ -388,7 +384,7 @@
 <li>大表加索引很困难，因此很难对大表进行在线优化</li>
 </ul>
 <p>Mysql 对一些复杂类型的查询支持是很弱的，举个例子，如果我们要做个搜索查询的功能，根据各种指标，范围去数据库中搜索数据，如果业务层通过 Mysql 去实现，前期数据量小的情况下是没多少问题的，但是如果表中数据量越来越多，或者搜索的条件组合很复杂，那么此时会很慢。因此，<strong>复杂查询业务尽量不要使用 Mysql</strong>。另外如果业务扩大到一定规模， Mysql 单表也会变得很大，这个时候性能会受到影响，如果已经不能优化，还需要做分表等扩展措施来解决业务的性能瓶颈。</p>
-<p>如果遇到这些情况，目前业界的主流方案除了分区表，分库分表，通过代理中间件进行分表之外，比较热门的就是分布式数据库，分布式数据库最大的特点是能够自由扩展，不要考虑数据量瓶颈的问题。这两年比较流行的是 <a target="_blank" rel="noopener" href="https://docs.pingcap.com/zh/tidb/stable/">TIDB 数据库</a>，<strong>TIDB 是一个分布式数据库，最大的优点是兼容 Mysql 协议，并且通过 Raft 协议保证数据一致性</strong>。因此 Mysql 用户可以很简单的迁移到 TIDB 来。并且 TIDB 对一般的 <strong>OLAP 查询支持也比较好</strong>，因此数据量大的情况下使用 TIDB 是一个更好的选择。</p>
+<p>如果遇到这些情况，目前业界的主流方案除了分区表，分库分表，通过代理中间件进行分表之外，比较热门的就是分布式数据库，分布式数据库最大的特点是能够自由扩展，不要考虑数据量瓶颈的问题。这两年比较流行的是 <a target="_blank" rel="noopener" href="https://docs.pingcap.com/zh/tidb/stable/">TIDB 数据库</a>，<strong>TIDB 是一个分布式数据库，最大的优点是兼容 Mysql 协议，并且通过 Raft 协议保证数据一致性</strong>。因此 Mysql 用户可以很简单的迁移到 TIDB 来。并且 TIDB 对一般的 <strong>OLAP 查询支持也比较好</strong>，因此数据量大的情况下使用 TIDB 是一个更好的选择。 </p>
 <p>关系型数据最大的特点便是<strong>事务</strong>，它能保证数据始终如一的一致性，这里就不得不提及一下事务的 ACID 特性：</p>
 <ul>
 <li><strong>原子性</strong>：事务是一个不可再分割的工作单元，事务中的操作要么都发生，要么都不发生，不存在只执行了其中某一个或者某几个步骤。</li>
@@ -406,14 +402,12 @@
 <p><strong>电商业务</strong>：电商“秒杀”、“抢购”等高并发的数据库请求，可使用 RDS 高规格实例；业务连续性要求高的电商业务，可使用 RDS 双机热备，跨 AZ 部署获得更高可用性支持。</p>
 <p><strong>金融业务</strong>：金融级业务连续性和数据可靠性要求，可使用 RDS 双机热备，跨 AZ 部署，确保服务高可用，数据多副本存储和强一致性；金融级安全合规要求，可搭配数据库安全服务 DBSS 使用，实时监测并拦截 SQL 注入，防脱敏数据泄露，审计数据库日志。</p>
 <p>关系型数据库虽好，但在很多方面也有些力不从心。比如面对<strong>高并发读写需求</strong>时，<strong>多表的关联查询</strong>、<strong>复杂的数据分析类型</strong>，为了保证 ACID 特性而牺牲的性能问题就凸显出来了。</p>
-<h1>内存数据库（K-V数据库）</h1>
-<p>键值数据库就像在传统语言中使用的哈希表。可以通过 key 来添加、查询或者删除数据，鉴于使用主键访问，所以会获得不错的<strong>性能及扩展性</strong>。它的优势在于<strong>简单、易部署、高并发</strong>。</p>
+<h1 id="内存数据库（K-V数据库）"><a href="#内存数据库（K-V数据库）" class="headerlink" title="内存数据库（K-V数据库）"></a>内存数据库（K-V数据库）</h1><p>键值数据库就像在传统语言中使用的哈希表。可以通过 key 来添加、查询或者删除数据，鉴于使用主键访问，所以会获得不错的<strong>性能及扩展性</strong>。它的优势在于<strong>简单、易部署、高并发</strong>。</p>
 <p>主流代表产品：Riak、Redis、Memcached</p>
 <p><strong>适用场景</strong>：储存用户信息，比如会话、配置文件、参数、购物车等等，具体包括游戏场景中的角色信息、经验道具信息、好友排名，电商场景中的海量商品展示信息、购物评论信息等，这些信息一般都和 ID（键）挂钩，所以键值数据库是个很好的选择。</p>
 <p>内存数据库用的多的是 Redis，大多数业务场景都是用做缓存，<strong>少部分对数据安全不敏感的场景</strong>用来做数据持久化，因为 Redis 也支持数据持久化。游戏行业以前用 Memcache 比较多，现在也逐渐向 Redis 靠拢。由于 Redis 数据都放到内存中，并且在局域网环境通信的代价也比较廉价，所以 Redis 的<strong>性能非常好</strong>，并且 Redis <strong>支持多种类型的数据结构</strong>，在不同业务使用都非常方便。</p>
 <p>但是 Redis 也有着和 Mysql 相似的问题，单机的 Redis 会有性能瓶颈，理想情况下<strong>单机 Redis QPS 也只能达到 10w</strong>，如果请求量非常大的情况下会对业务造成影响，并且 Redis 是单线程的，虽然单线程能避免 context 切换的开销，但是并<strong>不能利用多核特性</strong>，这在高性能应用领域是一个致命打击。集群化部署需要在业务层做哈希来实现负载均衡，如果涉及到增删节点还需要做数据迁移，这段时间也会对业务造成影响。因此，单线程即成就了 Redis 同时也限制了 Redis，因此有不少大公司在实现多线程 Redis 的项目来解决这个问题。</p>
-<h1>文档型数据库</h1>
-<p><strong>文档数据库会将数据以文档的形式储存。每个文档都是自包含的数据单元</strong>，是一系列数据项的集合。每个数据项都有一个名称与对应的值，值既可以是简单的数据类型，如字符串、数字和日期等；也可以是复杂的类型，如有序列表和关联对象。<strong>数据存储的最小单位是文档</strong>，同一个表中存储的文档属性可以是不同的，数据可以使用 XML、JSON 或者 JSONB 等多种形式存储。</p>
+<h1 id="文档型数据库"><a href="#文档型数据库" class="headerlink" title="文档型数据库"></a>文档型数据库</h1><p><strong>文档数据库会将数据以文档的形式储存。每个文档都是自包含的数据单元</strong>，是一系列数据项的集合。每个数据项都有一个名称与对应的值，值既可以是简单的数据类型，如字符串、数字和日期等；也可以是复杂的类型，如有序列表和关联对象。<strong>数据存储的最小单位是文档</strong>，同一个表中存储的文档属性可以是不同的，数据可以使用 XML、JSON 或者 JSONB 等多种形式存储。</p>
 <p>代表产品：MongoDB、CouchDB、RavenDB</p>
 <p>适用场景：</p>
 <ul>
@@ -423,8 +417,7 @@
 <p><strong>备注</strong>：以 MongDB 为例，其使用场景很大程度上可以对标关系型数据库，但是比较适合处理那些<strong>没有 join、没有强一致性要求且表 Schema 会常变化的数据</strong>。</p>
 <p>文档型数据库比较有名的是 MongoDB，MongoDB 是非关系型数据库，<strong>弱一致性</strong>，在 4.0 版本以上开始支持事务，提供 <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/56868208">snapshot isolation</a> 的事务隔离级别，这个隔离级别和 Mysql 中的 <a target="_blank" rel="noopener" href="https://www.liaoxuefeng.com/wiki/1177760294764384/1245268672511968">repeatable read</a> 隔离级别相同。MongoDB 内部采用 <a target="_blank" rel="noopener" href="https://www.runoob.com/mongodb/mongodb-gridfs.html">GridFS</a> 做数据落地，<strong>对一些文件对象支持比较友好</strong>。MongoDB 支持多种存储引擎，可以适应不同的场景，并且使用方便，对一致性要求不高的业务场景用的很多，<strong>常用来存储一些加工的中间数据，方便去展示</strong>，也有一些公司使用 MongoDB 做最终<strong>数据落地</strong>，因此，很多进行<strong>数据展示</strong>的业务可以使用使用 MongoDB，或者查询条件多样并且想提高查询速度的场景也可以使用 MongoDB 替换 Mysql。</p>
 <p>MongoDB 虽然优点很多，但是也有很多场景是不适应的，刚刚提到过 Mysql 是弱一致的，因此<strong>一些重要数据为了安全性考虑，不建议用 MongoDB</strong>。并且 <strong>MongoDB 比较吃内存</strong>，如果返回大批量数据，会有内存不够直接查询失败的情况，MongoDB 对 OLAP 查询支持很弱，因此<strong>比较复杂的查询场景也不建议使用 MongoDB</strong>。</p>
-<h1>列式存储数据库</h1>
-<p>列存储数据库将数据储存在列族中，<strong>一个列族存储经常被一起查询的相关数据</strong>。举个例子，如果有一个 Person 类，我们通常会一起查询他们的姓名和年龄而不是薪资。这种情况下，姓名和年龄就会被放入一个列族中，而薪资则在另一个列族中。</p>
+<h1 id="列式存储数据库"><a href="#列式存储数据库" class="headerlink" title="列式存储数据库"></a>列式存储数据库</h1><p>列存储数据库将数据储存在列族中，<strong>一个列族存储经常被一起查询的相关数据</strong>。举个例子，如果有一个 Person 类，我们通常会一起查询他们的姓名和年龄而不是薪资。这种情况下，姓名和年龄就会被放入一个列族中，而薪资则在另一个列族中。</p>
 <p>代表产品：Cassandra、HBase、ClickHouse、ElasticSearch</p>
 <p>适用场景：</p>
 <ul>
@@ -432,23 +425,20 @@
 <li><strong>博客平台</strong>：储存每个信息到不同的列族中，举个例子，标签可以储存在一个列族，类别、文章也可以分别存储在不同的列族。</li>
 </ul>
 <p>提到列式存储数据库有必要先说一下什么是行式存储，像 Mysql 这种属于行式存储，当我们查询数据，都是以行为单位在磁盘存储，然后再内存做字段挑选返回给用户，如果表的字段很多我们<strong>只查找一部分字段</strong>这样磁盘查找的开销就会很大，在列式存储数据库中，数据存在磁盘以列为单位，我们查询某些字段只需要在对应的列上进行搜寻，这样性能就会提高。</p>
-<p>列式存储比较出名的数据库是 ClickHouse，ClickHouse 是定义为 <a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E8%81%94%E6%9C%BA%E5%88%86%E6%9E%90%E5%A4%84%E7%90%86/423874?fromtitle=OLAP&amp;fromid=1049009&amp;fr=aladdin">OLAP</a> 类型的数据库，专门用来处理数据分析型业务。ClickHouse 采取了<strong>并行处理机制</strong>，所以做分析查询速度非常快，对于一些搜索，分析，数据规模大的查询性能支持非常好，所以这种业务可以采用 ClickHouse 去做。但是由于 ClickHouse 专为分析查询而生，因此<strong>对于更新删除操作支持并不是怎么好</strong>，修改删除都是采取的追加写方式，主要是为了避免随机 IO，ClickHouse 会在底层异步的去做数据合并，如果需要频繁的对数据源进行修改，那绝对不要使用 ClickHouse。如果需要写入数据，也需要采取批量写入的方式，ClickHouse 会对数据进行压缩存储，提高资源利用率。</p>
+<p>列式存储比较出名的数据库是 ClickHouse，ClickHouse 是定义为 <a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E8%81%94%E6%9C%BA%E5%88%86%E6%9E%90%E5%A4%84%E7%90%86/423874?fromtitle=OLAP&fromid=1049009&fr=aladdin">OLAP</a> 类型的数据库，专门用来处理数据分析型业务。ClickHouse 采取了<strong>并行处理机制</strong>，所以做分析查询速度非常快，对于一些搜索，分析，数据规模大的查询性能支持非常好，所以这种业务可以采用 ClickHouse 去做。但是由于 ClickHouse 专为分析查询而生，因此<strong>对于更新删除操作支持并不是怎么好</strong>，修改删除都是采取的追加写方式，主要是为了避免随机 IO，ClickHouse 会在底层异步的去做数据合并，如果需要频繁的对数据源进行修改，那绝对不要使用 ClickHouse。如果需要写入数据，也需要采取批量写入的方式，ClickHouse 会对数据进行压缩存储，提高资源利用率。</p>
 <p>列式存储另一个比较出名的是 Elasticsearch，在一些偏向搜索的场景比较用的比较多，<strong>支持倒排索引</strong>，并且<strong>支持各种聚合运算</strong>，<strong>查询性能强劲</strong>，但是成本相比ClickHouse 比较高昂，可以根据业务进行选型考虑。</p>
-<h1>时序数据库</h1>
-<p>时序数据库就是存放时序数据的数据库，它需要支持时序数据的<strong>快速写入、持久化、多纬度的聚合查询</strong>等基本功能。对比传统数据库仅仅记录了数据的当前值，时序数据库记录了所有的历史数据。它的查询也总是会带上时间作为过滤条件，数据以时间流的方式存在，每条记录包括时间戳。可以更加高效快速的存储大量时间序列数据并对这些数据进行实时分析。</p>
+<h1 id="时序数据库"><a href="#时序数据库" class="headerlink" title="时序数据库"></a>时序数据库</h1><p>时序数据库就是存放时序数据的数据库，它需要支持时序数据的<strong>快速写入、持久化、多纬度的聚合查询</strong>等基本功能。对比传统数据库仅仅记录了数据的当前值，时序数据库记录了所有的历史数据。它的查询也总是会带上时间作为过滤条件，数据以时间流的方式存在，每条记录包括时间戳。可以更加高效快速的存储大量时间序列数据并对这些数据进行实时分析。</p>
 <p>代表产品：Prometheus、InfluxDB 和 OpenTSDB</p>
 <p>适用场景：IoT 传感器时序数据分析；证券及加密货币交易数据；软硬件设备实时监控；都市环保数据采集等等。</p>
 <p>时序数据库从字面意思理解来说是关于时间点的数据，时间序列表示的数据，一般在<strong>指标采样</strong>的场景会用到，可以很直观的看出数据随时间变化，比较著名的有 OpenTSDB，时序数据随时间增长，如果数据没有变化重复取上一个值。<strong>时序数据库适用于大批量的数据采样分析</strong>，常用在批处理，流处理后的数据落地，这些数据经过加工后直接批量写入到 OpenTSDB 中，供业务层访问，以提高查询性能。美中不足的是如果数据加工错误，纠错成本太大。OpenTSDB 底层是用的 HBase，HBase 特点是对写性能支持比较好，底层也是为了避免随机 IO 采用追加写的技术。读通过顺序读保证性能，如果是随机读性能会很差，因此 OpenTSDB 应用场景限制于<strong>按时间维度分析数据</strong>的场景。</p>
-<h1>图数据库</h1>
-<p>数据以图的方式储存。实体会被作为顶点，而实体之间的关系则会被作为边。比如我们有三个实体，Steve Jobs、Apple 和 Next，则会有两个“Founded by”的边将 Apple 和 Next 连接到 Steve Jobs。</p>
+<h1 id="图数据库"><a href="#图数据库" class="headerlink" title="图数据库"></a>图数据库</h1><p>数据以图的方式储存。实体会被作为顶点，而实体之间的关系则会被作为边。比如我们有三个实体，Steve Jobs、Apple 和 Next，则会有两个“Founded by”的边将 Apple 和 Next 连接到 Steve Jobs。</p>
 <p>代表产品：Neo4J、InfiniteGraph、OrientDB、Dgraph</p>
 <p>适用场景：</p>
 <ul>
 <li>在一些<strong>关系性强的数据</strong>中，用于构建关系图谱，例如：<strong>社交网络、交通地图</strong>。</li>
 <li><strong>推荐引擎</strong>：如果我们将数据以图的形式表现，会非常有益于推荐的制定。</li>
 </ul>
-<h1>分布式文件存储系统</h1>
-<p>常用的分布式文件系统有 HDFS，Ceph，GlusterFS 等，种类非常多，不同的分布式文件存储系统适用不同的场景，每种系统适用的场景不一样，比如有些对大文件支持比较好，有些对中小文件支持比较好。基本上所有分布式文件系统都支持对象存储，块存储，文件存储中的两种以上。<strong>分布式文件存储系统常用来存储文件，比如文档，照片，电源，视频这种</strong>。不像数据库那种存储一些数据，并且分布式文件系统<strong>不支持那种维度查询</strong>，这是和数据库的最大区别。</p>
+<h1 id="分布式文件存储系统"><a href="#分布式文件存储系统" class="headerlink" title="分布式文件存储系统"></a>分布式文件存储系统</h1><p>常用的分布式文件系统有 HDFS，Ceph，GlusterFS 等，种类非常多，不同的分布式文件存储系统适用不同的场景，每种系统适用的场景不一样，比如有些对大文件支持比较好，有些对中小文件支持比较好。基本上所有分布式文件系统都支持对象存储，块存储，文件存储中的两种以上。<strong>分布式文件存储系统常用来存储文件，比如文档，照片，电源，视频这种</strong>。不像数据库那种存储一些数据，并且分布式文件系统<strong>不支持那种维度查询</strong>，这是和数据库的最大区别。</p>
 <p>分布式文件存储系统的选型要根据文件的形式，大小，用途去考虑。还需要对参数做大量的调优以得到最佳的性能。传统的本地文件系统文件都是存在磁盘中，而分布式文件系统文件需要存储在其他节点，本地进行访问时还需要经过网络中转的开销，如果文件比较大，带宽就限制了传输的速度。这个时候就需要进行将文件分片进行存储。以 GlusterFS 为例， GlusterFS 的 Distributed Volumes 属于分布式卷，如果需要保证数据安全可以做冗余，GlusterFS 支持 Replica 和纠删码两种数据冗余方式，如果做数据冗余，会影响读写性能。在做选型时，有这两方面考虑，如果追求极致的数据安全，使用 Replica Volumes，如果为了性能，也为了安全，使用纠删码的方式，如果追求极致性能，可以考虑分布式卷，但是如果出现机器宕机则会造成数据丢失。</p>
 
     </div>
@@ -583,13 +573,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">245k</span>
+    <span title="站点总字数">247k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:43</span>
+    <span title="站点阅读时长">3:45</span>
   </span>
 </div>
 

@@ -20,12 +20,12 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"collie2nd.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.12.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"waline","storage":true,"lazyload":false,"nav":null,"activeClass":"waline"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="gin-swagger 的使用  Swagger中文文档  准备工作 引入swaggo依赖： 1234567## swagger 依赖&#x2F;也可以通过先import，再运行go mod tidy下载gin-swaggergo get -u &quot;github.com&#x2F;swaggo&#x2F;files&quot;go get -u &quot;github.com&#x2F;swaggo&#x2F;gin-swagger&amp;q">
+    <meta name="description" content="gin-swagger 的使用 Swagger中文文档  准备工作引入swaggo依赖： 1234567## swagger 依赖&#x2F;也可以通过先import，再运行go mod tidy下载gin-swaggergo get -u &quot;github.com&#x2F;swaggo&#x2F;files&quot;go get -u &quot;github.com&#x2F;swaggo&#x2F;gin-swagger&amp;quo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="gin-swagger 的使用">
 <meta property="og:url" content="http://collie2nd.github.io/2023/05/18/backend_dev/gin-swagger/index.html">
-<meta property="og:site_name" content="Collie 的小站">
-<meta property="og:description" content="gin-swagger 的使用  Swagger中文文档  准备工作 引入swaggo依赖： 1234567## swagger 依赖&#x2F;也可以通过先import，再运行go mod tidy下载gin-swaggergo get -u &quot;github.com&#x2F;swaggo&#x2F;files&quot;go get -u &quot;github.com&#x2F;swaggo&#x2F;gin-swagger&amp;q">
+<meta property="og:site_name" content="Collie的小站">
+<meta property="og:description" content="gin-swagger 的使用 Swagger中文文档  准备工作引入swaggo依赖： 1234567## swagger 依赖&#x2F;也可以通过先import，再运行go mod tidy下载gin-swaggergo get -u &quot;github.com&#x2F;swaggo&#x2F;files&quot;go get -u &quot;github.com&#x2F;swaggo&#x2F;gin-swagger&amp;quo">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-05-17T16:00:00.000Z">
 <meta property="article:modified_time" content="2023-05-17T16:00:00.000Z">
@@ -42,7 +42,7 @@
 <script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://collie2nd.github.io/2023/05/18/backend_dev/gin-swagger/","path":"2023/05/18/backend_dev/gin-swagger/","title":"gin-swagger 的使用"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>gin-swagger 的使用 | Collie 的小站</title>
+<title>gin-swagger 的使用 | Collie的小站</title>
   
 
 
@@ -72,7 +72,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <p class="site-title">Collie 的小站</p>
+      <p class="site-title">Collie的小站</p>
       <i class="logo-line"></i>
     </a>
       <p class="site-subtitle" itemprop="description">Collie's Site</p>
@@ -145,7 +145,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">gin-swagger 的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="nav-number">1.1.</span> <span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9B%E5%85%A5%E6%AD%A3%E9%A2%98"><span class="nav-number">1.2.</span> <span class="nav-text">进入正题</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#gin-swagger-%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">1.</span> <span class="nav-text">gin-swagger 的使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="nav-number">1.1.</span> <span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9B%E5%85%A5%E6%AD%A3%E9%A2%98"><span class="nav-number">1.2.</span> <span class="nav-text">进入正题</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -244,12 +244,12 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Collie 的小站">
+      <meta itemprop="name" content="Collie的小站">
       <meta itemprop="description" content="less is more">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="gin-swagger 的使用 | Collie 的小站">
+      <meta itemprop="name" content="gin-swagger 的使用 | Collie的小站">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
@@ -315,28 +315,33 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1>gin-swagger 的使用</h1>
-<blockquote>
+        <h1 id="gin-swagger-的使用"><a href="#gin-swagger-的使用" class="headerlink" title="gin-swagger 的使用"></a>gin-swagger 的使用</h1><blockquote>
 <p><a target="_blank" rel="noopener" href="https://github.com/swaggo/swag/blob/master/README_zh-CN.md">Swagger中文文档</a></p>
 </blockquote>
-<h2 id="准备工作">准备工作</h2>
-<p>引入swaggo依赖：</p>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>引入swaggo依赖：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">## swagger 依赖/也可以通过先import，再运行go mod tidy下载gin-swagger</span><br><span class="line">go get -u &quot;github.com/swaggo/files&quot;</span><br><span class="line">go get -u &quot;github.com/swaggo/gin-swagger&quot;</span><br><span class="line"></span><br><span class="line">## swagger 命令行工具</span><br><span class="line">go get -u github.com/swaggo/swag/cmd/swag</span><br><span class="line">go install github.com/swaggo/swag/cmd/swag@latest</span><br></pre></td></tr></table></figure>
+
 <p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/swaggo/gin-swagger">gin-swagger项目地址</a></p>
 <span id="more"></span>
-<h2 id="进入正题">进入正题</h2>
-<p>1、首先在main函数前添加描述：</p>
+
+<h2 id="进入正题"><a href="#进入正题" class="headerlink" title="进入正题"></a>进入正题</h2><p>1、首先在main函数前添加描述：</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//    @title            helloworld</span></span><br><span class="line"><span class="comment">//    @version        1.0</span></span><br><span class="line"><span class="comment">//    @description    liuxing test helloworld</span></span><br><span class="line"><span class="comment">//    @termsOfService    http://swagger.io/terms/</span></span><br><span class="line"><span class="comment">//    @contact.name    lx</span></span><br><span class="line"><span class="comment">//    @contact.url    http://www.swagger.io/support</span></span><br><span class="line"><span class="comment">//    @contact.email    support@swagger.io</span></span><br><span class="line"><span class="comment">//    @license.name    Apache 2.0</span></span><br><span class="line"><span class="comment">//    @license.url    http://www.apache.org/licenses/LICENSE-2.0.html</span></span><br><span class="line"><span class="comment">//    @host            lx.helloworld.com</span></span><br><span class="line"><span class="comment">//    @BasePath        /base/path</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>2、注册swagger路由信息：</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    swaggerFiles <span class="string">&quot;github.com/swaggo/files&quot;</span></span><br><span class="line">    ginSwagger <span class="string">&quot;github.com/swaggo/gin-swagger&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    <span class="comment">//注册swagger路由</span></span><br><span class="line">    r := gin.Default()</span><br><span class="line">    r.GET(<span class="string">&quot;/swagger/*any&quot;</span>, ginSwagger.WrapHandler(</span><br><span class="line">        swaggerFiles.Handler,</span><br><span class="line">        ginSwagger.DefaultModelsExpandDepth(<span class="number">-1</span>), <span class="comment">// 设置不显示model</span></span><br><span class="line">        <span class="comment">//ginSwagger.URL(&quot;/swagger/doc.json&quot;), // &quot;/swagger/doc.json&quot; 为默认项，可省略，该函数可用来指定doc.json地址</span></span><br><span class="line">    ),</span><br><span class="line">    )</span><br><span class="line">    user := NewUser()</span><br><span class="line">    apiv1 := r.Group(<span class="string">&quot;/api/v1&quot;</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        u := apiv1.Group(<span class="string">&quot;user&quot;</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            u.POST(<span class="string">&quot;/login&quot;</span>, user.Login)</span><br><span class="line">            u.POST(<span class="string">&quot;/logout&quot;</span>, user.Logout)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    r.Run(<span class="string">&quot;:8080&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>3、 给函数方法添加备注：</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> StandardResponse <span class="keyword">struct</span> &#123;</span><br><span class="line">    Success <span class="type">bool</span>        <span class="string">`json:&quot;success&quot;`</span></span><br><span class="line">    Data    <span class="keyword">interface</span>&#123;&#125; <span class="string">`json:&quot;data&quot;`</span></span><br><span class="line">    Message <span class="type">string</span>      <span class="string">`json:&quot;message&quot;`</span></span><br><span class="line">    Code    <span class="type">int</span>         <span class="string">`json:&quot;code&quot;`</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//    @Summary    禅道登录接口</span></span><br><span class="line"><span class="comment">//    @Produce    json</span></span><br><span class="line"><span class="comment">//    @Param        account        query        string                false    &quot;用户名&quot;</span></span><br><span class="line"><span class="comment">//    @Param        password    query        string                false    &quot;密码&quot;</span></span><br><span class="line"><span class="comment">//    @Success    200            &#123;object&#125;    StandardResponse    &quot;成功&quot;</span></span><br><span class="line"><span class="comment">//    @Failure    400            &#123;object&#125;    StandardResponse    &quot;请求错误&quot;</span></span><br><span class="line"><span class="comment">//    @Failure    500            &#123;object&#125;    StandardResponse    &quot;内部错误&quot;</span></span><br><span class="line"><span class="comment">//    @Router        /api/v1/user/login [post]</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(t User)</span></span> Login(c *gin.Context) &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//    @Summary    禅道登出接口</span></span><br><span class="line"><span class="comment">//    @Produce    json</span></span><br><span class="line"><span class="comment">//    @Param        zentaosid    query        string                true    &quot;session_id&quot;</span></span><br><span class="line"><span class="comment">//    @Success    200            &#123;object&#125;    StandardResponse    &quot;成功&quot;</span></span><br><span class="line"><span class="comment">//    @Failure    400            &#123;object&#125;    StandardResponse    &quot;请求错误&quot;</span></span><br><span class="line"><span class="comment">//    @Failure    500            &#123;object&#125;    StandardResponse    &quot;内部错误&quot;</span></span><br><span class="line"><span class="comment">//    @Router        /api/v1/user/logout [post]</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="params">(t User)</span></span> Logout(c *gin.Context) &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>4、文档初始化</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">swag init    # 初始化文档</span><br><span class="line">swag fmt    # 格式化文档</span><br></pre></td></tr></table></figure>
+
 <p>swag init执行成功之后会在项目目录下出现 docs 子目录，子目录中会出现 docs.go，swagger.json，swagger.yaml 三个文件，<strong>随后在 main 文件中 import docs 模块</strong></p>
 <p>回自动在项目顶层生成以下结构</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">├── docs</span><br><span class="line">│   ├── docs.go</span><br><span class="line">│   ├── swagger.json</span><br><span class="line">│   └── swagger.yaml</span><br><span class="line">├── go.mod</span><br><span class="line">├── go.sum</span><br><span class="line">└── main.go</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import (</span><br><span class="line">    _ &quot;xxx/docs&quot; // 启用swagger文档功能必须添加该条import，否则无法调用doc.json</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
 <p>5、编译运行</p>
 <p>编译运行服务，访问本地 <a target="_blank" rel="noopener" href="http://localhost:8080/swagger/index.html">http://localhost:8080/swagger/index.html</a> 即可访问swagger文档</p>
 
@@ -470,13 +475,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">245k</span>
+    <span title="站点总字数">247k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:43</span>
+    <span title="站点阅读时长">3:45</span>
   </span>
 </div>
 
