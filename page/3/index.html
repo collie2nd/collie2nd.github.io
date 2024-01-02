@@ -22,9 +22,9 @@
 
     <meta name="description" content="less is more">
 <meta property="og:type" content="website">
-<meta property="og:title" content="试过重启了吗">
+<meta property="og:title" content="Collie 的小站">
 <meta property="og:url" content="http://collie2nd.github.io/page/3/index.html">
-<meta property="og:site_name" content="试过重启了吗">
+<meta property="og:site_name" content="Collie 的小站">
 <meta property="og:description" content="less is more">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="Collie">
@@ -39,7 +39,7 @@
 <script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"page/3/index.html","title":""}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>试过重启了吗</title>
+<title>Collie 的小站</title>
   
 
 
@@ -69,7 +69,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">试过重启了吗</h1>
+      <h1 class="site-title">Collie 的小站</h1>
       <i class="logo-line"></i>
     </a>
       <p class="site-subtitle" itemprop="description">Collie's Site</p>
@@ -239,12 +239,12 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="试过重启了吗">
+      <meta itemprop="name" content="Collie 的小站">
       <meta itemprop="description" content="less is more">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 试过重启了吗">
+      <meta itemprop="name" content="undefined | Collie 的小站">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
@@ -310,8 +310,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="Docker-基础知识"><a href="#Docker-基础知识" class="headerlink" title="Docker 基础知识"></a>Docker 基础知识</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run ubuntu:15.10 /bin/echo <span class="string">&quot;Hello world&quot;</span></span><br></pre></td></tr></table></figure>
-
+          <h1>Docker 基础知识</h1>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run ubuntu:15.10 /bin/echo <span class="string">&quot;Hello world&quot;</span></span><br></pre></td></tr></table></figure>
 <p><strong>参数含义：</strong></p>
 <ul>
 <li><code>docker</code>：Docker 的二进制执行文件。</li>
@@ -320,7 +320,6 @@
 <li><code>/bin/echo &quot;Hello world&quot;</code>：在启动的容器里执行的命令</li>
 </ul>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -i -t ubuntu:15.10 /bin/bash</span><br></pre></td></tr></table></figure>
-
 <p><strong>参数含义：</strong></p>
 <ul>
 <li><code>-t</code>：在新容器内指定一个伪终端或终端。</li>
@@ -328,7 +327,6 @@
 <li>可以通过运行 <code>exit</code> 命令或者使用 <code>ctrl+D</code> 来退出容器，会导致容器停止</li>
 </ul>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -P training/webapp python app.py</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li><code>-d</code>：让容器在后台运行。</li>
 <li><code>-P</code>：将容器内部使用的网络端口随机映射到我们使用的主机上。</li>
@@ -375,12 +373,12 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="试过重启了吗">
+      <meta itemprop="name" content="Collie 的小站">
       <meta itemprop="description" content="less is more">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 试过重启了吗">
+      <meta itemprop="name" content="undefined | Collie 的小站">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
@@ -446,7 +444,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="性能测试"><a href="#性能测试" class="headerlink" title="性能测试"></a>性能测试</h1><p>注册 pprof 服务</p>
+          <h1>性能测试</h1>
+<p>注册 pprof 服务</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">// 开启服务</span></span><br><span class="line">pprofOpen := c.GetBool(<span class="string">&quot;pprof.open&quot;</span>)</span><br><span class="line"><span class="keyword">if</span> pprofOpen &#123;</span><br><span class="line">	<span class="comment">// 运行pprof服务器，其路由已在pprof包自动注册</span></span><br><span class="line">	pprofPort := c.GetInt(<span class="string">&quot;pprof.port&quot;</span>)</span><br><span class="line">	s.pprofSvr = &amp;http.Server&#123;</span><br><span class="line">		Addr:    <span class="string">&quot;:&quot;</span> + strconv.Itoa(pprofPort),</span><br><span class="line">		Handler: <span class="literal">nil</span>,</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">		err := s.pprofSvr.ListenAndServe()</span><br><span class="line">		log.Infof(<span class="string">&quot;pprof server down: %+v&quot;</span>, err)</span><br><span class="line">	&#125;()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 停止服务</span></span><br><span class="line">c := config.GetConfig()</span><br><span class="line">pprofOpen := c.GetBool(<span class="string">&quot;pprof.open&quot;</span>)</span><br><span class="line"><span class="keyword">if</span> pprofOpen &#123;</span><br><span class="line">	wg.Add(<span class="number">1</span>)</span><br><span class="line">	<span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">		<span class="keyword">defer</span> wg.Done()</span><br><span class="line">		<span class="comment">// 开始关闭pprof服务器</span></span><br><span class="line">		ctx, cancel := context.WithTimeout(context.Background(), <span class="number">5</span>*time.Second)</span><br><span class="line">		<span class="keyword">defer</span> cancel()</span><br><span class="line">		<span class="keyword">if</span> err := s.pprofSvr.Shutdown(ctx); err != <span class="literal">nil</span> &#123;</span><br><span class="line">			log.Infof(<span class="string">&quot;Server Shutdown: &quot;</span>, err)</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;()</span><br><span class="line">&#125;</span><br><span class="line">wg.Wait()</span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
@@ -489,12 +488,12 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="试过重启了吗">
+      <meta itemprop="name" content="Collie 的小站">
       <meta itemprop="description" content="less is more">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 试过重启了吗">
+      <meta itemprop="name" content="undefined | Collie 的小站">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
@@ -560,12 +559,13 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="md5-工具使用说明"><a href="#md5-工具使用说明" class="headerlink" title="md5 工具使用说明"></a>md5 工具使用说明</h1><blockquote>
+          <h1>md5 工具使用说明</h1>
+<blockquote>
 <p>相关技术栈：linux、mysql</p>
 </blockquote>
-<h2 id="STEP-1"><a href="#STEP-1" class="headerlink" title="STEP 1"></a>STEP 1</h2><p>在车型数据库里，运行这两条sql语句</p>
+<h2 id="STEP-1">STEP 1</h2>
+<p>在车型数据库里，运行这两条sql语句</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> `std_name_modify_record` (</span><br><span class="line">	`id` <span class="type">INT</span> ( <span class="number">11</span> ) <span class="keyword">NOT</span> <span class="keyword">NULL</span> AUTO_INCREMENT,</span><br><span class="line">	`md5` <span class="type">VARCHAR</span> ( <span class="number">40</span> ) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;md5值&#x27;</span>,</span><br><span class="line">	`ori_std_name` <span class="type">VARCHAR</span> ( <span class="number">32</span> ) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span>,</span><br><span class="line">	`new_std_name` <span class="type">VARCHAR</span> ( <span class="number">32</span> ) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span>,</span><br><span class="line">	`creator` <span class="type">VARCHAR</span> ( <span class="number">64</span> ) <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">&#x27;&#x27;</span> COMMENT <span class="string">&#x27;创建者&#x27;</span>,</span><br><span class="line">	`create_time` datetime <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="built_in">CURRENT_TIMESTAMP</span> COMMENT <span class="string">&#x27;创建时间&#x27;</span>,</span><br><span class="line">	`updator` <span class="type">VARCHAR</span> ( <span class="number">64</span> ) <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="string">&#x27;&#x27;</span> COMMENT <span class="string">&#x27;操作人&#x27;</span>,</span><br><span class="line">	`update_time` datetime <span class="keyword">NOT</span> <span class="keyword">NULL</span> <span class="keyword">DEFAULT</span> <span class="built_in">CURRENT_TIMESTAMP</span> <span class="keyword">ON</span> <span class="keyword">UPDATE</span> <span class="built_in">CURRENT_TIMESTAMP</span> COMMENT <span class="string">&#x27;更新时间&#x27;</span>,</span><br><span class="line">	<span class="keyword">PRIMARY</span> KEY ( `id` ),</span><br><span class="line">	<span class="keyword">UNIQUE</span> KEY `uniq_md5` ( `md5` ) <span class="keyword">USING</span> BTREE,</span><br><span class="line">	KEY `idx_create_time` ( `create_time` ) <span class="keyword">USING</span> BTREE,</span><br><span class="line">KEY `idx_update_time` ( `update_time` ) <span class="keyword">USING</span> BTREE </span><br><span class="line">) ENGINE <span class="operator">=</span> INNODB <span class="keyword">DEFAULT</span> CHARSET <span class="operator">=</span> utf8 COMMENT <span class="operator">=</span> <span class="string">&#x27;标名修改记录表&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> `oe2modelcatalog` <span class="keyword">ADD</span> `md5` <span class="type">VARCHAR</span> ( <span class="number">40</span> ) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;md5值&#x27;</span>;</span><br></pre></td></tr></table></figure>
-
 <p>建立标名修改记录表，并在行记录表里增加md5字段。</p>
           <!--noindex-->
             <div class="post-button">
@@ -608,12 +608,12 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="试过重启了吗">
+      <meta itemprop="name" content="Collie 的小站">
       <meta itemprop="description" content="less is more">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 试过重启了吗">
+      <meta itemprop="name" content="undefined | Collie 的小站">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
@@ -679,7 +679,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="array"><a href="#array" class="headerlink" title="array"></a>array</h1><ul>
+          <h1>array</h1>
+<ul>
 <li>数组初始化</li>
 </ul>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"># 一维数组</span><br><span class="line"><span class="keyword">var</span> a [<span class="number">4</span>]<span class="type">int</span> 					<span class="comment">//元素自动初始化为零[0 0 0 0] </span></span><br><span class="line">b := [<span class="number">4</span>]<span class="type">int</span>&#123;<span class="number">2</span>, <span class="number">5</span>&#125; 				<span class="comment">//未提供初始化值得元素自动初始化为0  [2 5 0 0] </span></span><br><span class="line">c := [...]<span class="type">int</span>&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>&#125; 			<span class="comment">//编译器按初始化值数量确定数组长度 [1 2 3] </span></span><br><span class="line">d := [<span class="number">2</span>]<span class="type">string</span>&#123;<span class="string">&quot;TigerwolfC&quot;</span>, <span class="string">&quot;chen_peggy&quot;</span>&#125;</span><br><span class="line">e := [...]<span class="type">int</span>&#123;<span class="number">10</span>, <span class="number">3</span>: <span class="number">100</span>&#125; 		<span class="comment">//支持索引初始化，但注意数组长度与此有关 [10 0 0 100]</span></span><br><span class="line">f := [<span class="number">4</span>]<span class="type">string</span>&#123;<span class="number">1</span>: <span class="string">&quot;b&quot;</span>, <span class="number">3</span>: <span class="string">&quot;c&quot;</span>&#125; 	<span class="comment">// 可以指定初始化的位置</span></span><br><span class="line"></span><br><span class="line"># 复合类型数组</span><br><span class="line"><span class="keyword">type</span> User <span class="keyword">struct</span> &#123;</span><br><span class="line">	Name <span class="type">string</span></span><br><span class="line">	Age  <span class="type">byte</span></span><br><span class="line">&#125;</span><br><span class="line">d := [...]user&#123;</span><br><span class="line">		&#123;<span class="string">&quot;TigerwolfC&quot;</span>, <span class="number">20</span>&#125;, <span class="comment">// 可省略元素类型。</span></span><br><span class="line">		&#123;<span class="string">&quot;chen_peggy&quot;</span>, <span class="number">18</span>&#125;, <span class="comment">// 别忘了最后一行的逗号。</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -724,12 +725,12 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="试过重启了吗">
+      <meta itemprop="name" content="Collie 的小站">
       <meta itemprop="description" content="less is more">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 试过重启了吗">
+      <meta itemprop="name" content="undefined | Collie 的小站">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
@@ -795,7 +796,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="git-基本命令"><a href="#git-基本命令" class="headerlink" title="git 基本命令"></a>git 基本命令</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">&#x27;XXX&#x27;</span></span><br><span class="line">git config --global user.email <span class="string">&#x27;XXX&#x27;</span></span><br><span class="line">git init                    // 初始化代码仓库</span><br><span class="line">git add learngit.txt        // 把所有要提交的文件修改放到暂存区</span><br><span class="line">git commit -m <span class="string">&#x27;add a file&#x27;</span>  // 把暂存区的所有内容提交到当前分支</span><br><span class="line">git commit -s -m            // 添加 signed-off-by 信息，在日志中增加提交者签名</span><br><span class="line">git commit -a -m            // 相当于git add . 与git commit –m “本次提交描述”两句操作合并为一句进行使用。</span><br><span class="line">git status                  // 查看工作区状态</span><br><span class="line">git status -s               // 查看改变的文件列表简化版</span><br><span class="line">git diff                    // 查看不在缓冲区的文件的修改内容</span><br><span class="line">git diff --cached           // 查看缓冲区的文件发生的改变</span><br><span class="line">git diff --staged           // 查看缓冲区的文件发生的改变</span><br><span class="line">git diff HEAD               // 是 git diff 和 git diff --cached 的合并</span><br><span class="line">git <span class="built_in">log</span>                     // 查看提交历史</span><br><span class="line">git <span class="built_in">log</span> --pretty=oneline    // 单行显示</span><br><span class="line">git reset --hard HEAD^      // 回退到上一个版本，其中（HEAD^^(上上版本),HEAD~100(往上100个版本)）</span><br><span class="line">git reset --hard &lt;commit_id&gt;//(版本号) 可回到指定版本</span><br><span class="line">git reflog                  // 查看历史命令</span><br><span class="line"></span><br><span class="line">git diff HEAD -- &lt;file&gt;     // 查看工作区和版本库里最新版本的区别</span><br><span class="line">git checkout -- &lt;file&gt;      // 用版本库的版本替换工作区的版本，无论是工作区的修改还是删除，都可以<span class="string">&#x27;一键还原&#x27;</span></span><br><span class="line">git reset HEAD &lt;file&gt;       // 把暂存区的修改撤销掉，重新放回工作区。</span><br><span class="line">git <span class="built_in">rm</span> &lt;file&gt;               // 删除文件，若文件已提交到版本库，不用担心误删，但是只能恢复文件到最新版本</span><br><span class="line"></span><br><span class="line">git checkout -b dev         // 创建并切换分支</span><br><span class="line"><span class="comment">#相当于git branch dev 和git checkout dev </span></span><br><span class="line">git branch                  // 查看当前分支，当前分支前有个*号</span><br><span class="line">git branch &lt;name&gt;           // 创建分支</span><br><span class="line">git checkout &lt;name&gt;         // 切换分支</span><br><span class="line">git merge &lt;name&gt;            // 合并某个分支到当前分支</span><br><span class="line">git branch -d &lt;name&gt;        // 删除分支</span><br><span class="line">git <span class="built_in">log</span> --graph             // 查看分支合并图</span><br><span class="line">/* 禁用Fast forward合并dev分支*/</span><br><span class="line">git merge --no-ff -m <span class="string">&#x27;message&#x27;</span> dev</span><br><span class="line">git stash                   // 隐藏当前工作现场，等恢复后继续工作</span><br><span class="line">git stash list              // 查看stash记录</span><br><span class="line">git stash apply             // 仅恢复现场，不删除stash内容</span><br><span class="line">git stash drop              // 删除stash内容</span><br><span class="line">git stash pop               // 恢复现场的同时删除stash内容</span><br><span class="line">git branch -D &lt;name&gt;        // 强行删除某个未合并的分支</span><br><span class="line"><span class="comment">#开发新feature最好新建一个分支</span></span><br><span class="line">git remote                  // 查看远程仓库</span><br><span class="line">git remote -v               // 查看远程库详细信息</span><br><span class="line">git pull                    // 抓取远程提交</span><br><span class="line">/* 在本地创建和远程分支对应的分支*/</span><br><span class="line">git checkout -b branch-name origin/branch-name</span><br><span class="line">/* 建立本地分支和远程分支的关联*/</span><br><span class="line">git branch --set-upstream branch-name origin/branch-name</span><br></pre></td></tr></table></figure>
+          <h1>git 基本命令</h1>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">&#x27;XXX&#x27;</span></span><br><span class="line">git config --global user.email <span class="string">&#x27;XXX&#x27;</span></span><br><span class="line">git init                    // 初始化代码仓库</span><br><span class="line">git add learngit.txt        // 把所有要提交的文件修改放到暂存区</span><br><span class="line">git commit -m <span class="string">&#x27;add a file&#x27;</span>  // 把暂存区的所有内容提交到当前分支</span><br><span class="line">git commit -s -m            // 添加 signed-off-by 信息，在日志中增加提交者签名</span><br><span class="line">git commit -a -m            // 相当于git add . 与git commit –m “本次提交描述”两句操作合并为一句进行使用。</span><br><span class="line">git status                  // 查看工作区状态</span><br><span class="line">git status -s               // 查看改变的文件列表简化版</span><br><span class="line">git diff                    // 查看不在缓冲区的文件的修改内容</span><br><span class="line">git diff --cached           // 查看缓冲区的文件发生的改变</span><br><span class="line">git diff --staged           // 查看缓冲区的文件发生的改变</span><br><span class="line">git diff HEAD               // 是 git diff 和 git diff --cached 的合并</span><br><span class="line">git <span class="built_in">log</span>                     // 查看提交历史</span><br><span class="line">git <span class="built_in">log</span> --pretty=oneline    // 单行显示</span><br><span class="line">git reset --hard HEAD^      // 回退到上一个版本，其中（HEAD^^(上上版本),HEAD~100(往上100个版本)）</span><br><span class="line">git reset --hard &lt;commit_id&gt;//(版本号) 可回到指定版本</span><br><span class="line">git reflog                  // 查看历史命令</span><br><span class="line"></span><br><span class="line">git diff HEAD -- &lt;file&gt;     // 查看工作区和版本库里最新版本的区别</span><br><span class="line">git checkout -- &lt;file&gt;      // 用版本库的版本替换工作区的版本，无论是工作区的修改还是删除，都可以<span class="string">&#x27;一键还原&#x27;</span></span><br><span class="line">git reset HEAD &lt;file&gt;       // 把暂存区的修改撤销掉，重新放回工作区。</span><br><span class="line">git <span class="built_in">rm</span> &lt;file&gt;               // 删除文件，若文件已提交到版本库，不用担心误删，但是只能恢复文件到最新版本</span><br><span class="line"></span><br><span class="line">git checkout -b dev         // 创建并切换分支</span><br><span class="line"><span class="comment">#相当于git branch dev 和git checkout dev </span></span><br><span class="line">git branch                  // 查看当前分支，当前分支前有个*号</span><br><span class="line">git branch &lt;name&gt;           // 创建分支</span><br><span class="line">git checkout &lt;name&gt;         // 切换分支</span><br><span class="line">git merge &lt;name&gt;            // 合并某个分支到当前分支</span><br><span class="line">git branch -d &lt;name&gt;        // 删除分支</span><br><span class="line">git <span class="built_in">log</span> --graph             // 查看分支合并图</span><br><span class="line">/* 禁用Fast forward合并dev分支*/</span><br><span class="line">git merge --no-ff -m <span class="string">&#x27;message&#x27;</span> dev</span><br><span class="line">git stash                   // 隐藏当前工作现场，等恢复后继续工作</span><br><span class="line">git stash list              // 查看stash记录</span><br><span class="line">git stash apply             // 仅恢复现场，不删除stash内容</span><br><span class="line">git stash drop              // 删除stash内容</span><br><span class="line">git stash pop               // 恢复现场的同时删除stash内容</span><br><span class="line">git branch -D &lt;name&gt;        // 强行删除某个未合并的分支</span><br><span class="line"><span class="comment">#开发新feature最好新建一个分支</span></span><br><span class="line">git remote                  // 查看远程仓库</span><br><span class="line">git remote -v               // 查看远程库详细信息</span><br><span class="line">git pull                    // 抓取远程提交</span><br><span class="line">/* 在本地创建和远程分支对应的分支*/</span><br><span class="line">git checkout -b branch-name origin/branch-name</span><br><span class="line">/* 建立本地分支和远程分支的关联*/</span><br><span class="line">git branch --set-upstream branch-name origin/branch-name</span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/10/16/backend_dev/git/#more" rel="contents">
@@ -837,12 +839,12 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="试过重启了吗">
+      <meta itemprop="name" content="Collie 的小站">
       <meta itemprop="description" content="less is more">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 试过重启了吗">
+      <meta itemprop="name" content="undefined | Collie 的小站">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
@@ -890,14 +892,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>41k</span>
+      <span>40k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>37 分钟</span>
+      <span>36 分钟</span>
     </span>
 </div>
 
@@ -909,135 +911,20 @@
     
     <div class="post-body" itemprop="articleBody">
           <div align='center' ><font size='70'>2020.07-2020.09 学习总结</font></div>
-
 <hr>
 <p><span id="toc"></span></p>
 <p>[TOC]</p>
 <hr>
-<h1 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h1><p><a href="#toc">&lt;返回目录&gt;</a></p>
-<h2 id="C-基于容器（docker）的开发环境配置"><a href="#C-基于容器（docker）的开发环境配置" class="headerlink" title="C++ 基于容器（docker）的开发环境配置"></a>C++ 基于容器（docker）的开发环境配置</h2><p><a href="#toc">&lt;返回目录&gt;</a></p>
-<h3 id="配置ODBC"><a href="#配置ODBC" class="headerlink" title="配置ODBC"></a>配置ODBC</h3><p>在<strong>安装</strong>配置之前，需要先大概了解一下 MyODBC 的架构，MyODBC 体系结构建立在 5 个组件上，如下图所示：<br><img src="http://pic.colliexyy.com/16566671925562.jpg"></p>
+<h1>C++</h1>
+<p><a href="#toc">&lt;返回目录&gt;</a></p>
+<h2 id="C-基于容器（docker）的开发环境配置">C++ 基于容器（docker）的开发环境配置</h2>
+<p><a href="#toc">&lt;返回目录&gt;</a></p>
+<h3 id="配置ODBC">配置ODBC</h3>
+<p>在<strong>安装</strong>配置之前，需要先大概了解一下 MyODBC 的架构，MyODBC 体系结构建立在 5 个组件上，如下图所示：<br>
+<img src="http://pic.colliexyy.com/16566671925562.jpg" alt=""></p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/10/01/project_experience/2020.10/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://collie2nd.github.io/2020/08/29/backend_dev/cpp/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/blue.gif">
-      <meta itemprop="name" content="Collie">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="试过重启了吗">
-      <meta itemprop="description" content="less is more">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 试过重启了吗">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/08/29/backend_dev/cpp/" class="post-title-link" itemprop="url">cpp 学习笔记</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-08-29 00:00:00" itemprop="dateCreated datePublished" datetime="2020-08-29T00:00:00+08:00">2020-08-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%90%8E%E7%AB%AF%E6%8A%80%E8%83%BD/" itemprop="url" rel="index"><span itemprop="name">后端技能</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2020/08/29/backend_dev/cpp/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/08/29/backend_dev/cpp/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>4k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>4 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Vector-遍历"><a href="#Vector-遍历" class="headerlink" title="Vector 遍历"></a>Vector 遍历</h1><blockquote>
-<p><code>vector&lt;int&gt; v1&#123;1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10&#125;;</code></p>
-</blockquote>
-<h2 id="通过数组下标遍历"><a href="#通过数组下标遍历" class="headerlink" title="通过数组下标遍历"></a>通过数组下标遍历</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">size_t</span> i = <span class="number">0</span>; i &lt; v1.<span class="built_in">size</span>(); i++)</span><br><span class="line">&#123;</span><br><span class="line">	cout &lt;&lt; v1[i] &lt;&lt; <span class="string">&quot;; &quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line">cout &lt;&lt; endl;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">for</span> (<span class="type">size_t</span> i = <span class="number">0</span>; i &lt; v1.<span class="built_in">size</span>(); i++)</span><br><span class="line">&#123;</span><br><span class="line">    cout &lt;&lt; v1.<span class="built_in">at</span>(i) &lt;&lt; <span class="string">&quot;; &quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line">cout &lt;&lt; endl;</span><br><span class="line"> </span><br><span class="line"><span class="number">2</span>; <span class="number">3</span>; <span class="number">4</span>; <span class="number">5</span>; <span class="number">6</span>; <span class="number">7</span>; <span class="number">8</span>; <span class="number">9</span>; <span class="number">10</span>; <span class="number">10</span>; <span class="number">10</span>;</span><br><span class="line"><span class="number">1</span>; <span class="number">2</span>; <span class="number">3</span>; <span class="number">4</span>; <span class="number">5</span>; <span class="number">6</span>; <span class="number">7</span>; <span class="number">8</span>; <span class="number">9</span>; <span class="number">10</span>; <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
-
-<h2 id="通过迭代器遍历"><a href="#通过迭代器遍历" class="headerlink" title="通过迭代器遍历"></a>通过迭代器遍历</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (vector&lt;<span class="type">int</span>&gt;::iterator iter = v1.<span class="built_in">begin</span>(); iter != v1.<span class="built_in">end</span>(); iter++)</span><br><span class="line">&#123;</span><br><span class="line">	std::cout &lt;&lt; *iter &lt;&lt; <span class="string">&quot;; &quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line">cout &lt;&lt; endl;</span><br><span class="line"><span class="number">1</span>; <span class="number">2</span>; <span class="number">3</span>; <span class="number">4</span>; <span class="number">5</span>; <span class="number">6</span>; <span class="number">7</span>; <span class="number">8</span>; <span class="number">9</span>; <span class="number">10</span>; <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/08/29/backend_dev/cpp/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1076,12 +963,12 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="试过重启了吗">
+      <meta itemprop="name" content="Collie 的小站">
       <meta itemprop="description" content="less is more">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 试过重启了吗">
+      <meta itemprop="name" content="undefined | Collie 的小站">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
@@ -1147,14 +1034,260 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="spawn-fcgi-用法了解"><a href="#spawn-fcgi-用法了解" class="headerlink" title="spawn-fcgi 用法了解"></a>spawn-fcgi 用法了解</h1><p>spawn-fcgi 是一个小程序，作用是管理 fast-cgi 进程。</p>
+          <h1>spawn-fcgi 用法了解</h1>
+<p>spawn-fcgi 是一个小程序，作用是管理 fast-cgi 进程。</p>
 <p>用 spawn 启动 FCGI 程序的方式为：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./spawn-fcgi -a 127.0.0.1 -p 8080 -F <span class="variable">$&#123;count&#125;</span> -f <span class="variable">$&#123;webroot&#125;</span>/bin/demo.fcgi</span><br></pre></td></tr></table></figure>
-
 <p>这样就会启动 count 个 demo.fcgi 程序，他们共同监听同一个 listen 端口 8080，从而提供服务。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/08/29/project_experience/spawn-fcgi/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://collie2nd.github.io/2020/08/29/backend_dev/cpp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/blue.gif">
+      <meta itemprop="name" content="Collie">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Collie 的小站">
+      <meta itemprop="description" content="less is more">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Collie 的小站">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/08/29/backend_dev/cpp/" class="post-title-link" itemprop="url">cpp 学习笔记</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-08-29 00:00:00" itemprop="dateCreated datePublished" datetime="2020-08-29T00:00:00+08:00">2020-08-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%90%8E%E7%AB%AF%E6%8A%80%E8%83%BD/" itemprop="url" rel="index"><span itemprop="name">后端技能</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2020/08/29/backend_dev/cpp/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2020/08/29/backend_dev/cpp/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>4k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>4 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1>Vector 遍历</h1>
+<blockquote>
+<p><code>vector&lt;int&gt; v1&#123;1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10&#125;;</code></p>
+</blockquote>
+<h2 id="通过数组下标遍历">通过数组下标遍历</h2>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">size_t</span> i = <span class="number">0</span>; i &lt; v1.<span class="built_in">size</span>(); i++)</span><br><span class="line">&#123;</span><br><span class="line">	cout &lt;&lt; v1[i] &lt;&lt; <span class="string">&quot;; &quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line">cout &lt;&lt; endl;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">for</span> (<span class="type">size_t</span> i = <span class="number">0</span>; i &lt; v1.<span class="built_in">size</span>(); i++)</span><br><span class="line">&#123;</span><br><span class="line">    cout &lt;&lt; v1.<span class="built_in">at</span>(i) &lt;&lt; <span class="string">&quot;; &quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line">cout &lt;&lt; endl;</span><br><span class="line"> </span><br><span class="line"><span class="number">2</span>; <span class="number">3</span>; <span class="number">4</span>; <span class="number">5</span>; <span class="number">6</span>; <span class="number">7</span>; <span class="number">8</span>; <span class="number">9</span>; <span class="number">10</span>; <span class="number">10</span>; <span class="number">10</span>;</span><br><span class="line"><span class="number">1</span>; <span class="number">2</span>; <span class="number">3</span>; <span class="number">4</span>; <span class="number">5</span>; <span class="number">6</span>; <span class="number">7</span>; <span class="number">8</span>; <span class="number">9</span>; <span class="number">10</span>; <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+<h2 id="通过迭代器遍历">通过迭代器遍历</h2>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (vector&lt;<span class="type">int</span>&gt;::iterator iter = v1.<span class="built_in">begin</span>(); iter != v1.<span class="built_in">end</span>(); iter++)</span><br><span class="line">&#123;</span><br><span class="line">	std::cout &lt;&lt; *iter &lt;&lt; <span class="string">&quot;; &quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line">cout &lt;&lt; endl;</span><br><span class="line"><span class="number">1</span>; <span class="number">2</span>; <span class="number">3</span>; <span class="number">4</span>; <span class="number">5</span>; <span class="number">6</span>; <span class="number">7</span>; <span class="number">8</span>; <span class="number">9</span>; <span class="number">10</span>; <span class="number">10</span>;</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/08/29/backend_dev/cpp/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://collie2nd.github.io/2020/07/20/project_experience/odbc/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/blue.gif">
+      <meta itemprop="name" content="Collie">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Collie 的小站">
+      <meta itemprop="description" content="less is more">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Collie 的小站">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/07/20/project_experience/odbc/" class="post-title-link" itemprop="url">odbc 的配置</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-07-20 00:00:00" itemprop="dateCreated datePublished" datetime="2020-07-20T00:00:00+08:00">2020-07-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E9%A1%B9%E7%9B%AE%E7%BB%8F%E5%8E%86/" itemprop="url" rel="index"><span itemprop="name">项目经历</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+    <span class="post-meta-item-icon">
+      <i class="far fa-comment"></i>
+    </span>
+    <span class="post-meta-item-text">Waline：</span>
+  
+    <a title="waline" href="/2020/07/20/project_experience/odbc/#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/2020/07/20/project_experience/odbc/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>5.7k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>5 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1>odbc 的配置</h1>
+<blockquote>
+<p>相关技术栈：linux、mysql</p>
+</blockquote>
+<p>在<strong>安装</strong>配置之前，需要先大概了解一下 MyODBC 的架构，MyODBC 体系结构建立在 5 个组件上，如下图所示：</p>
+<p><img src="http://pic.colliexyy.com/16566671925562.jpg" alt=""></p>
+<p><strong>Driver Manager</strong><br>
+负责管理应用程序和驱动程序间的通信，主要功能包括：解析 DSN (数据源名称，ODBC 的数据源名称在 odbc.ini 文件中配置)，加载和卸载驱动程序，处理 ODBC 调用，将其传递给驱动程序。</p>
+<p><strong>ODBC.INI</strong><br>
+odbc.ini 是 ODBC 配置文件，记录了连接到服务器所需的驱动信息和数据库信息xxxxxx。Driver Manager 将使用它来确定加载哪个驱动程序（使用数据源名 DSN ）。驱动程序将根据指定的DSN来读取连接参数。</p>
+<p><strong>Connector/ODBC(MyODBC驱动程序)</strong><br>
+实现 ODBC API 所提供的功能，它负责处理 ODBC 函数调用，将 SQL 请求提交给 MySQL 服务器，并将结果返回给应用程序。</p>
+<p>在 Linux 下配置 mysql ODBC 需要有以下步骤：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. 安装 Driver Manager，本案例使用 unixODBC 来作为 Driver Manager。</span><br><span class="line">2. 安装 MySQL 驱动程序，本案例使用 Connector/ODBC。</span><br><span class="line">3. 配置 ODBC.INI</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/07/20/project_experience/odbc/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1193,12 +1326,12 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="试过重启了吗">
+      <meta itemprop="name" content="Collie 的小站">
       <meta itemprop="description" content="less is more">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 试过重启了吗">
+      <meta itemprop="name" content="undefined | Collie 的小站">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
@@ -1264,136 +1397,21 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="MySQL-一些不熟的语句"><a href="#MySQL-一些不熟的语句" class="headerlink" title="MySQL 一些不熟的语句"></a>MySQL 一些不熟的语句</h1><h2 id="DISTINCT"><a href="#DISTINCT" class="headerlink" title="DISTINCT"></a>DISTINCT</h2><p>DISTINCT 关键词用于返回唯一不同的值。</p>
+          <h1>MySQL 一些不熟的语句</h1>
+<h2 id="DISTINCT">DISTINCT</h2>
+<p>DISTINCT 关键词用于返回唯一不同的值。</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> column_name,column_name <span class="keyword">FROM</span> table_name;</span><br></pre></td></tr></table></figure>
-
-<h2 id="UPDATE"><a href="#UPDATE" class="headerlink" title="UPDATE"></a>UPDATE</h2><p>UPDATE 语句用于更新表中已存在的记录。</p>
+<h2 id="UPDATE">UPDATE</h2>
+<p>UPDATE 语句用于更新表中已存在的记录。</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> table_name <span class="keyword">SET</span> column1<span class="operator">=</span>value1,column2<span class="operator">=</span>value2,... <span class="keyword">WHERE</span> some_column<span class="operator">=</span>some_value;</span><br></pre></td></tr></table></figure>
-
 <p>注意 : UPDATE 语句中的 WHERE 子句！WHERE 子句规定哪条记录或者哪些记录需要更新。如果您省略了 WHERE 子句，所有的记录都将被更新！</p>
-<h2 id="DELETE"><a href="#DELETE" class="headerlink" title="DELETE"></a>DELETE</h2><p>DELETE 语句用于删除表中的行(记录)。</p>
+<h2 id="DELETE">DELETE</h2>
+<p>DELETE 语句用于删除表中的行(记录)。</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> table_name <span class="keyword">WHERE</span> some_column<span class="operator">=</span>some_value;</span><br></pre></td></tr></table></figure>
-
 <p>注意 : SQL DELETE 语句中的 WHERE 子句！WHERE 子句规定哪条记录或者哪些记录需要删除。如果您省略了 WHERE 子句，所有的记录都将被删除！</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/07/20/backend_dev/mysql/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://collie2nd.github.io/2020/07/20/backend_dev/nginx/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/blue.gif">
-      <meta itemprop="name" content="Collie">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="试过重启了吗">
-      <meta itemprop="description" content="less is more">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | 试过重启了吗">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2020/07/20/backend_dev/nginx/" class="post-title-link" itemprop="url">nginx 学习笔记</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-07-20 00:00:00" itemprop="dateCreated datePublished" datetime="2020-07-20T00:00:00+08:00">2020-07-20</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%90%8E%E7%AB%AF%E6%8A%80%E8%83%BD/" itemprop="url" rel="index"><span itemprop="name">后端技能</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">Waline：</span>
-  
-    <a title="waline" href="/2020/07/20/backend_dev/nginx/#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/2020/07/20/backend_dev/nginx/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>835</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="nginx"><a href="#nginx" class="headerlink" title="nginx"></a>nginx</h1><h2 id="nginx-配置"><a href="#nginx-配置" class="headerlink" title="nginx 配置"></a>nginx 配置</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> /etc/nginx/nginx.conf</span><br><span class="line"><span class="built_in">cat</span> /etc/nginx/conf.d/xxxxxxxx.conf</span><br></pre></td></tr></table></figure>
-
-<p>示例：路由 stdname 设置 <strong>nginx 监听 18026</strong> 收到请求后<strong>转发</strong>至 stdnameSvr 的 <strong>监听端口 19026</strong>。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">        listen       18026;</span><br><span class="line">        server_name  localhost;</span><br><span class="line"></span><br><span class="line">        location /stdname/  &#123;</span><br><span class="line">                fastcgi_pass   127.0.0.1:19026;</span><br><span class="line">                fastcgi_index  index.cgi;</span><br><span class="line">                include        fastcgi_params;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/07/20/backend_dev/nginx/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1432,7 +1450,7 @@
 
 <div class="copyright">
   &copy; 
-  <span itemprop="copyrightYear">2023</span>
+  <span itemprop="copyrightYear">2024</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -1443,13 +1461,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">247k</span>
+    <span title="站点总字数">245k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:45</span>
+    <span title="站点阅读时长">3:43</span>
   </span>
 </div>
 
